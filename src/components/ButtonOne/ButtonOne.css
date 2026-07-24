@@ -1,0 +1,33 @@
+.hero-btn {
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: DM Sans, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid transparent;
+    letter-spacing: 0.02em;
+}
+
+.hero-btn-primary {
+    color: #fff;
+    text-shadow: 1px 1px 2px #333;
+    background: linear-gradient(
+        90deg,
+        #d4a04a,
+        #b8860b
+    );
+    background-size: 200% 100%;
+    background-position: left center;
+
+    transition: background-position .4s ease,
+                transform .3s ease,
+                box-shadow .3s ease;
+}
+
+.hero-btn-primary:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,120,20,.35);
+}
