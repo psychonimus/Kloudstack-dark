@@ -1,0 +1,306 @@
+/* ══════════════════════════════════════════
+   CYBER SECURITY SERVICE CATALOGUE
+   ══════════════════════════════════════════ */
+
+.csc-section {
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  color: #ffffff;
+}
+
+.csc-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+/* ── Header ── */
+.csc-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.csc-eyebrow {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.1);
+  border: 1px solid rgba(212, 160, 74, 0.25);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* ── Tab Bar ── */
+.csc-tab-bar {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background: #0d0d0d;
+}
+
+.csc-tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 16px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.csc-tab-btn:last-child {
+  border-right: none;
+}
+
+.csc-tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.csc-tab-btn--active::after {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 12px rgba(212, 160, 74, 0.5);
+}
+
+.csc-tab-btn--active {
+  background: rgba(212, 160, 74, 0.04);
+}
+
+.csc-tab-btn:hover:not(.csc-tab-btn--active) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.csc-tab-roman {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.csc-tab-btn--active .csc-tab-roman {
+  color: #d4a04a;
+}
+
+.csc-tab-label {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.3s ease;
+}
+
+.csc-tab-btn--active .csc-tab-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Content Panel ── */
+.csc-content-panel {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 48px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.csc-content-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 160px;
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Panel Header */
+.csc-panel-header {
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.csc-panel-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+.csc-panel-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  max-width: 620px;
+}
+
+/* Services Grid */
+.csc-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Service Card */
+.csc-service-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.32s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.csc-service-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 160, 74, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+}
+
+.csc-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.csc-service-card:hover .csc-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 10px rgba(212, 160, 74, 0.5);
+}
+
+.csc-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 18px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.csc-service-card:hover .csc-icon-wrap {
+  background: rgba(212, 160, 74, 0.12);
+  border-color: rgba(212, 160, 74, 0.35);
+  color: #f5c96a;
+  box-shadow: 0 0 14px rgba(212, 160, 74, 0.2);
+}
+
+.csc-svc-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.csc-svc-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.855rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .csc-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .csc-content-panel {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .csc-section {
+    padding: 70px 0;
+  }
+
+  .csc-tab-bar {
+    flex-direction: column;
+  }
+
+  .csc-tab-btn {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .csc-tab-btn:last-child {
+    border-bottom: none;
+  }
+
+  .csc-tab-btn::after {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    width: 3px;
+    height: 100%;
+  }
+
+  .csc-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .csc-content-panel {
+    padding: 28px 20px;
+  }
+}

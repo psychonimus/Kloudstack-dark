@@ -1,0 +1,22 @@
+﻿/* ── Card grid ───────────────────────────────── */
+.cf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* flex-wrap: wrap; */
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cf-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media(max-width:768px){
+  .cf-grid{
+    grid-template-columns: repeat(1,1fr);
+  }
+}

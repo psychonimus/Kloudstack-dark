@@ -1,0 +1,204 @@
+/* ══════════════════════════════════════════
+   CYBER MEASURABLE OUTCOMES SECTION
+   ══════════════════════════════════════════ */
+
+.co-section {
+  padding: 5rem 0 8rem;
+  width: 100%;
+  position: relative;
+}
+
+.co-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+/* Outer Card Wrapper */
+.co-card-outer {
+  background: #0d0d0d;
+  border: 1px solid rgba(212, 160, 74, 0.22);
+  border-radius: 20px;
+  padding: 56px 44px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.co-card-outer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 180px;
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.co-header {
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.co-eyebrow {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.1);
+  border: 1px solid rgba(212, 160, 74, 0.25);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.co-subtitle {
+  max-width: 520px;
+  margin: 8px auto 0;
+}
+
+/* ── Grid ── */
+.co-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card */
+.co-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.co-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(212, 160, 74, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.co-card--active {
+  background: rgba(212, 160, 74, 0.035);
+  border: 1px solid #d4a04a;
+  box-shadow: 0 0 28px rgba(212, 160, 74, 0.16), inset 0 0 12px rgba(212, 160, 74, 0.04);
+}
+
+/* Top Accent Bar */
+.co-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.co-card--active .co-card-top-bar,
+.co-card:hover .co-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 12px rgba(212, 160, 74, 0.6);
+}
+
+/* Card Header */
+.co-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.co-icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+}
+
+.co-card--active .co-icon-badge,
+.co-card:hover .co-icon-badge {
+  background: rgba(212, 160, 74, 0.15);
+  border-color: rgba(212, 160, 74, 0.4);
+  color: #f5c96a;
+  box-shadow: 0 0 16px rgba(212, 160, 74, 0.25);
+}
+
+.co-metric-tag {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.1);
+  border: 1px solid rgba(212, 160, 74, 0.22);
+  padding: 4px 9px;
+  border-radius: 20px;
+}
+
+/* Card Title & Description */
+.co-card-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.co-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .co-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .co-card-outer {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .co-section {
+    padding: 60px 0;
+  }
+}

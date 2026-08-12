@@ -90,8 +90,9 @@ const WhyKloudStack = () => {
     }, [])
 
     return (
-        <section className="wk-section" ref={sectionRef} aria-label="Why KloudStack">
-            <div className="wk-inner">
+        <section className="wk-section py-5" ref={sectionRef} aria-label="Why KloudStack">
+            <div className="container">
+                <div className="wk-inner">
 
                 {/* ── Left: heading + logo ── */}
                 <div className={`wk-left ${visible ? 'wk-fade-in' : ''}`}>
@@ -141,6 +142,7 @@ const WhyKloudStack = () => {
 
             {/* Bottom divider */}
             <div className="wk-divider" aria-hidden="true" />
+            </div>
         </section>
     )
 }

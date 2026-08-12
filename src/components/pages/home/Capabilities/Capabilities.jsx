@@ -7,19 +7,19 @@ const stats = [
         value: 100,
         places: [100, 10, 1],
         suffix: '+',
-        label: 'Years Combined\nEngineering Expertise',
+        label: 'Years Combined\nEngineering & Advisory Expertise',
     },
     {
         value: 50,
         places: [10, 1],
         suffix: 'K+',
-        label: 'Global Users\nManaged',
+        label: 'Global Users\nManaged via 24/7 NOC/SOC',
     },
     {
         value: 100,
         places: [100, 10, 1],
         suffix: '%',
-        label: 'Bespoke Solutions\nArchitecture',
+        label: 'Bespoke Solutions\nArchitecture, no generic templates',
     },
     {
         value: 21,
@@ -27,6 +27,7 @@ const stats = [
         suffix: '',
         label: 'Certified Resources Red Hat,\nAzure, AWS, ITIL, SUSE, Linux',
     },
+    
 ]
 
 function StatCard({ value, places, suffix, label, started }) {
@@ -86,32 +87,34 @@ const Capabilities = () => {
 
     return (
         <section className="cap-section" ref={sectionRef} aria-label="Capabilities and Alliance Ecosystem">
-            <div className="cap-inner">
-                {/* Left — heading + description */}
-                <div className="cap-left">
-                    <h2 className="section-heading text-start cap-heading mb-3">
-                        Capabilities
+            <div className="container">
+                <div className="cap-inner">
+                    {/* Left — heading + description */}
+                    <div className="cap-left">
+                        <h2 className="section-heading text-start cap-heading mb-3">
+                            Capabilities
 
-                        Alliance Ecosystem
-                    </h2>
-                    <p className="cap-description">
-                        KloudStack's engineering depth and vendor-agnostic alliance ecosystem deliver
-                        unmatched execution flexibility. Our certified resources span every major
-                        platform—enabling organizations to operate in the environment that best serves
-                        their strategic and operational requirements, without lock-in.
-                    </p>
+                            Alliance Ecosystem
+                        </h2>
+                        <p className="cap-description">
+                            KloudStack's engineering depth and vendor-agnostic alliance ecosystem deliver
+                            unmatched execution flexibility. Our certified resources span every major
+                            platform—enabling organizations to operate in the environment that best serves
+                            their strategic and operational requirements, without lock-in.
+                        </p>
+                    </div>
+
+                    {/* Right — stats grid */}
+                    <div className="cap-stats mt-5">
+                        {stats.map((stat, i) => (
+                            <StatCard key={i} started={started} {...stat} />
+                        ))}
+                    </div>
                 </div>
 
-                {/* Right — stats grid */}
-                <div className="cap-stats mt-5">
-                    {stats.map((stat, i) => (
-                        <StatCard key={i} started={started} {...stat} />
-                    ))}
-                </div>
+                {/* Subtle divider line */}
+                <div className="cap-divider" aria-hidden="true" />
             </div>
-
-            {/* Subtle divider line */}
-            <div className="cap-divider" aria-hidden="true" />
         </section>
     )
 }

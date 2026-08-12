@@ -1,0 +1,253 @@
+/* ══════════════════════════════════════════
+   UNIFIED DATA GOVERNANCE (SCROLLING SECTION)
+   ══════════════════════════════════════════ */
+
+.udg-scroll-section {
+  width: 100%;
+  height: 350vh;
+  position: relative;
+  background-color: #060606;
+  color: #ffffff;
+}
+
+.udg-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse at 10% 50%, rgba(212, 160, 74, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 50%);
+}
+
+/* ── Left Arc & Orbit ── */
+.udg-arc-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.udg-arc-svg {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 800px;
+}
+
+.udg-pivot-indicator {
+  position: absolute;
+  left: 195px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.udg-red-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff3b30;
+  box-shadow: 0 0 10px #ff3b30, 0 0 18px rgba(255, 59, 48, 0.8);
+  display: inline-block;
+}
+
+.udg-numbers-orbit {
+  position: absolute;
+  left: 215px;
+  top: 50%;
+  height: 0;
+  width: 100px;
+  pointer-events: auto;
+  z-index: 15;
+}
+
+.udg-orbit-number {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  height: 40px;
+  margin-top: -20px;
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.udg-orbit-number:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.udg-num-active {
+  color: #ffffff;
+  font-weight: 700;
+  left: 20px;
+}
+
+
+
+/* ── Center Content ── */
+.udg-content-wrapper {
+  flex: 1;
+  max-width: 640px;
+  margin-left: 360px;
+  z-index: 5;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.udg-content-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.udg-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(2.4rem, 2.2vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.udg-description {
+  font-family: 'DM Sans', 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  margin-bottom: 2.25rem;
+}
+
+.udg-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.udg-tag-pill {
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 9px 22px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.udg-tag-pill:hover {
+  background: rgba(212, 160, 74, 0.12);
+  border-color: rgba(212, 160, 74, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ── Right 3D Visual Graphic ── */
+.udg-graphic-wrapper {
+  width: 36vw;
+  max-width: 480px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 4vw;
+  z-index: 5;
+}
+
+.udg-graphic-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: udg3dFloat 6s ease-in-out infinite alternate;
+}
+
+.udg-3d-svg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+}
+
+@keyframes udg3dFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-16px);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .udg-content-wrapper {
+    margin-left: 280px;
+    max-width: 520px;
+  }
+
+  .udg-graphic-wrapper {
+    width: 30vw;
+    margin-right: 2vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .udg-scroll-section {
+    height: auto;
+  }
+
+  .udg-sticky-container {
+    position: static;
+    height: auto;
+    flex-direction: column;
+    padding: 80px 24px;
+    gap: 40px;
+  }
+
+  .udg-arc-container {
+    display: none;
+  }
+
+  .udg-content-wrapper {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .udg-tags-row {
+    justify-content: center;
+  }
+
+  .udg-graphic-wrapper {
+    width: 280px;
+    margin-right: 0;
+    height: 280px;
+  }
+}

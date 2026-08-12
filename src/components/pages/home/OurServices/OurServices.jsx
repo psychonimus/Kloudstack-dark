@@ -93,7 +93,7 @@ const OurServices = () => {
 
           {/* ── col-3 : Static heading block ── */}
           <div className="col-3">
-            <div className="os-left">
+            <div className="os-left px-4">
               <p className="os-eyebrow">What We Do</p>
               <h2 className="os-headline section-heading text-start">
                 CORE<br />

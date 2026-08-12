@@ -1,0 +1,205 @@
+/* ─── Section ─────────────────────────────────────────────────── */
+.il-section {
+  padding: 4.5rem 2rem;
+  width: 100%;
+  position: relative;
+  
+  background-size: 32px 32px;
+}
+
+.il-container {
+  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Accordion Item Card ──────────────────────────────────────── */
+.il-item {
+  position: relative;
+  background: #0D0D0D;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.il-item--open {
+  background: #c28a5c17;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.il-item:hover:not(.il-item--open) {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: #c28a5c17;
+}
+
+/* ─── Header Toggle ───────────────────────────────────────────── */
+.il-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.il-header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.il-gold-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #d4a04a;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 0 12px rgba(212, 160, 74, 0.5);
+}
+
+.il-number {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  min-width: 36px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.il-item--open .il-number {
+  color: #d4a04a;
+}
+
+.il-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.il-item--open .il-title {
+  color: #d4a04a;
+}
+
+/* ─── Chevron ─────────────────────────────────────────────────── */
+.il-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.il-chevron-icon {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), color 0.3s ease;
+}
+
+.il-chevron-icon--open {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+/* ─── Accordion Body ───────────────────────────────────────────── */
+.il-accordion-body {
+  width: 100%;
+}
+
+.il-body-inner {
+  padding: 4px 28px 28px 28px;
+}
+
+/* ─── 3-Cards Grid ────────────────────────────────────────────── */
+.il-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.il-card {
+  background: #c28a5c12;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.il-card:hover {
+  border-color: rgba(212, 160, 74, 0.3);
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateY(-2px);
+}
+
+.il-card-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  margin: 0;
+}
+
+.il-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+/* ─── Responsive Media Queries ────────────────────────────────── */
+@media (max-width: 1024px) {
+  .il-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .il-section {
+    padding: 3rem 1rem;
+  }
+
+  .il-header {
+    padding: 18px 20px;
+  }
+
+  .il-body-inner {
+    padding: 4px 20px 20px 20px;
+  }
+
+  .il-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .il-header-left {
+    gap: 16px;
+  }
+
+  .il-title, .il-number {
+    font-size: 1rem;
+  }
+}
+
+

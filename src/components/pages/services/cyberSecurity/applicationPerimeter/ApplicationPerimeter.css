@@ -1,0 +1,193 @@
+/* ══════════════════════════════════════════
+   APPLICATION PERIMETER (KLOUDSTACK THEME)
+   ══════════════════════════════════════════ */
+
+.ap-section {
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  color: #ffffff;
+}
+
+.ap-header-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 120px;
+  z-index: 5;
+  will-change: transform;
+}
+
+.ap-eyebrow {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.ap-headline {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin-bottom: 2.25rem;
+  text-transform: uppercase;
+}
+
+.ap-btn-container {
+  margin-top: 2rem;
+}
+
+.ap-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 13px 28px;
+  background: linear-gradient(90deg, #d4a04a, #b8860b);
+  background-size: 200% 100%;
+  background-position: left center;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 50px;
+  font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(212, 160, 74, 0.4);
+  transition: background-position 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(212, 160, 74, 0.2);
+}
+
+.ap-cta-btn:hover {
+  background-position: right center;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 160, 74, 0.38);
+}
+
+.ap-btn-icon {
+  font-size: 1.15rem;
+  transition: transform 0.3s ease;
+}
+
+.ap-cta-btn:hover .ap-btn-icon {
+  transform: translate(3px, -3px);
+}
+
+/* Grid Layout for Cards */
+.ap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.ap-card {
+  /* background: #0d0d0d; */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* border-radius: 16px; */
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.ap-card:hover {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(212, 160, 74, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* Signature Top Glowing Bar */
+.ap-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ap-card:hover .ap-card-top-bar {
+  /* background: linear-gradient(90deg, #d4a04a, #f5c96a); */
+  /* box-shadow: 0 0 12px rgba(212, 160, 74, 0.6); */
+}
+
+.ap-card-header {
+  margin-bottom: 16px;
+}
+
+.ap-num-accent {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  display: inline-block;
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.ap-card:hover .ap-num-accent {
+  color: #d4a04a;
+  transform: scale(1.05);
+}
+
+.ap-card-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  
+}
+
+.ap-card-desc {
+  font-family: 'DM Sans', 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+  .ap-section {
+    padding: 70px 0;
+  }
+  
+  .ap-header-wrapper {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .ap-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ap-card {
+    padding: 28px 20px;
+  }
+}
+

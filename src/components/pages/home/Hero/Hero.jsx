@@ -84,13 +84,6 @@ const Hero = () => {
                 playsInline
             />
 
-            {/* Orb disabled — video bg active */}
-            {/* <div className="hero-orb" ref={orbRef}></div> */}
-
-            {/* Dark vignette overlay */}
-            {/* <div className="hero-vignette"></div> */}
-
-            {/* Floating network particles */}
             <div className="hero-particles" aria-hidden="true">
                 {[
                     { top: '12%',  left: '6%',   size: 3, dur: 5.0, delay: 0.0 },

@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  height: 52px;
+  height: 65px;
   overflow: hidden;
   border-radius: 50px;
   background: rgba(8, 8, 8, 0.78);
@@ -41,7 +41,7 @@
 }
 
 .nav-logo {
-  width: 150px;
+  width: 180px;
   height: auto;
   display: block;
 }
@@ -138,6 +138,183 @@
   font-size: 1.4rem;
   color: rgba(255, 200, 50, 0.9);
 }
+
+/* ══════════════════════════════════════════════
+   SERVICES DROPDOWN — desktop
+══════════════════════════════════════════════ */
+
+/* Wrapper keeps the trigger + panel in the same stacking context */
+.nav-services-wrap {
+  position: static; /* panel is positioned relative to .navbar-outer */
+}
+
+/* The trigger button — inherits all .nav-item-link styles */
+.nav-services-trigger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-services-trigger.services-active {
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.08);
+}
+
+/* Animated chevron */
+.nav-chevron {
+  font-size: 0.7rem;
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  color: rgba(200, 200, 200, 0.6);
+  line-height: 1;
+}
+
+.nav-chevron.rotated {
+  transform: rotate(180deg);
+  color: #d4a04a;
+}
+
+/* The dropdown panel — sits below the pill */
+.services-dropdown {
+  position: fixed;
+  top: 84px;            /* navbar-top(20) + nav-height(52) + gap(12) */
+  left: 20%;
+  transform: translateX(-50%);
+  width: min(900px, 92vw);
+  background: rgba(8, 8, 8, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 160, 74, 0.2);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  padding: 24px 24px 16px;
+  z-index: 1100;
+}
+
+/* 3-column grid */
+.services-dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Individual service card */
+.svc-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.svc-card:hover {
+  background: rgba(212, 160, 74, 0.07);
+  border-color: rgba(212, 160, 74, 0.2);
+  box-shadow: 0 4px 20px rgba(212, 160, 74, 0.08);
+}
+
+.svc-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  filter: grayscale(0.2);
+}
+
+.svc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.svc-name {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.svc-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: rgba(180, 180, 180, 0.65);
+  line-height: 1.45;
+}
+
+/* Footer link row */
+.services-dropdown-footer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: right;
+}
+
+.svc-footer-link {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d4a04a;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.svc-footer-link:hover {
+  opacity: 0.75;
+}
+
+/* ══════════════════════════════════════════════
+   PRODUCTS DROPDOWN — desktop
+══════════════════════════════════════════════ */
+
+.products-dropdown {
+  width: min(480px, 92vw);
+  left: 42%;
+  padding: 20px 20px 20px;
+}
+
+.products-dropdown-header {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.products-dropdown-label {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.products-dropdown-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.prd-card {
+  border: 1px solid rgba(212, 160, 74, 0.08);
+  background: rgba(212, 160, 74, 0.03);
+}
+
+.prd-card:hover {
+  background: rgba(212, 160, 74, 0.08);
+  border-color: rgba(212, 160, 74, 0.25);
+}
+
 
 /* ══════════════════════════════════════════════
    VISIBILITY — show/hide per breakpoint
@@ -320,5 +497,55 @@
     font-size: 0.92rem;
     border-radius: 14px;
     text-align: center;
+  }
+
+  /* ── Mobile services accordion ── */
+  .mobile-services-accordion {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-services-trigger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px 0 6px 12px;
+  }
+
+  .mobile-svc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-svc-item:hover {
+    background: rgba(212, 160, 74, 0.08);
+  }
+
+  .mobile-svc-icon {
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .mobile-svc-name {
+    font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(200, 200, 200, 0.82);
   }
 }

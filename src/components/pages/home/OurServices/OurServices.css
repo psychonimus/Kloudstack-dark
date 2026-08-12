@@ -23,8 +23,8 @@
 .os-left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 10px 20px 10px 30px;
+  /* gap: 20px; */
+  /* padding: 10px 20px 10px 30px; */
 }
 
 .os-eyebrow {

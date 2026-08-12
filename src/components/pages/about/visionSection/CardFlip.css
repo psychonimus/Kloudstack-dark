@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════════
+   CardFlip — pure CSS (no Tailwind)
+   Uses CSS custom property --cf-primary for color
+   ═══════════════════════════════════════════════ */
+
+/* ── Wrapper / perspective ───────────────────── */
+.cf-wrapper {
+  position: relative;
+  width: 100%;
+  /* max-width: 300px; */
+  height: 250px;
+  perspective: 2000px;
+  cursor: pointer;
+}
+
+/* ── Inner rotating container ────────────────── */
+.cf-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotateY(0deg);
+}
+
+.cf-inner.cf-flipped {
+  transform: rotateY(180deg);
+}
+
+/* ── Shared face styles ───────────────────────── */
+.cf-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid rgba(212, 160, 74, 0.15);
+  background: linear-gradient(145deg, #0c0c0c 0%, #111008 55%, #0a0a05 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cf-wrapper:hover .cf-face {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 20px color-mix(in srgb, var(--cf-primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--cf-primary) 35%, transparent);
+}
+
+.cf-face-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Background gradient overlay ─────────────── */
+.cf-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top left,
+    color-mix(in srgb, var(--cf-primary) 10%, transparent),
+    transparent 55%
+  ),
+  radial-gradient(
+    ellipse at bottom right,
+    rgba(212, 160, 74, 0.04),
+    transparent 60%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   FRONT FACE
+   ══════════════════════════════════════════════ */
+.cf-front {
+  transform: rotateY(0deg);
+}
+
+/* Animation area — code bars + rocket */
+.cf-animation-area {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8rem;
+  padding-left: 4rem;
+}
+
+.cf-code-lines {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 200px;
+  opacity: 0.3;
+}
+
+.cf-code-bar {
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--cf-primary) 20%, transparent),
+    color-mix(in srgb, var(--cf-primary) 30%, transparent),
+    color-mix(in srgb, var(--cf-primary) 20%, transparent)
+  );
+  opacity: 0;
+  animation: cfSlideIn 2s ease-in-out infinite;
+}
+
+@keyframes cfSlideIn {
+  0%   { transform: translateX(-80px); opacity: 0; }
+  50%  { transform: translateX(0);     opacity: 0.8; }
+  100% { transform: translateX(80px);  opacity: 0; }
+}
+
+/* Rocket icon */
+.cf-rocket-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  padding-bottom: 1.2rem;
+  padding-left: 1.2rem;
+}
+
+.cf-rocket-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--cf-primary) 30%, transparent);
+  animation: cfPulse 2s ease-in-out infinite;
+  transition: transform 0.5s ease;
+}
+
+.cf-wrapper:hover .cf-rocket-icon {
+  transform: scale(1.1) rotate(12deg);
+}
+
+@keyframes cfPulse {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.06); }
+}
+
+/* Bottom section */
+.cf-front-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cf-front-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.cf-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: 'plus jakarta sans', sans-serif;
+  font-weight: 600;
+  line-height: normal;
+  color: #f8fafc;
+  transition: transform 0.5s ease;
+}
+
+.cf-wrapper:hover .cf-title {
+  transform: translateY(-4px);
+}
+
+.cf-subtitle {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: rgba(203, 213, 225, 0.8);
+  line-height: 1.4;
+  transition: transform 0.5s ease 50ms;
+}
+
+.cf-wrapper:hover .cf-subtitle {
+  transform: translateY(-4px);
+}
+
+.cf-zap-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cf-wrapper:hover .cf-zap-icon {
+  transform: scale(1.1) rotate(12deg);
+}
+
+/* ══════════════════════════════════════════════
+   BACK FACE
+   ══════════════════════════════════════════════ */
+.cf-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.cf-back-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Back header row */
+.cf-back-header {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 0.625rem;
+}
+
+.cf-back-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.cf-description {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: rgba(148, 163, 184, 0.9);
+  line-height: 1.55;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 3; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Feature list */
+.cf-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.cf-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: rgba(203, 213, 225, 0.9);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.cf-feature-icon-wrap {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--cf-primary) 18%, transparent);
+  color: var(--cf-primary);
+}
+
+.cf-feature-label {
+  font-weight: 600;
+}
+
+/* CTA footer */
+.cf-back-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.cf-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(30, 41, 59, 0.6);
+  transition: all 0.3s ease;
+}
+
+.cf-cta:hover {
+  background: color-mix(in srgb, var(--cf-primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--cf-primary) 25%, transparent);
+  transform: scale(1.02);
+}
+
+.cf-cta-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  transition: color 0.3s ease;
+}
+
+.cf-cta:hover .cf-cta-label {
+  color: var(--cf-primary);
+}
+
+.cf-cta-arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.cf-cta:hover .cf-cta-arrow {
+  transform: translateX(4px) scale(1.1);
+}

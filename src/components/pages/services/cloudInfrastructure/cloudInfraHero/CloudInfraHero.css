@@ -1,0 +1,14 @@
+
+.service-badge{
+    color: #fff;
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.05em;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 37px;
+    border: 1px solid #d49f4a7e;
+}

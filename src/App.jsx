@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Navbar from './components/Navbar/Navbar'
-import Home from './components/pages/home/Home'
 import Footer from './components/Footer/Footer'
+import Home from './components/pages/home/Home'
+import About from './components/pages/about/about'
+import CloudInfrastructure from './components/pages/services/cloudInfrastructure/CloudInfrastructure'
+import CyberSecurity from './components/pages/services/cyberSecurity/CyberSecurity'
+import Contact from './components/pages/contact/Contact'
+import ProductsCyberSecurity from './components/pages/products/cyberSecurity/ProductsCyberSecurity'
+import AISolutions from './components/pages/products/aiSolutions/AISolutions'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,7 +49,16 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/services/cloud-infrastructure' element={<CloudInfrastructure />} />
+        <Route path='/services/cyber-security' element={<CyberSecurity />} />
+        <Route path='/products/cyber-security' element={<ProductsCyberSecurity />} />
+        <Route path='/products/ai-solutions' element={<AISolutions />} />
+        <Route path='/contact' element={<Contact />} />
+
+      </Routes>
       <Footer />
     </>
   )

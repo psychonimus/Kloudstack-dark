@@ -1,348 +1,281 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './AllianceEcosystem.css'
-import Azure from '/images/logos/azure-svgrepo-com.svg'
-import AWS from '/images/logos/aws-svgrepo-com.svg'
-import RedHat from '/images/logos/Red_Hat_Logo.svg'
-import Ubuntu from '/images/logos/Ubuntu-logo.svg'
-import SUSE from '/images/logos/suse.svg'
-// import OpenShift from '/images/logos/red-hat-openshift-logo-svgrepo-com.svg'
-// import OpenStack from '/images/logos/openstack-svgrepo-com.svg'
-// import Kubernetes from '/images/logos/kubernetes-svgrepo-com.svg'
-// import Ansible from '/images/logos/ansible-svgrepo-com.svg'
-// import Terraform from '/images/logos/terraform-svgrepo-com.svg'
-// import Dell from '/images/logos/dell-svgrepo-com.svg'
-// import HPE from '/images/logos/hewlett-packard-enterprise-logo-svgrepo-com.svg'
-// import Lenovo from '/images/logos/lenovo-svgrepo-com.svg'
-// import Cisco from '/images/logos/cisco-svgrepo-com.svg'
-// import Juniper from '/images/logos/juniper-networks-logo-svgrepo-com.svg'
-// import VMware from '/images/logos/vmware-svgrepo-com.svg'
-// import Citrix from '/images/logos/citrix-logo-svgrepo-com.svg'
-// import Veeam from '/images/logos/veeam-svgrepo-com.svg'
-// import Fortinet from '/images/logos/fortinet-logo-svgrepo-com.svg'
-// import PaloAlto from '/images/logos/palo-alto-networks-logo-svgrepo-com.svg'
-// import CheckPoint from '/images/logos/checkpoint-logo-svgrepo-com.svg'
-// import F5 from '/images/logos/f5-networks-logo-svgrepo-com.svg'
-// import Splunk from '/images/logos/splunk-logo-svgrepo-com.svg'
-// import LogRhythm from '/images/logos/logrhythm-logo-svgrepo-com.svg'
-// import ExaGrid from '/images/logos/exagrid-logo-svgrepo-com.svg'
-// import Cohesity from '/images/logos/cohesity-logo-svgrepo-com.svg'
-// import Rubrik from '/images/logos/rubrik-logo-svgrepo-com.svg'
 
-
-
-const Logo = ({ viewBox = '0 0 100 40', children, style = {}, className = '' }) => (
-    <svg viewBox={viewBox} className={`ae-logo-svg ${className}`} style={style} aria-hidden="true">
-        {children}
-    </svg>
-)
-
-const AzureLogo = () => (
-    <img src={Azure} alt="Azure" className="ae-logo-svg" />
-)
-
-const AWSLogo = () => (
-    <img src={AWS} alt="AWS" className="ae-logo-svg" />
-)
-
-const RedHatLogo = () => (
-    <img src={RedHat} alt="Red Hat" className="ae-logo-svg" />
-)
-
-const UbuntuLogo = () => (
-    <img src={Ubuntu} alt="Ubuntu" className="ae-logo-svg" />
-)
-
-const SUSELogo = () => (
-    <img src={SUSE} alt="SUSE" className="ae-logo-svg" />
-)
-
-const OpenShiftLogo = () => (
-    <svg viewBox="0 0 200 80" className="ae-logo-svg" aria-label="OpenShift">
-        {/* Red circular mark */}
-        <circle cx="36" cy="40" r="30" fill="none" stroke="#EE0000" strokeWidth="5" />
-        <path d="M18 30 Q36 15 54 30" stroke="#EE0000" strokeWidth="5" fill="none" strokeLinecap="round" />
-        <path d="M18 50 Q36 65 54 50" stroke="#EE0000" strokeWidth="5" fill="none" strokeLinecap="round" />
-        <text x="76" y="30" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="13" fill="#EE0000">OPEN</text>
-        <text x="76" y="52" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="16" fill="#EE0000">SHIFT</text>
-    </svg>
-)
-
-const OpenStackLogo = () => (
-    <svg viewBox="0 0 200 80" className="ae-logo-svg" aria-label="OpenStack">
-        {/* Three stacked bars */}
-        <rect x="8" y="12" width="50" height="14" rx="3" fill="#ED1944" />
-        <rect x="8" y="33" width="50" height="14" rx="3" fill="#ED1944" />
-        <rect x="8" y="54" width="50" height="14" rx="3" fill="#ED1944" />
-        <text x="68" y="43" fontFamily="Arial, sans-serif" fontWeight="600" fontSize="15" fill="#ED1944">openstack</text>
-        <text x="68" y="60" fontFamily="Arial, sans-serif" fontWeight="400" fontSize="10" fill="#ED1944" opacity="0.6">.</text>
-    </svg>
-)
-
-const KubernetesLogo = () => (
-    <svg viewBox="0 0 80 80" className="ae-logo-svg" aria-label="Kubernetes">
-        <polygon points="40,4 72,22 72,58 40,76 8,58 8,22" fill="#326CE5" />
-        <polygon points="40,14 62,26 62,54 40,66 18,54 18,26" fill="none" stroke="#ffffff" strokeWidth="2" opacity="0.3" />
-        {/* Helm / wheel */}
-        <circle cx="40" cy="40" r="10" fill="none" stroke="#ffffff" strokeWidth="3" />
-        <line x1="40" y1="18" x2="40" y2="30" stroke="#ffffff" strokeWidth="3" />
-        <line x1="40" y1="50" x2="40" y2="62" stroke="#ffffff" strokeWidth="3" />
-        <line x1="18" y1="40" x2="30" y2="40" stroke="#ffffff" strokeWidth="3" />
-        <line x1="50" y1="40" x2="62" y2="40" stroke="#ffffff" strokeWidth="3" />
-        <line x1="24" y1="24" x2="33" y2="33" stroke="#ffffff" strokeWidth="3" />
-        <line x1="47" y1="47" x2="56" y2="56" stroke="#ffffff" strokeWidth="3" />
-        <line x1="56" y1="24" x2="47" y2="33" stroke="#ffffff" strokeWidth="3" />
-        <line x1="33" y1="47" x2="24" y2="56" stroke="#ffffff" strokeWidth="3" />
-    </svg>
-)
-
-const AnsibleLogo = () => (
-    <svg viewBox="0 0 80 80" className="ae-logo-svg" aria-label="Ansible">
-        <circle cx="40" cy="40" r="36" fill="#1A1918" />
-        <text x="40" y="54" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="44" fill="#ffffff">A</text>
-        <text x="28" y="40" fontFamily="Arial, sans-serif" fontWeight="400" fontSize="11" fill="#ffffff" opacity="0.5">ANSIBLE</text>
-    </svg>
-)
-
-const TerraformLogo = () => (
-    <svg viewBox="0 0 220 80" className="ae-logo-svg" aria-label="Terraform">
-        {/* HashiCorp Terraform diamond mark */}
-        <polygon points="16,44 30,52 30,20 16,12" fill="#7B42BC" />
-        <polygon points="32,20 32,52 46,44 46,12" fill="#7B42BC" opacity="0.75" />
-        <polygon points="48,24 48,56 62,48 62,16" fill="#7B42BC" opacity="0.55" />
-        <text x="76" y="30" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="11" fill="#7B42BC" letterSpacing="1">HashiCorp</text>
-        <text x="76" y="54" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="22" fill="#7B42BC">Terraform</text>
-    </svg>
-)
+/* ─── Cloud, OS & Open Source ─── */
+const AWSLogo         = () => <img src="/images/alliance-logos/aws.svg"          alt="AWS"          className="ae-logo-svg" />
+const MicrosoftLogo   = () => <img src="/images/alliance-logos/microsoft.svg"    alt="Microsoft"    className="ae-logo-svg" />
+const GoogleLogo      = () => <img src="/images/alliance-logos/google.svg"        alt="Google Cloud" className="ae-logo-svg" />
+const RedHatLogo      = () => <img src="/images/alliance-logos/redhat.svg"        alt="Red Hat"      className="ae-logo-svg" />
+const UbuntuLogo      = () => <img src="/images/alliance-logos/ubuntu.svg"        alt="Ubuntu"       className="ae-logo-svg" />
+const SUSELogo        = () => <img src="/images/alliance-logos/suse.svg"          alt="SUSE"         className="ae-logo-svg" />
+const OpenShiftLogo   = () => <img src="/images/alliance-logos/openshift.svg"     alt="OpenShift"    className="ae-logo-svg" />
+const OpenStackLogo   = () => <img src="/images/alliance-logos/openstack.svg"     alt="OpenStack"    className="ae-logo-svg" />
+const KubernetesLogo  = () => <img src="/images/alliance-logos/kubernetes.svg"    alt="Kubernetes"   className="ae-logo-svg" />
+const AnsibleLogo     = () => <img src="/images/alliance-logos/ansible.svg"       alt="Ansible"      className="ae-logo-svg" />
+const TerraformLogo   = () => <img src="/images/alliance-logos/teerraform.svg"    alt="Terraform"    className="ae-logo-svg" />
 
 /* ─── Server, Storage & Network ─── */
-const DellLogo = () => (
-    <svg viewBox="0 0 160 60" className="ae-logo-svg" aria-label="Dell">
-        <text x="10" y="46" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="48" fill="#007DB8" letterSpacing="-2">Dell</text>
-    </svg>
-)
-
-const HPELogo = () => (
-    <svg viewBox="0 0 160 60" className="ae-logo-svg" aria-label="HPE">
-        <circle cx="16" cy="30" r="14" fill="#01A982" />
-        <text x="36" y="42" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="26" fill="#01A982">HPE</text>
-    </svg>
-)
-
-const CiscoLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="Cisco">
-        {/* Signal towers */}
-        {[0, 14, 28, 42, 28, 14, 0].map((h, i) => (
-            <rect key={i} x={10 + i * 10} y={30 - h} width="7" height={h * 2} rx="3" fill="#049FD9" />
-        ))}
-        <text x="88" y="42" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="30" fill="#049FD9">Cisco</text>
-    </svg>
-)
-
-const PureStorageLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="Pure Storage">
-        <circle cx="24" cy="30" r="20" fill="#FF6900" />
-        <text x="3" y="36" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="20" fill="#ffffff">P</text>
-        <text x="54" y="26" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="14" fill="#FF6900">Pure</text>
-        <text x="54" y="44" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="14" fill="#FF6900">Storage</text>
-    </svg>
-)
-
-const NutanixLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="Nutanix">
-        <rect x="6" y="20" width="30" height="30" rx="4" fill="#024DA1" transform="rotate(-10 21 35)" />
-        <text x="50" y="40" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="24" fill="#024DA1">Nutanix</text>
-    </svg>
-)
-
-const JuniperLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="Juniper Networks">
-        <circle cx="24" cy="30" r="20" fill="#84B135" />
-        <circle cx="24" cy="30" r="12" fill="#ffffff" opacity="0.25" />
-        <text x="52" y="26" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="14" fill="#84B135">Juniper</text>
-        <text x="52" y="44" fontFamily="Arial, sans-serif" fontWeight="600" fontSize="11" fill="#84B135" opacity="0.7">Networks</text>
-    </svg>
-)
+const DellLogo        = () => <img src="/images/alliance-logos/dell.svg"          alt="Dell"         className="ae-logo-svg" />
+const HPLogo          = () => <img src="/images/alliance-logos/hp.svg"            alt="HP"           className="ae-logo-svg" />
+const CiscoLogo       = () => <img src="/images/alliance-logos/cisco.svg"         alt="Cisco"        className="ae-logo-svg" />
+const NutanixLogo     = () => <img src="/images/alliance-logos/nutanix.svg"       alt="Nutanix"      className="ae-logo-svg" />
+const NetAppLogo      = () => <img src="/images/alliance-logos/netapp.svg"        alt="NetApp"       className="ae-logo-svg" />
+const ArubaLogo       = () => <img src="/images/alliance-logos/aruba.svg"         alt="Aruba"        className="ae-logo-svg" />
+const RuckusLogo      = () => <img src="/images/alliance-logos/ruckus.svg"        alt="Ruckus"       className="ae-logo-svg" />
 
 /* ─── Enterprise Cyber Security ─── */
-const PaloAltoLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="Palo Alto Networks">
-        {/* Concentric arcs */}
-        <path d="M26 50 A22 22 0 0 1 4 28" stroke="#FA582D" strokeWidth="5" fill="none" strokeLinecap="round" />
-        <path d="M34 50 A30 30 0 0 1 4 20" stroke="#FA582D" strokeWidth="5" fill="none" strokeLinecap="round" />
-        <path d="M42 50 A38 38 0 0 1 4 12" stroke="#FA582D" strokeWidth="5" fill="none" strokeLinecap="round" />
-        <text x="54" y="26" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="13" fill="#FA582D">Palo Alto</text>
-        <text x="54" y="44" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="13" fill="#FA582D">Networks</text>
-    </svg>
-)
+const FortinetLogo    = () => <img src="/images/alliance-logos/fortniet.svg"      alt="Fortinet"     className="ae-logo-svg" />
+const ZscalerLogo     = () => <img src="/images/alliance-logos/zscaler.svg"       alt="Zscaler"      className="ae-logo-svg" />
+const TrendMicroLogo  = () => <img src="/images/alliance-logos/trendmicro.svg"    alt="Trend Micro"  className="ae-logo-svg" />
+const NetscopeLogo    = () => <img src="/images/alliance-logos/netskope.svg"      alt="Netskope"     className="ae-logo-svg" />
+const IndusfaceLogo   = () => <img src="/images/alliance-logos/indusface.svg"     alt="Indusface"    className="ae-logo-svg" />
+const MSPurviewLogo   = () => <img src="/images/alliance-logos/ms-purview.svg"    alt="MS Purview"   className="ae-logo-svg" />
 
-const CrowdStrikeLogo = () => (
-    <svg viewBox="0 0 220 60" className="ae-logo-svg" aria-label="CrowdStrike">
-        <polygon points="10,50 28,10 36,30 44,10 62,50" fill="none" stroke="#FF0000" strokeWidth="4" strokeLinejoin="round" />
-        <text x="76" y="40" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="20" fill="#FF0000">CrowdStrike</text>
-    </svg>
-)
+/* ─── BCP & Enterprise Applications ─── */
+const CommvaultLogo    = () => <img src="/images/alliance-logos/commvault.svg"    alt="Commvault"    className="ae-logo-svg" />
+const BigFixLogo       = () => <img src="/images/alliance-logos/bigfix.svg"       alt="BigFix"       className="ae-logo-svg" />
+const ManageEngineLogo = () => <img src="/images/alliance-logos/manageengine.svg" alt="ManageEngine" className="ae-logo-svg" />
+const IrajeLogo        = () => <img src="/images/alliance-logos/iraje.svg"        alt="Iraje"        className="ae-logo-svg" />
 
-const SentinelOneLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="SentinelOne">
-        <polygon points="24,8 42,18 42,42 24,52 6,42 6,18" fill="#6B2FD9" />
-        <text x="52" y="26" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="12" fill="#6B2FD9">Sentinel</text>
-        <text x="52" y="44" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="12" fill="#6B2FD9">One</text>
-    </svg>
-)
-
-const FortinetLogo = () => (
-    <svg viewBox="0 0 200 60" className="ae-logo-svg" aria-label="Fortinet">
-        <rect x="6" y="10" width="16" height="40" rx="2" fill="#EE3124" />
-        <rect x="26" y="18" width="16" height="24" rx="2" fill="#EE3124" />
-        <rect x="46" y="10" width="16" height="40" rx="2" fill="#EE3124" />
-        <text x="76" y="40" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="22" fill="#EE3124">Fortinet</text>
-    </svg>
-)
-
-const QualysLogo = () => (
-    <svg viewBox="0 0 180 60" className="ae-logo-svg" aria-label="Qualys">
-        <circle cx="26" cy="28" r="20" fill="none" stroke="#ED2226" strokeWidth="5" />
-        <line x1="40" y1="42" x2="52" y2="54" stroke="#ED2226" strokeWidth="5" strokeLinecap="round" />
-        <text x="64" y="40" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="24" fill="#ED2226">Qualys</text>
-    </svg>
-)
-
-const SplunkLogo = () => (
-    <svg viewBox="0 0 180 60" className="ae-logo-svg" aria-label="Splunk">
-        {/* Chevron mark */}
-        <polyline points="6,48 22,12 32,36 42,12 58,48" fill="none" stroke="#65A637" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
-        <text x="72" y="40" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="22" fill="#65A637">Splunk</text>
+const VerifiedBadge = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="ae-badge-icon" aria-hidden="true">
+        <path d="M12 2L14.7 4.2L18.1 3.8L19.1 7.1L22.2 8.7L21.4 12L22.2 15.3L19.1 16.9L18.1 20.2L14.7 19.8L12 22L9.3 19.8L5.9 20.2L4.9 16.9L1.8 15.3L2.6 12L1.8 8.7L4.9 7.1L5.9 3.8L9.3 4.2L12 2Z" fill="#D4A04A" />
+        <path d="M9 12L11 14L15 9" stroke="#121417" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 )
 
 /* ─────────────────────────────────────────────────────────────
-   Category data
+   Categories Data
    ───────────────────────────────────────────────────────────── */
 const categories = [
     {
-        id: 'cloud-os',
+        id: 'cloud-infra',
         label: 'Cloud, OS & Open Source',
         logos: [
-            { id: 'azure', label: 'Microsoft Azure', render: () => <AzureLogo /> },
-            { id: 'aws', label: 'AWS', render: () => <AWSLogo /> },
-            { id: 'redhat', label: 'Red Hat', render: () => <RedHatLogo /> },
-            { id: 'ubuntu', label: 'Ubuntu', render: () => <UbuntuLogo /> },
-            { id: 'suse', label: 'SUSE', render: () => <SUSELogo /> },
-            { id: 'openshift', label: 'OpenShift', render: () => <OpenShiftLogo /> },
-            { id: 'openstack', label: 'OpenStack', render: () => <OpenStackLogo /> },
-            { id: 'kubernetes', label: 'Kubernetes', render: () => <KubernetesLogo /> },
-            { id: 'ansible', label: 'Ansible', render: () => <AnsibleLogo /> },
-            { id: 'terraform', label: 'Terraform', render: () => <TerraformLogo /> },
-        ],
+            {
+                id: 'aws',
+                label: 'Amazon Web Services',
+                render: () => <AWSLogo />,
+                description: 'Premier Cloud Alliance Partner. Scalable compute, managed Kubernetes, serverless architectures, and deep security integration with AWS Security Hub.',
+                capabilities: ['EKS Managed Kubernetes', 'AWS Security Hub', 'Multi-Account Governance']
+            },
+            {
+                id: 'microsoft',
+                label: 'Microsoft Azure',
+                render: () => <MicrosoftLogo />,
+                description: 'Gold Cloud Alliance Partner. Enterprise hybrid identity, Sentinel SIEM ingestion, and automated Azure Lighthouse management.',
+                capabilities: ['Azure Sentinel Ingestion', 'Lighthouse Automation', 'ExpressRoute Monitoring']
+            },
+            {
+                id: 'google',
+                label: 'Google Cloud Platform',
+                render: () => <GoogleLogo />,
+                description: 'Strategic Cloud Partner. AI-powered infrastructure, GKE container orchestration, and enterprise-grade data analytics across global regions.',
+                capabilities: ['GKE Autopilot', 'BigQuery Analytics', 'Security Command Center']
+            },
+            {
+                id: 'redhat',
+                label: 'Red Hat Enterprise',
+                render: () => <RedHatLogo />,
+                description: 'Enterprise Linux & Hybrid Cloud Platform. Standardized automation, container management, and security compliance.',
+                capabilities: ['RHEL Hardening', 'Ansible Automation', 'OpenShift Orchestration']
+            },
+            {
+                id: 'ubuntu',
+                label: 'Canonical Ubuntu',
+                render: () => <UbuntuLogo />,
+                description: 'Certified Enterprise Cloud OS. Optimized kernel performance, ESM security coverage, and automated deployment.',
+                capabilities: ['Kernel Livepatching', 'MAAS Automation', 'Charmed Kubernetes']
+            },
+            {
+                id: 'suse',
+                label: 'SUSE Linux Enterprise',
+                render: () => <SUSELogo />,
+                description: 'Mission-critical enterprise Linux and Kubernetes management powering high availability systems.',
+                capabilities: ['SUSE Manager', 'Rancher Kubernetes', 'SLES High Availability']
+            },
+            {
+                id: 'openshift',
+                label: 'Red Hat OpenShift',
+                render: () => <OpenShiftLogo />,
+                description: 'Hybrid cloud container platform with built-in DevSecOps tooling, mesh routing, and automated compliance.',
+                capabilities: ['Multi-Cluster Mgmt', 'GitOps Workflows', 'Service Mesh Security']
+            },
+            {
+                id: 'openstack',
+                label: 'OpenStack Platform',
+                render: () => <OpenStackLogo />,
+                description: 'Open-source cloud operating system delivering resilient software-defined compute, storage, and networking.',
+                capabilities: ['IaaS Orchestration', 'Neutron Networking', 'Cinder Storage API']
+            },
+            {
+                id: 'kubernetes',
+                label: 'Kubernetes Cloud Native',
+                render: () => <KubernetesLogo />,
+                description: 'De-facto container orchestration engine enabling automated scaling, self-healing, and declarative ops.',
+                capabilities: ['Custom Controllers', 'Ingress Routing', 'Auto-Scaling Policies']
+            },
+            {
+                id: 'ansible',
+                label: 'Red Hat Ansible',
+                render: () => <AnsibleLogo />,
+                description: 'Agentless IT automation engine simplifying multi-cloud configuration, patching, and provisioning.',
+                capabilities: ['Playbook Orchestration', 'AAP Automation Controller', 'Drift Remediation']
+            },
+            {
+                id: 'terraform',
+                label: 'HashiCorp Terraform',
+                render: () => <TerraformLogo />,
+                description: 'Infrastructure as Code provider standardizing multi-cloud provisioning and state governance.',
+                capabilities: ['State Lock & Sync', 'Drift Detection', 'CI/CD Pipeline Integration']
+            }
+        ]
     },
     {
-        id: 'server-storage',
+        id: 'server-storage-network',
         label: 'Server, Storage & Network',
         logos: [
-            { id: 'dell', label: 'Dell', render: () => <DellLogo /> },
-            { id: 'hpe', label: 'HPE', render: () => <HPELogo /> },
-            { id: 'cisco', label: 'Cisco', render: () => <CiscoLogo /> },
-            { id: 'purestorage', label: 'Pure Storage', render: () => <PureStorageLogo /> },
-            { id: 'nutanix', label: 'Nutanix', render: () => <NutanixLogo /> },
-            { id: 'juniper', label: 'Juniper', render: () => <JuniperLogo /> },
-        ],
+            {
+                id: 'dell',
+                label: 'Dell Enterprise Infrastructure',
+                render: () => <DellLogo />,
+                description: 'Next-gen enterprise server and storage infrastructure with automated telemetry and integrated lifecycle management.',
+                capabilities: ['iDRAC Telemetry', 'PowerStore API', 'VxRail Hyperconverged']
+            },
+            {
+                id: 'hp',
+                label: 'Hewlett Packard',
+                render: () => <HPLogo />,
+                description: 'Edge-to-cloud compute platform delivering high-density performance and hybrid cloud management.',
+                capabilities: ['iLO RESTful API', 'GreenLake Integration', 'ProLiant Performance']
+            },
+            {
+                id: 'cisco',
+                label: 'Cisco Systems',
+                render: () => <CiscoLogo />,
+                description: 'Software-defined networking, fabric switching, and real-time network telemetry for enterprise data centers.',
+                capabilities: ['ACI Fabric Control', 'Intersight Cloud Mgmt', 'DNA Center Integration']
+            },
+            {
+                id: 'nutanix',
+                label: 'Nutanix Cloud',
+                render: () => <NutanixLogo />,
+                description: 'Hyperconverged infrastructure platform unifying compute, virtualization, and storage management.',
+                capabilities: ['AHV Hypervisor Mgmt', 'Prism Central Automation', 'Flow Security Policies']
+            },
+            {
+                id: 'netapp',
+                label: 'NetApp Storage',
+                render: () => <NetAppLogo />,
+                description: 'Intelligent data infrastructure delivering unified storage, data management, and cloud data services across hybrid environments.',
+                capabilities: ['ONTAP Data Management', 'StorageGRID Object Store', 'Cloud Volumes ONTAP']
+            },
+            {
+                id: 'aruba',
+                label: 'Aruba Networks',
+                render: () => <ArubaLogo />,
+                description: 'AI-driven wired and wireless networking with automated policy enforcement and edge-to-cloud security integration.',
+                capabilities: ['Aruba Central AIOps', 'ClearPass NAC', 'SD-WAN Orchestration']
+            },
+            {
+                id: 'ruckus',
+                label: 'Ruckus Networks',
+                render: () => <RuckusLogo />,
+                description: 'High-density wireless and wired networking solutions with intelligent traffic management for enterprise deployments.',
+                capabilities: ['SmartZone Controller', 'BeamFlex+ Antenna', 'IoT Device Management']
+            }
+        ]
     },
     {
         id: 'cyber-security',
         label: 'Enterprise Cyber Security',
         logos: [
-            { id: 'paloalto', label: 'Palo Alto', render: () => <PaloAltoLogo /> },
-            { id: 'crowdstrike', label: 'CrowdStrike', render: () => <CrowdStrikeLogo /> },
-            { id: 'sentinelone', label: 'SentinelOne', render: () => <SentinelOneLogo /> },
-            { id: 'fortinet', label: 'Fortinet', render: () => <FortinetLogo /> },
-            { id: 'qualys', label: 'Qualys', render: () => <QualysLogo /> },
-            { id: 'splunk', label: 'Splunk', render: () => <SplunkLogo /> },
-        ],
+            {
+                id: 'fortinet',
+                label: 'Fortinet Security Fabric',
+                render: () => <FortinetLogo />,
+                description: 'Unified network and security ecosystem delivering high-speed firewalls and automated zero-trust access.',
+                capabilities: ['FortiGate Firewalls', 'FortiManager Orchestration', 'ZTNA Access Control']
+            },
+            {
+                id: 'zscaler',
+                label: 'Zscaler Zero Trust',
+                render: () => <ZscalerLogo />,
+                description: 'Cloud-native zero trust exchange eliminating attack surface with AI-powered threat prevention and inline inspection.',
+                capabilities: ['ZIA Internet Access', 'ZPA Private Access', 'Zero Trust Architecture']
+            },
+            {
+                id: 'trendmicro',
+                label: 'Trend Micro',
+                render: () => <TrendMicroLogo />,
+                description: 'Platform-native cybersecurity delivering hybrid cloud protection, XDR threat detection, and automated response across layers.',
+                capabilities: ['Trend Vision One XDR', 'Cloud One Security', 'Deep Security Agent']
+            },
+            {
+                id: 'netskope',
+                label: 'Netskope SASE',
+                render: () => <NetscopeLogo />,
+                description: 'Unified SASE platform providing cloud-native security, real-time DLP, and threat protection for modern distributed enterprises.',
+                capabilities: ['Netskope CASB', 'Inline DLP Inspection', 'ZTNA Secure Access']
+            },
+            {
+                id: 'indusface',
+                label: 'Indusface AppTrana',
+                render: () => <IndusfaceLogo />,
+                description: 'Fully managed web application and API protection with risk-based monitoring and zero false-positive WAF enforcement.',
+                capabilities: ['Managed WAF Service', 'API Security Testing', 'DDoS Protection']
+            },
+            {
+                id: 'ms-purview',
+                label: 'Microsoft Purview',
+                render: () => <MSPurviewLogo />,
+                description: 'Unified data governance and compliance platform delivering sensitive data discovery, classification, and risk management.',
+                capabilities: ['Data Loss Prevention', 'Information Protection', 'Insider Risk Management']
+            }
+        ]
     },
-
     {
-        id: 'bcp',
+        id: 'bcp-enterprise-apps',
         label: 'BCP & Enterprise Applications',
         logos: [
-            { id: 'paloalto', label: 'Palo Alto', render: () => <PaloAltoLogo /> },
-            { id: 'crowdstrike', label: 'CrowdStrike', render: () => <CrowdStrikeLogo /> },
-            { id: 'sentinelone', label: 'SentinelOne', render: () => <SentinelOneLogo /> },
-            { id: 'fortinet', label: 'Fortinet', render: () => <FortinetLogo /> },
-            { id: 'qualys', label: 'Qualys', render: () => <QualysLogo /> },
-            { id: 'splunk', label: 'Splunk', render: () => <SplunkLogo /> },
-        ],
-    },
+            {
+                id: 'commvault',
+                label: 'Commvault Data Platform',
+                render: () => <CommvaultLogo />,
+                description: 'Enterprise backup, recovery, and data resilience solution across multi-cloud, virtual, and physical workloads.',
+                capabilities: ['Intelligent Recovery', 'Ransomware Protection', 'Multi-Cloud Replication']
+            },
+            {
+                id: 'bigfix',
+                label: 'HCL BigFix',
+                render: () => <BigFixLogo />,
+                description: 'Unified endpoint management and security compliance automation for large-scale enterprise endpoint governance.',
+                capabilities: ['Patch Management', 'Compliance Reporting', 'Software Distribution']
+            },
+            {
+                id: 'manageengine',
+                label: 'ManageEngine',
+                render: () => <ManageEngineLogo />,
+                description: 'Comprehensive IT management suite covering service desk, unified endpoint management, and security analytics.',
+                capabilities: ['ServiceDesk Plus', 'Endpoint Central UEM', 'Log360 SIEM']
+            },
+            {
+                id: 'iraje',
+                label: 'Iraje PAM',
+                render: () => <IrajeLogo />,
+                description: 'Privileged Access Management solution providing granular session recording, just-in-time access, and audit compliance.',
+                capabilities: ['Session Recording', 'Just-In-Time Access', 'Privileged Audit Trails']
+            }
+        ]
+    }
 ]
 
 /* ─────────────────────────────────────────────────────────────
-   Accordion Item
-   ───────────────────────────────────────────────────────────── */
-function AccordionItem({ category, isOpen, onToggle, index, inView }) {
-    const bodyRef = useRef(null)
-    const [height, setHeight] = useState(0)
-
-    useEffect(() => {
-        if (!bodyRef.current) return
-        if (isOpen) {
-            setHeight(bodyRef.current.scrollHeight)
-        } else {
-            setHeight(0)
-        }
-    }, [isOpen])
-
-    return (
-        <div
-            className={`ae-accordion-item ${isOpen ? 'ae-accordion-item--open' : ''} ${inView ? 'ae-accordion-item--visible' : ''}`}
-            style={{ transitionDelay: `${index * 100}ms` }}
-        >
-            {/* Header */}
-            <button
-                className="ae-accordion-header"
-                onClick={onToggle}
-                aria-expanded={isOpen}
-                aria-controls={`ae-panel-${category.id}`}
-                id={`ae-btn-${category.id}`}
-            >
-                <span className="ae-accordion-bar" aria-hidden="true" />
-                <span className="ae-accordion-label">{category.label}</span>
-                <span className="ae-accordion-icon" aria-hidden="true">
-                    <span className="ae-icon-line ae-icon-h" />
-                    <span className={`ae-icon-line ae-icon-v ${isOpen ? 'ae-icon-v--hidden' : ''}`} />
-                </span>
-            </button>
-
-            {/* Body */}
-            <div
-                className="ae-accordion-body-wrap"
-                id={`ae-panel-${category.id}`}
-                role="region"
-                aria-labelledby={`ae-btn-${category.id}`}
-                style={{ height: `${height}px` }}
-            >
-                <div className="ae-accordion-body" ref={bodyRef}>
-                    <div className="ae-logo-grid">
-                        {category.logos.map((logo, i) => (
-                            <div
-                                key={logo.id}
-                                className={`ae-logo-cell ${isOpen ? 'ae-logo-cell--visible' : ''}`}
-                                style={{ transitionDelay: isOpen ? `${i * 45}ms` : '0ms' }}
-                                title={logo.label}
-                            >
-                                {logo.render()}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-/* ─────────────────────────────────────────────────────────────
-   Main Section
+   Main AllianceEcosystem Component
    ───────────────────────────────────────────────────────────── */
 const AllianceEcosystem = () => {
-    const [openId, setOpenId] = useState('cloud-os') // first open by default
+    const [activeCatId, setActiveCatId] = useState('cloud-infra')
+    const [activeLogoId, setActiveLogoId] = useState('aws')
     const sectionRef = useRef(null)
     const [inView, setInView] = useState(false)
 
@@ -362,36 +295,101 @@ const AllianceEcosystem = () => {
         return () => observer.disconnect()
     }, [])
 
-    const toggle = (id) => setOpenId((prev) => (prev === id ? null : id))
+    const activeCat = categories.find((c) => c.id === activeCatId) || categories[0]
+    
+    // Ensure active logo matches current category
+    const activeLogo = activeCat.logos.find((l) => l.id === activeLogoId) || activeCat.logos[0]
+
+    const handleCatChange = (catId) => {
+        setActiveCatId(catId)
+        const newCat = categories.find((c) => c.id === catId)
+        if (newCat && newCat.logos.length > 0) {
+            setActiveLogoId(newCat.logos[0].id)
+        }
+    }
 
     return (
         <section className="ae-section" ref={sectionRef} aria-label="Vendor-Agnostic Alliance Ecosystem">
-            <div className="ae-inner">
-                {/* Heading */}
-                <div className={`ae-heading-wrap ${inView ? 'ae-heading-wrap--visible' : ''}`}>
-                    <h2 className="section-heading text-start">
-                        Vendor–Agnostic Alliance Ecosystem
-                    </h2>
+            <div className="container">
+                <div className="ae-inner">
+                    {/* Heading */}
+                    <div className={`ae-heading-wrap ${inView ? 'ae-heading-wrap--visible' : ''}`}>
+                        <h2 className="section-heading text-start">
+                            Vendor–Agnostic Alliance Ecosystem
+                        </h2>
+                    </div>
+
+                    {/* Category Nav Tabs */}
+                    <div className="ae-tabs-nav" role="tablist" aria-label="Alliance Categories">
+                        {categories.map((cat) => {
+                            const isActive = activeCatId === cat.id
+                            return (
+                                <button
+                                    key={cat.id}
+                                    role="tab"
+                                    aria-selected={isActive}
+                                    className={`ae-tab-btn ${isActive ? 'ae-tab-btn--active' : ''}`}
+                                    onClick={() => handleCatChange(cat.id)}
+                                >
+                                    {cat.label}
+                                </button>
+                            )
+                        })}
+                    </div>
+
+                    {/* Main Content Grid: Logos on Left, Details on Right */}
+                    <div className="ae-content-grid">
+                        {/* Logos Grid */}
+                        <div className="ae-logos-grid">
+                            {activeCat.logos.map((logo) => {
+                                const isSelected = activeLogo.id === logo.id
+                                return (
+                                    <button
+                                        key={logo.id}
+                                        className={`ae-logo-card ${isSelected ? 'ae-logo-card--active' : ''}`}
+                                        onClick={() => setActiveLogoId(logo.id)}
+                                        aria-label={`Select ${logo.label}`}
+                                    >
+                                        {logo.render()}
+                                    </button>
+                                )
+                            })}
+                        </div>
+
+                        {/* Details Pane */}
+                        <div className="ae-details-card">
+                            <span className="ae-details-cat">{activeCat.label}</span>
+
+                            <div className="ae-details-title-row">
+                                <h3 className="ae-details-title">{activeLogo.label}</h3>
+                                <VerifiedBadge />
+                            </div>
+
+                            <p className="ae-details-desc">{activeLogo.description}</p>
+
+                            <div className="ae-capabilities-section">
+                                <span className="ae-capabilities-label">CORE CAPABILITIES</span>
+                                <div className="ae-capabilities-list">
+                                    {activeLogo.capabilities.map((cap, i) => (
+                                        <span key={i} className="ae-capability-pill">
+                                            {cap}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <a href="#integration-docs" className="ae-docs-btn">
+                                VIEW INTEGRATION DOCS <span className="ae-btn-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Accordion */}
-                <div className="ae-accordion" role="list">
-                    {categories.map((cat, i) => (
-                        <AccordionItem
-                            key={cat.id}
-                            category={cat}
-                            isOpen={openId === cat.id}
-                            onToggle={() => toggle(cat.id)}
-                            index={i}
-                            inView={inView}
-                        />
-                    ))}
-                </div>
+                <div className="ae-divider" aria-hidden="true" />
             </div>
-
-            <div className="ae-divider" aria-hidden="true" />
         </section>
     )
 }
 
 export default AllianceEcosystem
+

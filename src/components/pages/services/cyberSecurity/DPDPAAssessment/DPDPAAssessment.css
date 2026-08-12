@@ -1,0 +1,224 @@
+/* ══════════════════════════════════════════
+   DPDPA ASSESSMENT & REMEDIATION SECTION
+   ══════════════════════════════════════════ */
+
+.dpdpa-section {
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.dpdpa-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 74, 0.3), transparent);
+}
+
+/* ── Intro Block ── */
+.dpdpa-intro {
+  max-width: 800px;
+  margin-bottom: 64px;
+}
+
+.dpdpa-eyebrow {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.1);
+  border: 1px solid rgba(212, 160, 74, 0.25);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.dpdpa-subtitle {
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+.dpdpa-body-text {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 680px;
+}
+
+/* ── Steps Grid ── */
+.dpdpa-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Step Card */
+.dpdpa-step-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dpdpa-step-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(212, 160, 74, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* Top glowing accent bar */
+.dpdpa-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dpdpa-step-card:hover .dpdpa-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 12px rgba(212, 160, 74, 0.6);
+}
+
+.dpdpa-num {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+  margin-bottom: 16px;
+  display: block;
+  transition: color 0.35s ease;
+}
+
+.dpdpa-step-card:hover .dpdpa-num {
+  color: #d4a04a;
+}
+
+.dpdpa-step-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.35;
+}
+
+.dpdpa-step-desc {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ── Accent Flag Card ── */
+.dpdpa-accent-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+  cursor: default;
+}
+
+.dpdpa-accent-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(212, 160, 74, 0.3);
+}
+
+.dpdpa-flag-lines {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.flag-stripe {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag-orange {
+  background: #FF9933;
+}
+
+.flag-white {
+  background: #FFFFFF;
+}
+
+.flag-green {
+  background: #138808;
+}
+
+.flag-chakra {
+  width: 36px;
+  height: 36px;
+}
+
+.dpdpa-accent-label {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dpdpa-accent-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .dpdpa-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .dpdpa-section {
+    padding: 70px 0;
+  }
+
+  .dpdpa-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dpdpa-step-card,
+  .dpdpa-accent-card {
+    padding: 28px 20px;
+  }
+}
