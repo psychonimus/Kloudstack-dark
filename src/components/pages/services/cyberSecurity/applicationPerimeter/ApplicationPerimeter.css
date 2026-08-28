@@ -134,7 +134,7 @@
   font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
   font-size: 2.25rem;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1;
   display: inline-block;
   transition: color 0.35s ease, transform 0.35s ease;

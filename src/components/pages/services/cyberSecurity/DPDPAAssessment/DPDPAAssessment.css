@@ -22,7 +22,7 @@
 
 /* ── Intro Block ── */
 .dpdpa-intro {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin-bottom: 64px;
 }
 
@@ -43,7 +43,7 @@
 
 .dpdpa-subtitle {
   margin-bottom: 20px;
-  max-width: 680px;
+  /* max-width: 680px; */
 }
 
 .dpdpa-body-text {
@@ -51,7 +51,7 @@
   font-size: 0.92rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.58);
-  max-width: 680px;
+  /* max-width: 680px; */
 }
 
 /* ── Steps Grid ── */

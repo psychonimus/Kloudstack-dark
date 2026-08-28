@@ -13,6 +13,9 @@ import CyberSecurity from './components/pages/services/cyberSecurity/CyberSecuri
 import Contact from './components/pages/contact/Contact'
 import ProductsCyberSecurity from './components/pages/products/cyberSecurity/ProductsCyberSecurity'
 import AISolutions from './components/pages/products/aiSolutions/AISolutions'
+import AiIntelligence from './components/pages/services/aiIntelligence/AiIntelligence'
+import OperationalContinuity from './components/pages/services/operationalContinuity/OperationalContinuity'
+import Resources from './components/pages/resources/Resources'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -56,6 +59,9 @@ const App = () => {
         <Route path='/services/cyber-security' element={<CyberSecurity />} />
         <Route path='/products/cyber-security' element={<ProductsCyberSecurity />} />
         <Route path='/products/ai-solutions' element={<AISolutions />} />
+        <Route path='/services/ai-intelligence' element={<AiIntelligence />} />
+        <Route path='/services/operational-continuity' element={<OperationalContinuity />} />
+        <Route path='/resources' element={<Resources />} />
         <Route path='/contact' element={<Contact />} />
 
       </Routes>

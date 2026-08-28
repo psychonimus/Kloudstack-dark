@@ -22,8 +22,14 @@ const LeadershipSection = () => {
         {
             name : "Seshagiri Iyer",
             position : "Co-Founder & Chief Technology Officer (CTO)",
-            image : "/images/profile.png",
+            image : "/images/sheshagiri-iyer.png",
             description : "G. Seshagiri Iyer, Founder and CTO, leads KloudStack’s technological strategy and advanced engineering capabilities."
+        },
+        {
+            name : "Jawad Shaikh",
+            position : "Director - Microsoft Services",
+            image : "/images/jawad-sir.png",
+            description : "Jawad Shaikh is a senior enterprise architect and technology leader with over 17 years of experience driving cloud transformation, digital modernization, and enterprise IT strategy." 
         },
         {
             name : "Jawad Shaikh",

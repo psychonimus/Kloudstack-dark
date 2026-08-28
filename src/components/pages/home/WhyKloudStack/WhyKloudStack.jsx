@@ -16,8 +16,8 @@ const features = [
                 <polyline points="60,36 58,32 54,34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         ),
-        title: '24*7 Managed\nServices',
-        description: 'Develop unique, innovative solutions that foster differentiation.',
+        title: 'Business First Thinking',
+        description: 'Every solution begins with your business goals.',
     },
     {
         id: 'ai-infrastructure',
@@ -29,8 +29,8 @@ const features = [
                 <path d="M14 44 L15 48 L19 49 L15 50 L14 54 L13 50 L9 49 L13 48 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" fill="none" />
             </svg>
         ),
-        title: 'AI Driven\nInfrastructure',
-        description: 'Develop unique, innovative solutions that foster differentiation.',
+        title: 'AI That Delivers',
+        description: 'Practicle AI solutions that create measureable business impact',
     },
     {
         id: 'zero-trust',
@@ -45,8 +45,8 @@ const features = [
                 <circle cx="50" cy="32" r="3" fill="currentColor" opacity="0.7" />
             </svg>
         ),
-        title: 'Zero Trust\nSecurity',
-        description: 'Develop unique, innovative solutions that foster differentiation.',
+        title: 'Security Built In',
+        description: 'Cyber resilience is embedded into every layer, not added as an afterthought.',
     },
     {
         id: 'multicloud',
@@ -64,8 +64,20 @@ const features = [
                 <line x1="44" y1="50" x2="32" y2="56" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
             </svg>
         ),
-        title: 'Multicloud\nArchitecture',
-        description: 'Develop unique, innovative solutions that foster differentiation.',
+        title: 'Cloud Without Complexity',
+        description: 'Scalable cloud and hybrid environments designed for agility and performance.',
+    },
+    {
+        id: 'experience',
+        icon: (
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                {/* Shield/Badge with Star for Experience */}
+                <path d="M32 6 C32 6 16 12 16 24 C16 38 32 58 32 58 C32 58 48 38 48 24 C48 12 32 6 32 6 Z" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M32 18 L35.5 25.5 L43.5 26.5 L37.5 32 L39.5 40 L32 36 L24.5 40 L26.5 32 L20.5 26.5 L28.5 25.5 L32 18 Z" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        ),
+        title: 'Experience That Matters',
+        description: 'Decades of collective expertise helping businesses navigate technology with confidence.',
     },
 ]
 

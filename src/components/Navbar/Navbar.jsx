@@ -4,6 +4,12 @@ import { NavLink, Link } from 'react-router-dom';
 import { motion, useAnimate, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
+import img1 from '/images/cyber-security.png'
+import img2 from '/images/cloud-2.png'
+import img3 from '/images/modular.png'
+import img4 from '/images/operational_continuity-2.png'
+import img5 from '/images/ai-and-security.png'
+
 const MotionNavLink = motion(NavLink);
 const MotionLink = motion(Link);
 
@@ -29,40 +35,49 @@ const PRODUCTS = [
     desc: 'Intelligent AI governance, compliance automation, and risk management for modern enterprises.',
     to: '/products/ai-solutions',
   },
+  {
+    icon: String.fromCodePoint(0x1F9E0),
+    name: 'LMS',
+    desc: 'Intelligent AI governance, compliance automation, and risk management for modern enterprises.',
+    to: '/products/lms',
+  },
 ];
 
 const SERVICES = [
   {
-    icon: String.fromCodePoint(0x2601, 0xFE0F),
-    name: 'Cloud Infrastructure',
-    desc: 'Design & deploy scalable multi-cloud environments on AWS, Azure and GCP.',
-    to: '/services/cloud-infrastructure',
+    id: 1,
+    img: img1,
+    title: 'Cybersecurity & ZTNA',
+    subtitle: 'Pervasive End-to-End Security, Zero Trust Network Access, WAAP, Extended Detection & Response (XDR), and global compliance frameworks.',
+    url: '/services/cyber-security',
   },
   {
-    icon: String.fromCodePoint(0x1F512),
-    name: 'Cyber Defense & Compliance',
-    desc: 'Zero-Trust security, ZTNA, and regulatory frameworks — GDPR, HIPAA, DPDP.',
-    to: '/services/cyber-security'
+    id: 2,
+    img: img5,
+    title: 'AI & Security Intelligence',
+    subtitle: 'End-to-end artificial intelligence strategies, predictive threat intelligence, automated compliance, and intelligent SOC augmentation.',
+    url: '/services/ai-intelligence',
   },
   {
-    icon: String.fromCodePoint(0x2699, 0xFE0F),
-    name: 'DevOps & Automation',
-    desc: 'CI/CD pipelines, GitOps workflows, and infrastructure-as-code at scale.',
+    id: 3,
+    img: img2,
+    title: 'Cloud & Hybrid Foundations',
+    subtitle: 'Seamless workload migration, infrastructure modernization, high-availability enterprise networking, and cost-optimized delivery.',
+    url: '/services/cloud-infrastructure',
   },
   {
-    icon: String.fromCodePoint(0x1F4CA),
-    name: 'Observability & AIOps',
-    desc: 'Unified logging, distributed tracing, and intelligent alerting across your stack.',
+    id: 4,
+    img: img4,
+    title: 'Operational Continuity',
+    subtitle: 'Next-generation SOC & NOC intelligence centers ensuring zero-downtime resilience and complete product lifecycle management.',
+    url: '/services/operational-continuity',
   },
   {
-    icon: String.fromCodePoint(0x1F91D),
-    name: 'Vendor & Cloud Readiness',
-    desc: 'Vendor-agnostic advisory eliminating platform lock-in and modernising estates.',
-  },
-  {
-    icon: String.fromCodePoint(0x1F3AF),
-    name: 'Business-IT Alignment',
-    desc: 'Translating boardroom imperatives into governed, production-ready tech frameworks.',
+    id: 5,
+    img: img3,
+    title: 'Modular Open-Source Stack',
+    subtitle: 'Accelerating modern app engineering via scalable microservices frameworks, IaC automated testing, and containerized deployment.',
+    url: '',
   },
 ];
 
@@ -217,7 +232,7 @@ const Navbar = () => {
           style={{ cursor: isExpanded ? 'default' : 'pointer' }}
         >
           <motion.div className="nav-logo-wrap" variants={logoVariants}>
-            <img src="/images/Kloudstack-Logo.svg" alt="KloudStack" className="nav-logo" />
+            <Link to='/'><img src="/images/Kloudstack-Logo.svg" alt="KloudStack" className="nav-logo" /></Link>
           </motion.div>
 
           <motion.div className="nav-links-wrap" style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}>
@@ -305,27 +320,23 @@ const Navbar = () => {
               <div className="services-dropdown-grid">
                 {SERVICES.map((svc, idx) => (
                   <MotionLink
-                    key={svc.name}
-                    to={svc.to || "/services"}
+                    key={svc.title}
+                    to={svc.url || "/services"}
                     className="svc-card"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.04 + 0.04 }}
                     onClick={() => setServicesOpen(false)}
                   >
-                    <span className="svc-icon">{svc.icon}</span>
+                    <img src={svc.img} alt={svc.title} className="svc-icon" style={{ width: '28px', height: '28px', objectFit: 'contain', background: 'transparent' }} />
                     <div className="svc-text">
-                      <span className="svc-name">{svc.name}</span>
-                      <span className="svc-desc">{svc.desc}</span>
+                      <span className="svc-name">{svc.title}</span>
+                      <span className="svc-desc">{svc.subtitle}</span>
                     </div>
                   </MotionLink>
                 ))}
               </div>
-              <div className="services-dropdown-footer">
-                <a href="/services" className="svc-footer-link" onClick={() => setServicesOpen(false)}>
-                  View all services &#8594;
-                </a>
-              </div>
+              
             </motion.div>
           )}
         </AnimatePresence>,
@@ -345,9 +356,9 @@ const Navbar = () => {
               onMouseEnter={openProducts}
               onMouseLeave={scheduleCloseProducts}
             >
-              <div className="products-dropdown-header">
+              {/* <div className="products-dropdown-header">
                 <span className="products-dropdown-label">Our Products</span>
-              </div>
+              </div> */}
               <div className="products-dropdown-grid">
                 {PRODUCTS.map((prd, idx) => (
                   <MotionLink
@@ -429,13 +440,13 @@ const Navbar = () => {
                             >
                               {SERVICES.map((svc) => (
                                 <Link
-                                  key={svc.name}
-                                  to={svc.to || "/services"}
+                                  key={svc.title}
+                                  to={svc.url || "/services"}
                                   className="mobile-svc-item"
                                   onClick={() => { setMobileServicesOpen(false); setMobileOpen(false); }}
                                 >
-                                  <span className="mobile-svc-icon">{svc.icon}</span>
-                                  <span className="mobile-svc-name">{svc.name}</span>
+                                  <img src={svc.img} alt={svc.title} className="mobile-svc-icon" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                                  <span className="mobile-svc-name">{svc.title}</span>
                                 </Link>
                               ))}
                             </motion.div>

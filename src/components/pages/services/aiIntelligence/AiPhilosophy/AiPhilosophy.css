@@ -1,0 +1,234 @@
+/* ══════════════════════════════════════════
+   AI PHILOSOPHY / DUAL PILLAR SECTION
+   ══════════════════════════════════════════ */
+
+.aip-section {
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.aip-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 74, 0.3), transparent);
+}
+
+/* Ambient Glow Orbs */
+.aip-glow-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(120px);
+  opacity: 0.06;
+}
+
+.aip-glow-orb--left {
+  top: -100px;
+  left: -150px;
+  background: radial-gradient(circle, #d4a04a 0%, transparent 70%);
+}
+
+.aip-glow-orb--right {
+  bottom: -100px;
+  right: -150px;
+  background: radial-gradient(circle, #d4a04a 0%, transparent 70%);
+}
+
+/* ── Header ── */
+.aip-header {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Pillars Grid ── */
+.aip-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Pillar Card */
+.aip-pillar-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.38s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.aip-pillar-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 200px;
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.aip-pillar-card:hover {
+  border-color: rgba(212, 160, 74, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 40px rgba(212, 160, 74, 0.06);
+}
+
+/* Top Accent Bar */
+.aip-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aip-pillar-card:hover .aip-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 16px rgba(212, 160, 74, 0.65);
+}
+
+/* Card Header */
+.aip-card-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.aip-icon-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(212, 160, 74, 0.08);
+  border: 1px solid rgba(212, 160, 74, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4a04a;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.aip-pillar-card:hover .aip-icon-badge {
+  background: rgba(212, 160, 74, 0.14);
+  border-color: rgba(212, 160, 74, 0.4);
+  box-shadow: 0 0 20px rgba(212, 160, 74, 0.25);
+}
+
+.aip-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aip-roman {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: rgba(212, 160, 74, 0.25);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.aip-pillar-card:hover .aip-roman {
+  color: rgba(212, 160, 74, 0.5);
+}
+
+.aip-label {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4a04a;
+}
+
+/* Title & Description */
+.aip-pillar-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
+}
+
+.aip-pillar-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0 0 28px 0;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Tags */
+.aip-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.aip-tag-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 4px 12px;
+  transition: all 0.25s ease;
+}
+
+.aip-pillar-card:hover .aip-tag-pill {
+  background: rgba(212, 160, 74, 0.07);
+  border-color: rgba(212, 160, 74, 0.22);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .aip-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aip-pillar-card {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aip-section {
+    padding: 70px 0;
+  }
+}

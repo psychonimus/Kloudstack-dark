@@ -135,7 +135,7 @@ const ImageAccordion = () => {
                   animate={{ opacity: isActive ? 1 : 0.35 }}
                   transition={{ duration: 0.35 }}
                 >
-                  {String(item.id + 1).padStart(2, '0')}
+                  {String(item.id).padStart(2, '0')}
                 </motion.span>
               </motion.div>
             )

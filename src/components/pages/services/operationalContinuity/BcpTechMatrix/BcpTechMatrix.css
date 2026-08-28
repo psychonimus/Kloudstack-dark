@@ -1,0 +1,217 @@
+/* ══════════════════════════════════════════
+   BCP TECHNOLOGY ORCHESTRATION MATRIX
+   ══════════════════════════════════════════ */
+
+.btm-section {
+  width: 100%;
+  /* padding: 100px 0; */
+  position: relative;
+  color: #ffffff;
+}
+
+.btm-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+/* ── Header ── */
+.btm-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* ── Dual Grid ── */
+.btm-dual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* Partner Panel */
+.btm-partner-panel {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.btm-partner-panel::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 180px;
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.btm-partner-panel:hover {
+  border-color: rgba(212, 160, 74, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* Top Accent Bar */
+.btm-panel-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 14px rgba(212, 160, 74, 0.5);
+}
+
+/* Partner Header Row */
+.btm-partner-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.btm-partner-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: rgba(212, 160, 74, 0.08);
+  border: 1px solid rgba(212, 160, 74, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4a04a;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.btm-partner-panel:hover .btm-partner-logo {
+  background: rgba(212, 160, 74, 0.14);
+  border-color: rgba(212, 160, 74, 0.4);
+  box-shadow: 0 0 20px rgba(212, 160, 74, 0.2);
+}
+
+.btm-partner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btm-partner-tagline {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4a04a;
+}
+
+.btm-partner-name {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Overview */
+.btm-partner-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0 0 28px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Divider */
+.btm-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 160, 74, 0.25), transparent);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Capabilities List */
+.btm-capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.btm-cap-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.btm-cap-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.65);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.btm-partner-panel:hover .btm-cap-icon {
+  background: rgba(212, 160, 74, 0.1);
+  border-color: rgba(212, 160, 74, 0.3);
+  color: #f5c96a;
+}
+
+.btm-cap-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btm-cap-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.btm-cap-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .btm-dual-grid {
+    grid-template-columns: 1fr;
+  }
+  .btm-partner-panel {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btm-section {
+    padding: 70px 0;
+  }
+}

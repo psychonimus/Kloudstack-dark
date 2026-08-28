@@ -41,7 +41,7 @@
 }
 
 .nav-logo {
-  width: 200px;
+  width: 220px;
   height: auto;
   display: block;
 }
@@ -180,7 +180,7 @@
 /* The dropdown panel — sits below the pill */
 .services-dropdown {
   position: fixed;
-  top: 84px;            /* navbar-top(20) + nav-height(52) + gap(12) */
+  top: 90px;            /* navbar-top(20) + nav-height(52) + gap(12) */
   left: 20%;
   transform: translateX(-50%);
   width: min(900px, 92vw);
@@ -279,9 +279,10 @@
 ══════════════════════════════════════════════ */
 
 .products-dropdown {
-  width: min(480px, 92vw);
-  left: 42%;
+  /* width: min(480px, 92vw);
+  left: 42%; */
   padding: 20px 20px 20px;
+  /* margin-top: 5px; */
 }
 
 .products-dropdown-header {
@@ -301,7 +302,7 @@
 
 .products-dropdown-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
 }
 
