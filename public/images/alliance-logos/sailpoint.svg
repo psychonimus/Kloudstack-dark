@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- SailPoint Icon -->
+  <g transform="translate(10, 10)">
+    <path d="M4 36 C10 36, 22 24, 28 8 C18 16, 12 28, 4 36 Z" fill="#0071CE"/>
+    <path d="M14 38 C22 38, 34 22, 38 4 C30 14, 22 28, 14 38 Z" fill="#002D72"/>
+    <circle cx="34" cy="8" r="3" fill="#00A3E0"/>
+  </g>
+  <!-- Text -->
+  <text x="56" y="37" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="20" fill="#FFFFFF" letter-spacing="0.5">Sail<tspan fill="#0071CE">Point</tspan></text>
+</svg>

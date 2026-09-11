@@ -72,7 +72,9 @@ const CyberSecurity = () => {
                 </div>
             </section>
 
-            <ApplicationPerimeter />
+            <div className="mt-5">
+                <ApplicationPerimeter />
+            </div>
             <UnifiedDataGovernance />
             <DPDPAAssessment />
             <CyberServiceCatalogue />

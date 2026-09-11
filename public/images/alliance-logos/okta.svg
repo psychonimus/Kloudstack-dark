@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Okta Icon -->
+  <g transform="translate(14, 13)">
+    <circle cx="17" cy="17" r="15" stroke="#007DC1" stroke-width="6.5"/>
+  </g>
+  <!-- Text -->
+  <text x="56" y="38" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="24" fill="#FFFFFF" letter-spacing="1">okta</text>
+</svg>

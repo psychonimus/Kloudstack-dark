@@ -218,6 +218,104 @@
   gap: 40px;
 }
 
+/* ── Two-column layout ── */
+.wp-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.wp-carousel-col {
+  position: relative;
+}
+
+.wp-carousel-sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.wp-cards-col {
+  min-width: 0;
+}
+
+/* ── Doc Preview Carousel ── */
+.doc-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.doc-carousel-frame {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: visible;
+}
+
+.doc-carousel-img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(212, 160, 74, 0.18);
+  position: relative;
+  z-index: 2;
+  object-fit: cover;
+}
+
+/* stacked decorative pages */
+.doc-carousel-page {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: rgba(212, 160, 74, 0.05);
+  border: 1px solid rgba(212, 160, 74, 0.12);
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.doc-carousel-page--1 {
+  transform: translateX(8px) translateY(8px) rotate(2.5deg);
+  z-index: 1;
+}
+
+.doc-carousel-page--2 {
+  transform: translateX(15px) translateY(15px) rotate(5deg);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+/* dot navigation */
+.doc-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+.doc-dot--active {
+  background: #d4a04a;
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(212, 160, 74, 0.55);
+}
+
+
+
 /* ── White Paper Card ── */
 .wp-card {
   display: grid;
@@ -252,96 +350,50 @@
   opacity: 1;
 }
 
-/* ── Preview panel ── */
+/* ── Preview panel (now hosts the carousel) ── */
 .wp-preview {
   position: relative;
-  padding: 32px 24px;
   background: #080808;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
-  overflow: visible;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.wp-preview-inner {
-  position: relative;
-  width: 160px;
+/* Override carousel styles when inside wp-preview */
+.wp-preview .doc-carousel {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  gap: 16px;
+  padding: 24px 20px;
+  justify-content: center;
+}
+
+.wp-preview .doc-carousel-frame {
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.wp-preview .doc-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
-  overflow: hidden;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(212, 160, 74, 0.15);
-  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s ease;
-  z-index: 2;
 }
 
-.wp-card--hovered .wp-preview-inner {
-  transform: scale(1.04) rotate(-1deg);
-  box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(212, 160, 74, 0.35);
+.wp-preview .doc-carousel-page--1 {
+  transform: translateX(5px) translateY(5px) rotate(1.5deg);
+}
+.wp-preview .doc-carousel-page--2 {
+  transform: translateX(10px) translateY(10px) rotate(3deg);
 }
 
-.wp-img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  display: block;
-}
-
-.wp-preview-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.38);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.wp-card--hovered .wp-preview-overlay {
-  opacity: 1;
-}
-
-.wp-preview-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-}
-
-/* shadow pages effect */
-.wp-shadow-page {
-  position: absolute;
-  width: 155px;
-  aspect-ratio: 3/4;
-  background: rgba(212, 160, 74, 0.06);
-  border: 1px solid rgba(212, 160, 74, 0.12);
-  border-radius: 10px;
-  z-index: 1;
-  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1);
-}
-.wp-shadow-page--1 {
-  transform: translateX(6px) translateY(6px) rotate(2deg);
-}
-.wp-shadow-page--2 {
-  transform: translateX(11px) translateY(11px) rotate(4deg);
-  opacity: 0.6;
-}
-.wp-card--hovered .wp-shadow-page--1 {
-  transform: translateX(10px) translateY(10px) rotate(3.5deg);
-}
-.wp-card--hovered .wp-shadow-page--2 {
-  transform: translateX(18px) translateY(18px) rotate(6deg);
-}
 
 /* ── Content panel ── */
 .wp-content {
@@ -506,15 +558,37 @@
 
 /* top gradient band */
 .blog-card-band {
-  height: 160px;
+  height: 200px;
   width: 100%;
   flex-shrink: 0;
   position: relative;
-  transition: filter 0.35s ease;
+  overflow: hidden;
+  background: #080808;
 }
 
-.blog-card--hovered .blog-card-band {
-  filter: brightness(1.15);
+.blog-card-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1), filter 0.35s ease;
+}
+
+.blog-card--hovered .blog-card-cover-img {
+  transform: scale(1.06);
+  filter: brightness(1.1);
+}
+
+.blog-card-gradient-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.blog-card-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(13, 13, 13, 0.88) 100%);
+  pointer-events: none;
 }
 
 /* accent line on hover bottom of card */
@@ -603,6 +677,16 @@
   justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   margin-top: auto;
+}
+
+.blog-card-footer-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
 }
 
 .blog-author {
@@ -720,6 +804,10 @@
   .wp-card {
     grid-template-columns: 200px 1fr;
   }
+  .wp-layout {
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -734,6 +822,16 @@
   }
   .wp-content {
     padding: 28px 28px;
+  }
+  .wp-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .wp-carousel-sticky {
+    position: static;
+  }
+  .doc-carousel-frame {
+    max-width: 260px;
   }
 }
 

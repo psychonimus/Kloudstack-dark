@@ -214,6 +214,8 @@
   text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  border: 1px solid rgba(212, 160, 74, 0.08);
+    background: rgba(212, 160, 74, 0.03);
 }
 
 .svc-card:hover {
@@ -227,6 +229,7 @@
   flex-shrink: 0;
   margin-top: 1px;
   filter: grayscale(0.2);
+  color: #d4a04a;
 }
 
 .svc-text {

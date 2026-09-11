@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Defender Shield Icon -->
+  <g transform="translate(10, 8)">
+    <defs>
+      <linearGradient id="defGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0078D4"/>
+        <stop offset="100%" stop-color="#005A9E"/>
+      </linearGradient>
+      <linearGradient id="defGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#50E6FF"/>
+        <stop offset="100%" stop-color="#00A4EF"/>
+      </linearGradient>
+    </defs>
+    <!-- Shield Outline / Body -->
+    <path d="M22 2 L6 8 V22 C6 33 13 41 22 44 C31 41 38 33 38 22 V8 Z" fill="url(#defGrad1)"/>
+    <path d="M22 6 L10 11 V22 C10 30 15 37 22 40 C29 37 34 30 34 22 V11 Z" fill="#0E2841"/>
+    <!-- Quarter colors inside shield -->
+    <path d="M22 8 L12 12 V22 H22 Z" fill="#0078D4"/>
+    <path d="M22 8 V22 H32 V12 Z" fill="url(#defGrad2)"/>
+    <path d="M22 22 H12 C12.5 28 16.5 33.5 22 36.5 Z" fill="#005A9E"/>
+    <path d="M22 22 V36.5 C27.5 33.5 31.5 28 32 22 Z" fill="#0078D4"/>
+  </g>
+  <!-- Text -->
+  <text x="56" y="27" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#00A4EF" letter-spacing="1">MICROSOFT</text>
+  <text x="56" y="44" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" letter-spacing="0.5">Defender</text>
+</svg>

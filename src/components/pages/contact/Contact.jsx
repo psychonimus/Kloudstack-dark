@@ -53,7 +53,7 @@ const DETAILS = [
   {
     icon: '📍',
     label: 'Address',
-    value: 'J-201, Tower 5, International Infotech Park, Sector 30, Vashi, Navi Mumbai - 400703, MH, India',
+    value: '1703, G-Square Business Park, Opp. Sanpada Station, Sector 30, Vashi, Navi Mumbai - 400703, MH, India.',
     href: null,
   },
   {

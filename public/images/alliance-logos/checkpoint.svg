@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Check Point Brand Emblem -->
+  <circle cx="30" cy="30" r="16" fill="#EC1C5A"/>
+  <circle cx="30" cy="30" r="11" fill="#121417"/>
+  <circle cx="30" cy="30" r="7" fill="#EC1C5A"/>
+  <path d="M30 6 A 24 24 0 0 1 54 30" stroke="#EC1C5A" stroke-width="4" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="62" y="37" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="20" fill="#FFFFFF" letter-spacing="1.5">CHECK POINT</text>
+</svg>

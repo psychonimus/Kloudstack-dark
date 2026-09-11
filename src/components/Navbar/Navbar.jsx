@@ -4,11 +4,11 @@ import { NavLink, Link } from 'react-router-dom';
 import { motion, useAnimate, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
-import img1 from '/images/cyber-security.png'
-import img2 from '/images/cloud-2.png'
-import img3 from '/images/modular.png'
-import img4 from '/images/operational_continuity-2.png'
-import img5 from '/images/ai-and-security.png'
+import { MdOutlineSecurity } from 'react-icons/md';
+import { LuBrainCircuit } from 'react-icons/lu';
+import { BsCloudFog2 } from 'react-icons/bs';
+import { TbHeartbeat } from 'react-icons/tb';
+import { VscPackage } from 'react-icons/vsc';
 
 const MotionNavLink = motion(NavLink);
 const MotionLink = motion(Link);
@@ -36,9 +36,9 @@ const PRODUCTS = [
     to: '/products/ai-solutions',
   },
   {
-    icon: String.fromCodePoint(0x1F9E0),
-    name: 'LMS',
-    desc: 'Intelligent AI governance, compliance automation, and risk management for modern enterprises.',
+    icon: String.fromCodePoint(0x1F393),
+    name: 'GoldCrest LMS',
+    desc: 'AWS Qualified enterprise LMS — AI-driven learning paths, assessments, and real-time impact analytics.',
     to: '/products/lms',
   },
 ];
@@ -46,37 +46,37 @@ const PRODUCTS = [
 const SERVICES = [
   {
     id: 1,
-    img: img1,
+    icon: <MdOutlineSecurity size={22} />,
     title: 'Cybersecurity & ZTNA',
-    subtitle: 'Pervasive End-to-End Security, Zero Trust Network Access, WAAP, Extended Detection & Response (XDR), and global compliance frameworks.',
+    subtitle: 'Zero-trust architecture, WAAP, XDR, and end-to-end compliance frameworks.',
     url: '/services/cyber-security',
   },
   {
     id: 2,
-    img: img5,
+    icon: <LuBrainCircuit size={22} />,
     title: 'AI & Security Intelligence',
-    subtitle: 'End-to-end artificial intelligence strategies, predictive threat intelligence, automated compliance, and intelligent SOC augmentation.',
+    subtitle: 'Agentic AI integration, predictive analytics, and intelligent process automation.',
     url: '/services/ai-intelligence',
   },
   {
     id: 3,
-    img: img2,
+    icon: <BsCloudFog2 size={22} />,
     title: 'Cloud & Hybrid Foundations',
-    subtitle: 'Seamless workload migration, infrastructure modernization, high-availability enterprise networking, and cost-optimized delivery.',
+    subtitle: 'Workload migration, hybrid networking, and cost-optimized cloud delivery.',
     url: '/services/cloud-infrastructure',
   },
   {
     id: 4,
-    img: img4,
+    icon: <TbHeartbeat size={22} />,
     title: 'Operational Continuity',
-    subtitle: 'Next-generation SOC & NOC intelligence centers ensuring zero-downtime resilience and complete product lifecycle management.',
+    subtitle: 'SOC & NOC intelligence centers ensuring zero-downtime resilience.',
     url: '/services/operational-continuity',
   },
   {
     id: 5,
-    img: img3,
+    icon: <VscPackage size={22} />,
     title: 'Modular Open-Source Stack',
-    subtitle: 'Accelerating modern app engineering via scalable microservices frameworks, IaC automated testing, and containerized deployment.',
+    subtitle: 'Microservices, IaC, and containerized deployment for modern engineering.',
     url: '',
   },
 ];
@@ -328,7 +328,7 @@ const Navbar = () => {
                     transition={{ delay: idx * 0.04 + 0.04 }}
                     onClick={() => setServicesOpen(false)}
                   >
-                    <img src={svc.img} alt={svc.title} className="svc-icon" style={{ width: '28px', height: '28px', objectFit: 'contain', background: 'transparent' }} />
+                    <span className="svc-icon">{svc.icon}</span>
                     <div className="svc-text">
                       <span className="svc-name">{svc.title}</span>
                       <span className="svc-desc">{svc.subtitle}</span>
@@ -370,7 +370,7 @@ const Navbar = () => {
                     transition={{ delay: idx * 0.06 + 0.04 }}
                     onClick={() => setProductsOpen(false)}
                   >
-                    <span className="svc-icon">{prd.icon}</span>
+                    <div className="svc-icon d-flex align-items-center">{prd.icon}</div>
                     <div className="svc-text">
                       <span className="svc-name">{prd.name}</span>
                       <span className="svc-desc">{prd.desc}</span>
@@ -445,8 +445,10 @@ const Navbar = () => {
                                   className="mobile-svc-item"
                                   onClick={() => { setMobileServicesOpen(false); setMobileOpen(false); }}
                                 >
-                                  <img src={svc.img} alt={svc.title} className="mobile-svc-icon" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
-                                  <span className="mobile-svc-name">{svc.title}</span>
+                                  <div className="d-flex align-items-center">
+                                    <span className="mobile-svc-icon">{svc.icon}</span>
+                                    <span className="mobile-svc-name">{svc.title}</span>
+                                  </div>
                                 </Link>
                               ))}
                             </motion.div>

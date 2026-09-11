@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './DefenseEcosystem.css';
 
+
 const PARTNER_GROUPS = [
   {
     id: 'perimeter',
@@ -9,7 +10,7 @@ const PARTNER_GROUPS = [
     partners: [
       {
         name: 'Fortinet',
-        logo : '/images/alliance-logos/fortniet.svg',
+        logo: '/images/alliance-logos/fortniet.svg',
         role: 'Perimeter Firewall Defense',
         desc: 'Enterprise-grade next-generation firewalls for comprehensive perimeter security and advanced threat protection.',
         tags: ['NGFW', 'Perimeter Defense'],
@@ -17,17 +18,31 @@ const PARTNER_GROUPS = [
       {
         name: 'Zscaler',
         role: 'ZTNA & CSPM',
-        logo : '/images/alliance-logos/zscaler.svg',
+        logo: '/images/alliance-logos/zscaler.svg',
         desc: 'Zero Trust Network Access, Cloud Security Posture Management, and CASB capabilities for cloud-native architectures.',
         tags: ['ZTNA', 'CASB', 'CSPM'],
       },
       {
         name: 'Netskope',
-        logo : '/images/alliance-logos/netskope.svg',
+        logo: '/images/alliance-logos/netskope.svg',
         role: 'CASB & Secure Access',
         desc: 'Inline cloud security, data protection, and secure access for modern hybrid workforces accessing cloud services.',
         tags: ['CASB', 'SWG', 'Zero Trust'],
       },
+      {
+        name: 'Cloudflare',
+        logo: '/images/alliance-logos/cloudflare.svg',
+        role: 'ZTNA & Edge Security',
+        desc: 'Edge security, Zero Trust Network Access (ZTNA), Secure Web Gateway, and application protection through a globally distributed network.',
+        tags: ['Zero Trust Network Access', 'Secure Web Gateway', 'DDoS & WAF Protection']
+      },
+      {
+        name: 'Akamai',
+        logo: '/images/alliance-logos/akamai.svg',
+        role: 'Edge Security & WAF',
+        desc: 'Enterprise-grade edge security, application protection, and Zero Trust access solutions for digital assets and applications.',
+        tags: ['Edge Security & WAF', 'Zero Trust Enterprise Access', 'App & API Protection']
+      }
     ],
   },
   {
@@ -37,24 +52,46 @@ const PARTNER_GROUPS = [
       {
         name: 'i Raje',
         role: 'PIM / PAM',
-        logo : '/images/alliance-logos/iraje.svg',
+        logo: '/images/alliance-logos/iraje.svg',
         desc: 'Specialized Privileged Identity Management and Privileged Access Management pathways for sensitive enterprise accounts.',
         tags: ['PIM', 'PAM', 'Privileged Access'],
       },
       {
         name: 'BigFix',
         role: 'Patch & Compliance',
-        logo : '/images/alliance-logos/bigfix.svg',
+        logo: '/images/alliance-logos/bigfix.svg',
         desc: 'Automated endpoint patch management, configuration compliance validation, and software distribution across large estates.',
         tags: ['Patch Mgmt', 'Compliance'],
       },
       {
         name: 'ManageEngine',
-        logo : '/images/alliance-logos/manageengine.svg',
+        logo: '/images/alliance-logos/manageengine.svg',
         role: 'SSO & MFA',
         desc: 'Unified identity platform covering SSO, MFA validation loops, and IT operations management for access lifecycle control.',
         tags: ['SSO', 'MFA', 'IAM'],
       },
+      {
+
+        name: 'SailPoint',
+        logo: '/images/alliance-logos/sailpoint.svg',
+        role: 'IGA',
+        desc: 'Identity Governance and Administration (IGA) platform enabling automated access management and compliance.',
+        tags: ['Identity Governance', 'Access Management Automation', 'Compliance & Audit Controls']
+      },
+      {
+        name: 'Saviynt',
+        role: 'IGA',
+        logo: '/images/alliance-logos/saviynt.svg',
+        desc: 'Cloud-native identity security platform supporting identity governance, access management, and lifecycle automation.',
+        tags: ['Cloud-Native IGA', 'Identity Lifecycle Automation', 'Application Access Governance']
+      },
+      {
+        name: 'Okta',
+        logo: '/images/alliance-logos/okta.svg',
+        role: 'IAM',
+        desc: 'Identity and Access Management (IAM) platform offering secure authentication, SSO, and user lifecycle management.',
+        tags: ['Single Sign-On (SSO)', 'Multi-Factor Authentication', 'User Lifecycle Management']
+      }
     ],
   },
   {
@@ -64,12 +101,32 @@ const PARTNER_GROUPS = [
       {
         name: 'Trend Micro',
         role: 'EDR & XDR',
-        logo : '/images/alliance-logos/trendmicro.svg',
+        logo: '/images/alliance-logos/trendmicro.svg',
         desc: 'Endpoint Detection and Response combined with Extended Detection and Response for comprehensive behavioral infrastructure visibility across the enterprise.',
         tags: ['EDR', 'XDR', 'Behavioral Analytics'],
       },
+      {
+        name: 'Sophos',
+        role: 'MDR',
+        logo: '/images/alliance-logos/sophos.svg',
+        desc: 'Endpoint security and Managed Detection & Response (MDR) solution focused on proactive threat monitoring and response.',
+        tags: ['Managed Detection & Response', 'Endpoint Threat Hunting', 'Synchronized Security']
+      }
     ],
   },
+  {
+    id: 'application-api',
+    category: 'Application & API Security',
+    partners: [
+      {
+        name: 'Burp Suite',
+        logo: '/images/alliance-logos/burpsuite.svg',
+        role: 'Application Security',
+        desc: 'Extensive experience in utilizing Burp Suite Professional for comprehensive web application and API security assessments, identifying vulnerabilities aligned with OWASP Top 10 and industry best practices. Our expertise includes manual penetration testing, automated vulnerability discovery, API security testing, authentication and session management analysis, and secure application validation across development and production environments.',
+        tags: ['Manual Penetration Testing', 'Automated Vulnerability Discovery', 'API Security Testing']
+      }
+    ]
+  }
 ];
 
 const containerVariants = {
@@ -130,7 +187,7 @@ const DefenseEcosystem = () => {
                   <motion.div key={pIdx} className="de-partner-card" variants={itemVariants}>
                     <div className="de-card-top-bar" />
                     <div className="de-card-header">
-                      <img src={partner.logo} style={{width:"140px"}} alt={partner.name} />
+                      <img src={partner.logo} style={{ width: "140px" }} alt={partner.name} />
                       <span className="de-role-tag">{partner.role}</span>
                     </div>
                     <h3 className="de-partner-name">{partner.name}</h3>

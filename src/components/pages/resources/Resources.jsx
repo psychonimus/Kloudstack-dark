@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { FaDotCircle } from 'react-icons/fa'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import './Resources.css'
@@ -18,73 +19,78 @@ const WHITE_PAPERS = [
       'Continuous verification & least-privilege access models',
       'Compliance alignment: NIST 800-207, ISO 27001, SOC 2',
     ],
-    downloadHref: '#',
+    downloadHref: '/docs/kloudstack-whitepaper.pdf',
     pages: '38 Pages',
     year: '2025',
   },
-  {
-    id: 2,
-    image: '/images/whitepaper-2.png',
-    tag: 'AI & Cyber Intelligence',
-    title: 'AI-Driven SOC Transformation: Redefining Enterprise Cyber Resilience',
-    subtitle:
-      'How next-generation AI automation is radically reducing Mean Time to Detect and Respond (MTTD/MTTR) in enterprise SOC operations.',
-    keypoints: [
-      'AI/ML-powered threat detection & predictive analytics',
-      'Automated SOAR playbooks reducing analyst fatigue',
-      'XDR integration with unified telemetry pipelines',
-      'Real-world MTTD reduction benchmarks & ROI analysis',
-    ],
-    downloadHref: '#',
-    pages: '44 Pages',
-    year: '2025',
-  },
+  // {
+  //   id: 2,
+  //   image: '/images/whitepaper-2.png',
+  //   tag: 'AI & Cyber Intelligence',
+  //   title: 'AI-Driven SOC Transformation: Redefining Enterprise Cyber Resilience',
+  //   subtitle:
+  //     'How next-generation AI automation is radically reducing Mean Time to Detect and Respond (MTTD/MTTR) in enterprise SOC operations.',
+  //   keypoints: [
+  //     'AI/ML-powered threat detection & predictive analytics',
+  //     'Automated SOAR playbooks reducing analyst fatigue',
+  //     'XDR integration with unified telemetry pipelines',
+  //     'Real-world MTTD reduction benchmarks & ROI analysis',
+  //   ],
+  //   downloadHref: '/docs/kloudstack-whitepaper.pdf',
+  //   pages: '44 Pages',
+  //   year: '2025',
+  // },
 ]
 
 /* ─── Blog Posts Data ─── */
 const BLOG_POSTS = [
   {
     id: 1,
-    category: 'Cloud Strategy',
-    readTime: '7 min read',
+    image: '/images/cybersecurity.png',
+    category: 'Cybersecurity Strategy',
+    readTime: '6 min read',
     date: 'Aug 12, 2025',
-    title: "Why Multi-Cloud Is No Longer Optional: A CTO Perspective on Workload Portability",
+    title: "Cybersecurity is No Longer an IT Budget. It’s a Business Growth Strategy",
     excerpt:
-      'As vendor lock-in risks escalate and regulatory pressures mount, enterprises are rearchitecting their infrastructure around portability-first principles.',
-    authorName: 'Shyaam Sunder',
-    authorRole: 'Chief Technology Officer',
-    authorImg: '/images/shyaam-sir.png',
+      'Today, cybersecurity has fundamentally transformed into a strategic business enabler—building trust, accelerating digital adoption, and unlocking revenue.',
     gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
     accentColor: '#5b9cf6',
+    link: '/resources/cybersecurity-growth-strategy',
   },
   {
     id: 2,
-    category: 'Cybersecurity',
+    image: '/images/zts.png',
+    category: 'Third-Party Risk',
     readTime: '5 min read',
     date: 'Jul 28, 2025',
-    title: 'Ransomware Readiness in 2025: Building a Layered Cyber Defense That Actually Works',
+    title: 'The Silent Cyber Risk: Third-Party Vendors Could Be Your Biggest Vulnerability',
     excerpt:
-      "Modern ransomware campaigns exploit trust gaps between security layers. Here is how to architect a defence posture that closes those gaps before attackers do.",
-    authorName: 'Jawad Siddiqui',
-    authorRole: 'Head of Cybersecurity',
-    authorImg: '/images/jawad-sir.png',
+      'Over 50% of organizations have experienced a breach caused by a third party. Here is why vendor risk is a board-level priority and how to architect a resilient vendor ecosystem.',
     gradient: 'linear-gradient(135deg, #1a0a0a 0%, #2d1010 100%)',
     accentColor: '#d4a04a',
+    link: '/resources/third-party-vendor-risk',
   },
   {
     id: 3,
-    category: 'AI & Automation',
-    readTime: '6 min read',
+    image: '/images/ai-and-security.png',
+    category: 'AI & Financial Security',
+    readTime: '7 min read',
     date: 'Jul 10, 2025',
-    title: 'From Reactive to Predictive: Deploying AI Agents in Enterprise IT Operations',
+    title: 'AI is Transforming Banking Faster Than Security Can Keep Up',
     excerpt:
-      'AIOps platforms are evolving from monitoring dashboards into autonomous reasoning agents. We explore real deployment patterns and the operational outcomes they unlock.',
-    authorName: 'Vishal Kapoor',
-    authorRole: 'VP – AI & Analytics',
-    authorImg: '/images/vishal-sir.png',
+      'From algorithmic credit to autonomous fraud detection, AI is reshaping banking. Here is why security teams struggle to keep pace and how to govern AI risk.',
     gradient: 'linear-gradient(135deg, #0a1a0a 0%, #102d10 100%)',
     accentColor: '#6be88a',
+    link: '/resources/ai-transforming-banking-security',
   },
+]
+
+/* ─── Doc Preview Carousel Images ─── */
+const CAROUSEL_SLIDES = [
+  '/docs/kswp-preview-1.png',
+  '/docs/kswp-preview-2.png',
+  '/docs/kswp-preview-3.png',
+  '/docs/kswp-preview-4.png',
 ]
 
 /* ─── Fade-up Wrapper ─── */
@@ -104,6 +110,52 @@ const FadeUp = ({ children, delay = 0, className = '' }) => {
   )
 }
 
+/* ─── Doc Preview Carousel ─── */
+const DocCarousel = () => {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % CAROUSEL_SLIDES.length)
+    }, 3200)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className="doc-carousel">
+      <div className="doc-carousel-frame">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current}
+            src={CAROUSEL_SLIDES[current]}
+            alt={`White Paper Preview ${current + 1}`}
+            className="doc-carousel-img"
+            initial={{ opacity: 0, y: 18, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -18, scale: 0.97 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </AnimatePresence>
+        {/* decorative stacked pages behind */}
+        <div className="doc-carousel-page doc-carousel-page--1" />
+        <div className="doc-carousel-page doc-carousel-page--2" />
+      </div>
+
+      {/* dot nav */}
+      <div className="doc-carousel-dots">
+        {CAROUSEL_SLIDES.map((_, idx) => (
+          <button
+            key={idx}
+            className={`doc-dot${idx === current ? ' doc-dot--active' : ''}`}
+            onClick={() => setCurrent(idx)}
+            aria-label={`Slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* ─── White Paper Card ─── */
 const WhitePaperCard = ({ paper, index }) => {
   const [hovered, setHovered] = useState(false)
@@ -115,17 +167,9 @@ const WhitePaperCard = ({ paper, index }) => {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        {/* Left — document preview */}
+        {/* Left — carousel preview */}
         <div className="wp-preview">
-          <div className="wp-preview-inner">
-            <img src={paper.image} alt={paper.title} className="wp-img" />
-            <div className="wp-preview-overlay">
-              <span className="wp-preview-label">Preview</span>
-            </div>
-          </div>
-          {/* decorative shadow pages */}
-          <div className="wp-shadow-page wp-shadow-page--1" />
-          <div className="wp-shadow-page wp-shadow-page--2" />
+          <DocCarousel />
         </div>
 
         {/* Right — content */}
@@ -177,8 +221,15 @@ const BlogCard = ({ post, index }) => {
         onMouseLeave={() => setHovered(false)}
         style={{ '--blog-accent': post.accentColor }}
       >
-        {/* Card top gradient band */}
-        <div className="blog-card-band" style={{ background: post.gradient }} />
+        {/* Card Cover Image */}
+        <div className="blog-card-band">
+          {post.image ? (
+            <img src={post.image} alt={post.title} className="blog-card-cover-img" />
+          ) : (
+            <div className="blog-card-gradient-bg" style={{ background: post.gradient }} />
+          )}
+          <div className="blog-card-cover-overlay" />
+        </div>
 
         {/* Content */}
         <div className="blog-card-body">
@@ -194,24 +245,19 @@ const BlogCard = ({ post, index }) => {
           <p className="blog-excerpt">{post.excerpt}</p>
         </div>
 
-        {/* Author + Read More */}
+        {/* Card Footer / Read More */}
         <div className="blog-card-footer">
-          <div className="blog-author">
-            <div className="blog-author-avatar">
-              <img src={post.authorImg} alt={post.authorName} />
-            </div>
-            <div className="blog-author-info">
-              <span className="blog-author-name">{post.authorName}</span>
-              <span className="blog-author-role">{post.authorRole}</span>
-            </div>
+          <div className="blog-card-footer-tag">
+            <FaDotCircle className="me-2 text-warning" size={8} />
+            Executive Insight
           </div>
 
-          <a href="#" className="blog-read-more">
+          <Link to={post.link || '/resources/cybersecurity-growth-strategy'} className="blog-read-more">
             Read Article
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="blog-arrow">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* accent line on hover */}
@@ -285,7 +331,7 @@ const Resources = () => {
             </p>
 
             {/* Stat pills */}
-            <div className="res-hero-stats">
+            {/* <div className="res-hero-stats">
               {[
                 { value: '12+', label: 'White Papers' },
                 { value: '40+', label: 'Expert Articles' },
@@ -296,7 +342,7 @@ const Resources = () => {
                   <span className="res-stat-label">{s.label}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -313,7 +359,7 @@ const Resources = () => {
             <div className="res-section-header">
               <SectionLabel>Research &amp; Publications</SectionLabel>
               <h2 className="res-section-title section-heading">
-                White Papers Technical Reports
+                White Papers &amp; Technical Reports
               </h2>
               <p className="res-section-desc text-start">
                 In-depth analyses from KloudStack's practice leads — each paper synthesises real-world

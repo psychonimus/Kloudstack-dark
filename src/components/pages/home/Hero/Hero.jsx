@@ -71,6 +71,13 @@ const Hero = () => {
         }
     }, [])
 
+    const scrollToServices = () => {
+        const element = document.getElementById('services-accordion')
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     return (
         <div className="hero-wrapper" ref={containerRef}>
             {/* Video background */}
@@ -123,7 +130,7 @@ const Hero = () => {
                 <p className="hero-subtitle">ACCELERATING ENTERPRISE SUCCESS</p>
                 <div className="hero-actions">
                     <ButtonOne label="Book Consultation" />
-                    <ButtonTwo label="Explore Services" arrow="→" />
+                    <ButtonTwo label="Explore Services" arrow="→" onClick={scrollToServices} />
                 </div>
             </div>
 

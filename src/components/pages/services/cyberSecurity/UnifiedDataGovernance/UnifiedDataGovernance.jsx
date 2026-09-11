@@ -1,198 +1,127 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './UnifiedDataGovernance.css';
 
 const UDG_DATA = [
     {
-        id: '01',
+        id: 'iam',
         number: '01',
+        category: 'ZERO-TRUST IAM',
         title: 'Zero-Trust Identity & Access Management (IAM)',
-        headline: 'Data Discovery & Classification',
         description:
             'We design and deploy robust Zero-Trust Network Access (ZTNA) frameworks utilizing Microsoft Entra ID (formerly Azure Active Directory). By enforcing strict, context-aware access policies and Multi-Factor Authentication (MFA), we protect directory services from credential theft and prevent lateral threat movement.',
-        tags: ['Positioning', 'Visual Identity', 'Design System'],
-        shapeType: 'swirl',
+        tags: ['ZTNA Deployment', 'Entra ID', 'MFA Enforcement'],
+        image: '/images/zero-trust-iam.png',
     },
     {
-        id: '02',
+        id: 'purview',
         number: '02',
+        category: 'DATA GOVERNANCE',
         title: 'Enterprise Data Governance with Microsoft Purview',
-        headline: 'Zero-Trust Access & Governance',
         description:
             'We deploy Microsoft Purview to automate data discovery, classify sensitive information, and enforce strict Data Loss Prevention (DLP) policies across the entire digital estate, ensuring rigorous adherence to GDPR, HIPAA, and PCI-DSS.',
-        tags: ['Conversion Rate Optimization', 'Analytics', 'A/B Testing'],
-        shapeType: 'star',
+        tags: ['Data Classification', 'DLP Policies', 'Compliance Readiness'],
+        image: '/images/enterprise-data-gov.png',
     },
     {
-        id: '03',
+        id: 'xdr',
         number: '03',
+        category: 'THREAT DETECTION',
         title: 'Extended Detection and Response (XDR)',
-        headline: 'Autonomous Risk & DLP Remediation',
         description:
             'Integrating Microsoft Defender to provide continuous monitoring and automated remediation across endpoints, cloud workloads, and collaboration suites.',
-        tags: ['Content Strategy', 'Creative Production', 'Campaign Management'],
-        shapeType: 'sphere',
+        tags: ['Microsoft Defender', 'Endpoint Security', 'Auto-Remediation'],
+        image: '/images/extended-detection-and-responce.png',
     },
     {
-        id: '04',
+        id: 'siem',
         number: '04',
+        category: 'SECURITY OPERATIONS',
         title: 'Intelligent Security Operations (SIEM)',
-        headline: 'Continuous DPDP Act & Audit Readiness',
         description:
             'Architecting Microsoft Sentinel to aggregate massive volumes of security data, leveraging machine learning to automate threat detection and response at cloud scale.',
-        tags: ['DPDPA Assessment', 'Audit Trail', 'Regulatory Reporting'],
-        shapeType: 'ring',
+        tags: ['Microsoft Sentinel', 'ML Threat Detection', 'Cloud-Scale SIEM'],
+        image: '/images/siem.png',
     },
 ];
 
-// SVG 3D Shapes Renderer
-const ShapeGraphic = ({ type }) => {
-    if (type === 'swirl') {
-        return (
-            <img src='/images/zero-trust-iam.png' style={{ width: "100%" }} />
-        );
-    }
-
-    if (type === 'star') {
-        return (
-            <img src='/images/enterprise-data-gov.png' style={{ width: "100%" }} />
-        );
-    }
-
-    if (type === 'sphere') {
-        return (
-            <img src='/images/extended-detection-and-responce.png' style={{ width: "100%" }} />
-        );
-    }
-
-    return (
-        <img src='/images/siem.png' style={{ width: "100%" }} />
-    );
-};
-
 const UnifiedDataGovernance = () => {
-    const containerRef = useRef(null);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeTab, setActiveTab] = useState('iam');
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start start', 'end end'],
-    });
-
-    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-        // Map scroll progress 0 -> 1 into index 0 -> UDG_DATA.length - 1
-        const newIndex = Math.min(
-            Math.floor(latest * UDG_DATA.length),
-            UDG_DATA.length - 1
-        );
-        if (newIndex !== activeIndex && newIndex >= 0) {
-            setActiveIndex(newIndex);
-        }
-    });
-
-    const currentStep = UDG_DATA[activeIndex];
-
-    // Arc calculation for step indicators
-    // We place steps on a circle arc: angle offsets relative to active step
-    const radius = 320;
+    const activeData = UDG_DATA.find((d) => d.id === activeTab);
 
     return (
-        <section className="udg-scroll-section" ref={containerRef}>
-            <div className="udg-sticky-container">
-                {/* Left Arc Wheel */}
-                <div className="udg-arc-container">
-                    <svg className="udg-arc-svg" viewBox="0 0 500 800">
-                        {/* Background Arc Line */}
-                        <path
-                            d="M -50, 50 A 380,380 0 0,1 -50, 750"
-                            fill="none"
-                            stroke="rgba(255, 255, 255, 0.12)"
-                            strokeWidth="1.5"
-                        />
-                    </svg>
-
-                    {/* Active Red Dot Pivot Indicator */}
-                    <div className="udg-pivot-indicator">
-                        <span className="udg-red-dot" />
-                    </div>
-
-                    {/* Step Numbers orbiting along the Arc */}
-                    <div className="udg-numbers-orbit">
-                        {UDG_DATA.map((step, idx) => {
-                            const offset = idx - activeIndex;
-                            // Y displacement relative to center
-                            const translateY = offset * 115;
-                            // X displacement along arc curvature
-                            const translateX = (1 - Math.cos((offset * 20 * Math.PI) / 180)) * -35;
-                            const isActive = idx === activeIndex;
-
-                            return (
-                                <motion.div
-                                    key={step.id}
-                                    className={`udg-orbit-number ${isActive ? 'udg-num-active' : ''}`}
-                                    animate={{
-                                        y: translateY,
-                                        x: translateX,
-                                        opacity: isActive ? 1 : Math.max(0.15, 0.45 - Math.abs(offset) * 0.15),
-                                        scale: isActive ? 2.6 : 0.85,
-
-                                    }}
-                                    transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                    onClick={() => setActiveIndex(idx)}
-                                >
-                                    <span>{step.number}</span>
-                                </motion.div>
-                            );
-                        })}
-                    </div>
+        <section className="udg-section">
+            <div className="container">
+                {/* Header */}
+                <div className="udg-header">
+                    <h2 className="section-heading text-center">
+                        Unified Data Governance & Microsoft Security
+                    </h2>
+                    <p className="cap-description text-start">
+                        A comprehensive Microsoft-powered security stack that enforces zero-trust access, governs your entire data estate, and delivers intelligent threat detection — all engineered by KloudStack to meet the most demanding compliance mandates.
+                    </p>
                 </div>
 
-                {/* Center Content Section */}
-                <div className="udg-content-wrapper">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentStep.id}
-                            initial={{ opacity: 0, y: 25 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -25 }}
-                            transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-                            className="udg-content-body"
+                {/* Tab Bar */}
+                <div className="udg-tab-bar">
+                    {UDG_DATA.map((item) => (
+                        <button
+                            key={item.id}
+                            className={`udg-tab-btn ${activeTab === item.id ? 'udg-tab-btn--active' : ''}`}
+                            onClick={() => setActiveTab(item.id)}
                         >
-                            <h2 className="udg-title">{currentStep.title}</h2>
-                            <p className="udg-description">{currentStep.description}</p>
+                            <span className="udg-tab-num">{item.number}</span>
+                            <span className="udg-tab-label">{item.category}</span>
+                        </button>
+                    ))}
+                </div>
 
-                            <div className="udg-tags-row">
-                                {currentStep.tags.map((tag, i) => (
+                {/* Content Panel */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeTab}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -12 }}
+                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        className="udg-content-panel"
+                    >
+                        {/* Left — Text */}
+                        <div className="udg-panel-text">
+                            <h3 className="udg-panel-title">{activeData.title}</h3>
+                            <p className="udg-panel-desc">{activeData.description}</p>
+
+                            <motion.div
+                                className="udg-tags-row"
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                    hidden: { opacity: 0 },
+                                    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+                                }}
+                            >
+                                {activeData.tags.map((tag, i) => (
                                     <motion.span
                                         key={i}
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.1 + i * 0.06, duration: 0.3 }}
                                         className="udg-tag-pill"
+                                        variants={{
+                                            hidden: { opacity: 0, scale: 0.9 },
+                                            visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+                                        }}
                                     >
                                         {tag}
                                     </motion.span>
                                 ))}
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
+                            </motion.div>
+                        </div>
 
-                {/* Right 3D Visual Graphic */}
-                <div className="udg-graphic-wrapper">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentStep.id}
-                            initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                            exit={{ opacity: 0, scale: 0.8, rotate: 15 }}
-                            transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
-                            className="udg-graphic-inner"
-                        >
-                            <ShapeGraphic type={currentStep.shapeType} />
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
+                        {/* Right — Visual */}
+                        <div className="udg-panel-visual">
+                            <img src={activeData.image} alt={activeData.title} />
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </section>
     );

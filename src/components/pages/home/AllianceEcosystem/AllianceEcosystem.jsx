@@ -30,12 +30,32 @@ const TrendMicroLogo  = () => <img src="/images/alliance-logos/trendmicro.svg"  
 const NetscopeLogo    = () => <img src="/images/alliance-logos/netskope.svg"      alt="Netskope"     className="ae-logo-svg" />
 const IndusfaceLogo   = () => <img src="/images/alliance-logos/indusface.svg"     alt="Indusface"    className="ae-logo-svg" />
 const MSPurviewLogo   = () => <img src="/images/alliance-logos/ms-purview.svg"    alt="MS Purview"   className="ae-logo-svg" />
+const CheckPointLogo  = () => <img src="/images/alliance-logos/checkpoint.svg"    alt="Check Point"  className="ae-logo-svg" />
+const PaloAltoLogo    = () => <img src="/images/alliance-logos/paloalto.svg"      alt="Palo Alto Networks" className="ae-logo-svg" />
+const CrowdStrikeLogo = () => <img src="/images/alliance-logos/crowdstrike.svg"    alt="CrowdStrike"  className="ae-logo-svg" />
+const SentinelOneLogo = () => <img src="/images/alliance-logos/sentinelone.svg"    alt="SentinelOne"  className="ae-logo-svg" />
+const DefenderLogo    = () => <img src="/images/alliance-logos/ms-defender.svg"    alt="Microsoft Defender" className="ae-logo-svg" />
 
 /* ─── BCP & Enterprise Applications ─── */
 const CommvaultLogo    = () => <img src="/images/alliance-logos/commvault.svg"    alt="Commvault"    className="ae-logo-svg" />
 const BigFixLogo       = () => <img src="/images/alliance-logos/bigfix.svg"       alt="BigFix"       className="ae-logo-svg" />
 const ManageEngineLogo = () => <img src="/images/alliance-logos/manageengine.svg" alt="ManageEngine" className="ae-logo-svg" />
 const IrajeLogo        = () => <img src="/images/alliance-logos/iraje.svg"        alt="Iraje"        className="ae-logo-svg" />
+
+/* ─── Access Control & Lifecycle Automation ─── */
+const SailPointLogo   = () => <img src="/images/alliance-logos/sailpoint.svg"    alt="SailPoint"    className="ae-logo-svg" />
+const SaviyntLogo     = () => <img src="/images/alliance-logos/saviynt.svg"      alt="Saviynt"      className="ae-logo-svg" />
+const OktaLogo        = () => <img src="/images/alliance-logos/okta.svg"         alt="Okta"         className="ae-logo-svg" />
+
+/* ─── Endpoint Detection & Analysis ─── */
+const SophosLogo      = () => <img src="/images/alliance-logos/sophos.svg"       alt="Sophos"       className="ae-logo-svg" />
+
+/* ─── Perimeter, Edge & Zero Trust ─── */
+const CloudflareLogo  = () => <img src="/images/alliance-logos/cloudflare.svg"   alt="Cloudflare"   className="ae-logo-svg" />
+const AkamaiLogo      = () => <img src="/images/alliance-logos/akamai.svg"       alt="Akamai"       className="ae-logo-svg" />
+
+/* ─── Application & API Security ─── */
+const BurpSuiteLogo   = () => <img src="/images/alliance-logos/burpsuite.svg"   alt="Burp Suite"   className="ae-logo-svg" />
 
 const VerifiedBadge = () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="ae-badge-icon" aria-hidden="true">
@@ -194,28 +214,28 @@ const categories = [
                 id: 'fortinet',
                 label: 'Fortinet Security Fabric',
                 render: () => <FortinetLogo />,
-                description: 'Unified network and security ecosystem delivering high-speed firewalls and automated zero-trust access.',
+                description: 'Proven experience in designing and managing Fortinet security ecosystems, including next-generation firewalls, secure SD-WAN, and Zero Trust Network Access solutions. Our capabilities span network segmentation, threat prevention, secure remote access, and enterprise-wide security architecture modernization.',
                 capabilities: ['FortiGate Firewalls', 'FortiManager Orchestration', 'ZTNA Access Control']
             },
             {
                 id: 'zscaler',
                 label: 'Zscaler Zero Trust',
                 render: () => <ZscalerLogo />,
-                description: 'Cloud-native zero trust exchange eliminating attack surface with AI-powered threat prevention and inline inspection.',
+                description: 'Extensive experience in implementing Zscaler Zero Trust Exchange solutions, enabling secure access to applications, internet resources, and cloud services without dependence on traditional VPN architectures. Our expertise includes ZIA, ZPA, policy optimization, secure access controls, and cloud-delivered security transformation initiatives.',
                 capabilities: ['ZIA Internet Access', 'ZPA Private Access', 'Zero Trust Architecture']
             },
             {
                 id: 'trendmicro',
                 label: 'Trend Micro',
                 render: () => <TrendMicroLogo />,
-                description: 'Platform-native cybersecurity delivering hybrid cloud protection, XDR threat detection, and automated response across layers.',
+                description: 'Experienced in implementing Trend Micro Vision One and endpoint security solutions to strengthen threat detection, response, and attack surface management capabilities. Our expertise includes endpoint protection, XDR integration, threat hunting, incident response, and security operations enhancement.',
                 capabilities: ['Trend Vision One XDR', 'Cloud One Security', 'Deep Security Agent']
             },
             {
                 id: 'netskope',
                 label: 'Netskope SASE',
                 render: () => <NetscopeLogo />,
-                description: 'Unified SASE platform providing cloud-native security, real-time DLP, and threat protection for modern distributed enterprises.',
+                description: 'Strong expertise in deploying Netskope Secure Access Service Edge (SASE) and Cloud Access Security Broker (CASB) solutions to enhance visibility, data protection, and secure cloud adoption. Our experience includes implementing Zero Trust policies, DLP controls, SaaS security governance, and user activity monitoring across hybrid environments.',
                 capabilities: ['Netskope CASB', 'Inline DLP Inspection', 'ZTNA Secure Access']
             },
             {
@@ -231,6 +251,41 @@ const categories = [
                 render: () => <MSPurviewLogo />,
                 description: 'Unified data governance and compliance platform delivering sensitive data discovery, classification, and risk management.',
                 capabilities: ['Data Loss Prevention', 'Information Protection', 'Insider Risk Management']
+            },
+            {
+                id: 'checkpoint',
+                label: 'Check Point',
+                render: () => <CheckPointLogo />,
+                description: 'Extensive knowledge in deploying Check Point security platforms for network security, threat prevention, cloud security, and Zero Trust initiatives. We have significant experience in policy management, intrusion prevention, advanced threat protection, and securing distributed enterprise environments.',
+                capabilities: ['Threat Prevention', 'Cloud & Network Security', 'Zero Trust Architecture']
+            },
+            {
+                id: 'paloalto',
+                label: 'Palo Alto Networks',
+                render: () => <PaloAltoLogo />,
+                description: 'Strong expertise in deploying and evaluating Palo Alto Networks security solutions, including Prisma Access and Zero Trust architectures. Experienced in securing users, applications, and cloud environments against evolving cyber threats.',
+                capabilities: ['Prisma Access SASE', 'Zero Trust Architecture', 'Next-Gen Firewalls']
+            },
+            {
+                id: 'crowdstrike',
+                label: 'CrowdStrike',
+                render: () => <CrowdStrikeLogo />,
+                description: 'Strong expertise in deploying and optimizing CrowdStrike Falcon for endpoint protection, threat detection, and incident response. Experienced in improving threat visibility and enhancing security operations capabilities.',
+                capabilities: ['Falcon Endpoint Protection', 'Threat Detection & XDR', 'Incident Response']
+            },
+            {
+                id: 'sentinelone',
+                label: 'SentinelOne',
+                render: () => <SentinelOneLogo />,
+                description: 'Hands-on experience in implementing SentinelOne for autonomous endpoint protection and advanced threat response. Proven ability to strengthen endpoint security posture and accelerate threat containment.',
+                capabilities: ['Autonomous EDR / XDR', 'Threat Containment', 'Endpoint Security Posture']
+            },
+            {
+                id: 'ms-defender',
+                label: 'Microsoft Defender for Endpoint',
+                render: () => <DefenderLogo />,
+                description: 'Extensive experience in implementing and assessing Microsoft Defender for Endpoint security controls and EDR capabilities. Expertise in vulnerability management, endpoint protection, and threat monitoring.',
+                capabilities: ['EDR & Threat Monitoring', 'Vulnerability Management', 'Endpoint Protection']
             }
         ]
     },
@@ -266,6 +321,122 @@ const categories = [
                 description: 'Privileged Access Management solution providing granular session recording, just-in-time access, and audit compliance.',
                 capabilities: ['Session Recording', 'Just-In-Time Access', 'Privileged Audit Trails']
             }
+        ]
+    },
+    {
+        id: 'access-control-lifecycle',
+        label: 'Access Control & Lifecycle Automation',
+        logos: [
+            {
+                id: 'microsoft',
+                label: 'Microsoft Entra ID',
+                render: () => <MicrosoftLogo />,
+                description: 'Hands-on experience in implementing and assessing Microsoft Entra ID security controls and identity governance capabilities. Expertise in Conditional Access, Privileged Identity Management (PIM), and Zero Trust adoption.',
+                capabilities: ['Conditional Access', 'Privileged Identity Management (PIM)', 'Zero Trust adoption']
+            },
+            {
+                id: 'cyberArk',
+                label: 'CyberArk',
+                render: () => <MicrosoftLogo />,
+                description: 'Extensive experience in Privileged Access Management (PAM) assessments and CyberArk implementations. Skilled in securing privileged accounts, enforcing least-privilege principles, and reducing insider threats.',
+                capabilities: ['Session Recording', 'Just-In-Time Access', 'Privileged Audit Trails']
+            },
+        ]
+    },
+    {
+        id: 'endpoint-detection-analysis',
+        label: 'Endpoint Detection & Analysis (EDR & XDR)',
+        logos: [
+            {
+                id: 'crowdstrike',
+                label: 'CrowdStrike',
+                render: () => <CrowdStrikeLogo />,
+                description: 'Strong expertise in deploying and optimizing CrowdStrike Falcon for endpoint protection, threat detection, and incident response. Experienced in improving threat visibility and enhancing security operations capabilities.',
+                capabilities: ['Falcon Endpoint Protection', 'Threat Detection & XDR', 'Incident Response']
+            },
+            {
+                id: 'sentinelone',
+                label: 'SentinelOne',
+                render: () => <SentinelOneLogo />,
+                description: 'Hands-on experience in implementing SentinelOne for autonomous endpoint protection and advanced threat response. Proven ability to strengthen endpoint security posture and accelerate threat containment.',
+                capabilities: ['Autonomous EDR / XDR', 'Threat Containment', 'Endpoint Security Posture']
+            },
+            {
+                id: 'ms-defender',
+                label: 'Microsoft Defender for Endpoint',
+                render: () => <DefenderLogo />,
+                description: 'Extensive experience in implementing and assessing Microsoft Defender for Endpoint security controls and EDR capabilities. Expertise in vulnerability management, endpoint protection, and threat monitoring.',
+                capabilities: ['EDR & Threat Monitoring', 'Vulnerability Management', 'Endpoint Protection']
+            },
+            {
+                id: 'trendmicro',
+                label: 'Trend Micro',
+                render: () => <TrendMicroLogo />,
+                description: 'Experienced in implementing Trend Micro Vision One and endpoint security solutions to strengthen threat detection, response, and attack surface management capabilities. Our expertise includes endpoint protection, XDR integration, threat hunting, incident response, and security operations enhancement.',
+                capabilities: ['Trend Vision One XDR', 'Cloud One Security', 'Deep Security Agent']
+            },
+        ]
+    },
+    {
+        id: 'perimeter-edge-zero-trust',
+        label: 'Perimeter, Edge & Zero Trust',
+        logos: [
+            {
+                id: 'zscaler',
+                label: 'Zscaler Zero Trust',
+                render: () => <ZscalerLogo />,
+                description: 'Extensive experience in implementing Zscaler Zero Trust Exchange solutions, enabling secure access to applications, internet resources, and cloud services without dependence on traditional VPN architectures. Our expertise includes ZIA, ZPA, policy optimization, secure access controls, and cloud-delivered security transformation initiatives.',
+                capabilities: ['ZIA Internet Access', 'ZPA Private Access', 'Zero Trust Architecture']
+            },
+            {
+                id: 'netskope',
+                label: 'Netskope SASE',
+                render: () => <NetscopeLogo />,
+                description: 'Strong expertise in deploying Netskope Secure Access Service Edge (SASE) and Cloud Access Security Broker (CASB) solutions to enhance visibility, data protection, and secure cloud adoption. Our experience includes implementing Zero Trust policies, DLP controls, SaaS security governance, and user activity monitoring across hybrid environments.',
+                capabilities: ['Netskope CASB', 'Inline DLP Inspection', 'ZTNA Secure Access']
+            },
+            {
+                id: 'fortinet',
+                label: 'Fortinet Security Fabric',
+                render: () => <FortinetLogo />,
+                description: 'Proven experience in designing and managing Fortinet security ecosystems, including next-generation firewalls, secure SD-WAN, and Zero Trust Network Access solutions. Our capabilities span network segmentation, threat prevention, secure remote access, and enterprise-wide security architecture modernization.',
+                capabilities: ['FortiGate Firewalls', 'FortiManager Orchestration', 'ZTNA Access Control']
+            },
+            {
+                id: 'checkpoint',
+                label: 'Check Point',
+                render: () => <CheckPointLogo />,
+                description: 'Extensive knowledge in deploying Check Point security platforms for network security, threat prevention, cloud security, and Zero Trust initiatives. We have significant experience in policy management, intrusion prevention, advanced threat protection, and securing distributed enterprise environments.',
+                capabilities: ['Threat Prevention', 'Cloud & Network Security', 'Zero Trust Architecture']
+            },
+            {
+                id: 'paloalto',
+                label: 'Palo Alto Networks',
+                render: () => <PaloAltoLogo />,
+                description: 'Strong expertise in deploying and evaluating Palo Alto Networks security solutions, including Prisma Access and Zero Trust architectures. Experienced in securing users, applications, and cloud environments against evolving cyber threats.',
+                capabilities: ['Prisma Access SASE', 'Zero Trust Architecture', 'Next-Gen Firewalls']
+            },
+            
+        ]
+    },
+    {
+        id: 'app-api-security',
+        label: 'Application & API Security',
+        logos: [
+            {
+                id: 'indusface',
+                label: 'Indusface',
+                render: () => <IndusfaceLogo />,
+                description: 'Proven expertise in securing web applications and APIs through advanced Web Application Firewall (WAF), API security, bot mitigation, and DDoS protection capabilities. Experienced in helping organizations strengthen application security, improve threat visibility, and protect critical digital assets from evolving cyber threats.',
+                capabilities: ['Web Application Firewall (WAF)', 'API Security Testing', 'DDoS Protection']
+            },
+            {
+                id: 'f5',
+                label: 'F5',
+                render: () => <IndusfaceLogo />,
+                description: 'Proven expertise in deploying F5 application delivery and security solutions, including Web Application Firewall (WAF), API protection, DDoS mitigation, and traffic management. We have successfully enhanced application availability, performance, and security across on-premises, cloud, and hybrid infrastructures.',
+                capabilities: ['Web Application Firewall (WAF)', 'API Protection', 'DDoS Mitigation']
+            },
         ]
     }
 ]

@@ -31,12 +31,7 @@ const LeadershipSection = () => {
             image : "/images/jawad-sir.png",
             description : "Jawad Shaikh is a senior enterprise architect and technology leader with over 17 years of experience driving cloud transformation, digital modernization, and enterprise IT strategy." 
         },
-        {
-            name : "Jawad Shaikh",
-            position : "Director - Microsoft Services",
-            image : "/images/jawad-sir.png",
-            description : "Jawad Shaikh is a senior enterprise architect and technology leader with over 17 years of experience driving cloud transformation, digital modernization, and enterprise IT strategy." 
-        }
+        
     ];
 
 

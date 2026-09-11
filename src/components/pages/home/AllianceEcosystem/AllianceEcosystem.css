@@ -42,57 +42,56 @@
 }
 
 /* ────────────────────────────────
-   TOP TAB NAVIGATION
+   TOP TAB NAVIGATION (BUTTON GRID)
    ──────────────────────────────── */
 .ae-tabs-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 14px;
-    margin-bottom: 40px;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-}
-
-.ae-tabs-nav::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .ae-tab-btn {
-    background: transparent;
-    border: none;
-    padding: 6px 0;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 12px 16px;
     font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.65);
     cursor: pointer;
     position: relative;
-    white-space: nowrap;
-    transition: color 0.3s ease;
+    white-space: normal;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    line-height: 1.35;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .ae-tab-btn:hover {
+    background: rgba(212, 160, 74, 0.08);
+    border-color: rgba(212, 160, 74, 0.35);
     color: #f5c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .ae-tab-btn--active {
+    background: linear-gradient(135deg, rgba(212, 160, 74, 0.18) 0%, rgba(212, 160, 74, 0.06) 100%);
+    border-color: #d4a04a;
     color: #d4a04a;
-}
-
-.ae-tab-btn--active::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #d4a04a;
-    box-shadow: 0 0 10px rgba(212, 160, 74, 0.6);
-    border-radius: 2px;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(212, 160, 74, 0.18), inset 0 0 12px rgba(212, 160, 74, 0.05);
+    transform: translateY(-1px);
 }
 
 /* ────────────────────────────────
@@ -302,6 +301,11 @@
    RESPONSIVE DESIGN
    ──────────────────────────────── */
 @media (max-width: 1100px) {
+    .ae-tabs-nav {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
     .ae-content-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -312,14 +316,28 @@
     }
 }
 
+@media (max-width: 900px) {
+    .ae-tabs-nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
 @media (max-width: 768px) {
     .ae-section {
         padding: 60px 0 40px;
     }
 
     .ae-tabs-nav {
-        gap: 24px;
-        margin-bottom: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+
+    .ae-tab-btn {
+        font-size: 0.76rem;
+        padding: 10px 12px;
+        min-height: 46px;
     }
 
     .ae-logos-grid {
@@ -332,6 +350,10 @@
 }
 
 @media (max-width: 480px) {
+    .ae-tabs-nav {
+        grid-template-columns: 1fr;
+    }
+
     .ae-logos-grid {
         grid-template-columns: repeat(2, 1fr);
     }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Palo Alto Networks Icon -->
+  <g transform="translate(10, 12) scale(1.5)">
+    <path d="m10.278 15.443 1.705 1.705-3.426 3.426-3.427-3.426 8.592-8.591-1.705-1.705 3.426-3.426 3.427 3.426-8.592 8.591z" fill="#FA582D"/>
+    <path d="M0 12.017l3.426 3.426 8.591-8.59-3.426-3.427L0 12.017z" fill="#FA582D"/>
+    <path d="m11.983 17.147 3.426 3.427L24 11.983l-3.426-3.426-8.591 8.59z" fill="#FA582D"/>
+  </g>
+  <!-- Text -->
+  <text x="58" y="32" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" letter-spacing="0.5">paloalto</text>
+  <text x="58" y="45" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="9" fill="#FA582D" letter-spacing="2">NETWORKS</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Saviynt Icon -->
+  <g transform="translate(10, 10)">
+    <path d="M6 14 C6 8, 14 4, 22 4 C30 4, 38 8, 38 14 C38 20, 30 22, 22 24 C14 26, 6 28, 6 34 C6 40, 14 44, 22 44 C30 44, 38 40, 38 34" stroke="#00C9A7" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="22" cy="24" r="3.5" fill="#1DE9B6"/>
+  </g>
+  <!-- Text -->
+  <text x="56" y="38" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="21" fill="#FFFFFF" letter-spacing="0.5">saviynt</text>
+</svg>

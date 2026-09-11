@@ -1,0 +1,330 @@
+const categories = [
+    {
+        id: 'cloud-infra',
+        label: 'Cloud, OS & Open Source',
+        logos: [
+            {
+                id: 'aws',
+                label: 'Amazon Web Services',
+                render: () => <AWSLogo />,
+                description: 'Premier Cloud Alliance Partner. Scalable compute, managed Kubernetes, serverless architectures, and deep security integration with AWS Security Hub.',
+                capabilities: ['EKS Managed Kubernetes', 'AWS Security Hub', 'Multi-Account Governance']
+            },
+            {
+                id: 'microsoft',
+                label: 'Microsoft Azure',
+                render: () => <MicrosoftLogo />,
+                description: 'Gold Cloud Alliance Partner. Enterprise hybrid identity, Sentinel SIEM ingestion, and automated Azure Lighthouse management.',
+                capabilities: ['Azure Sentinel Ingestion', 'Lighthouse Automation', 'ExpressRoute Monitoring']
+            },
+            {
+                id: 'google',
+                label: 'Google Cloud Platform',
+                render: () => <GoogleLogo />,
+                description: 'Strategic Cloud Partner. AI-powered infrastructure, GKE container orchestration, and enterprise-grade data analytics across global regions.',
+                capabilities: ['GKE Autopilot', 'BigQuery Analytics', 'Security Command Center']
+            },
+            {
+                id: 'redhat',
+                label: 'Red Hat Enterprise',
+                render: () => <RedHatLogo />,
+                description: 'Enterprise Linux & Hybrid Cloud Platform. Standardized automation, container management, and security compliance.',
+                capabilities: ['RHEL Hardening', 'Ansible Automation', 'OpenShift Orchestration']
+            },
+            {
+                id: 'ubuntu',
+                label: 'Canonical Ubuntu',
+                render: () => <UbuntuLogo />,
+                description: 'Certified Enterprise Cloud OS. Optimized kernel performance, ESM security coverage, and automated deployment.',
+                capabilities: ['Kernel Livepatching', 'MAAS Automation', 'Charmed Kubernetes']
+            },
+            {
+                id: 'suse',
+                label: 'SUSE Linux Enterprise',
+                render: () => <SUSELogo />,
+                description: 'Mission-critical enterprise Linux and Kubernetes management powering high availability systems.',
+                capabilities: ['SUSE Manager', 'Rancher Kubernetes', 'SLES High Availability']
+            },
+            {
+                id: 'openshift',
+                label: 'Red Hat OpenShift',
+                render: () => <OpenShiftLogo />,
+                description: 'Hybrid cloud container platform with built-in DevSecOps tooling, mesh routing, and automated compliance.',
+                capabilities: ['Multi-Cluster Mgmt', 'GitOps Workflows', 'Service Mesh Security']
+            },
+            {
+                id: 'openstack',
+                label: 'OpenStack Platform',
+                render: () => <OpenStackLogo />,
+                description: 'Open-source cloud operating system delivering resilient software-defined compute, storage, and networking.',
+                capabilities: ['IaaS Orchestration', 'Neutron Networking', 'Cinder Storage API']
+            },
+            {
+                id: 'kubernetes',
+                label: 'Kubernetes Cloud Native',
+                render: () => <KubernetesLogo />,
+                description: 'De-facto container orchestration engine enabling automated scaling, self-healing, and declarative ops.',
+                capabilities: ['Custom Controllers', 'Ingress Routing', 'Auto-Scaling Policies']
+            },
+            {
+                id: 'ansible',
+                label: 'Red Hat Ansible',
+                render: () => <AnsibleLogo />,
+                description: 'Agentless IT automation engine simplifying multi-cloud configuration, patching, and provisioning.',
+                capabilities: ['Playbook Orchestration', 'AAP Automation Controller', 'Drift Remediation']
+            },
+            {
+                id: 'terraform',
+                label: 'HashiCorp Terraform',
+                render: () => <TerraformLogo />,
+                description: 'Infrastructure as Code provider standardizing multi-cloud provisioning and state governance.',
+                capabilities: ['State Lock & Sync', 'Drift Detection', 'CI/CD Pipeline Integration']
+            }
+        ]
+    },
+    {
+        id: 'server-storage-network',
+        label: 'Server, Storage & Network',
+        logos: [
+            {
+                id: 'dell',
+                label: 'Dell Enterprise Infrastructure',
+                render: () => <DellLogo />,
+                description: 'Next-gen enterprise server and storage infrastructure with automated telemetry and integrated lifecycle management.',
+                capabilities: ['iDRAC Telemetry', 'PowerStore API', 'VxRail Hyperconverged']
+            },
+            {
+                id: 'hp',
+                label: 'Hewlett Packard',
+                render: () => <HPLogo />,
+                description: 'Edge-to-cloud compute platform delivering high-density performance and hybrid cloud management.',
+                capabilities: ['iLO RESTful API', 'GreenLake Integration', 'ProLiant Performance']
+            },
+            {
+                id: 'cisco',
+                label: 'Cisco Systems',
+                render: () => <CiscoLogo />,
+                description: 'Software-defined networking, fabric switching, and real-time network telemetry for enterprise data centers.',
+                capabilities: ['ACI Fabric Control', 'Intersight Cloud Mgmt', 'DNA Center Integration']
+            },
+            {
+                id: 'nutanix',
+                label: 'Nutanix Cloud',
+                render: () => <NutanixLogo />,
+                description: 'Hyperconverged infrastructure platform unifying compute, virtualization, and storage management.',
+                capabilities: ['AHV Hypervisor Mgmt', 'Prism Central Automation', 'Flow Security Policies']
+            },
+            {
+                id: 'netapp',
+                label: 'NetApp Storage',
+                render: () => <NetAppLogo />,
+                description: 'Intelligent data infrastructure delivering unified storage, data management, and cloud data services across hybrid environments.',
+                capabilities: ['ONTAP Data Management', 'StorageGRID Object Store', 'Cloud Volumes ONTAP']
+            },
+            {
+                id: 'aruba',
+                label: 'Aruba Networks',
+                render: () => <ArubaLogo />,
+                description: 'AI-driven wired and wireless networking with automated policy enforcement and edge-to-cloud security integration.',
+                capabilities: ['Aruba Central AIOps', 'ClearPass NAC', 'SD-WAN Orchestration']
+            },
+            {
+                id: 'ruckus',
+                label: 'Ruckus Networks',
+                render: () => <RuckusLogo />,
+                description: 'High-density wireless and wired networking solutions with intelligent traffic management for enterprise deployments.',
+                capabilities: ['SmartZone Controller', 'BeamFlex+ Antenna', 'IoT Device Management']
+            }
+        ]
+    },
+    {
+        id: 'cyber-security',
+        label: 'Enterprise Cyber Security',
+        logos: [
+            {
+                id: 'fortinet',
+                label: 'Fortinet Security Fabric',
+                render: () => <FortinetLogo />,
+                description: 'Proven experience in designing and managing Fortinet security ecosystems, including next-generation firewalls, secure SD-WAN, and Zero Trust Network Access solutions. Our capabilities span network segmentation, threat prevention, secure remote access, and enterprise-wide security architecture modernization.',
+                capabilities: ['FortiGate Firewalls', 'FortiManager Orchestration', 'ZTNA Access Control']
+            },
+            {
+                id: 'zscaler',
+                label: 'Zscaler Zero Trust',
+                render: () => <ZscalerLogo />,
+                description: 'Extensive experience in implementing Zscaler Zero Trust Exchange solutions, enabling secure access to applications, internet resources, and cloud services without dependence on traditional VPN architectures. Our expertise includes ZIA, ZPA, policy optimization, secure access controls, and cloud-delivered security transformation initiatives.',
+                capabilities: ['ZIA Internet Access', 'ZPA Private Access', 'Zero Trust Architecture']
+            },
+            {
+                id: 'trendmicro',
+                label: 'Trend Micro',
+                render: () => <TrendMicroLogo />,
+                description: 'Experienced in implementing Trend Micro Vision One and endpoint security solutions to strengthen threat detection, response, and attack surface management capabilities. Our expertise includes endpoint protection, XDR integration, threat hunting, incident response, and security operations enhancement.',
+                capabilities: ['Trend Vision One XDR', 'Cloud One Security', 'Deep Security Agent']
+            },
+            {
+                id: 'netskope',
+                label: 'Netskope SASE',
+                render: () => <NetscopeLogo />,
+                description: 'Strong expertise in deploying Netskope Secure Access Service Edge (SASE) and Cloud Access Security Broker (CASB) solutions to enhance visibility, data protection, and secure cloud adoption. Our experience includes implementing Zero Trust policies, DLP controls, SaaS security governance, and user activity monitoring across hybrid environments.',
+                capabilities: ['Netskope CASB', 'Inline DLP Inspection', 'ZTNA Secure Access']
+            },
+            {
+                id: 'indusface',
+                label: 'Indusface AppTrana',
+                render: () => <IndusfaceLogo />,
+                description: 'Fully managed web application and API protection with risk-based monitoring and zero false-positive WAF enforcement.',
+                capabilities: ['Managed WAF Service', 'API Security Testing', 'DDoS Protection']
+            },
+            {
+                id: 'ms-purview',
+                label: 'Microsoft Purview',
+                render: () => <MSPurviewLogo />,
+                description: 'Unified data governance and compliance platform delivering sensitive data discovery, classification, and risk management.',
+                capabilities: ['Data Loss Prevention', 'Information Protection', 'Insider Risk Management']
+            },
+            {
+                id: 'checkpoint',
+                label: 'Check Point',
+                render: () => <CheckPointLogo />,
+                description: 'Extensive knowledge in deploying Check Point security platforms for network security, threat prevention, cloud security, and Zero Trust initiatives. We have significant experience in policy management, intrusion prevention, advanced threat protection, and securing distributed enterprise environments.',
+                capabilities: ['Threat Prevention', 'Cloud & Network Security', 'Zero Trust Architecture']
+            },
+            {
+                id: 'paloalto',
+                label: 'Palo Alto Networks',
+                render: () => <PaloAltoLogo />,
+                description: 'Strong expertise in deploying and evaluating Palo Alto Networks security solutions, including Prisma Access and Zero Trust architectures. Experienced in securing users, applications, and cloud environments against evolving cyber threats.',
+                capabilities: ['Prisma Access SASE', 'Zero Trust Architecture', 'Next-Gen Firewalls']
+            },
+            {
+                id: 'crowdstrike',
+                label: 'CrowdStrike',
+                render: () => <CrowdStrikeLogo />,
+                description: 'Strong expertise in deploying and optimizing CrowdStrike Falcon for endpoint protection, threat detection, and incident response. Experienced in improving threat visibility and enhancing security operations capabilities.',
+                capabilities: ['Falcon Endpoint Protection', 'Threat Detection & XDR', 'Incident Response']
+            },
+            {
+                id: 'sentinelone',
+                label: 'SentinelOne',
+                render: () => <SentinelOneLogo />,
+                description: 'Hands-on experience in implementing SentinelOne for autonomous endpoint protection and advanced threat response. Proven ability to strengthen endpoint security posture and accelerate threat containment.',
+                capabilities: ['Autonomous EDR / XDR', 'Threat Containment', 'Endpoint Security Posture']
+            },
+            {
+                id: 'ms-defender',
+                label: 'Microsoft Defender for Endpoint',
+                render: () => <DefenderLogo />,
+                description: 'Extensive experience in implementing and assessing Microsoft Defender for Endpoint security controls and EDR capabilities. Expertise in vulnerability management, endpoint protection, and threat monitoring.',
+                capabilities: ['EDR & Threat Monitoring', 'Vulnerability Management', 'Endpoint Protection']
+            }
+        ]
+    },
+    {
+        id: 'bcp-enterprise-apps',
+        label: 'BCP & Enterprise Applications',
+        logos: [
+            {
+                id: 'commvault',
+                label: 'Commvault Data Platform',
+                render: () => <CommvaultLogo />,
+                description: 'Enterprise backup, recovery, and data resilience solution across multi-cloud, virtual, and physical workloads.',
+                capabilities: ['Intelligent Recovery', 'Ransomware Protection', 'Multi-Cloud Replication']
+            },
+            {
+                id: 'bigfix',
+                label: 'HCL BigFix',
+                render: () => <BigFixLogo />,
+                description: 'Unified endpoint management and security compliance automation for large-scale enterprise endpoint governance.',
+                capabilities: ['Patch Management', 'Compliance Reporting', 'Software Distribution']
+            },
+            {
+                id: 'manageengine',
+                label: 'ManageEngine',
+                render: () => <ManageEngineLogo />,
+                description: 'Comprehensive IT management suite covering service desk, unified endpoint management, and security analytics.',
+                capabilities: ['ServiceDesk Plus', 'Endpoint Central UEM', 'Log360 SIEM']
+            },
+            {
+                id: 'iraje',
+                label: 'Iraje PAM',
+                render: () => <IrajeLogo />,
+                description: 'Privileged Access Management solution providing granular session recording, just-in-time access, and audit compliance.',
+                capabilities: ['Session Recording', 'Just-In-Time Access', 'Privileged Audit Trails']
+            }
+        ]
+    },
+    {
+        id: 'access-control-lifecycle',
+        label: 'Access Control & Lifecycle Automation',
+        logos: [
+            {
+                id: 'sailpoint',
+                label: 'SailPoint',
+                render: () => <SailPointLogo />,
+                description: 'Identity Governance and Administration (IGA) platform enabling automated access management and compliance.',
+                capabilities: ['Identity Governance', 'Access Management Automation', 'Compliance & Audit Controls']
+            },
+            {
+                id: 'saviynt',
+                label: 'Saviynt',
+                render: () => <SaviyntLogo />,
+                description: 'Cloud-native identity security platform supporting identity governance, access management, and lifecycle automation.',
+                capabilities: ['Cloud-Native IGA', 'Identity Lifecycle Automation', 'Application Access Governance']
+            },
+            {
+                id: 'okta',
+                label: 'Okta',
+                render: () => <OktaLogo />,
+                description: 'Identity and Access Management (IAM) platform offering secure authentication, SSO, and user lifecycle management.',
+                capabilities: ['Single Sign-On (SSO)', 'Multi-Factor Authentication', 'User Lifecycle Management']
+            }
+        ]
+    },
+    {
+        id: 'endpoint-detection-analysis',
+        label: 'Endpoint Detection & Analysis',
+        logos: [
+            {
+                id: 'sophos',
+                label: 'Sophos',
+                render: () => <SophosLogo />,
+                description: 'Endpoint security and Managed Detection & Response (MDR) solution focused on proactive threat monitoring and response.',
+                capabilities: ['Managed Detection & Response', 'Endpoint Threat Hunting', 'Synchronized Security']
+            }
+        ]
+    },
+    {
+        id: 'perimeter-edge-zero-trust',
+        label: 'Perimeter, Edge & Zero Trust',
+        logos: [
+            {
+                id: 'cloudflare',
+                label: 'Cloudflare',
+                render: () => <CloudflareLogo />,
+                description: 'Edge security, Zero Trust Network Access (ZTNA), Secure Web Gateway, and application protection through a globally distributed network.',
+                capabilities: ['Zero Trust Network Access', 'Secure Web Gateway', 'DDoS & WAF Protection']
+            },
+            {
+                id: 'akamai',
+                label: 'Akamai',
+                render: () => <AkamaiLogo />,
+                description: 'Enterprise-grade edge security, application protection, and Zero Trust access solutions for digital assets and applications.',
+                capabilities: ['Edge Security & CDN', 'Zero Trust Enterprise Access', 'App & API Protection']
+            }
+        ]
+    },
+    {
+        id: 'app-api-security',
+        label: 'Application & API Security',
+        logos: [
+            {
+                id: 'burpsuite',
+                label: 'Burp Suite',
+                render: () => <BurpSuiteLogo />,
+                description: 'Extensive experience in utilizing Burp Suite Professional for comprehensive web application and API security assessments, identifying vulnerabilities aligned with OWASP Top 10 and industry best practices. Our expertise includes manual penetration testing, automated vulnerability discovery, API security testing, authentication and session management analysis, and secure application validation across development and production environments.',
+                capabilities: ['OWASP Top 10 Assessment', 'API Security Testing', 'Manual & Automated Pentesting']
+            }
+        ]
+    }
+]

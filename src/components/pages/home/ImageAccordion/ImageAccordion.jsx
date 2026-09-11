@@ -7,6 +7,7 @@ import img2 from '/images/cloud-2.png'
 import img3 from '/images/modular.png'
 import img4 from '/images/operational_continuity-2.png'
 import img5 from '/images/ai-and-security.png'
+import { Link } from 'react-router-dom'
 
 const items = [
   {
@@ -14,21 +15,21 @@ const items = [
     img: img1,
     title: 'Cybersecurity & ZTNA',
     subtitle: 'Pervasive End-to-End Security, Zero Trust Network Access, WAAP, Extended Detection & Response (XDR), and global compliance frameworks.',
-    url: '',
+    url: '/services/cyber-security',
   },
   {
     id: 2,
     img: img5,
     title: 'AI & Security Intelligence',
     subtitle: 'End-to-end artificial intelligence strategies, predictive threat intelligence, automated compliance, and intelligent SOC augmentation.',
-    url: '',
+    url: '/services/ai-intelligence',
   },
   {
     id: 3,
     img: img2,
     title: 'Cloud & Hybrid Foundations',
     subtitle: 'Seamless workload migration, infrastructure modernization, high-availability enterprise networking, and cost-optimized delivery.',
-    url: '',
+    url: '/services/cloud-infrastructure',
   },
   
   {
@@ -36,14 +37,14 @@ const items = [
     img: img4,
     title: 'Operational Continuity',
     subtitle: 'Next-generation SOC & NOC intelligence centers ensuring zero-downtime resilience and complete product lifecycle management.',
-    url: '',
+    url: '/services/operational-continuity',
   },
   {
     id: 5,
     img: img3,
     title: 'Modular Open-Source Stack',
     subtitle: 'Accelerating modern app engineering via scalable microservices frameworks, IaC automated testing, and containerized deployment.',
-    url: '',
+    url: '/services/open-source-stack',
   },
   
 
@@ -53,7 +54,7 @@ const ImageAccordion = () => {
   const [hovered, setHovered] = useState(null)
 
   return (
-    <section className="ia-section pt-5 pb-4" aria-label="Image Accordion">
+    <section className="ia-section pt-5 pb-4" id='services-accordion' aria-label="Image Accordion">
       <div className="container">
         <div className="os-left mb-4">
           <p className="os-eyebrow mb-2">What We Do</p>
@@ -120,12 +121,14 @@ const ImageAccordion = () => {
                   >
                     <p className="ia-label-title">{item.title}</p>
                     <p className="ia-label-subtitle">{item.subtitle}</p>
-                    <button class="learn-more mt-2">
+                    <Link to={item.url}>
+                      <button class="learn-more mt-2">
                       <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                       </span>
-                      <span class="button-text">Learn More</span>
+                      <span class="button-text">Know More</span>
                     </button>
+                    </Link>
                   </motion.div>
                 </div>
 

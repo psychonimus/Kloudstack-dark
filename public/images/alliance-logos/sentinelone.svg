@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- SentinelOne S Icon -->
+  <g transform="translate(12, 10)">
+    <rect x="0" y="0" width="16" height="6" rx="2" fill="#7222FF"/>
+    <rect x="0" y="9" width="28" height="6" rx="2" fill="#7222FF"/>
+    <rect x="0" y="18" width="34" height="6" rx="2" fill="#7222FF"/>
+    <rect x="6" y="27" width="28" height="6" rx="2" fill="#7222FF"/>
+    <rect x="18" y="36" width="16" height="6" rx="2" fill="#7222FF"/>
+  </g>
+  <!-- Text -->
+  <text x="56" y="37" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="19" fill="#FFFFFF" letter-spacing="0.5">Sentinel<tspan fill="#7222FF" font-weight="800">One</tspan></text>
+</svg>
