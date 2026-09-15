@@ -16,6 +16,7 @@ import AISolutions from './components/pages/products/aiSolutions/AISolutions'
 import LMS from './components/pages/products/lms/LMS'
 import AiIntelligence from './components/pages/services/aiIntelligence/AiIntelligence'
 import OperationalContinuity from './components/pages/services/operationalContinuity/OperationalContinuity'
+import ModularOpenStack from './components/pages/services/modularOpenStack/ModularOpenStack'
 import Resources from './components/pages/resources/Resources'
 import CybersecurityGrowthStrategy from './components/pages/resources/blogDetail/CybersecurityGrowthStrategy'
 import ThirdPartyVendorRisk from './components/pages/resources/blogDetail/ThirdPartyVendorRisk'
@@ -66,6 +67,7 @@ const App = () => {
         <Route path='/products/lms' element={<LMS />} />
         <Route path='/services/ai-intelligence' element={<AiIntelligence />} />
         <Route path='/services/operational-continuity' element={<OperationalContinuity />} />
+        <Route path='/services/modular-open-source-stack' element={<ModularOpenStack />} />
         <Route path='/resources' element={<Resources />} />
         <Route path='/resources/cybersecurity-growth-strategy' element={<CybersecurityGrowthStrategy />} />
         <Route path='/resources/third-party-vendor-risk' element={<ThirdPartyVendorRisk />} />

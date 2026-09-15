@@ -1,0 +1,165 @@
+/* ══════════════════════════════════════════
+   STRATEGIC BUSINESS OUTCOMES SECTION
+   ══════════════════════════════════════════ */
+
+.mdo-section {
+  width: 100%;
+  padding: 60px 0 100px 0;
+  position: relative;
+  color: #ffffff;
+}
+
+.mdo-card-outer {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mdo-card-outer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 180px;
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Header */
+.mdo-header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid */
+.mdo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Outcome Card */
+.mdo-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.32s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.mdo-card:hover,
+.mdo-card--active {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(212, 160, 74, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+}
+
+.mdo-card-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mdo-card:hover .mdo-card-top-bar,
+.mdo-card--active .mdo-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 10px rgba(212, 160, 74, 0.5);
+}
+
+/* Card Header */
+.mdo-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.mdo-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.3s ease;
+}
+
+.mdo-card:hover .mdo-icon-badge,
+.mdo-card--active .mdo-icon-badge {
+  background: rgba(212, 160, 74, 0.12);
+  border-color: rgba(212, 160, 74, 0.35);
+  color: #f5c96a;
+  box-shadow: 0 0 14px rgba(212, 160, 74, 0.2);
+}
+
+.mdo-metric-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(212, 160, 74, 0.9);
+  background: rgba(212, 160, 74, 0.08);
+  border: 1px solid rgba(212, 160, 74, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.mdo-card-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.35;
+}
+
+.mdo-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.56);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .mdo-grid {
+    grid-template-columns: 1fr;
+  }
+  .mdo-card-outer {
+    padding: 40px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mdo-section {
+    padding: 40px 0 70px 0;
+  }
+  .mdo-card-outer {
+    padding: 30px 20px;
+  }
+  .mdo-card {
+    padding: 24px 18px;
+  }
+}

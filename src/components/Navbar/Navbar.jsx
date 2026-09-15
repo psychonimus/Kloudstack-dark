@@ -77,7 +77,7 @@ const SERVICES = [
     icon: <VscPackage size={22} />,
     title: 'Modular Open-Source Stack',
     subtitle: 'Microservices, IaC, and containerized deployment for modern engineering.',
-    url: '',
+    url: '/services/modular-open-source-stack',
   },
 ];
 

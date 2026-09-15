@@ -1,0 +1,292 @@
+/* ══════════════════════════════════════════
+   LIFECYCLE FRAMEWORK (BUILD, TEST, DEPLOY)
+   ══════════════════════════════════════════ */
+
+.lcf-section {
+  width: 100%;
+  padding: 100px 0 60px 0;
+  position: relative;
+  color: #ffffff;
+}
+
+.lcf-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 74, 0.3), transparent);
+}
+
+/* ── Header ── */
+.lcf-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+/* ── Tab Bar ── */
+.lcf-tab-bar {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background: #0d0d0d;
+}
+
+.lcf-tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 22px 16px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lcf-tab-btn:last-child {
+  border-right: none;
+}
+
+.lcf-tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.lcf-tab-btn--active::after {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 12px rgba(212, 160, 74, 0.5);
+}
+
+.lcf-tab-btn--active {
+  background: rgba(212, 160, 74, 0.04);
+}
+
+.lcf-tab-btn:hover:not(.lcf-tab-btn--active) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lcf-tab-num {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.12);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.lcf-tab-btn--active .lcf-tab-num {
+  color: #d4a04a;
+}
+
+.lcf-tab-label {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.lcf-tab-btn--active .lcf-tab-label {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ── Panel ── */
+.lcf-panel {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 48px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lcf-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 160px;
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Panel Header */
+.lcf-panel-header {
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.lcf-panel-label {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  margin-bottom: 12px;
+}
+
+.lcf-panel-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+.lcf-panel-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  max-width: 660px;
+}
+
+/* ── Cards Grid (3-col) ── */
+.lcf-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card */
+.lcf-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.32s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.lcf-card:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(212, 160, 74, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55);
+}
+
+.lcf-card-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lcf-card:hover .lcf-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 10px rgba(212, 160, 74, 0.5);
+}
+
+.lcf-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.75);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.lcf-card:hover .lcf-icon-wrap {
+  background: rgba(212, 160, 74, 0.12);
+  border-color: rgba(212, 160, 74, 0.35);
+  color: #f5c96a;
+  box-shadow: 0 0 14px rgba(212, 160, 74, 0.2);
+}
+
+.lcf-card-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(212, 160, 74, 0.85);
+  background: rgba(212, 160, 74, 0.08);
+  border: 1px solid rgba(212, 160, 74, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.lcf-card-title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.35;
+}
+
+.lcf-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.87rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .lcf-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .lcf-panel {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lcf-section {
+    padding: 70px 0 40px 0;
+  }
+  .lcf-tab-bar {
+    flex-direction: column;
+  }
+  .lcf-tab-btn {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+  }
+  .lcf-tab-btn:last-child {
+    border-bottom: none;
+  }
+  .lcf-tab-btn::after {
+    top: 0; bottom: auto; left: 0; right: auto;
+    width: 3px; height: 100%;
+  }
+  .lcf-panel {
+    padding: 28px 20px;
+  }
+}

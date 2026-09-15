@@ -44,7 +44,7 @@ const items = [
     img: img3,
     title: 'Modular Open-Source Stack',
     subtitle: 'Accelerating modern app engineering via scalable microservices frameworks, IaC automated testing, and containerized deployment.',
-    url: '/services/open-source-stack',
+    url: '/services/modular-open-source-stack',
   },
   
 
