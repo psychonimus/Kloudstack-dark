@@ -4,6 +4,7 @@ import ApplicationPerimeter from './applicationPerimeter/ApplicationPerimeter';
 import UnifiedDataGovernance from './UnifiedDataGovernance/UnifiedDataGovernance';
 import DPDPAAssessment from './DPDPAAssessment/DPDPAAssessment';
 import CyberServiceCatalogue from './CyberServiceCatalogue/CyberServiceCatalogue';
+import CyberCertifications from './CyberCertifications/CyberCertifications';
 import DefenseEcosystem from './DefenseEcosystem/DefenseEcosystem';
 import CyberOutcomes from './CyberOutcomes/CyberOutcomes';
 
@@ -78,6 +79,7 @@ const CyberSecurity = () => {
             <UnifiedDataGovernance />
             <DPDPAAssessment />
             <CyberServiceCatalogue />
+            <CyberCertifications />
             <DefenseEcosystem />
             <CyberOutcomes />
 

@@ -4,6 +4,42 @@ import './BcpPillars.css';
 
 const PILLARS = [
   {
+    id: 'immutable',
+    number: 'III',
+    label: 'IMMUTABLE BACKUPS & AIR-GAP',
+    title: 'Cyber-Resilient Immutable Backups & Air-Gapped Vaults',
+    subtitle: 'Defending critical enterprise memory fields against destructive ransomware and insider manipulation.',
+    items: [
+      {
+        title: 'Immutable Storage Architectures',
+        desc: 'Establishing strict write-once-read-many (WORM) parameters on core enterprise backups, preventing malware or rogue actors from encrypting, altering, or erasing archive points.',
+        icon: (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        ),
+      },
+      {
+        title: 'Air-Gapped Data Vaulting',
+        desc: 'Deploying logically or physically isolated air-gapped data vaults to ensure a clean, uncorrupted baseline of corporate databases can be securely extracted and restored under crisis conditions.',
+        icon: (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" />
+          </svg>
+        ),
+      },
+      {
+        title: 'Rapid Clean-Room Recovery',
+        desc: 'Integrating automated malware scanning routines into restoration tracks to verify backup integrity, ensuring threat anomalies are not reintroduced into production spaces during bare-metal recovery loops.',
+        icon: (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /><path d="M12 12v9" /><path d="m16 16-4-4-4 4" />
+          </svg>
+        ),
+      },
+    ],
+  },
+  {
     id: 'failover',
     number: 'I',
     label: 'GLOBAL DISASTER RECOVERY',
@@ -75,42 +111,7 @@ const PILLARS = [
       },
     ],
   },
-  {
-    id: 'immutable',
-    number: 'III',
-    label: 'IMMUTABLE BACKUPS & AIR-GAP',
-    title: 'Cyber-Resilient Immutable Backups & Air-Gapped Vaults',
-    subtitle: 'Defending critical enterprise memory fields against destructive ransomware and insider manipulation.',
-    items: [
-      {
-        title: 'Immutable Storage Architectures',
-        desc: 'Establishing strict write-once-read-many (WORM) parameters on core enterprise backups, preventing malware or rogue actors from encrypting, altering, or erasing archive points.',
-        icon: (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-          </svg>
-        ),
-      },
-      {
-        title: 'Air-Gapped Data Vaulting',
-        desc: 'Deploying logically or physically isolated air-gapped data vaults to ensure a clean, uncorrupted baseline of corporate databases can be securely extracted and restored under crisis conditions.',
-        icon: (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" />
-          </svg>
-        ),
-      },
-      {
-        title: 'Rapid Clean-Room Recovery',
-        desc: 'Integrating automated malware scanning routines into restoration tracks to verify backup integrity, ensuring threat anomalies are not reintroduced into production spaces during bare-metal recovery loops.',
-        icon: (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /><path d="M12 12v9" /><path d="m16 16-4-4-4 4" />
-          </svg>
-        ),
-      },
-    ],
-  },
+  
 ];
 
 const containerVariants = {
@@ -123,7 +124,7 @@ const itemVariants = {
 };
 
 const BcpPillars = () => {
-  const [activeId, setActiveId] = useState('failover');
+  const [activeId, setActiveId] = useState('immutable');
   const activeData = PILLARS.find((p) => p.id === activeId);
 
   return (

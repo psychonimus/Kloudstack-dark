@@ -182,7 +182,7 @@ const LifecycleFramework = () => {
               className={`lcf-tab-btn ${activeId === p.id ? 'lcf-tab-btn--active' : ''}`}
               onClick={() => setActiveId(p.id)}
             >
-              <span className="lcf-tab-num">{p.number}</span>
+              {/* <span className="lcf-tab-num">{p.number}</span> */}
               <span className="lcf-tab-label">{p.label}</span>
             </button>
           ))}

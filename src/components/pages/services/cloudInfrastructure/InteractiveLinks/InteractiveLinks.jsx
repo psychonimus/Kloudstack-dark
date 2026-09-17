@@ -92,6 +92,24 @@ const INTERACTIVE_LINKS = [
         description: "Continuous security policy enforcement, automated auditing, and real-time vulnerability scanning integrated into deployment pipelines."
       }
     ]
+  },
+  {
+    number: "VI",
+    title: "M365 Capabilities",
+    cards: [
+      {
+        title: "ZERO TRUST ARCHITECTURE",
+        description: "Implementing identity-centric micro-segmentation and strict least-privilege access across all application endpoints and microservices."
+      },
+      {
+        title: "WAF & DDOS MITIGATION",
+        description: "Deploying intelligent layer 7 web application firewalls and automated threat protection to neutralize multi-vector cyber attacks."
+      },
+      {
+        title: "AUTOMATED COMPLIANCE",
+        description: "Continuous security policy enforcement, automated auditing, and real-time vulnerability scanning integrated into deployment pipelines."
+      }
+    ]
   }
 ];
 

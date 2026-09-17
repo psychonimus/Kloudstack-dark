@@ -1,92 +1,102 @@
 import React from 'react';
 import './ClientLogos.css';
+import akoirah from '/images/logos/akoirah.svg'
+import adani from '/images/logos/adani.svg'
+import bajel from '/images/logos/bajel-projects.svg'
+import lic from '/images/logos/lic-mutual-fund.svg'
+import maxSpare from '/images/logos/max-spare.svg'
+import dattaMeghe from '/images/logos/datta-meghe-logo.svg'
+import sevenIsland from '/images/logos/seven-island.svg'
+import veHealthCare from '/images/logos/ve-healthcare.svg'
+import seeBreeze from '/images/logos/sea-breeze.svg'
+import vexxa from '/images/logos/vexxa.svg'
+import meru from '/images/logos/meru.svg'
+import prism from '/images/logos/prism.svg'
 
-/* ── Logo definitions ─────────────────────────────────────────
-   Using inline SVG / styled text so no external assets are needed.
-   Each logo has a `render` function returning JSX.
-────────────────────────────────────────────────────────────── */
 const logos = [
   {
-    id: 'jj',
-    label: 'Johnson & Johnson',
+    id: 'akoirah',
+    label: 'Akoirah',
     render: () => (
-      <span className="cl-logo-text cl-logo-jj">J&amp;J</span>
+      <img src={akoirah} alt="Akoirah" />
     ),
   },
   {
-    id: 'merck',
-    label: 'Merck',
+    id: 'adani',
+    label: 'Adani ',
     render: () => (
-      <span className="cl-logo-text cl-logo-merck">
-        <svg className="cl-logo-merck-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
-        MERCK
-      </span>
+      <img src={adani} alt="Adani" />
     ),
   },
   {
-    id: 'stripe',
-    label: 'Stripe',
+    id: 'bajel',
+    label: 'Bajel Projects',
     render: () => (
-      <svg className="cl-logo-svg" viewBox="0 0 60 25" fill="currentColor" aria-label="Stripe">
-        {/* Stylised lightning / wave mark */}
-        <path d="M4 18 L12 6 L20 14 L28 2" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <path d="M10 22 L18 10 L26 18 L34 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.6"/>
-      </svg>
+      <img src={bajel} alt="Bajel Projects" />
     ),
   },
   {
-    id: 'pfizer',
-    label: 'Pfizer',
+    id: 'lic',
+    label: 'LIC Mutual Fund',
     render: () => (
-      <span className="cl-logo-text cl-logo-pfizer">
-        <svg className="cl-pfizer-mark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          <path d="M10 0 C4.48 0 0 4.48 0 10 C0 15.52 4.48 20 10 20 C15.52 20 20 15.52 20 10 C20 4.48 15.52 0 10 0 Z M10 2 C14.42 2 18 5.58 18 10 C18 14.42 14.42 18 10 18 C5.58 18 2 14.42 2 10 C2 5.58 5.58 2 10 2 Z"/>
-          <path d="M7 6 L7 14 L9 14 L9 11 L12 11 C13.66 11 15 9.66 15 8 C15 6.34 13.66 5 12 5 L7 5 L7 6 Z M9 7 L12 7 C12.55 7 13 7.45 13 8 C13 8.55 12.55 9 12 9 L9 9 L9 7 Z"/>
-        </svg>
-        Pfizer
-      </span>
+      <img src={lic} alt="LIC Mutual Fund" />
     ),
   },
   {
-    id: 'github',
-    label: 'GitHub',
+    id: 'maxSpare',
+    label: 'Max Spare',
     render: () => (
-      <svg className="cl-logo-svg cl-logo-github" viewBox="0 0 24 24" fill="currentColor" aria-label="GitHub">
-        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-      </svg>
+      <img src={maxSpare} alt="Max Spare" />
     ),
   },
   {
-    id: 'gsk',
-    label: 'GSK',
+    id: 'dattaMeghe',
+    label: 'Datta Meghe',
     render: () => (
-      <span className="cl-logo-text cl-logo-gsk">GSK</span>
+      <img src={dattaMeghe} alt="Datta Meghe" />
+    ),
+  },
+  
+  {
+    id: 'sevenIsland',
+    label: 'Seven Islands Shipping',
+    render: () => (
+      <img src={sevenIsland} alt="Seven Island" />
     ),
   },
   {
-    id: 'aws',
-    label: 'Amazon Web Services',
+    id: 've-healthcare',
+    label: 'VE Health Care',
     render: () => (
-      <span className="cl-logo-text cl-logo-aws">
-        aws
-      </span>
+      <img src={veHealthCare} alt="VE Health Care" />
     ),
   },
   {
-    id: 'microsoft',
-    label: 'Microsoft',
+    id: 'seeBreeze',
+    label: 'See Breeze',
     render: () => (
-      <span className="cl-logo-text cl-logo-microsoft">
-        <svg className="cl-msft-grid" viewBox="0 0 21 21" fill="currentColor" aria-hidden="true">
-          <rect x="1" y="1" width="9" height="9"/>
-          <rect x="11" y="1" width="9" height="9" opacity="0.6"/>
-          <rect x="1" y="11" width="9" height="9" opacity="0.6"/>
-          <rect x="11" y="11" width="9" height="9"/>
-        </svg>
-        Microsoft
-      </span>
+      <img src={seeBreeze} alt="See Breeze" />
+    ),
+  },
+  {
+    id: 'vexxa',
+    label: 'Vexxa',
+    render: () => (
+      <img src={vexxa} alt="Vexxa" />
+    ),
+  },
+  {
+    id: 'meru',
+    label: 'Meru',
+    render: () => (
+      <img src={meru} alt="Meru" />
+    ),
+  },
+  {
+    id: 'prism',
+    label: 'Prism Johnson Limited',
+    render: () => (
+      <img src={prism} alt="Prism" />
     ),
   },
 ];

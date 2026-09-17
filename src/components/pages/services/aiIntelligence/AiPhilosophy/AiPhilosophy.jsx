@@ -15,7 +15,7 @@ const PILLARS = [
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     ),
-    tags: ['Agentic AI Integration', 'Legacy Modernization', 'Workflow Automation'],
+    tags: ['Agentic AI Integration', 'Legacy Modernization', 'Workflow Automation', 'RPA Automation'],
   },
   {
     id: 'intelligence',

@@ -4,6 +4,7 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Home from './components/pages/home/Home'
@@ -29,6 +30,8 @@ const App = () => {
     const lenis = new Lenis({
       autoRaf: true,
     });
+    window.lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
 
     // GSAP Context for cleanup in React StrictMode
     const ctx = gsap.context(() => {
@@ -49,6 +52,7 @@ const App = () => {
     });
 
     return () => {
+      window.lenis = null;
       lenis.destroy();
       ctx.revert();
     };
@@ -56,6 +60,7 @@ const App = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

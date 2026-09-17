@@ -46,6 +46,8 @@ const IrajeLogo        = () => <img src="/images/alliance-logos/iraje.svg"      
 const SailPointLogo   = () => <img src="/images/alliance-logos/sailpoint.svg"    alt="SailPoint"    className="ae-logo-svg" />
 const SaviyntLogo     = () => <img src="/images/alliance-logos/saviynt.svg"      alt="Saviynt"      className="ae-logo-svg" />
 const OktaLogo        = () => <img src="/images/alliance-logos/okta.svg"         alt="Okta"         className="ae-logo-svg" />
+const CyberArkLogo    = () => <img src="/images/alliance-logos/cyberark-idira.svg"     alt="CyberArk"     className="ae-logo-svg" />
+const F5Logo          = () => <img src="/images/alliance-logos/F5-logo.svg"          alt="F5"           className="ae-logo-svg" />
 
 /* ─── Endpoint Detection & Analysis ─── */
 const SophosLogo      = () => <img src="/images/alliance-logos/sophos.svg"       alt="Sophos"       className="ae-logo-svg" />
@@ -336,8 +338,8 @@ const categories = [
             },
             {
                 id: 'cyberArk',
-                label: 'CyberArk',
-                render: () => <MicrosoftLogo />,
+                label: 'IDIRA (Previously CyberArk)',
+                render: () => <CyberArkLogo />,
                 description: 'Extensive experience in Privileged Access Management (PAM) assessments and CyberArk implementations. Skilled in securing privileged accounts, enforcing least-privilege principles, and reducing insider threats.',
                 capabilities: ['Session Recording', 'Just-In-Time Access', 'Privileged Audit Trails']
             },
@@ -433,7 +435,7 @@ const categories = [
             {
                 id: 'f5',
                 label: 'F5',
-                render: () => <IndusfaceLogo />,
+                render: () => <F5Logo />,
                 description: 'Proven expertise in deploying F5 application delivery and security solutions, including Web Application Firewall (WAF), API protection, DDoS mitigation, and traffic management. We have successfully enhanced application availability, performance, and security across on-premises, cloud, and hybrid infrastructures.',
                 capabilities: ['Web Application Firewall (WAF)', 'API Protection', 'DDoS Mitigation']
             },

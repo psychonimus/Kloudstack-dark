@@ -11,7 +11,7 @@ const ECOSYSTEM_GROUPS = [
       {
         name: 'Red Hat OpenShift',
         role: 'Enterprise Kubernetes Platform',
-        logo: '/images/alliance-logos/openshift.svg',
+        logo: '/images/alliance-logos/redhat-openshift.svg',
         desc: 'Enterprise-grade turnkey application platform with automated operations, enterprise security, and unified multi-cloud management.',
         tags: ['Enterprise K8s', 'Hybrid Cloud', 'DevSecOps'],
       },

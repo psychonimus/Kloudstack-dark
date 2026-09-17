@@ -151,7 +151,7 @@ const Testimonials = () => {
 
                             {/* Avatar + name */}
                             <div className="tv-author">
-                                <div className="tv-avatar-ring">
+                                {/* <div className="tv-avatar-ring">
                                     <img
                                         src={t.avatar}
                                         alt={t.name}
@@ -159,7 +159,7 @@ const Testimonials = () => {
                                         width="64"
                                         height="64"
                                     />
-                                </div>
+                                </div> */}
                                 <p className="tv-author-name">{t.name}</p>
                                 <p className="tv-author-title">{t.title}</p>
                             </div>

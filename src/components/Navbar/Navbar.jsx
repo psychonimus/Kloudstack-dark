@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, useAnimate, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
@@ -54,7 +54,7 @@ const SERVICES = [
   {
     id: 2,
     icon: <LuBrainCircuit size={22} />,
-    title: 'AI & Security Intelligence',
+    title: 'AI & Business Intelligence',
     subtitle: 'Agentic AI integration, predictive analytics, and intelligent process automation.',
     url: '/services/ai-intelligence',
   },
@@ -78,6 +78,13 @@ const SERVICES = [
     title: 'Modular Open-Source Stack',
     subtitle: 'Microservices, IaC, and containerized deployment for modern engineering.',
     url: '/services/modular-open-source-stack',
+  },
+  {
+    id: 6,
+    icon: <AiOutlineDesktopMac size={22} />,
+    title: 'Custom Software Development',
+    subtitle: 'Tailored software solutions across web, mobile, and enterprise platforms.',
+    url: '/services/custom-software-development',
   },
 ];
 
@@ -141,6 +148,21 @@ const Navbar = () => {
   const isExpandedRef = useRef(true);
   const lastScrollY = useRef(0);
   const collapseScrollY = useRef(0);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setServicesOpen(false);
+    setProductsOpen(false);
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+    setMobileProductsOpen(false);
+    lastScrollY.current = 0;
+    collapseScrollY.current = 0;
+    if (!isExpandedRef.current && !isMobile()) {
+      doExpand();
+    }
+  }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     animate(
@@ -231,7 +253,11 @@ const Navbar = () => {
           onClick={() => { if (!isExpanded && !isAnimating.current) doExpand(); }}
           style={{ cursor: isExpanded ? 'default' : 'pointer' }}
         >
-          <motion.div className="nav-logo-wrap" variants={logoVariants}>
+          <motion.div
+            className="nav-logo-wrap"
+            variants={logoVariants}
+            style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}
+          >
             <Link to='/'><img src="/images/Kloudstack-Logo.svg" alt="KloudStack" className="nav-logo" /></Link>
           </motion.div>
 

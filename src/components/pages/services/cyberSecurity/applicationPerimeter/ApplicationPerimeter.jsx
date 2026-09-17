@@ -13,7 +13,7 @@ const solutionSteps = [
   {
     id: 2,
     number: '02',
-    title: 'Continuous Dynamic Application Security Testing (DAST)',
+    title: 'Dynamic Application Security Testing (DAST)',
     description:
       "We integrate Indusface's comprehensive DAST scanners directly into your development pipelines, automatically identifying architectural flaws and code vulnerabilities before they reach production.",
   },

@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from './Hero/Hero'
 import ClientLogos from './ClientLogos/ClientLogos'
 import OurServices from './OurServices/OurServices'
-import WhyKloudStack from './WhyKloudStack/WhyKloudStack'
+import WhyKloudStack from './StickySection/WhyKloudStack'
 import Capabilities from './Capabilities/Capabilities'
 import AllianceEcosystem from './AllianceEcosystem/AllianceEcosystem'
 import Testimonials from './Testimonials/Testimonials'
@@ -17,6 +17,7 @@ const Home = () => {
       <ClientLogos />
       <ImageAccordion />
       {/* <OurServices /> */}
+      {/* <WhyKloudStack /> */}
       <WhyKloudStack />
       <Capabilities />
       <AllianceEcosystem />

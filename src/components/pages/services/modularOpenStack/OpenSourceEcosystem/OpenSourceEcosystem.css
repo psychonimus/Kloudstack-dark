@@ -121,8 +121,7 @@
 }
 
 .ose-tech-logo {
-  max-height: 38px;
-  max-width: 140px;
+  width: 130px;
   object-fit: contain;
   filter: brightness(1.05);
 }
