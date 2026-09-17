@@ -4,7 +4,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, useAnimate, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
-import { MdOutlineSecurity } from 'react-icons/md';
+import { MdOutlineSecurity, MdOutlineDesktopMac } from 'react-icons/md';
 import { LuBrainCircuit } from 'react-icons/lu';
 import { BsCloudFog2 } from 'react-icons/bs';
 import { TbHeartbeat } from 'react-icons/tb';
@@ -81,7 +81,7 @@ const SERVICES = [
   },
   {
     id: 6,
-    icon: <AiOutlineDesktopMac size={22} />,
+    icon: <MdOutlineDesktopMac size={22} />,
     title: 'Custom Software Development',
     subtitle: 'Tailored software solutions across web, mobile, and enterprise platforms.',
     url: '/services/custom-software-development',

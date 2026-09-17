@@ -85,6 +85,12 @@ const CAPABILITIES = [
     desc: 'Seamlessly connect with HRMS platforms, third-party tools, and MOOC providers via open APIs.',
     tag: 'Open Ecosystem',
   },
+  {
+    icon: <LuNetwork size={26} />,
+    title: 'New Language Support',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    tag: 'Language Learning',
+  },
 ];
 
 /* ── 6. Business Challenges Solved ── */
