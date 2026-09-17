@@ -78,7 +78,7 @@ const BusinessOutcomes = () => {
 
                   {/* Title & Description */}
                   <h3 className="bo-card-title">{item.title}</h3>
-                  <p className="bo-card-desc">{item.description}</p>
+                  {/* <p className="bo-card-desc">{item.description}</p> */}
                 </div>
               )
             })}

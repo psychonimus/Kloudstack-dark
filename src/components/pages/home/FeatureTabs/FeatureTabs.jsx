@@ -38,7 +38,7 @@ const TABS = [
       },
     ],
     cta: "Know more",
-    img: "/images/tab1.png",
+    img: "/images/pulse.png",
   },
   {
     id: "automation",
@@ -79,7 +79,7 @@ const TABS = [
       },
     ],
     cta: "Know more",
-    img: "/images/tab2.png",
+    img: "/images/fortress.png",
   },
   {
     id: "security",
@@ -153,7 +153,7 @@ const TABS = [
       },
     ],
     cta: "Know more",
-    img: "/images/tab4.png",
+    img: "/images/accord.png",
   },
 ];
 

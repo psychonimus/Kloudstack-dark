@@ -31,6 +31,18 @@ const LeadershipSection = () => {
             image : "/images/jawad-sir.png",
             description : "Jawad Shaikh is a senior enterprise architect and technology leader with over 17 years of experience driving cloud transformation, digital modernization, and enterprise IT strategy." 
         },
+        {
+            name : "Ritu Sharma",
+            position : "Director - Digital Sales",
+            image : "/images/ritu.png",
+            description : "As Director - Digital Sales, Ritu Sharma leads KloudStack’s enterprise sales and digital transformation initiatives." 
+        },
+        {
+            name : "Vivek Chandran",
+            position : "Director - Cyber Security",
+            image : "/images/vivek.png",
+            description : "As Director - Cyber Security, Vivek Chandran leads KloudStack’s cloud infrastructure initiatives." 
+        },
         
     ];
 
@@ -51,7 +63,7 @@ const LeadershipSection = () => {
                 </div>
 
                 <div className="container mt-5">
-                    <div className="row">
+                    <div className="row" style={{rowGap:"25px"}}>
                         {
                             leaders.map((data, i) => {
                                 return (

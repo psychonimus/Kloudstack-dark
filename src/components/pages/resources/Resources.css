@@ -533,7 +533,7 @@
 
 .blogs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
 }
 
@@ -794,11 +794,222 @@
 }
 
 /* ══════════════════════════════════════════
+   CASE STUDIES SECTION
+   ══════════════════════════════════════════ */
+
+.res-cs-section {
+  background: #080808;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.cs-card-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-card {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 13, 13, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cs-card:hover {
+  border-color: rgba(212, 160, 74, 0.45);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 160, 74, 0.12);
+}
+
+.cs-card-cover {
+  position: relative;
+  height: 190px;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+
+.cs-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-card:hover .cs-cover-img {
+  transform: scale(1.06);
+}
+
+.cs-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0d0d0d 0%, rgba(13, 13, 13, 0.35) 60%, transparent 100%);
+}
+
+.cs-industry-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(13, 13, 13, 0.85);
+  border: 1px solid rgba(212, 160, 74, 0.35);
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.cs-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cs-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  min-height: 48px;
+  transition: color 0.25s ease;
+}
+
+.cs-card:hover .cs-title {
+  color: #d4a04a;
+}
+
+.cs-excerpt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0 0 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Impact Metrics Grid */
+.cs-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px 10px;
+  margin-top: auto;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.cs-metric-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cs-metric-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #d4a04a;
+  line-height: 1.1;
+}
+
+.cs-metric-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Card Footer */
+.cs-card-footer {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.01);
+  margin-top: auto;
+}
+
+.cs-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cs-arrow {
+  transition: transform 0.25s ease;
+}
+
+.cs-card:hover .cs-read-link {
+  color: #d4a04a;
+}
+
+.cs-card:hover .cs-arrow {
+  transform: translateX(4px);
+}
+
+.cs-accent-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4a04a, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cs-card:hover .cs-accent-glow {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
   .blogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .wp-card {
@@ -839,7 +1050,8 @@
   .res-section {
     padding: 80px 0;
   }
-  .blogs-grid {
+  .blogs-grid,
+  .cs-grid {
     grid-template-columns: 1fr;
   }
   .res-hero-stats {

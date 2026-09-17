@@ -99,22 +99,22 @@ const categories = [
                 id: 'redhat',
                 label: 'Red Hat Enterprise',
                 render: () => <RedHatLogo />,
-                description: 'Enterprise Linux & Hybrid Cloud Platform. Standardized automation, container management, and security compliance.',
-                capabilities: ['RHEL Hardening', 'Ansible Automation', 'OpenShift Orchestration']
+                description: 'Our capabilities span Red Hat Enterprise Linux (RHEL), Red Hat OpenShift, Ansible Automation Platform, and Red Hat virtualization technologies, enabling organizations to build scalable, secure, automated, and highly available enterprise platforms.',
+                capabilities: ['Architecture & Design ', 'Implementation & Deployment', 'Migration & Transformation', 'OpenShift']
             },
             {
                 id: 'ubuntu',
                 label: 'Canonical Ubuntu',
                 render: () => <UbuntuLogo />,
-                description: 'Certified Enterprise Cloud OS. Optimized kernel performance, ESM security coverage, and automated deployment.',
-                capabilities: ['Kernel Livepatching', 'MAAS Automation', 'Charmed Kubernetes']
+                description: 'End-to-end expertise in designing, deploying, managing, and optimizing Canonical Ubuntu solutions across complex enterprise IT environments. Strong delivery capabilities across Ubuntu Server, Ubuntu Pro, Landscape, MAAS, OpenStack, and Kubernetes, supporting on-premises, cloud, and hybrid infrastructure.',
+                capabilities: ['Ubuntu Server', 'Ubuntu Pro', 'Landscape', 'MAAS', 'OpenStack', 'Kubernetes']
             },
             {
                 id: 'suse',
                 label: 'SUSE Linux Enterprise',
                 render: () => <SUSELogo />,
-                description: 'Mission-critical enterprise Linux and Kubernetes management powering high availability systems.',
-                capabilities: ['SUSE Manager', 'Rancher Kubernetes', 'SLES High Availability']
+                description: 'End-to-End SUSE Enterprise Expertise in designing, deploying, managing, and optimizing SUSE solutions across complex enterprise IT environments. Proven capabilities across SUSE Linux Enterprise Server (SLES), SUSE Manager, Rancher, Kubernetes, and cloud-native platforms, supporting mission-critical workloads across on-premises, cloud, and hybrid environments.',
+                capabilities: ['SUSE Linux Enterprise Server (SLES)', 'SUSE Manager', 'Rancher', 'Kubernetes']
             },
             {
                 id: 'openshift',

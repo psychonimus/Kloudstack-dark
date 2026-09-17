@@ -22,6 +22,9 @@ import Resources from './components/pages/resources/Resources'
 import CybersecurityGrowthStrategy from './components/pages/resources/blogDetail/CybersecurityGrowthStrategy'
 import ThirdPartyVendorRisk from './components/pages/resources/blogDetail/ThirdPartyVendorRisk'
 import AIBankingSecurity from './components/pages/resources/blogDetail/AIBankingSecurity'
+import CybersecurityDashboardMetrics from './components/pages/resources/blogDetail/CybersecurityDashboardMetrics'
+import StrategicCybersecurityMistakes from './components/pages/resources/blogDetail/StrategicCybersecurityMistakes'
+import CyberattackFirst24Hours from './components/pages/resources/blogDetail/CyberattackFirst24Hours'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -77,6 +80,9 @@ const App = () => {
         <Route path='/resources/cybersecurity-growth-strategy' element={<CybersecurityGrowthStrategy />} />
         <Route path='/resources/third-party-vendor-risk' element={<ThirdPartyVendorRisk />} />
         <Route path='/resources/ai-transforming-banking-security' element={<AIBankingSecurity />} />
+        <Route path='/resources/cybersecurity-dashboard-metrics' element={<CybersecurityDashboardMetrics />} />
+        <Route path='/resources/strategic-cybersecurity-mistakes' element={<StrategicCybersecurityMistakes />} />
+        <Route path='/resources/cyberattack-first-24-hours' element={<CyberattackFirst24Hours />} />
         <Route path='/contact' element={<Contact />} />
 
       </Routes>

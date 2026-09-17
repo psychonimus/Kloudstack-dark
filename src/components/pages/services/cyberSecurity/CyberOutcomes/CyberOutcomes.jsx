@@ -93,7 +93,7 @@ const CyberOutcomes = () => {
 
                   {/* Content */}
                   <h3 className="co-card-title">{item.title}</h3>
-                  <p className="co-card-desc">{item.description}</p>
+                  {/* <p className="co-card-desc">{item.description}</p> */}
                 </div>
               );
             })}

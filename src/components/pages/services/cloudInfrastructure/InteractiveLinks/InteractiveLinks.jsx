@@ -98,16 +98,16 @@ const INTERACTIVE_LINKS = [
     title: "M365 Capabilities",
     cards: [
       {
-        title: "ZERO TRUST ARCHITECTURE",
-        description: "Implementing identity-centric micro-segmentation and strict least-privilege access across all application endpoints and microservices."
+        title: "Deployment",
+        description: "End-to-end Microsoft 365 deployment, configuration and integration tailored to your organisation’s infrastructure and business needs."
       },
       {
-        title: "WAF & DDOS MITIGATION",
-        description: "Deploying intelligent layer 7 web application firewalls and automated threat protection to neutralize multi-vector cyber attacks."
+        title: "Migration",
+        description: "Secure, seamless migration of users, mailboxes, data and workloads to Microsoft 365 with minimal disruption to business operations."
       },
       {
-        title: "AUTOMATED COMPLIANCE",
-        description: "Continuous security policy enforcement, automated auditing, and real-time vulnerability scanning integrated into deployment pipelines."
+        title: "Maintainance",
+        description: "Proactive Microsoft 365 administration, monitoring, optimisation and ongoing support to ensure a secure and reliable environment."
       }
     ]
   }

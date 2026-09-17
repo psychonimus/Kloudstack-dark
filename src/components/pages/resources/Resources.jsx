@@ -83,6 +83,45 @@ const BLOG_POSTS = [
     accentColor: '#6be88a',
     link: '/resources/ai-transforming-banking-security',
   },
+  {
+    id: 4,
+    image: '/images/cyber-security.png',
+    category: 'Security Metrics & Governance',
+    readTime: '6 min read',
+    date: 'Jun 24, 2025',
+    title: 'Your Cybersecurity Dashboard Is Full of Metrics. But Are You Measuring What Matters?',
+    excerpt:
+      'The dashboard paradox: more metrics, less clarity. Learn why activity metrics fail, what security metrics boards actually care about, and how to build an executive cyber scorecard.',
+    gradient: 'linear-gradient(135deg, #10121a 0%, #1a1e2d 100%)',
+    accentColor: '#4a90e2',
+    link: '/resources/cybersecurity-dashboard-metrics',
+  },
+  {
+    id: 5,
+    image: '/images/cubersecurity-img.jpg',
+    category: 'Strategic Cyber Leadership',
+    readTime: '5 min read',
+    date: 'Jun 12, 2025',
+    title: "The Biggest Cybersecurity Mistakes Aren't Technical. They're Strategic.",
+    excerpt:
+      "Most breaches don't happen because a firewall rule was misconfigured. They happen because leadership treated cybersecurity as an IT problem instead of a business risk.",
+    gradient: 'linear-gradient(135deg, #241408 0%, #150c05 100%)',
+    accentColor: '#d4a04a',
+    link: '/resources/strategic-cybersecurity-mistakes',
+  },
+  {
+    id: 6,
+    image: '/images/extended-detection-and-responce.png',
+    category: 'Incident Response & Crisis Management',
+    readTime: '6 min read',
+    date: 'May 29, 2025',
+    title: 'What Happens After a Cyberattack? The First 24 Hours Decide Everything',
+    excerpt:
+      'In the first hours of an attack, attackers are still active, data may be exfiltrating, and every decision matters. Learn how to contain, coordinate crisis roles, and recover.',
+    gradient: 'linear-gradient(135deg, #1b0a0a 0%, #2f1212 100%)',
+    accentColor: '#f87171',
+    link: '/resources/cyberattack-first-24-hours',
+  },
 ]
 
 /* ─── Doc Preview Carousel Images ─── */
@@ -235,10 +274,10 @@ const BlogCard = ({ post, index }) => {
         <div className="blog-card-body">
           <div className="blog-card-meta">
             <span className="blog-category">{post.category}</span>
-            <span className="blog-meta-sep">·</span>
-            <span className="blog-read-time">{post.readTime}</span>
-            <span className="blog-meta-sep">·</span>
-            <span className="blog-date">{post.date}</span>
+            {/* <span className="blog-meta-sep">·</span> */}
+            {/* <span className="blog-read-time">{post.readTime}</span> */}
+            {/* <span className="blog-meta-sep">·</span> */}
+            {/* <span className="blog-date">{post.date}</span> */}
           </div>
 
           <h3 className="blog-title">{post.title}</h3>
@@ -247,13 +286,10 @@ const BlogCard = ({ post, index }) => {
 
         {/* Card Footer / Read More */}
         <div className="blog-card-footer">
-          <div className="blog-card-footer-tag">
-            <FaDotCircle className="me-2 text-warning" size={8} />
-            Executive Insight
-          </div>
+          
 
           <Link to={post.link || '/resources/cybersecurity-growth-strategy'} className="blog-read-more">
-            Read Article
+            Read Blog
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="blog-arrow">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -262,6 +298,102 @@ const BlogCard = ({ post, index }) => {
 
         {/* accent line on hover */}
         <div className="blog-card-accent-line" />
+      </article>
+    </FadeUp>
+  )
+}
+
+/* ─── Case Studies Data ─── */
+const CASE_STUDIES = [
+  {
+    id: 1,
+    image: '/images/security-built-in.png',
+    industry: 'Financial Services',
+    title: 'Zero Trust SOC Transformation for Multi-Cloud Banking',
+    excerpt:
+      'Engineered an automated detection and response fabric across 10M+ daily transactions, maintaining 100% SEBI CSF compliance.',
+    metrics: [
+      { label: 'MTTR Cut', value: '65%' },
+      { label: 'Uptime SLA', value: '99.99%' },
+      { label: 'Compliance', value: '100%' },
+    ],
+    link: '/contact',
+  },
+  {
+    id: 2,
+    image: '/images/ai_security_intelligence.png',
+    industry: 'Healthcare',
+    title: 'Securing 50+ Hospital Workloads & Patient Telemetry',
+    excerpt:
+      'Deployed continuous posture monitoring and cyber risk quantification to protect sensitive healthcare data across 10,000+ endpoints.',
+    metrics: [
+      { label: 'Endpoints', value: '10k+' },
+      { label: 'Prevented Loss', value: '$2.4M' },
+      { label: 'Breach Count', value: '0' },
+    ],
+    link: '/contact',
+  },
+  {
+    id: 3,
+    image: '/images/cloud-without-complexity.png',
+    industry: 'Enterprise Cloud',
+    title: 'Multi-Cloud Resilience & Insurability Optimization',
+    excerpt:
+      'Transformed cloud governance into quantifiable insurability telemetry, securing premier tier cyber coverage with 40% premium savings.',
+    metrics: [
+      { label: 'Premium Saved', value: '40%' },
+      { label: 'Underwriting', value: '3x Faster' },
+      { label: 'Disaster RTO', value: '15 Min' },
+    ],
+    link: '/contact',
+  },
+]
+
+/* ─── Case Study Card ─── */
+const CaseStudyCard = ({ study, index }) => {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <FadeUp delay={index * 0.12} className="cs-card-wrapper">
+      <article
+        className={`cs-card${hovered ? ' cs-card--hovered' : ''}`}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* Cover Image */}
+        <div className="cs-card-cover">
+          <img src={study.image} alt={study.title} className="cs-cover-img" />
+          <div className="cs-cover-overlay" />
+          <span className="cs-industry-badge">{study.industry}</span>
+        </div>
+
+        {/* Card Body */}
+        <div className="cs-card-body">
+          <h3 className="cs-title">{study.title}</h3>
+          <p className="cs-excerpt">{study.excerpt}</p>
+
+          {/* Metrics Bar */}
+          <div className="cs-metrics-grid">
+            {study.metrics.map((m, i) => (
+              <div key={i} className="cs-metric-box">
+                <span className="cs-metric-value">{m.value}</span>
+                <span className="cs-metric-label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer Link */}
+        <div className="cs-card-footer">
+          <Link to={study.link || '/contact'} className="cs-read-link">
+            <span>Explore Case Study</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="cs-arrow">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="cs-accent-glow" />
       </article>
     </FadeUp>
   )
@@ -312,8 +444,6 @@ const Resources = () => {
           loop
           playsInline
         />
-        
-        
 
         <div className="container content-overlay">
           <div className="hero-text">
@@ -321,33 +451,17 @@ const Resources = () => {
               <FaDotCircle className="me-2 mb-1" size={12} />
               Knowledge Hub
             </div>
-            <h1 className="hero-section-heading mb-4 section-heading text-start res-hero-heading" style={{width:"fit-content"}}>
+            <h1 className="hero-section-heading mb-4 section-heading text-start res-hero-heading" style={{ width: 'fit-content' }}>
               Insights, Research Intelligence for the Enterprise Edge.
             </h1>
             <p className="hero-section-para text-start res-hero-para">
-              Explore KloudStack's curated library of white papers, technical deep-dives, and
+              Explore KloudStack's curated library of white papers, technical deep-dives, case studies, and
               thought-leadership articles — distilled from thousands of enterprise engagements
               across cybersecurity, cloud infrastructure, AI operations and beyond.
             </p>
-
-            {/* Stat pills */}
-            {/* <div className="res-hero-stats">
-              {[
-                { value: '12+', label: 'White Papers' },
-                { value: '40+', label: 'Expert Articles' },
-                { value: '6', label: 'Practice Areas' },
-              ].map((s) => (
-                <div key={s.label} className="res-stat-pill">
-                  <span className="res-stat-value">{s.value}</span>
-                  <span className="res-stat-label">{s.label}</span>
-                </div>
-              ))}
-            </div> */}
           </div>
         </div>
       </section>
-
-      
 
       {/* ── White Papers ─────────────────────────── */}
       <section className="res-section res-wp-section">
@@ -376,6 +490,31 @@ const Resources = () => {
         </div>
       </section>
 
+      {/* ── Case Studies Section ─────────────────── */}
+      <section className="res-section res-cs-section">
+        <div className="res-bg-grid" />
+
+        <div className="container">
+          <FadeUp>
+            <div className="res-section-header">
+              <SectionLabel>Proven Impact</SectionLabel>
+              <h2 className="res-section-title section-heading">
+                Customer Success &amp; Case Studies
+              </h2>
+              <p className="res-section-desc text-start">
+                Explore how leading enterprises solve critical cybersecurity, compliance, and multi-cloud resilience challenges with KloudStack.
+              </p>
+            </div>
+          </FadeUp>
+
+          <div className="cs-grid">
+            {CASE_STUDIES.map((study, idx) => (
+              <CaseStudyCard key={study.id} study={study} index={idx} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Blogs ────────────────────────────────── */}
       <section className="res-section res-blogs-section">
         <div className="res-bg-grid res-bg-grid--offset" />
@@ -387,7 +526,7 @@ const Resources = () => {
               <h2 className="res-section-title section-heading">
                 Latest Insights Articles
               </h2>
-              <p className="res-section-desc">
+              <p className="res-section-desc text-start">
                 Perspectives from KloudStack's senior leadership on technology trends, strategic
                 decisions, and the future of enterprise IT.
               </p>
@@ -399,17 +538,6 @@ const Resources = () => {
               <BlogCard key={post.id} post={post} index={idx} />
             ))}
           </div>
-
-          <FadeUp delay={0.3}>
-            <div className="res-blogs-cta">
-              <a href="#" className="res-view-all-btn">
-                View All Articles
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-            </div>
-          </FadeUp>
         </div>
       </section>
     </>

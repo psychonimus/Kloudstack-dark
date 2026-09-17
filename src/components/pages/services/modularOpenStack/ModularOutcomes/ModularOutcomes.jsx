@@ -87,7 +87,7 @@ const ModularOutcomes = () => {
                     <span className="mdo-metric-tag">{item.metricTag}</span>
                   </div>
                   <h3 className="mdo-card-title">{item.title}</h3>
-                  <p className="mdo-card-desc">{item.description}</p>
+                  {/* <p className="mdo-card-desc">{item.description}</p> */}
                 </div>
               );
             })}

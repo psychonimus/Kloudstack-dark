@@ -83,29 +83,105 @@ const TESTIMONIALS = [
   },
 ];
 
-/* ── FAQ ── */
-const FAQS = [
-  {
-    q: 'What makes Risknox different from traditional security tools?',
-    a: 'Risknox quantifies risk financially, predicts threats using AI, and connects cyber posture directly to insurability — giving you complete visibility and actionability.',
+/* ── Product-Specific FAQs ── */
+const PRODUCT_FAQS = {
+  pulse: {
+    id: 'pulse',
+    name: 'Pulse',
+    tagline: 'AI-Powered Continuous Monitoring & Anomaly Detection',
+    badge: 'Continuous Monitoring',
+    faqs: [
+      {
+        q: 'How does Pulse provide 24/7 continuous monitoring across hybrid environments?',
+        a: 'Pulse continuously ingests, parses, and correlates telemetry across cloud workloads, on-premises networks, endpoint agents, and application logs. Using machine learning models, it identifies anomalous traffic, lateral movement, and zero-day threat patterns in real time without manual rule overhead.',
+      },
+      {
+        q: 'How does Pulse prevent alert fatigue for internal security operations teams?',
+        a: 'Pulse applies contextual event correlation and risk scoring to filter out benign noise. It automatically clusters related alerts into unified, prioritized incident timelines categorized by business impact.',
+      },
+      {
+        q: 'Can Pulse integrate with our existing SIEM, SOAR, and cloud environments?',
+        a: 'Yes. Pulse provides out-of-the-box connectors and REST APIs for major SIEM/SOAR platforms, cloud providers (AWS, Microsoft Azure, Google Cloud), and incident notification systems like Slack, Microsoft Teams, and PagerDuty.',
+      },
+      {
+        q: 'Does Pulse support automated security policy violation detection?',
+        a: 'Yes. Pulse continuously benchmarks environment telemetry against enterprise security baselines, immediately alerting on configuration drift, unauthorized privilege escalations, and unapproved external connections.',
+      },
+    ],
   },
-  {
-    q: 'Can Risknox integrate with our existing systems?',
-    a: 'Yes. Risknox integrates seamlessly with SIEMs, cloud environments, logs, and enterprise security tools.',
+  fortress: {
+    id: 'fortress',
+    name: 'Fortress',
+    tagline: 'Enterprise Cyber Risk Platform & Financial Quantification',
+    badge: 'Risk Quantification',
+    faqs: [
+      {
+        q: 'How does Fortress translate technical cyber risks into financial metrics?',
+        a: 'Fortress maps potential threat vectors and vulnerabilities directly to your revenue-critical business assets. It calculates quantified loss exposure ($ and projected business downtime), enabling CFOs, CISOs, and boards to make data-backed capital allocation decisions.',
+      },
+      {
+        q: 'What is the Cyber Hygiene Score and how is it calculated?',
+        a: 'The Cyber Hygiene Score provides a credit-score-style rating of your organization’s overall security posture. It continuously assesses patch velocity, endpoint coverage, credential hygiene, and external attack surfaces into a single benchmarkable metric.',
+      },
+      {
+        q: 'How does Fortress align with MITRE ATT&CK, SEBI CSF, and DPDPA frameworks?',
+        a: 'Fortress automatically correlates active exposures to MITRE ATT&CK adversary techniques and maps your controls directly to regional and international compliance mandates, including SEBI CSF, India DPDPA 2023, ISO 27001, and NIST CSF.',
+      },
+      {
+        q: 'How does Fortress assist with cyber insurance readiness and underwriting?',
+        a: 'Fortress generates verified posture reports and actuarially aligned risk metrics that demonstrate control effectiveness to cyber insurance carriers, accelerating underwriting cycles and optimizing policy premiums.',
+      },
+    ],
   },
-  {
-    q: 'Do I need a dedicated cybersecurity team to use Risknox?',
-    a: 'Not at all. The platform is designed for both security teams and business leaders, with intuitive dashboards and automated insights.',
+  compass: {
+    id: 'compass',
+    name: 'Compass',
+    tagline: 'Cyber Risk Intelligence for Insurers & Brokers',
+    badge: 'Insurability Intelligence',
+    faqs: [
+      {
+        q: 'How does Compass streamline the cyber insurance underwriting workflow?',
+        a: 'Compass transforms static questionnaires into automated, evidence-backed security assessments. Insurers and brokers gain instant applicant risk scoring, exposure modeling, and objective posture verification before binding coverage.',
+      },
+      {
+        q: 'Can Compass evaluate portfolio-wide cyber risk accumulation?',
+        a: 'Yes. Compass aggregates policyholder data into macro-level portfolio dashboards, highlighting systemic vendor dependencies, shared cloud infrastructure vulnerabilities, and catastrophe loss scenarios across your entire book of business.',
+      },
+      {
+        q: 'What metrics does Compass provide for premium recommendation support?',
+        a: 'Compass analyzes claims correlation data, historical attack frequencies, and applicant hygiene scores to deliver data-backed coverage limit guidance and risk-adjusted pricing recommendations.',
+      },
+      {
+        q: 'How does Compass monitor insured organizations throughout the policy lifecycle?',
+        a: 'Compass provides continuous posture monitoring, alerting carriers and brokers to critical security degradations, unpatched vulnerabilities, or major compliance lapses that occur post-bind.',
+      },
+    ],
   },
-  {
-    q: 'Can Risknox help with compliance?',
-    a: 'Yes. Risknox provides automated compliance tracking for frameworks like NIST, ISO 27001, and emerging AI governance regulations.',
+  accord: {
+    id: 'accord',
+    name: 'Accord',
+    tagline: 'AI Governance, Compliance & Insurability',
+    badge: 'AI Governance',
+    faqs: [
+      {
+        q: 'How does Accord support compliance with the EU AI Act and NIST AI RMF?',
+        a: 'Accord classifies enterprise AI systems across risk tiers (unacceptable, high, limited, and minimal risk), automating mandatory technical documentation, human-oversight logging, and standards mapping required under the EU AI Act and NIST AI Risk Management Framework.',
+      },
+      {
+        q: 'What specific AI risks and vulnerabilities does Accord monitor?',
+        a: 'Accord continuously evaluates model transparency, training data integrity, prompt injection vulnerabilities, data leakage (PII), algorithmic bias, model drift, and unauthorized shadow AI tool usage across corporate departments.',
+      },
+      {
+        q: 'What is an AI Insurability Assessment in Accord?',
+        a: 'The Insurability Assessment evaluates the governance maturity, safety guardrails, and liability controls of your AI deployments, giving cyber insurance underwriters the validated transparency needed to write enterprise AI liability coverage.',
+      },
+      {
+        q: 'Can Accord automate AI policy workflows and internal approval gates?',
+        a: 'Yes. Accord centralizes your AI asset inventory, enforces risk review gates before models deploy to production, and maintains immutable audit logs of model validation tests and approval sign-offs.',
+      },
+    ],
   },
-  {
-    q: 'Does Risknox provide 24/7 monitoring?',
-    a: 'Yes. Our AI-powered Resolute Pulse module continuously monitors your systems and alerts you in real time.',
-  },
-];
+};
 
 /* ── Animations ── */
 const fadeUp = {
@@ -120,8 +196,11 @@ const stagger = {
 
 /* ── Component ── */
 const ProductsCyberSecurity = () => {
-  const [openFaq, setOpenFaq] = useState(null);
+  const [activeProductTab, setActiveProductTab] = useState('pulse');
+  const [openFaq, setOpenFaq] = useState(0);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const currentProductFaq = PRODUCT_FAQS[activeProductTab] || PRODUCT_FAQS.pulse;
 
   return (
     <>
@@ -299,57 +378,121 @@ const ProductsCyberSecurity = () => {
         </div>
       </section>
 
-      {/* ══════ FAQ ══════ */}
-      <section className="pcs-faq">
-        <div className="container">
+      {/* ══════ FAQ SECTION WITH 4 PRODUCT TABS ══════ */}
+      <section className="pcs-faq" id="pcs-faq">
+        <div className="container text-start">
+          {/* Header */}
+          <motion.div
+            className="pcs-section-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
+            <span className="pcs-faq-label">FAQ Questions</span>
+            <h2 className="section-heading text-center">Frequently Asked Questions</h2>
+            <p className="cap-description text-start">
+              Explore product-specific questions and technical details across our cyber risk &amp; governance suite.
+            </p>
+          </motion.div>
+
+          {/* 4 Product Tabs at Top */}
+          <motion.div
+            className="pcs-faq-tabs-nav"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+          >
+            {Object.values(PRODUCT_FAQS).map((prod) => {
+              const isActive = activeProductTab === prod.id;
+              return (
+                <button
+                  key={prod.id}
+                  className={`pcs-faq-tab-btn ${isActive ? 'pcs-faq-tab-btn--active' : ''}`}
+                  onClick={() => {
+                    setActiveProductTab(prod.id);
+                    setOpenFaq(0);
+                  }}
+                  type="button"
+                >
+                  <div className="pcs-faq-tab-title">{prod.name}</div>
+                  <span className="pcs-faq-tab-badge">{prod.badge}</span>
+                  {isActive && (
+                    <motion.div
+                      className="pcs-faq-tab-indicator"
+                      layoutId="pcsFaqActiveTab"
+                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </motion.div>
+
+          {/* FAQ Content Grid */}
           <div className="pcs-faq-inner">
-            {/* Left */}
+            {/* Left: Product Info Card */}
             <motion.div
               className="pcs-faq-left"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeUp}
+              key={currentProductFaq.id}
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
             >
-              <span className="pcs-faq-label">FAQ Questions</span>
-              <h2 className="section-heading text-start">Questions</h2>
-              <p className="cap-description text-start">Looking for answers? We're here to help!</p>
+              <div className="pcs-faq-prod-card">
+                <div className="pcs-faq-prod-tag">{currentProductFaq.badge}</div>
+                <h3 className="pcs-faq-prod-title">{currentProductFaq.name}</h3>
+                <p className="pcs-faq-prod-tagline">{currentProductFaq.tagline}</p>
+                <div className="pcs-faq-prod-divider" />
+                <p className="pcs-faq-prod-hint">
+                  Need custom deployment architecture or enterprise integration guidance?
+                </p>
+                <a href="/contact" className="pcs-faq-prod-cta">
+                  <span>Speak with our Team</span>
+                  <span className="pcs-faq-arrow">&rarr;</span>
+                </a>
+              </div>
             </motion.div>
 
-            {/* Right: accordion */}
+            {/* Right: Accordion */}
             <motion.div
               className="pcs-faq-right"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={stagger}
+              key={`faq-list-${currentProductFaq.id}`}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
             >
-              {FAQS.map((faq, i) => (
-                <motion.div key={i} className="pcs-faq-item" variants={fadeUp}>
-                  <button
-                    className={`pcs-faq-question ${openFaq === i ? 'pcs-faq-question--open' : ''}`}
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    aria-expanded={openFaq === i}
-                  >
-                    <span>{faq.q}</span>
-                    <span className={`pcs-faq-chevron ${openFaq === i ? 'rotated' : ''}`}>&#9662;</span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {openFaq === i && (
-                      <motion.div
-                        className="pcs-faq-answer"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ overflow: 'hidden' }}
-                      >
-                        <p className="pcs-faq-answer-text">{faq.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
+              {currentProductFaq.faqs.map((faq, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div key={i} className="pcs-faq-item">
+                    <button
+                      className={`pcs-faq-question ${isOpen ? 'pcs-faq-question--open' : ''}`}
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      type="button"
+                    >
+                      <span>{faq.q}</span>
+                      <span className={`pcs-faq-chevron ${isOpen ? 'rotated' : ''}`}>&#9662;</span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          className="pcs-faq-answer"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                          style={{ overflow: 'hidden' }}
+                        >
+                          <p className="pcs-faq-answer-text">{faq.a}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </motion.div>
           </div>
         </div>

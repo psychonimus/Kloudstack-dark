@@ -63,7 +63,7 @@ const OperationalContinuity = () => {
                 <div className="hero-img-container" ref={containerRef}>
                     <img
                         ref={imageRef}
-                        src="/images/oc-img.jpg"
+                        src="/images/oc-img.png"
                         alt="Disaster Recovery & Business Continuity"
                     />
                 </div>

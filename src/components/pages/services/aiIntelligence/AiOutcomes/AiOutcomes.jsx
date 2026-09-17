@@ -93,7 +93,7 @@ const AiOutcomes = () => {
 
                   {/* Content */}
                   <h3 className="aio-card-title">{item.title}</h3>
-                  <p className="aio-card-desc">{item.description}</p>
+                  {/* <p className="aio-card-desc">{item.description}</p> */}
                 </div>
               );
             })}

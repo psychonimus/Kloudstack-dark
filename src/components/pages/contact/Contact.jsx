@@ -53,7 +53,7 @@ const DETAILS = [
   {
     icon: '📍',
     label: 'Address',
-    value: '1703, G-Square Business Park, Opp. Sanpada Station, Sector 30, Vashi, Navi Mumbai - 400703, MH, India.',
+    value: '1703, G-Square Business Park, Opp. Sanpada Station, Sector 3A, Vashi, Navi Mumbai - 400703, MH, India.',
     href: null,
   },
   {

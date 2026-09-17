@@ -87,8 +87,8 @@ const CAPABILITIES = [
   },
   {
     icon: <LuNetwork size={26} />,
-    title: 'New Language Support',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    title: 'Multilingual Support',
+    desc: 'Deliver learning experiences across multiple languages with localized content and user interfaces.',
     tag: 'Language Learning',
   },
 ];
@@ -502,7 +502,7 @@ const LMS = () => {
                 <div className="lms-cap-icon-box">{cap.icon}</div>
                 <span className="lms-cap-tag">{cap.tag}</span>
                 <h3 className="lms-cap-title">{cap.title}</h3>
-                <p className="lms-cap-desc">{cap.desc}</p>
+                {/* <p className="lms-cap-desc">{cap.desc}</p> */}
               </motion.div>
             ))}
           </div>

@@ -145,10 +145,7 @@ const AIBankingSecurity = () => {
               </div>
 
               <div className="blog-article-meta">
-                <div className="blog-meta-item">
-                  <span className="blog-meta-label">Published</span>
-                  <span className="blog-meta-val">Jul 10, 2025</span>
-                </div>
+                
                 <div className="blog-meta-divider" />
                 <div className="blog-meta-item">
                   <span className="blog-meta-label">Read Time</span>

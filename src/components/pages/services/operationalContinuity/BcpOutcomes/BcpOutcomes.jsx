@@ -85,7 +85,7 @@ const BcpOutcomes = () => {
                     <span className="bco-metric-tag">{item.metricTag}</span>
                   </div>
                   <h3 className="bco-card-title">{item.title}</h3>
-                  <p className="bco-card-desc">{item.description}</p>
+                  {/* <p className="bco-card-desc">{item.description}</p> */}
                 </div>
               );
             })}

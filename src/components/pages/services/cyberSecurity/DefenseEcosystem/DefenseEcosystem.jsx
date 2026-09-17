@@ -8,27 +8,27 @@ const PARTNER_GROUPS = [
     id: 'perimeter',
     category: 'Perimeter, Edge & Zero Trust',
     partners: [
-      {
-        name: 'Fortinet',
-        logo: '/images/alliance-logos/fortniet.svg',
-        role: 'Perimeter Firewall Defense',
-        desc: 'Enterprise-grade next-generation firewalls for comprehensive perimeter security and advanced threat protection.',
-        tags: ['NGFW', 'Perimeter Defense'],
-      },
-      {
-        name: 'Zscaler',
-        role: 'ZTNA & CSPM',
-        logo: '/images/alliance-logos/zscaler.svg',
-        desc: 'Zero Trust Network Access, Cloud Security Posture Management, and CASB capabilities for cloud-native architectures.',
-        tags: ['ZTNA', 'CASB', 'CSPM'],
-      },
-      {
-        name: 'Netskope',
-        logo: '/images/alliance-logos/netskope.svg',
-        role: 'CASB & Secure Access',
-        desc: 'Inline cloud security, data protection, and secure access for modern hybrid workforces accessing cloud services.',
-        tags: ['CASB', 'SWG', 'Zero Trust'],
-      },
+      // {
+      //   name: 'Fortinet',
+      //   logo: '/images/alliance-logos/fortniet.svg',
+      //   role: 'Perimeter Firewall Defense',
+      //   desc: 'Enterprise-grade next-generation firewalls for comprehensive perimeter security and advanced threat protection.',
+      //   tags: ['NGFW', 'Perimeter Defense'],
+      // },
+      // {
+      //   name: 'Zscaler',
+      //   role: 'ZTNA & CSPM',
+      //   logo: '/images/alliance-logos/zscaler.svg',
+      //   desc: 'Zero Trust Network Access, Cloud Security Posture Management, and CASB capabilities for cloud-native architectures.',
+      //   tags: ['ZTNA', 'CASB', 'CSPM'],
+      // },
+      // {
+      //   name: 'Netskope',
+      //   logo: '/images/alliance-logos/netskope.svg',
+      //   role: 'CASB & Secure Access',
+      //   desc: 'Inline cloud security, data protection, and secure access for modern hybrid workforces accessing cloud services.',
+      //   tags: ['CASB', 'SWG', 'Zero Trust'],
+      // },
       {
         name: 'Cloudflare',
         logo: '/images/alliance-logos/cloudflare.svg',
@@ -49,27 +49,27 @@ const PARTNER_GROUPS = [
     id: 'access',
     category: 'Access Control & Lifecycle Automation',
     partners: [
-      {
-        name: 'i Raje',
-        role: 'PIM / PAM',
-        logo: '/images/alliance-logos/iraje.svg',
-        desc: 'Specialized Privileged Identity Management and Privileged Access Management pathways for sensitive enterprise accounts.',
-        tags: ['PIM', 'PAM', 'Privileged Access'],
-      },
-      {
-        name: 'BigFix',
-        role: 'Patch & Compliance',
-        logo: '/images/alliance-logos/bigfix.svg',
-        desc: 'Automated endpoint patch management, configuration compliance validation, and software distribution across large estates.',
-        tags: ['Patch Mgmt', 'Compliance'],
-      },
-      {
-        name: 'ManageEngine',
-        logo: '/images/alliance-logos/manageengine.svg',
-        role: 'SSO & MFA',
-        desc: 'Unified identity platform covering SSO, MFA validation loops, and IT operations management for access lifecycle control.',
-        tags: ['SSO', 'MFA', 'IAM'],
-      },
+      // {
+      //   name: 'i Raje',
+      //   role: 'PIM / PAM',
+      //   logo: '/images/alliance-logos/iraje.svg',
+      //   desc: 'Specialized Privileged Identity Management and Privileged Access Management pathways for sensitive enterprise accounts.',
+      //   tags: ['PIM', 'PAM', 'Privileged Access'],
+      // },
+      // {
+      //   name: 'BigFix',
+      //   role: 'Patch & Compliance',
+      //   logo: '/images/alliance-logos/bigfix.svg',
+      //   desc: 'Automated endpoint patch management, configuration compliance validation, and software distribution across large estates.',
+      //   tags: ['Patch Mgmt', 'Compliance'],
+      // },
+      // {
+      //   name: 'ManageEngine',
+      //   logo: '/images/alliance-logos/manageengine.svg',
+      //   role: 'SSO & MFA',
+      //   desc: 'Unified identity platform covering SSO, MFA validation loops, and IT operations management for access lifecycle control.',
+      //   tags: ['SSO', 'MFA', 'IAM'],
+      // },
       {
 
         name: 'SailPoint',
@@ -98,13 +98,13 @@ const PARTNER_GROUPS = [
     id: 'endpoint',
     category: 'Endpoint Detection & Analysis',
     partners: [
-      {
-        name: 'Trend Micro',
-        role: 'EDR & XDR',
-        logo: '/images/alliance-logos/trendmicro.svg',
-        desc: 'Endpoint Detection and Response combined with Extended Detection and Response for comprehensive behavioral infrastructure visibility across the enterprise.',
-        tags: ['EDR', 'XDR', 'Behavioral Analytics'],
-      },
+      // {
+      //   name: 'Trend Micro',
+      //   role: 'EDR & XDR',
+      //   logo: '/images/alliance-logos/trendmicro.svg',
+      //   desc: 'Endpoint Detection and Response combined with Extended Detection and Response for comprehensive behavioral infrastructure visibility across the enterprise.',
+      //   tags: ['EDR', 'XDR', 'Behavioral Analytics'],
+      // },
       {
         name: 'Sophos',
         role: 'MDR',
@@ -152,10 +152,9 @@ const DefenseEcosystem = () => {
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           {/* <span className="de-eyebrow">Partner Ecosystem</span> */}
-          <h2 className="section-heading text-start">Comprehensive Defense Partner Ecosystem</h2>
+          <h2 className="section-heading text-start">Technology Ecosystem Expertise</h2>
           <p className="cap-description text-start ">
-            KloudStack strategically deploys and supports targeted solutions from key alliance partners to complement
-            our primary application, compliance, and identity strategies.
+            Our expertise spans a broad ecosystem of leading security, identity, compliance, and application technologies, enabling us to design, integrate and support solutions aligned to specific enterprise requirements.
           </p>
         </motion.div>
 

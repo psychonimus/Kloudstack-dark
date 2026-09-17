@@ -11,7 +11,7 @@ const testimonials = [
             'Working with Kloudstack Computes was a smooth experience from start to finish. They really took the time to understand our needs and made sure everything was secure and compliant...',
         name: 'Mr. Sudarshan Pillai',
         title: 'VP IT, LIC Mutual Fund',
-        avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Sudarshan&backgroundColor=b6e3f4',
+        avatar: '/images/logos/lic-mutual-fund.svg',
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const testimonials = [
             'We consider Kloudstack Computes as an extension of our own team. Their work with Azure, AWS, and OpenShift has been consistently excellent.',
         name: 'Mr. Senthil',
         title: 'Chairman & MD, Savic Technologies',
-        avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Priya&backgroundColor=ffd5dc',
+        avatar: '/images/logos/saviac.svg',
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ const testimonials = [
             'The project went off without a hitch... always keeping things running smoothly.',
         name: 'Mr. Anjan Deb',
         title: 'IT Head, Seven Islands Shipping Ltd',
-        avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Rajiv&backgroundColor=c0aede',
+        avatar: '/images/logos/seven-island.svg',
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ const testimonials = [
             'When Kloudstack Computes set up Microsoft Active Directory, Azure, and Microsoft 365 for us, they made what could have been a complicated process feel straightforward...',
         name: 'Mr. Vishal Sinha',
         title: 'Bajel Projects Limited',
-        avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Arjun&backgroundColor=d1f4cc',
+        avatar: '/images/logos/bajel-projects.svg',
     },
 ]
 
@@ -131,8 +131,9 @@ const Testimonials = () => {
                     <div className={`tv-slide ${slideClass}`} key={current}>
                         {/* Quote text */}
                         <blockquote className="tv-quote">
-                            {/* <span className="tv-quote-mark" aria-hidden="true">"</span> */}
+                            
                             {t.quote}
+                           
                         </blockquote>
 
                         {/* Author row */}
@@ -151,15 +152,15 @@ const Testimonials = () => {
 
                             {/* Avatar + name */}
                             <div className="tv-author">
-                                {/* <div className="tv-avatar-ring">
+                                <div className="tv-avatar-ring">
                                     <img
                                         src={t.avatar}
                                         alt={t.name}
                                         className="tv-avatar"
-                                        width="64"
-                                        height="64"
+                                        
+                                        
                                     />
-                                </div> */}
+                                </div>
                                 <p className="tv-author-name">{t.name}</p>
                                 <p className="tv-author-title">{t.title}</p>
                             </div>
