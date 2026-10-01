@@ -56,7 +56,7 @@ const AboutHero = () => {
                 </div>
             </section>
 
-            <section className="px-5 hero-image">
+            <section className="px-2 px-md-5 hero-image">
                 <div className="hero-img-container" ref={containerRef}>
                     <img
                         ref={imageRef}

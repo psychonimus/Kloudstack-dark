@@ -307,45 +307,59 @@ const BlogCard = ({ post, index }) => {
 const CASE_STUDIES = [
   {
     id: 1,
-    image: '/images/security-built-in.png',
-    industry: 'Financial Services',
-    title: 'Zero Trust SOC Transformation for Multi-Cloud Banking',
+    image: '/images/operational_continuity.png',
+    industry: 'Manufacturing & Agri-Tech',
+    title: 'Safeguarding Enterprise Manufacturing with Cloud-Native Disaster Recovery',
     excerpt:
-      'Engineered an automated detection and response fabric across 10M+ daily transactions, maintaining 100% SEBI CSF compliance.',
+      'Engineered an elastic AWS EDR & SAP HANA replication pilot-light architecture for VST Tillers, achieving sub-hour RTO and 40–60% TCO savings.',
     metrics: [
-      { label: 'MTTR Cut', value: '65%' },
-      { label: 'Uptime SLA', value: '99.99%' },
-      { label: 'Compliance', value: '100%' },
+      { label: 'RTO SLA', value: '< 60 Min' },
+      { label: 'RPO Target', value: 'Near-Zero' },
+      { label: 'TCO Saved', value: '40–60%' },
     ],
-    link: '/contact',
+    link: '/resources/manufacturing-cloud-disaster-recovery',
   },
   {
     id: 2,
-    image: '/images/ai_security_intelligence.png',
-    industry: 'Healthcare',
-    title: 'Securing 50+ Hospital Workloads & Patient Telemetry',
+    image: '/images/security-built-in.png',
+    industry: 'Global Shipping & Logistics',
+    title: 'Securing Global Maritime Operations with Zero Trust Architecture',
     excerpt:
-      'Deployed continuous posture monitoring and cyber risk quantification to protect sensitive healthcare data across 10,000+ endpoints.',
+      'Modernized SI Shipping’s remote infrastructure across 300+ personnel with Check Point Harmony ZTNA, slashing security incidents by 60% and operational TCO by 25%.',
     metrics: [
-      { label: 'Endpoints', value: '10k+' },
-      { label: 'Prevented Loss', value: '$2.4M' },
-      { label: 'Breach Count', value: '0' },
+      { label: 'Threats Cut', value: '60%' },
+      { label: 'Speed Boost', value: '40%' },
+      { label: 'TCO Saved', value: '25%' },
     ],
-    link: '/contact',
+    link: '/resources/maritime-zero-trust-architecture',
   },
   {
     id: 3,
-    image: '/images/cloud-without-complexity.png',
-    industry: 'Enterprise Cloud',
-    title: 'Multi-Cloud Resilience & Insurability Optimization',
+    image: '/images/ai_security_intelligence.png',
+    industry: 'Automotive & Manufacturing',
+    title: 'Fortifying Manufacturing Enterprise Networks Against Advanced Cyber Threats',
     excerpt:
-      'Transformed cloud governance into quantifiable insurability telemetry, securing premier tier cyber coverage with 40% premium savings.',
+      'Engineered a perimeter security overhaul for India’s premier auto enterprise, eliminating 117k+ botnet attacks and plummeting critical intrusions from 97.2% to 6.7%.',
     metrics: [
-      { label: 'Premium Saved', value: '40%' },
-      { label: 'Underwriting', value: '3x Faster' },
-      { label: 'Disaster RTO', value: '15 Min' },
+      { label: 'Threat Drop', value: '97% → 6.7%' },
+      { label: 'Botnets Cut', value: '117k+' },
+      { label: 'IPS Hardened', value: '10.5k+' },
     ],
-    link: '/contact',
+    link: '/resources/manufacturing-network-threat-fortification',
+  },
+  {
+    id: 4,
+    image: '/images/cloud-without-complexity.png',
+    industry: 'Enterprise Manufacturing',
+    title: 'Accelerating Operational Agility through AWS Cloud Transformation',
+    excerpt:
+      'Migrated a 6TB mission-critical Dealer Management System (DMS) to AWS with zero unscheduled downtime, boosting performance by 25% and cutting TCO by 20–30%.',
+    metrics: [
+      { label: 'Performance', value: '+20–25%' },
+      { label: 'TCO Reduction', value: '20–30%' },
+      { label: 'Cut-Over SLA', value: '6–7 Hrs' },
+    ],
+    link: '/resources/cloud-transformation-aws-migration',
   },
 ]
 

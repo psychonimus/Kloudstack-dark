@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./FeatureTabs.css";
 
@@ -37,7 +38,8 @@ const TABS = [
         detail: "Alerts prioritized by impact and severity.",
       },
     ],
-    cta: "Know more",
+    cta: "Book A Demo",
+    link: "/",
     img: "/images/pulse.png",
   },
   {
@@ -78,7 +80,8 @@ const TABS = [
           "Match your risk insights with tailored cyber insurance options.",
       },
     ],
-    cta: "Know more",
+    cta: "Book A Demo",
+    link: "/",
     img: "/images/fortress.png",
   },
   {
@@ -115,8 +118,9 @@ const TABS = [
         detail: "Integrates directly with underwriting workflows.",
       },
     ],
-    cta: "Know more",
-    img: "/images/tab3.png",
+    cta: "Book A Demo",
+    link: "/",
+    img: "/images/compass.png",
   },
   {
     id: "cloud",
@@ -148,11 +152,12 @@ const TABS = [
         detail: "Improve transparency and insurer confidence.",
       },
       {
-        title: "Standards Alignment",
-        detail: "Map systems to frameworks like NIST AI RMF.",
+        title: "System-Level Risk Scoring",
+        detail: "Real-time evaluation for safer operations.",
       },
     ],
-    cta: "Know more",
+    cta: "Book A Demo",
+    link: "/",
     img: "/images/accord.png",
   },
 ];
@@ -281,11 +286,9 @@ export default function FeatureTabs() {
                     </ul>
                   </div>
 
-                  <motion.a
-                    href="#"
+                  <Link
+                    to={activeTab.link || "/contact"}
                     className="ft-cta"
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.97 }}
                   >
                     {activeTab.cta}
                     <svg
@@ -301,7 +304,7 @@ export default function FeatureTabs() {
                       <circle cx="12" cy="12" r="10" />
                       <path d="M12 8l4 4-4 4M8 12h8" />
                     </svg>
-                  </motion.a>
+                  </Link>
                 </motion.div>
               </AnimatePresence>
             </div>

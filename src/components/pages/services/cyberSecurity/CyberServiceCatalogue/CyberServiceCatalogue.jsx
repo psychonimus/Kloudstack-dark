@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './CyberServiceCatalogue.css';
 
@@ -145,6 +146,23 @@ const CATALOGUE = [
           </svg>
         ),
       },
+      {
+        title: 'Licensed CPA Firm — SOC 2 Attestation',
+        desc: 'We are a licensed CPA firm. Get your SOC 2 Type 1 & Type 2 attestation today with end-to-end readiness assessment, automated evidence collection, and fast-track CPA audit reports.',
+        span: 2,
+        badge: 'Licensed CPA Firm',
+        isHighlight: true,
+        cta: {
+          label: 'Get SOC 2 Attested',
+          link: '/contact',
+        },
+        icon: (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        ),
+      },
     ],
   },
 ];
@@ -209,16 +227,29 @@ const CyberServiceCatalogue = () => {
               {activeData.services.map((svc, idx) => (
                 <motion.div
                   key={idx}
-                  className="csc-service-card"
+                  className={`csc-service-card ${svc.span === 2 ? 'csc-service-card--span-2' : ''} ${svc.isHighlight ? 'csc-service-card--highlight' : ''}`}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } },
                   }}
                 >
                   <div className="csc-card-top-bar" />
-                  <div className="csc-icon-wrap">{svc.icon}</div>
+                  <div className="csc-card-header-row">
+                    <div className="csc-icon-wrap">{svc.icon}</div>
+                    {svc.badge && <span className="csc-card-badge">{svc.badge}</span>}
+                  </div>
                   <h4 className="csc-svc-title">{svc.title}</h4>
                   <p className="csc-svc-desc">{svc.desc}</p>
+                  {svc.cta && (
+                    <div className="csc-card-cta-wrap">
+                      <Link to={svc.cta.link} className="csc-card-cta-btn">
+                        <span>{svc.cta.label}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="csc-cta-arrow">
+                          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                      </Link>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

@@ -9,6 +9,12 @@
   line-height: 1;
 }
 
+@media (max-width: 480px) {
+  .counter-counter {
+    font-size: 40px !important;
+  }
+}
+
 .counter-digit {
   position: relative;
   width: 1ch;

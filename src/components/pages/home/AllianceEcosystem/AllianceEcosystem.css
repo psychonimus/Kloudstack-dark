@@ -325,7 +325,7 @@
 
 @media (max-width: 768px) {
     .ae-section {
-        padding: 60px 0 40px;
+        padding: 50px 0 36px;
     }
 
     .ae-tabs-nav {
@@ -342,24 +342,77 @@
 
     .ae-logos-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .ae-logo-card {
+        height: 90px;
+        padding: 12px 16px;
+    }
+
+    .ae-logo-svg {
+        max-width: 110px;
+        height: 40px;
     }
 
     .ae-details-card {
-        padding: 28px 24px;
+        padding: 24px 20px;
+        gap: 16px;
+    }
+
+    .ae-details-title {
+        font-size: 1.45rem;
     }
 }
 
 @media (max-width: 480px) {
     .ae-tabs-nav {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .ae-tab-btn {
+        font-size: 0.72rem;
+        padding: 8px 10px;
+        min-height: 42px;
     }
 
     .ae-logos-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     .ae-logo-card {
-        height: 90px;
+        height: 80px;
+        padding: 10px 12px;
+    }
+
+    .ae-logo-svg {
+        max-width: 95px;
+        height: 36px;
+    }
+
+    .ae-details-card {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .ae-details-title {
+        font-size: 1.25rem;
+    }
+
+    .ae-details-desc {
+        font-size: 0.85rem;
+    }
+
+    .ae-capability-pill {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .ae-docs-btn {
+        padding: 12px 18px;
+        font-size: 0.78rem;
     }
 }
 

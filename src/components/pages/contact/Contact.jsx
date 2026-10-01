@@ -236,12 +236,12 @@ const Contact = () => {
                   >
                     <iframe
                       title="KloudStack Office Location"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0!2d77.0800!3d28.4950!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5fe8e5c64b1e!2sCyberCity%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3883.8716237173735!2d73.00570477525312!3d19.06638285227441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c145af38a625%3A0x303fd73974a38c1c!2sG-Square%20Business%20Park!5e1!3m2!1sen!2sin!4v1790236249337!5m2!1sen!2sin"
                       allowFullScreen=""
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />
-                    <div className="ct-map-overlay-label">📍 Gurugram HQ</div>
+                    {/* <div className="ct-map-overlay-label">📍 Gurugram HQ</div> */}
                   </motion.div>
                 </div>
               </Reveal>

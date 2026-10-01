@@ -131,18 +131,18 @@ background: radial-gradient(circle,rgba(9, 16, 40, 1) 0%, rgba(0, 0, 0, 0) 40%);
 }
 
 
-/* ── Quote ── */
 .tv-quote {
     font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-    font-size: clamp(1.05rem, 2.2vw, 5.4rem);
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.40;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
     text-align: center;
     letter-spacing: -0.01em;
     margin: 0;
     position: relative;
     padding: 0 12px;
+    max-width: 780px;
 }
 
 .tv-quote::before {
@@ -330,19 +330,23 @@ background: radial-gradient(circle,rgba(9, 16, 40, 1) 0%, rgba(0, 0, 0, 0) 40%);
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .tv-section {
-        padding: 64px 0 48px;
+        padding: 50px 0 40px;
     }
 
     .tv-inner {
-        padding: 0 24px;
+        padding: 0 16px;
     }
 
     .tv-stage {
-        min-height: 320px;
+        min-height: 280px;
+    }
+
+    .tv-slide {
+        gap: 28px;
     }
 
     .tv-author-row {
-        gap: 20px;
+        gap: 16px;
     }
 
     .tv-nav-btn {
@@ -354,28 +358,68 @@ background: radial-gradient(circle,rgba(9, 16, 40, 1) 0%, rgba(0, 0, 0, 0) 40%);
         min-width: 120px;
     }
 
-    .tv-author-name,
+    .tv-avatar-ring {
+        width: 170px;
+        height: 56px;
+    }
+
+    .tv-author-name {
+        font-size: 1.25rem;
+        white-space: normal;
+        text-align: center;
+    }
+
     .tv-author-title {
         white-space: normal;
         text-align: center;
     }
 
     .tv-divider {
-        padding: 0 24px;
+        padding: 0 16px;
     }
 }
 
 @media (max-width: 480px) {
+    .tv-heading {
+        font-size: 1.4rem;
+        margin-bottom: 32px;
+    }
+
     .tv-quote {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        padding: 0 4px;
+    }
+
+    .tv-slide {
+        gap: 20px;
     }
 
     .tv-author-row {
-        gap: 14px;
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .tv-nav-btn {
+        width: 34px;
+        height: 34px;
     }
 
     .tv-avatar-ring {
-        width: 60px;
-        height: 60px;
+        width: 140px;
+        height: 48px;
+    }
+
+    .tv-author-name {
+        font-size: 1.05rem;
+    }
+
+    .tv-author-title {
+        font-size: 0.72rem;
+    }
+
+    .tv-dots {
+        margin-top: 24px;
     }
 }

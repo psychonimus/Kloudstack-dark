@@ -1,12 +1,16 @@
 import React, { useEffect, useRef } from 'react'
-import { FaDotCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { FaDotCircle, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
 import ApplicationPerimeter from './applicationPerimeter/ApplicationPerimeter';
 import UnifiedDataGovernance from './UnifiedDataGovernance/UnifiedDataGovernance';
 import DPDPAAssessment from './DPDPAAssessment/DPDPAAssessment';
+import DPDPServicesFramework from './DPDPServicesFramework/DPDPServicesFramework';
 import CyberServiceCatalogue from './CyberServiceCatalogue/CyberServiceCatalogue';
 import CyberCertifications from './CyberCertifications/CyberCertifications';
 import DefenseEcosystem from './DefenseEcosystem/DefenseEcosystem';
 import CyberOutcomes from './CyberOutcomes/CyberOutcomes';
+import './CyberSecurity.css';
 
 const CyberSecurity = () => {
 
@@ -78,12 +82,35 @@ const CyberSecurity = () => {
             </div>
             <UnifiedDataGovernance />
             <DPDPAAssessment />
+            <DPDPServicesFramework />
             <CyberServiceCatalogue />
             <CyberCertifications />
             <DefenseEcosystem />
             <CyberOutcomes />
 
-            
+            {/* Floating Quick Assessment Button */}
+            <motion.div 
+                className="cyber-assessment-floating-wrap"
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+                <Link 
+                    to="/cyber-risk-assessment" 
+                    className="cyber-assessment-floating-btn"
+                    aria-label="Take a Quick Cybersecurity Assessment"
+                >
+                    <span className="cyber-btn-icon-box">
+                        <span className="cyber-btn-pulse"></span>
+                        <FaShieldAlt />
+                    </span>
+                    <span className="cyber-btn-label">
+                        <span className="cyber-btn-sub">Interactive Tool</span>
+                        <span className="cyber-btn-title">Take a Quick Cybersecurity Assessment</span>
+                    </span>
+                    <FaArrowRight className="cyber-btn-arrow" />
+                </Link>
+            </motion.div>
         </>
     )
 }

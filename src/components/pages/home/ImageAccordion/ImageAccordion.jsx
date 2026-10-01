@@ -122,11 +122,11 @@ const ImageAccordion = () => {
                     <p className="ia-label-title">{item.title}</p>
                     <p className="ia-label-subtitle">{item.subtitle}</p>
                     <Link to={item.url}>
-                      <button class="learn-more mt-2">
-                      <span class="circle" aria-hidden="true">
-                        <span class="icon arrow"></span>
+                      <button className="learn-more mt-2">
+                      <span className="circle" aria-hidden="true">
+                        <span className="icon arrow"></span>
                       </span>
-                      <span class="button-text">Know More</span>
+                      <span className="button-text">Know More</span>
                     </button>
                     </Link>
                   </motion.div>

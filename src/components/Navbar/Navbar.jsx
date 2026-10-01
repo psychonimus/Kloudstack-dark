@@ -9,6 +9,7 @@ import { LuBrainCircuit } from 'react-icons/lu';
 import { BsCloudFog2 } from 'react-icons/bs';
 import { TbHeartbeat } from 'react-icons/tb';
 import { VscPackage } from 'react-icons/vsc';
+import { useNavigate } from 'react-router-dom';
 
 const MotionNavLink = motion(NavLink);
 const MotionLink = motion(Link);
@@ -19,7 +20,7 @@ const navItems = [
   { name: 'Services', to: '/services', hasDropdown: true },
   { name: 'Products', to: '/products', hasProductsDropdown: true },
   { name: 'Resources', to: '/resources' },
-  { name: 'Contact', to: '/contact' },
+  // { name: 'Contact', to: '/contact' },
 ];
 
 const PRODUCTS = [
@@ -163,6 +164,13 @@ const Navbar = () => {
       doExpand();
     }
   }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
+
+
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/contact');
+  };
 
   useEffect(() => {
     animate(
@@ -312,12 +320,20 @@ const Navbar = () => {
 
           <motion.div className="nav-right-wrap" variants={rightVariants} style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}>
             <div className="social-icons">
-              <i className="bi bi-linkedin"></i>
-              <i className="bi bi-facebook"></i>
-              <i className="bi bi-instagram"></i>
-              <i className="bi bi-twitter-x"></i>
+              <a href="https://www.linkedin.com/company/kloudstack-computes-private-ltd/" target='_blank' className="flex">
+                    <i className="bi bi-linkedin"></i>
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61591974449135" target='_blank' className="flex">
+                    <i className="bi bi-facebook"></i>
+                  </a>
+                  <a href="https://www.instagram.com/kloudstack_/" target='_blank' className="flex">
+                    <i className="bi bi-instagram"></i>
+                  </a>
+                  <a href="https://x.com/Kloudstack_" target='_blank' className="flex">
+                    <i className="bi bi-twitter-x"></i>
+                  </a>
             </div>
-            <button className="btn-contact">Get in Touch</button>
+            <button onClick={()=>navigate('/contact')} className="btn-contact">Get in Touch</button>
           </motion.div>
 
           <motion.div
@@ -542,10 +558,18 @@ const Navbar = () => {
                   initial="hidden"
                   animate="visible"
                 >
-                  <i className="bi bi-linkedin"></i>
-                  <i className="bi bi-facebook"></i>
-                  <i className="bi bi-instagram"></i>
-                  <i className="bi bi-twitter-x"></i>
+                  <a href="https://www.linkedin.com/company/kloudstack-computes-private-ltd/" target='_blank' className="flex">
+                    <i className="bi bi-linkedin"></i>
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61591974449135" target='_blank' className="flex">
+                    <i className="bi bi-facebook"></i>
+                  </a>
+                  <a href="https://www.instagram.com/kloudstack_/" target='_blank' className="flex">
+                    <i className="bi bi-instagram"></i>
+                  </a>
+                  <a href="https://x.com/Kloudstack_" target='_blank' className="flex">
+                    <i className="bi bi-twitter-x"></i>
+                  </a>
                 </motion.div>
 
                 <motion.button

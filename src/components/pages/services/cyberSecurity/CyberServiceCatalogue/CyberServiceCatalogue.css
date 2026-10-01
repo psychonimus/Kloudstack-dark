@@ -254,10 +254,111 @@
   flex-grow: 1;
 }
 
+/* ── Card Header Row & Badges ── */
+.csc-card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.csc-card-header-row .csc-icon-wrap {
+  margin-bottom: 0;
+}
+
+.csc-card-badge {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.12);
+  border: 1px solid rgba(212, 160, 74, 0.35);
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── 2-Column Span Card & Highlight Card ── */
+.csc-service-card--span-2 {
+  grid-column: span 2;
+}
+
+.csc-service-card--highlight {
+  background: linear-gradient(135deg, rgba(212, 160, 74, 0.06) 0%, rgba(255, 255, 255, 0.025) 100%);
+  border-color: rgba(212, 160, 74, 0.28);
+}
+
+.csc-service-card--highlight .csc-card-top-bar {
+  background: linear-gradient(90deg, #d4a04a, #f5c96a);
+  box-shadow: 0 0 10px rgba(212, 160, 74, 0.4);
+}
+
+.csc-service-card--highlight .csc-icon-wrap {
+  background: rgba(212, 160, 74, 0.14);
+  border-color: rgba(212, 160, 74, 0.4);
+  color: #f5c96a;
+}
+
+.csc-service-card--highlight:hover {
+  border-color: rgba(212, 160, 74, 0.55);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 160, 74, 0.15);
+}
+
+/* ── Card CTA Button ── */
+.csc-card-cta-wrap {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.csc-card-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #d4a04a, #b8860b);
+  color: #0d1117;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(212, 160, 74, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.csc-card-cta-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #f5c96a, #d4a04a);
+  box-shadow: 0 8px 24px rgba(212, 160, 74, 0.5);
+  color: #000000;
+}
+
+.csc-card-cta-btn:active {
+  transform: translateY(0);
+}
+
+.csc-cta-arrow {
+  transition: transform 0.25s ease;
+}
+
+.csc-card-cta-btn:hover .csc-cta-arrow {
+  transform: translateX(4px);
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .csc-services-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .csc-service-card--span-2 {
+    grid-column: span 2;
   }
 
   .csc-content-panel {
@@ -300,7 +401,12 @@
     grid-template-columns: 1fr;
   }
 
+  .csc-service-card--span-2 {
+    grid-column: span 1;
+  }
+
   .csc-content-panel {
     padding: 28px 20px;
   }
 }
+

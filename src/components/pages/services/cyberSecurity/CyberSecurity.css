@@ -1,0 +1,203 @@
+/* ═════════════════════════════════════════════════════════════
+   CYBERSECURITY PAGE & FLOATING ASSESSMENT BUTTON STYLES
+   ═════════════════════════════════════════════════════════════ */
+
+.cyber-assessment-floating-wrap {
+  position: fixed;
+  bottom: 32px;
+  left: 38%;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.cyber-assessment-floating-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 16px;
+  background: linear-gradient(135deg, rgba(16, 20, 30, 0.92) 0%, rgba(22, 28, 42, 0.88) 100%);
+  border: 1px solid rgba(212, 160, 74, 0.45);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7), 
+              0 0 20px rgba(212, 160, 74, 0.2),
+              inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer overlay animation */
+.cyber-assessment-floating-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: cyberBtnShimmer 4s infinite ease-in-out;
+}
+
+@keyframes cyberBtnShimmer {
+  0% {
+    left: -150%;
+  }
+  35%, 100% {
+    left: 200%;
+  }
+}
+
+.cyber-assessment-floating-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: linear-gradient(135deg, rgba(22, 28, 44, 0.96) 0%, rgba(30, 38, 58, 0.92) 100%);
+  border-color: rgba(212, 160, 74, 0.85);
+  box-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.8), 
+              0 0 28px rgba(212, 160, 74, 0.4),
+              inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.cyber-assessment-floating-btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Icon badge */
+.cyber-btn-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4a04a 0%, #b8860b 100%);
+  color: #0d1117;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(212, 160, 74, 0.5);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.cyber-assessment-floating-btn:hover .cyber-btn-icon-box {
+  transform: rotate(6deg) scale(1.05);
+}
+
+/* Pulsing radar ring on icon */
+.cyber-btn-pulse {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212, 160, 74, 0.6);
+  animation: cyberBtnPulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes cyberBtnPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Text */
+.cyber-btn-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.cyber-btn-sub {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #d4a04a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cyber-btn-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  white-space: nowrap;
+}
+
+/* Arrow Icon */
+.cyber-btn-arrow {
+  color: #d4a04a;
+  font-size: 0.85rem;
+  transition: transform 0.25s ease, color 0.25s ease;
+  margin-left: 2px;
+}
+
+.cyber-assessment-floating-btn:hover .cyber-btn-arrow {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cyber-assessment-floating-wrap {
+    bottom: 24px;
+    left: 16px;
+  }
+
+  .cyber-assessment-floating-btn {
+    padding: 10px 16px 10px 12px;
+    gap: 10px;
+  }
+
+  .cyber-btn-icon-box {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .cyber-btn-sub {
+    display: none;
+  }
+
+  .cyber-btn-title {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-assessment-floating-wrap {
+    bottom: 20px;
+    left: 12px;
+    max-width: calc(100vw - 84px); /* ensure it doesn't overlap BackToTop on small screens */
+  }
+
+  .cyber-btn-title {
+    font-size: 0.78rem;
+    white-space: normal;
+  }
+}

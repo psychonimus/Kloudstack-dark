@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+/* ═════════════════════════════════════════════════════════════
+   CYBER RISK ASSESSMENT (SNAPSHOT)
+   ═════════════════════════════════════════════════════════════ */
+
+.cra-wrapper {
+  background-color: #030303;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  padding: 130px 20px 80px;
+}
+
+/* Background Grids & Ambient Glow */
+.cra-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 38px 38px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cra-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cra-ambient-orb--top {
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65vw;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(212, 160, 74, 0.12) 0%, rgba(59, 130, 246, 0.06) 50%, transparent 75%);
+}
+
+.cra-ambient-orb--bottom {
+  bottom: 100px;
+  right: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(212, 160, 74, 0.08) 0%, transparent 70%);
+}
+
+/* Main Container */
+.cra-container {
+  /* max-width: 860px; */
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Back Link */
+.cra-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+}
+
+.cra-back-link:hover {
+  color: #d4a04a;
+  border-color: rgba(212, 160, 74, 0.3);
+  background: rgba(212, 160, 74, 0.08);
+  transform: translateX(-3px);
+}
+
+/* Main Card */
+.cra-card {
+  background: linear-gradient(145deg, rgba(18, 20, 26, 0.9), rgba(12, 14, 18, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 160, 74, 0.05);
+}
+
+@media (max-width: 600px) {
+  .cra-card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+}
+
+/* Eyebrow & Brand */
+.cra-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cra-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.22;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.cra-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 28px;
+}
+
+/* Intro Meta Pills */
+.cra-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.cra-meta-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cra-meta-val {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.cra-meta-lbl {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Primary CTA Button */
+.cra-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #d4a04a, #b88628);
+  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 25px rgba(212, 160, 74, 0.3);
+  text-decoration: none;
+}
+
+.cra-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(212, 160, 74, 0.45);
+  color: #000000;
+}
+
+.cra-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.cra-btn--ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+}
+
+.cra-btn--ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+}
+
+.cra-btn--dark {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: none;
+}
+
+.cra-btn--dark:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.25);
+  color: #ffffff;
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.cra-note {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   QUIZ SECTION
+   ═════════════════════════════════════════════════════════════ */
+
+.cra-progress-wrap {
+  margin-bottom: 24px;
+}
+
+.cra-progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.cra-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4a04a, #f5c96a, #60a5fa);
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+
+.cra-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cra-qdomain {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #60a5fa;
+  margin: 16px 0 10px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.cra-qtext {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+/* Option Buttons */
+.cra-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cra-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #ffffff;
+  outline: none;
+}
+
+.cra-opt:hover {
+  border-color: rgba(212, 160, 74, 0.4);
+  background: rgba(212, 160, 74, 0.04);
+  transform: translateX(4px);
+}
+
+.cra-opt.sel {
+  border-color: #d4a04a;
+  background: rgba(212, 160, 74, 0.12);
+  box-shadow: 0 0 20px rgba(212, 160, 74, 0.15);
+}
+
+.cra-opt-k {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cra-opt-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.cra-opt.sel .cra-opt-radio {
+  border-color: #d4a04a;
+  background: #d4a04a;
+}
+
+.cra-opt-radio-inner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #000000;
+}
+
+.cra-opt-d {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 4px;
+  padding-left: 28px;
+}
+
+.cra-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ═════════════════════════════════════════════════════════════
+   RESULTS SECTION
+   ═════════════════════════════════════════════════════════════ */
+
+.cra-results-header {
+  margin-bottom: 30px;
+}
+
+.cra-score-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.cra-dial {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.cra-dial-val {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.cra-dial-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.cra-band-info {
+  flex: 1;
+  min-width: 240px;
+}
+
+.cra-band-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.cra-band-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.cra-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 36px 0;
+}
+
+.cra-section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+/* Domain Bars */
+.cra-domains-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.cra-dbar {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.cra-dbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+}
+
+.cra-dbar-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cra-dbar-score {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+}
+
+.cra-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.cra-track-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Gaps / Fix These First */
+.cra-gaps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.cra-gap-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #d4a04a;
+  border-radius: 14px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.025);
+  transition: all 0.25s ease;
+}
+
+.cra-gap-card:hover {
+  border-color: rgba(212, 160, 74, 0.35);
+  background: rgba(212, 160, 74, 0.03);
+}
+
+.cra-gap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cra-gap-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cra-gap-score-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cra-gap-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+}
+
+.cra-gap-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.1);
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 160, 74, 0.25);
+}
+
+/* Lead Capture Form */
+.cra-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+@media (max-width: 650px) {
+  .cra-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cra-form-full {
+  grid-column: 1 / -1;
+}
+
+.cra-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+
+.cra-input, .cra-select {
+  width: 100%;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.cra-input:focus, .cra-select:focus {
+  border-color: #d4a04a;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 15px rgba(212, 160, 74, 0.2);
+}
+
+.cra-select option {
+  background: #11141c;
+  color: #ffffff;
+}
+
+.cra-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+.cra-consent input {
+  margin-top: 3px;
+  accent-color: #d4a04a;
+}
+
+.cra-err {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.cra-ok {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 14px;
+  padding: 20px;
+  color: #86efac;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cra-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 30px;
+}

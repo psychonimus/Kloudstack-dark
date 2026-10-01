@@ -33,10 +33,10 @@ const XIcon = () => (
 )
 
 const socialLinks = [
-    { id: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com', Icon: LinkedInIcon },
-    { id: 'facebook', label: 'Facebook', href: 'https://facebook.com', Icon: FacebookIcon },
-    { id: 'instagram', label: 'Instagram', href: 'https://instagram.com', Icon: InstagramIcon },
-    { id: 'x', label: 'X (Twitter)', href: 'https://x.com', Icon: XIcon },
+    { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/company/kloudstack-computes-private-ltd/', Icon: LinkedInIcon },
+    { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61591974449135', Icon: FacebookIcon },
+    { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/kloudstack_/', Icon: InstagramIcon },
+    { id: 'x', label: 'X (Twitter)', href: 'https://x.com/Kloudstack_', Icon: XIcon },
 ]
 
 const navLinks = [

@@ -25,6 +25,12 @@ import AIBankingSecurity from './components/pages/resources/blogDetail/AIBanking
 import CybersecurityDashboardMetrics from './components/pages/resources/blogDetail/CybersecurityDashboardMetrics'
 import StrategicCybersecurityMistakes from './components/pages/resources/blogDetail/StrategicCybersecurityMistakes'
 import CyberattackFirst24Hours from './components/pages/resources/blogDetail/CyberattackFirst24Hours'
+import ManufacturingDisasterRecovery from './components/pages/resources/caseStudyDetail/ManufacturingDisasterRecovery'
+import MaritimeZeroTrust from './components/pages/resources/caseStudyDetail/MaritimeZeroTrust'
+import ManufacturingNetworkSecurity from './components/pages/resources/caseStudyDetail/ManufacturingNetworkSecurity'
+import CloudTransformationAWS from './components/pages/resources/caseStudyDetail/CloudTransformationAWS'
+import BackToTop from './components/BackToTop/BackToTop'
+import CyberRiskAssessment from './components/pages/cyberRiskAssessment/CyberRiskAssessment'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -83,10 +89,16 @@ const App = () => {
         <Route path='/resources/cybersecurity-dashboard-metrics' element={<CybersecurityDashboardMetrics />} />
         <Route path='/resources/strategic-cybersecurity-mistakes' element={<StrategicCybersecurityMistakes />} />
         <Route path='/resources/cyberattack-first-24-hours' element={<CyberattackFirst24Hours />} />
+        <Route path='/resources/manufacturing-cloud-disaster-recovery' element={<ManufacturingDisasterRecovery />} />
+        <Route path='/resources/maritime-zero-trust-architecture' element={<MaritimeZeroTrust />} />
+        <Route path='/resources/manufacturing-network-threat-fortification' element={<ManufacturingNetworkSecurity />} />
+        <Route path='/resources/cloud-transformation-aws-migration' element={<CloudTransformationAWS />} />
+        <Route path='/cyber-risk-assessment' element={<CyberRiskAssessment />} />
         <Route path='/contact' element={<Contact />} />
 
       </Routes>
       <Footer />
+      <BackToTop />
     </>
   )
 }
