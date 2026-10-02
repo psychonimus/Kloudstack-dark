@@ -19,27 +19,92 @@ const WHITE_PAPERS = [
       'Continuous verification & least-privilege access models',
       'Compliance alignment: NIST 800-207, ISO 27001, SOC 2',
     ],
+    previewImages: [
+      '/docs/kswp-preview-1.png',
+      '/docs/kswp-preview-2.png',
+      '/docs/kswp-preview-3.png',
+      '/docs/kswp-preview-4.png',
+    ],
     downloadHref: '/docs/kloudstack-whitepaper.pdf',
     pages: '38 Pages',
     year: '2025',
   },
-  // {
-  //   id: 2,
-  //   image: '/images/whitepaper-2.png',
-  //   tag: 'AI & Cyber Intelligence',
-  //   title: 'AI-Driven SOC Transformation: Redefining Enterprise Cyber Resilience',
-  //   subtitle:
-  //     'How next-generation AI automation is radically reducing Mean Time to Detect and Respond (MTTD/MTTR) in enterprise SOC operations.',
-  //   keypoints: [
-  //     'AI/ML-powered threat detection & predictive analytics',
-  //     'Automated SOAR playbooks reducing analyst fatigue',
-  //     'XDR integration with unified telemetry pipelines',
-  //     'Real-world MTTD reduction benchmarks & ROI analysis',
-  //   ],
-  //   downloadHref: '/docs/kloudstack-whitepaper.pdf',
-  //   pages: '44 Pages',
-  //   year: '2025',
-  // },
+
+  {
+    id: 2,
+    image: '/images/dpdpa.png',
+    tag: 'Data Privacy & Governance',
+    title: 'The DPDPA Readiness Blueprint for Banks',
+    subtitle:
+      'A Practical Guide to Building Trust Through Data Governance',
+    keypoints: [
+      'Navigating DPDPA obligations—and turning compliance into a competitive advantage',
+      'The 5-pillar trust framework: Consent, Transparency, Control, Accountability, and Security',
+      'Aligning with global standards (GDPR, ISO 27701) while meeting unique Indian regulatory needs',
+      'Practical roadmap: Data mapping, consent workflows, and breach-ready response playbooks',
+      'Case studies from leading Indian banks that turned DPDPA compliance into market trust',
+    ],
+    previewImages: [
+      '/docs/kswp2-preview-1.png',
+      '/docs/kswp2-preview-2.png',
+      '/docs/kswp2-preview-3.png',
+      '/docs/kswp2-preview-4.png',
+    ],
+    downloadHref: '/docs/kloudstack-whitepaper-2.pdf',
+    pages: '25 Pages',
+    year: '2026',
+  },
+
+  {
+    id: 3,
+    image: '/images/dpdpa.png',
+    tag: 'Vulnerability Assessment & Penetration Testing (VAPT)',
+    title: 'Before Hackers Find It',
+    subtitle:
+      'The Executive Guide to VAPT & Continuous Security Testing',
+    keypoints: [
+      'Why traditional perimeter security fails in today’s hybrid-cloud reality',
+      'The mindset shift: From periodic audits to continuous security validation',
+      'Real-world case studies: The cost of ignoring vulnerabilities vs the ROI of proactive testing',
+      'The hybrid-first playbook: Integrating VAPT into cloud-native, DevOps, and remote-first environments',
+      'Beyond checklists: Building a security culture that hunts for weaknesses before attackers do',
+    ],
+    previewImages: [
+      '/docs/kswp3-preview-1.png',
+      '/docs/kswp3-preview-2.png',
+      '/docs/kswp3-preview-3.png',
+      '/docs/kswp3-preview-4.png',
+    ],
+    downloadHref: '/docs/kloudstack-whitepaper-3.pdf',
+    pages: '55 Pages',
+    year: '2026',
+  },
+
+  {
+    id: 4,
+    image: '/images/dpdpa.png',
+    tag: 'Managed Security Services Provider (MSSP)',
+    title: 'The Modern SOC Playbook',
+    subtitle:
+      'From Monitoring to Cyber Resilience',
+    keypoints: [
+      'Why traditional perimeter security fails in today’s hybrid-cloud reality',
+      'The mindset shift: From periodic audits to continuous security validation',
+      'Real-world case studies: The cost of ignoring vulnerabilities vs the ROI of proactive testing',
+      'The hybrid-first playbook: Integrating VAPT into cloud-native, DevOps, and remote-first environments',
+      'Beyond checklists: Building a security culture that hunts for weaknesses before attackers do',
+    ],
+    previewImages: [
+      '/docs/kswp4-preview-1.png',
+      '/docs/kswp4-preview-2.png',
+      '/docs/kswp4-preview-3.png',
+      '/docs/kswp4-preview-4.png',
+    ],
+    downloadHref: '/docs/kloudstack-whitepaper-4.pdf',
+    pages: '13 Pages',
+    year: '2026',
+  },
+  
 ]
 
 /* ─── Blog Posts Data ─── */
@@ -124,14 +189,6 @@ const BLOG_POSTS = [
   },
 ]
 
-/* ─── Doc Preview Carousel Images ─── */
-const CAROUSEL_SLIDES = [
-  '/docs/kswp-preview-1.png',
-  '/docs/kswp-preview-2.png',
-  '/docs/kswp-preview-3.png',
-  '/docs/kswp-preview-4.png',
-]
-
 /* ─── Fade-up Wrapper ─── */
 const FadeUp = ({ children, delay = 0, className = '' }) => {
   const ref = useRef(null)
@@ -150,15 +207,18 @@ const FadeUp = ({ children, delay = 0, className = '' }) => {
 }
 
 /* ─── Doc Preview Carousel ─── */
-const DocCarousel = () => {
+const DocCarousel = ({ slides = [] }) => {
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
+    if (!slides || slides.length === 0) return
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % CAROUSEL_SLIDES.length)
+      setCurrent((prev) => (prev + 1) % slides.length)
     }, 3200)
     return () => clearInterval(timer)
-  }, [])
+  }, [slides])
+
+  if (!slides || slides.length === 0) return null
 
   return (
     <div className="doc-carousel">
@@ -166,7 +226,7 @@ const DocCarousel = () => {
         <AnimatePresence mode="wait">
           <motion.img
             key={current}
-            src={CAROUSEL_SLIDES[current]}
+            src={slides[current]}
             alt={`White Paper Preview ${current + 1}`}
             className="doc-carousel-img"
             initial={{ opacity: 0, y: 18, scale: 0.97 }}
@@ -182,7 +242,7 @@ const DocCarousel = () => {
 
       {/* dot nav */}
       <div className="doc-carousel-dots">
-        {CAROUSEL_SLIDES.map((_, idx) => (
+        {slides.map((_, idx) => (
           <button
             key={idx}
             className={`doc-dot${idx === current ? ' doc-dot--active' : ''}`}
@@ -208,7 +268,7 @@ const WhitePaperCard = ({ paper, index }) => {
       >
         {/* Left — carousel preview */}
         <div className="wp-preview">
-          <DocCarousel />
+          <DocCarousel slides={paper.previewImages} />
         </div>
 
         {/* Right — content */}
@@ -490,7 +550,7 @@ const Resources = () => {
                 White Papers &amp; Technical Reports
               </h2>
               <p className="res-section-desc text-start">
-                In-depth analyses from KloudStack's practice leads — each paper synthesises real-world
+                In-depth analyses from KloudStack's practice leads, each paper synthesises real-world
                 deployment experience with emerging research.
               </p>
             </div>

@@ -227,7 +227,7 @@ const LMS = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              LMS delivers secure, flexible learning experiences backed by AWS certification — giving organizations of all sizes the power to train smarter, measure impact, and drive real results.
+              LMS delivers secure, flexible learning experiences backed by AWS certification, giving organizations of all sizes the power to train smarter, measure impact, and drive real results.
             </motion.p>
 
             {/* CTAs */}
@@ -297,175 +297,11 @@ const LMS = () => {
             </p>
           </div>
 
-          <motion.div
-            className="lms-dashboard-window"
-            initial={{ opacity: 0, y: 40, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            {/* Window Browser Top Bar */}
-            <div className="lms-dash-topbar">
-              <div className="lms-window-dots">
-                <span className="dot dot-red" />
-                <span className="dot dot-yellow" />
-                <span className="dot dot-green" />
-              </div>
-              <div className="lms-dash-url-bar">
-                <span className="lms-lock-icon"><LuLock size={12} /></span>
-                {/* <span className="lms-url-text">https://goldcrest.ai/dashboard</span> */}
-                <span className="lms-live-badge">
-                  <span className="lms-live-pulse" /> Live
-                </span>
-              </div>
-              <div className="lms-dash-badges">
-                <span className="lms-trust-pill">AWS Qualified</span>
-                <span className="lms-trust-pill">SOC 2 Ready</span>
-              </div>
-            </div>
+          <div className="lms-img">
+            <img src="/images/LMS.png" className='img-fluid rounded-4' alt="" />
+          </div>
 
-            {/* Dashboard Inner Body */}
-            <div className="lms-dash-body">
-              {/* Header inside Dashboard */}
-              <div className="lms-dash-header">
-                <div>
-                  <h3 className="lms-dash-title">LMS Dashboard</h3>
-                  <div className="lms-dash-greeting">Hello, Admin 👋</div>
-                </div>
-                <div className="lms-dash-header-actions">
-                  <span className="lms-time-filter">Last 30 Days</span>
-                  <div className="lms-admin-avatar">AD</div>
-                </div>
-              </div>
-
-              {/* 4 Stat KPI Cards */}
-              <div className="lms-dash-kpi-grid">
-                <div className="lms-kpi-card">
-                  <div className="lms-kpi-header">
-                    <span className="lms-kpi-title">Completion Rate</span>
-                    <span className="lms-kpi-trend positive">+4.2%</span>
-                  </div>
-                  <div className="lms-kpi-number">87%</div>
-                  <div className="lms-progress-bar-bg">
-                    <div className="lms-progress-bar-fill" style={{ width: '87%' }} />
-                  </div>
-                </div>
-
-                <div className="lms-kpi-card">
-                  <div className="lms-kpi-header">
-                    <span className="lms-kpi-title">Satisfaction</span>
-                    <span className="lms-kpi-trend positive">+6.8%</span>
-                  </div>
-                  <div className="lms-kpi-number">92%</div>
-                  <div className="lms-progress-bar-bg">
-                    <div className="lms-progress-bar-fill" style={{ width: '92%' }} />
-                  </div>
-                </div>
-
-                <div className="lms-kpi-card">
-                  <div className="lms-kpi-header">
-                    <span className="lms-kpi-title">Active Learners</span>
-                    <span className="lms-kpi-trend positive">Real-time</span>
-                  </div>
-                  <div className="lms-kpi-number">245</div>
-                  <div className="lms-progress-bar-bg">
-                    <div className="lms-progress-bar-fill" style={{ width: '75%' }} />
-                  </div>
-                </div>
-
-                <div className="lms-kpi-card">
-                  <div className="lms-kpi-header">
-                    <span className="lms-kpi-title">Knowledge Gain</span>
-                    <span className="lms-kpi-trend positive">+12.4%</span>
-                  </div>
-                  <div className="lms-kpi-number">78%</div>
-                  <div className="lms-progress-bar-bg">
-                    <div className="lms-progress-bar-fill" style={{ width: '78%' }} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Lower Section: Weekly Engagement + Recent Activity */}
-              <div className="lms-dash-bottom-grid">
-                {/* Engagement chart */}
-                <div className="lms-dash-panel">
-                  <div className="lms-panel-title-row">
-                    <h4 className="lms-panel-title">Learner Engagement Trend</h4>
-                    <span className="lms-panel-subtitle">Last 5 Weeks</span>
-                  </div>
-                  
-                  <div className="lms-chart-bars">
-                    {[
-                      { week: 'W1', height: '48%', active: activeWeek === 'W1', value: '64%' },
-                      { week: 'W2', height: '62%', active: activeWeek === 'W2', value: '72%' },
-                      { week: 'W3', height: '78%', active: activeWeek === 'W3', value: '85%' },
-                      { week: 'W4', height: '94%', active: activeWeek === 'W4', value: '96%' },
-                      { week: 'W5', height: '88%', active: activeWeek === 'W5', value: '91%' },
-                    ].map((bar) => (
-                      <div 
-                        key={bar.week} 
-                        className={`lms-bar-col ${bar.active ? 'active' : ''}`}
-                        onClick={() => setActiveWeek(bar.week)}
-                      >
-                        <span className="lms-bar-val">{bar.value}</span>
-                        <div className="lms-bar-track">
-                          <motion.div 
-                            className="lms-bar-fill" 
-                            style={{ height: bar.height }}
-                            initial={{ height: 0 }}
-                            whileInView={{ height: bar.height }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                          />
-                        </div>
-                        <span className="lms-bar-label">{bar.week}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Recent Activity List */}
-                <div className="lms-dash-panel">
-                  <div className="lms-panel-title-row">
-                    <h4 className="lms-panel-title">Live Activity Stream</h4>
-                    <span className="lms-live-dot-pulse">● Live feed</span>
-                  </div>
-
-                  <div className="lms-activity-list">
-                    <div className="lms-activity-item">
-                      <div className="lms-activity-avatar">PS</div>
-                      <div className="lms-activity-content">
-                        <div className="lms-activity-text">
-                          <strong>Priya S.</strong> Completed Module 4: Cloud Architecture
-                        </div>
-                        <div className="lms-activity-time">2m ago</div>
-                      </div>
-                    </div>
-
-                    <div className="lms-activity-item">
-                      <div className="lms-activity-avatar avatar-blue">RK</div>
-                      <div className="lms-activity-content">
-                        <div className="lms-activity-text">
-                          <strong>Rahul K.</strong> Started AWS Fundamentals Certification
-                        </div>
-                        <div className="lms-activity-time">5m ago</div>
-                      </div>
-                    </div>
-
-                    <div className="lms-activity-item">
-                      <div className="lms-activity-avatar avatar-gold">AM</div>
-                      <div className="lms-activity-content">
-                        <div className="lms-activity-text">
-                          <strong>Amit M.</strong> Scored 98% on Security Assessment
-                        </div>
-                        <div className="lms-activity-time">12m ago</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+         
         </div>
       </section>
 
