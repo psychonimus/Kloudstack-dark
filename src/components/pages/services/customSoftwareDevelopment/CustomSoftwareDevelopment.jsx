@@ -242,6 +242,7 @@ const DEPLOYMENT_STRATEGY_STEPS = [
 const CustomSoftwareDevelopment = () => {
   const pucContainerRef = useRef(null);
   const pucImageRef = useRef(null);
+  const mobileCanvasRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -271,10 +272,238 @@ const CustomSoftwareDevelopment = () => {
     };
   }, []);
 
+  // Mobile Pure Visual Particle & Cyber Constellation Engine (100% Visual, Zero Text/Logos)
+  useEffect(() => {
+    const canvas = mobileCanvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
+    let width = 0;
+    let height = 0;
+    let time = 0;
+
+    const particleCount = 55;
+    const particles = [];
+    const energyPulses = [];
+
+    const resize = () => {
+      if (!canvas) return;
+      const parent = canvas.parentElement;
+      width = canvas.width = parent ? parent.clientWidth : window.innerWidth;
+      height = canvas.height = parent
+        ? parent.clientHeight
+        : window.innerHeight;
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Initialize pure visual geometric particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * (width || 400),
+        y: Math.random() * (height || 700),
+        radius: Math.random() * 2.6 + 1.2,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        baseAlpha: Math.random() * 0.55 + 0.35,
+        pulse: Math.random() * Math.PI * 2,
+        isHub: i % 7 === 0, // Major glowing nexus node
+      });
+    }
+
+    // Spawn periodic glowing energy pulses traveling between nexus nodes
+    const pulseInterval = setInterval(() => {
+      if (particles.length > 1 && window.innerWidth < 768) {
+        const p1 = particles[Math.floor(Math.random() * particles.length)];
+        const p2 = particles[Math.floor(Math.random() * particles.length)];
+        if (p1 !== p2) {
+          energyPulses.push({
+            x1: p1.x,
+            y1: p1.y,
+            x2: p2.x,
+            y2: p2.y,
+            progress: 0,
+            speed: Math.random() * 0.02 + 0.015,
+          });
+        }
+      }
+    }, 450);
+
+    const render = () => {
+      if (window.innerWidth >= 768) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
+      ctx.clearRect(0, 0, width, height);
+      time += 0.018;
+
+      // 1. Perspective Cyber Grid
+      ctx.strokeStyle = "rgba(212, 160, 74, 0.035)";
+      ctx.lineWidth = 1;
+      const gridSize = 44;
+      for (let x = 0; x < width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // 2. Glowing Golden Nexus Centerpiece Rings
+      const centerX = width * 0.65;
+      const centerY = height * 0.42;
+
+      ctx.save();
+      ctx.translate(centerX, centerY);
+
+      // Rotating Outer Luminous Orbital Ring
+      ctx.rotate(time * 0.25);
+      ctx.beginPath();
+      ctx.arc(0, 0, 75, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(223, 165, 75, 0.18)";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([8, 12]);
+      ctx.stroke();
+
+      // Rotating Inner Hexagonal Wireframe
+      ctx.rotate(-time * 0.5);
+      ctx.beginPath();
+      for (let s = 0; s < 6; s++) {
+        const angle = (s * Math.PI) / 3;
+        const hx = Math.cos(angle) * 45;
+        const hy = Math.sin(angle) * 45;
+        if (s === 0) ctx.moveTo(hx, hy);
+        else ctx.lineTo(hx, hy);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = "rgba(255, 215, 0, 0.28)";
+      ctx.lineWidth = 1.2;
+      ctx.setLineDash([4, 6]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Center glowing energy core
+      const corePulse = Math.sin(time * 2) * 4;
+      const gradient = ctx.createRadialGradient(0, 0, 2, 0, 0, 28 + corePulse);
+      gradient.addColorStop(0, "rgba(255, 235, 180, 0.8)");
+      gradient.addColorStop(0.4, "rgba(223, 165, 75, 0.35)");
+      gradient.addColorStop(1, "rgba(223, 165, 75, 0)");
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(0, 0, 28 + corePulse, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+
+      // 3. Connect Constellation Mesh Nodes with Glowing Golden Filaments
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const p1 = particles[i];
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 90) {
+            const lineAlpha = (1 - dist / 90) * (p1.isHub || p2.isHub ? 0.45 : 0.22);
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(223, 165, 75, ${lineAlpha})`;
+            ctx.lineWidth = p1.isHub || p2.isHub ? 1 : 0.6;
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 4. Render Live Energy Pulse Photons
+      for (let eIdx = energyPulses.length - 1; eIdx >= 0; eIdx--) {
+        const pulse = energyPulses[eIdx];
+        pulse.progress += pulse.speed;
+
+        if (pulse.progress >= 1) {
+          energyPulses.splice(eIdx, 1);
+          continue;
+        }
+
+        const px = pulse.x1 + (pulse.x2 - pulse.x1) * pulse.progress;
+        const py = pulse.y1 + (pulse.y2 - pulse.y1) * pulse.progress;
+
+        ctx.beginPath();
+        ctx.arc(px, py, 3, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.shadowColor = "rgba(255, 215, 0, 1)";
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      // 5. Update and Draw Glowing Geometric Particle Nodes
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.pulse += 0.03;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        const currentAlpha = p.baseAlpha * (0.6 + 0.4 * Math.sin(p.pulse));
+
+        if (p.isHub) {
+          // Major Hub Diamond Node
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(time + i);
+          ctx.beginPath();
+          const s = p.radius * 2.2;
+          ctx.rect(-s / 2, -s / 2, s, s);
+          ctx.fillStyle = `rgba(255, 220, 140, ${currentAlpha})`;
+          ctx.shadowColor = "rgba(255, 215, 0, 0.9)";
+          ctx.shadowBlur = 10;
+          ctx.fill();
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.8)";
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          ctx.restore();
+        } else {
+          // Shimmering Circular Photon Node
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(247, 215, 148, ${currentAlpha})`;
+          ctx.shadowColor = "rgba(223, 165, 75, 0.75)";
+          ctx.shadowBlur = 6;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => {
+      clearInterval(pulseInterval);
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
   return (
     <>
       {/* SECTION 1 — HERO SECTION */}
       <section className="hero-section csd-custom-hero-wrap d-flex flex-column justify-content-center">
+        {/* Desktop / Tablet Video Background */}
         <video
           className="hero-section-video-bg csd-hero-video-bg"
           src={heroVideo}
@@ -284,14 +513,22 @@ const CustomSoftwareDevelopment = () => {
           playsInline
         />
 
+        {/* Mobile-Only Interactive Golden Waves & Particles Canvas */}
+        <canvas
+          ref={mobileCanvasRef}
+          className="csd-mobile-waves-canvas"
+          aria-hidden="true"
+        />
+
         <div className="csd-hero-ambient-sheen" aria-hidden="true" />
 
         <div className="container content-overlay csd-hero-container">
           <div className="hero-text csd-hero-full-text">
-         
-
             <h2 className="hero-section-heading mb-4 section-heading text-start">
-              <span className="csd-hero-title-main">Custom Software Development :</span> <br className="csd-hero-title-br" />
+              <span className="csd-hero-title-main">
+                Custom Software Development :
+              </span>{" "}
+              <br className="csd-hero-title-br" />
               <span className="csd-hero-gold csd-hero-title-sub">
                 Strategic IT. Measurable Impact.
               </span>
