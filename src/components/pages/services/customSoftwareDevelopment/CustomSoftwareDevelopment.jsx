@@ -291,8 +291,8 @@ const CustomSoftwareDevelopment = () => {
          
 
             <h2 className="hero-section-heading mb-4 section-heading text-start">
-              Custom Software Development : <br />
-              <span className="csd-hero-gold">
+              <span className="csd-hero-title-main">Custom Software Development :</span> <br className="csd-hero-title-br" />
+              <span className="csd-hero-gold csd-hero-title-sub">
                 Strategic IT. Measurable Impact.
               </span>
             </h2>

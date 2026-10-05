@@ -4,10 +4,9 @@
 
 .csd-custom-hero-wrap {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 80vh;
+  min-height: 80dvh;
+  height: 100%;
   width: 100%;
   padding: 160px 0 90px !important;
   display: flex;
@@ -61,7 +60,7 @@
 .csd-hero-full-text {
   position: relative !important;
   z-index: 10 !important;
-  max-width: 700px;
+  max-width: 960px;
   width: 100%;
   text-align: left;
 }
@@ -84,13 +83,38 @@
 .hero-section-heading,
 .csd-hero-heading {
   font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-  font-size: clamp(2rem, 3.2vw, 3.35rem);
+  font-size: clamp(1.85rem, 2.75vw, 3.25rem);
   font-weight: 600;
-  line-height: 1.20;
+  line-height: 1.22;
   letter-spacing: -0.01em;
   color: #ffffff !important;
   margin: 0 0 1rem;
   width: 100%;
+  max-width: 960px;
+}
+
+.csd-hero-title-main {
+  display: inline;
+  white-space: normal;
+}
+
+.csd-hero-title-sub {
+  display: inline;
+}
+
+@media (min-width: 1200px) {
+  .csd-hero-full-text {
+    max-width: 1020px;
+  }
+  .csd-hero-title-main {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1400px) {
+  .csd-hero-full-text {
+    max-width: 1100px;
+  }
 }
 
 .csd-hero-gold,
@@ -108,7 +132,7 @@
 .hero-section-para,
 .csd-hero-para {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.85rem, 1.25vw, 1rem);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85) !important;
   margin: 1rem 0 1.4rem;
