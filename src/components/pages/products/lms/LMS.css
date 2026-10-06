@@ -40,6 +40,7 @@
   line-height: 1.2 !important;
   color: #ffffff;
   margin-bottom: 1rem;
+  text-align: left !important;
 }
 
 .lms-section-subtext {
@@ -47,8 +48,9 @@
   font-size: clamp(0.95rem, 1.4vw, 1.08rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.65);
- 
-  margin: 0 auto;
+  margin: 0 0 1rem 0 !important;
+  text-align: left !important;
+  max-width: 760px;
 }
 
 /* ── 1. HERO SECTION ── */
@@ -60,6 +62,12 @@
 
 .lms-hero-inner {
   max-width: 820px;
+  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
 }
 
 .lms-hero-description {
@@ -68,6 +76,7 @@
   color: rgba(255, 255, 255, 0.7);
   max-width: 680px;
   margin-bottom: 2.2rem;
+  text-align: left !important;
 }
 
 .lms-hero-cta-row {
@@ -216,6 +225,24 @@
   padding: 4rem 0 6rem;
   position: relative;
   background: radial-gradient(ellipse at 50% 30%, rgba(212, 160, 74, 0.06) 0%, transparent 70%);
+}
+
+.lms-img {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(212, 160, 74, 0.35) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(212, 160, 74, 0.2) 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 160, 74, 0.12);
+}
+
+.lms-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .lms-dashboard-window {
@@ -1104,17 +1131,33 @@
 }
 
 /* ── RESPONSIVE BREAKPOINTS ── */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+  .lms-capabilities-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Tablet Landscape & Standard Tablet (e.g. 769px - 1024px) */
+@media (max-width: 1024px) {
   .lms-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .lms-capabilities-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .lms-challenges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .lms-why-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 
   .lms-dash-kpi-grid {
@@ -1122,17 +1165,59 @@
   }
 }
 
+/* Tablet Portrait & Large Handhelds (e.g. 577px - 768px) */
 @media (max-width: 768px) {
+  .lms-hero-container {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  .lms-capabilities-section,
+  .lms-challenges-section,
+  .lms-why-section,
+  .lms-preview-section {
+    padding: 50px 0;
+  }
+
+  /* Keep 2 grid columns on tablet portrait / iPad */
   .lms-capabilities-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .lms-cap-card {
+    padding: 24px 20px;
   }
 
   .lms-challenges-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
+  .lms-challenge-card {
+    padding: 26px 20px;
+  }
+
+  .lms-challenge-title {
+    font-size: 1.2rem;
+    padding-right: 0;
+  }
+
+  .lms-challenge-num {
+    top: 16px;
+    right: 18px;
+    font-size: 1.8rem;
+  }
+
+  /* Keep 2 grid columns on tablet portrait / iPad */
   .lms-why-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .lms-why-card {
+    padding: 24px 20px;
   }
 
   .lms-dash-bottom-grid {
@@ -1150,10 +1235,62 @@
   }
 
   .lms-metrics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .lms-metric-card {
+    padding: 20px 16px;
+  }
+
+  .lms-metric-value {
+    font-size: 2.2rem;
   }
 
   .lms-cta-banner {
-    padding: 40px 24px;
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .lms-hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .lms-btn-primary,
+  .lms-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile Devices (<= 576px) */
+@media (max-width: 576px) {
+  .lms-capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .lms-why-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .lms-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lms-dash-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lms-img {
+    padding: 4px;
+    border-radius: 14px;
+  }
+
+  .lms-img img {
+    border-radius: 10px;
   }
 }

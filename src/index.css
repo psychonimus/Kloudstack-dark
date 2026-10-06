@@ -94,5 +94,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #000000;
-  color: #212529;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Global Section Heading Utility ── */
+.section-heading {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 40%, #d4a04a 75%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  word-break: break-word;
+}
+
+.section-heading.text-start {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.section-heading.text-center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }

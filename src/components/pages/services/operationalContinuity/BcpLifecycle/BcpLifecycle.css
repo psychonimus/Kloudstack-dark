@@ -3,7 +3,7 @@
    ══════════════════════════════════════════════ */
 
 .bcl-section {
-    padding: 5rem 0;
+    padding: 80px 0;
     width: 100%;
     position: relative;
     background: transparent;
@@ -11,7 +11,7 @@
 
 /* Header */
 .bcl-header {
-    margin-bottom: 56px;
+    margin-bottom: 52px;
 }
 
 .bcl-header .section-heading {
@@ -96,8 +96,8 @@
 
 /* Step Node (Circle) */
 .bcl-step-node {
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: #0d0d0d;
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -194,22 +194,22 @@
 /* Step Pill Badge */
 .bcl-step-pill {
     font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #d4a04a;
     background: rgba(212, 160, 74, 0.1);
     border: 1px solid rgba(212, 160, 74, 0.25);
-    padding: 4px 10px;
+    padding: 3px 9px;
     border-radius: 20px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 /* Step Title */
 .bcl-step-title {
     font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 10px 0;
@@ -225,9 +225,9 @@
 /* Step Description */
 .bcl-step-desc {
     font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.62);
     margin: 0;
 }
 
@@ -236,9 +236,17 @@
    ══════════════════════════════════════════════ */
 
 @media (max-width: 991px) {
+    .bcl-section {
+        padding: 60px 0;
+    }
+
+    .bcl-header {
+        margin-bottom: 40px;
+    }
+
     .bcl-stepper-track {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
         position: relative;
         padding-left: 20px;
     }
@@ -251,10 +259,10 @@
 
     /* Vertical Connector Line */
     .bcl-connector-line {
-        top: 54px;
-        left: 26px;
+        top: 52px;
+        left: 25px;
         width: 2px;
-        height: calc(100% + 24px - 54px);
+        height: calc(100% + 20px - 52px);
         background: rgba(255, 255, 255, 0.1);
         flex-direction: column;
     }
@@ -274,17 +282,18 @@
 
     .bcl-step-card {
         flex-grow: 1;
+        padding: 22px 18px;
     }
 }
 
 @media (max-width: 640px) {
     .bcl-section {
-        padding: 3.5rem 0;
+        padding: 50px 0;
     }
 
     .bcl-stepper-track {
         padding-left: 0;
-        gap: 18px;
+        gap: 16px;
     }
 
     .bcl-step-item {
@@ -305,3 +314,4 @@
         padding: 20px 16px;
     }
 }
+

@@ -266,6 +266,12 @@
    RESPONSIVE
    ──────────────────────────────── */
 @media (max-width: 1024px) {
+    .ft-watermark {
+        font-size: clamp(3.6rem, 13vw, 7.5rem);
+        padding: 30px 0 0;
+        letter-spacing: -0.025em;
+    }
+
     .ft-inner {
         padding: 48px 40px 0;
     }
@@ -286,7 +292,9 @@
 
 @media (max-width: 640px) {
     .ft-watermark {
-        font-size: clamp(3rem, 18vw, 6rem);
+        font-size: clamp(2.4rem, 13.2vw, 4.8rem);
+        padding: 24px 0 0;
+        letter-spacing: -0.025em;
     }
 
     .ft-inner {

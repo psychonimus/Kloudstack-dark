@@ -241,19 +241,28 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .aic-section {
+    padding: 60px 0;
+  }
+
   .aic-services-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .aic-content-panel {
-    padding: 36px 28px;
+    padding: 34px 26px;
   }
 }
 
 @media (max-width: 768px) {
   .aic-section {
-    padding: 70px 0;
+    padding: 50px 0;
+  }
+
+  .aic-header {
+    margin-bottom: 36px;
   }
 
   .aic-tab-bar {
@@ -283,6 +292,19 @@
   }
 
   .aic-content-panel {
-    padding: 28px 20px;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .aic-service-card {
+    padding: 22px 18px;
+  }
+
+  .aic-panel-title {
+    font-size: 1.25rem;
+  }
+
+  .aic-panel-subtitle {
+    font-size: 0.86rem;
   }
 }

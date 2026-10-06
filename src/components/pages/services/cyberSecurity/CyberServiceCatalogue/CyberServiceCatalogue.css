@@ -353,6 +353,10 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
+  .csc-section {
+    padding: 60px 0;
+  }
+
   .csc-services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -362,13 +366,17 @@
   }
 
   .csc-content-panel {
-    padding: 36px 28px;
+    padding: 34px 26px;
   }
 }
 
 @media (max-width: 768px) {
   .csc-section {
-    padding: 70px 0;
+    padding: 50px 0;
+  }
+
+  .csc-header {
+    margin-bottom: 36px;
   }
 
   .csc-tab-bar {
@@ -399,6 +407,7 @@
 
   .csc-services-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .csc-service-card--span-2 {
@@ -406,7 +415,20 @@
   }
 
   .csc-content-panel {
-    padding: 28px 20px;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .csc-service-card {
+    padding: 22px 18px;
+  }
+
+  .csc-panel-title {
+    font-size: 1.25rem;
+  }
+
+  .csc-panel-subtitle {
+    font-size: 0.85rem;
   }
 }
 

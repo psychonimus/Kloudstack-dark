@@ -6,6 +6,41 @@
   overflow: hidden;
 }
 
+/* ─── Header ──────────────────────────────────────────────────── */
+.ft-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  text-align: left !important;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.ft-eyebrow {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  text-align: left !important;
+  margin: 0 0 0.5rem 0 !important;
+  display: block;
+}
+
+.ft-headline {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #ffffff;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  text-transform: uppercase;
+  max-width: 900px;
+}
+
 .ft-wrapper {
   margin: 0 auto;
   /* padding: 0 2rem; */

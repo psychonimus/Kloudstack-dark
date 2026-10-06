@@ -4,7 +4,7 @@
 
 .bcp-section {
   width: 100%;
-  padding: 100px 0;
+  padding: 80px 0;
   position: relative;
   color: #ffffff;
 }
@@ -21,6 +21,13 @@
 .bcp-header {
   text-align: center;
   margin-bottom: 52px;
+}
+
+.bcp-header .cap-description {
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ── Tab Bar ── */
@@ -41,7 +48,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 22px 16px;
+  padding: 20px 16px;
   background: transparent;
   border: none;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
@@ -92,17 +99,17 @@
 
 .bcp-tab-label {
   font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-  font-size: 0.63rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.45);
   text-align: center;
   transition: color 0.3s ease;
 }
 
 .bcp-tab-btn--active .bcp-tab-label {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ── Panel ── */
@@ -156,7 +163,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
   max-width: 660px;
 }
@@ -184,10 +191,10 @@
 }
 
 .bcp-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(212, 160, 74, 0.3);
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(212, 160, 74, 0.35);
   transform: translateY(-4px);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55);
 }
 
 .bcp-card-top-bar {
@@ -204,9 +211,9 @@
 }
 
 .bcp-icon-wrap {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -227,7 +234,7 @@
 
 .bcp-card-title {
   font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 10px 0;
@@ -237,16 +244,17 @@
 .bcp-card-desc {
   font-family: 'Inter', sans-serif;
   font-size: 0.87rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
   flex-grow: 1;
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .bcp-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .bcp-panel {
     padding: 36px 28px;
@@ -255,7 +263,10 @@
 
 @media (max-width: 768px) {
   .bcp-section {
-    padding: 70px 0;
+    padding: 50px 0;
+  }
+  .bcp-header {
+    margin-bottom: 36px;
   }
   .bcp-tab-bar {
     flex-direction: column;
@@ -273,5 +284,11 @@
     top: 0; bottom: auto; left: 0; right: auto;
     width: 3px; height: 100%;
   }
-  .bcp-panel { padding: 28px 20px; }
+  .bcp-panel { 
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+  .bcp-card {
+    padding: 22px 18px;
+  }
 }

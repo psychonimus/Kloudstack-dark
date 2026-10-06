@@ -50,8 +50,12 @@ const AboutHero = () => {
                 />
                 <div className="container content-overlay">
                     <div className="hero-text text-center">
-                        <h2 className='hero-section-heading mb-4 section-heading text-center '>Empowering Enterprise Transformation <br /> Through Strategic IT Enablement</h2>
-                        <p className='hero-section-para'>At KloudStack, we bridge the gap between boardroom objectives and flawless technical execution. We specialize in delivering Next-Generation IT Infrastructure and Strategic Enablement, partnering with forward-looking organizations to shift technology from a static operational cost center into a sustainable competitive advantage. Through 24/7 predictive maintenance, unified multi-cloud architectures, and zero-trust proactive threat hunting, our strategic advisory practice ensures every IT investment directly drives measurable business outcomes.</p>
+                        <h2 className='hero-section-heading mb-4 section-heading text-center'>
+                            Empowering Enterprise Transformation <br className="d-none d-md-block" /> Through Strategic IT Enablement
+                        </h2>
+                        <p className='hero-section-para'>
+                            At KloudStack, we bridge the gap between boardroom objectives and flawless technical execution. We specialize in delivering Next-Generation IT Infrastructure and Strategic Enablement, partnering with forward-looking organizations to shift technology from a static operational cost center into a sustainable competitive advantage. Through 24/7 predictive maintenance, unified multi-cloud architectures, and zero-trust proactive threat hunting, our strategic advisory practice ensures every IT investment directly drives measurable business outcomes.
+                        </p>
                     </div>
                 </div>
             </section>

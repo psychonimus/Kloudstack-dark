@@ -256,17 +256,24 @@
 
 /* ── Responsive ── */
 @media (max-width: 992px) {
+  .lcf-section {
+    padding: 60px 0 40px 0;
+  }
   .lcf-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .lcf-panel {
-    padding: 36px 28px;
+    padding: 34px 26px;
   }
 }
 
 @media (max-width: 768px) {
   .lcf-section {
-    padding: 70px 0 40px 0;
+    padding: 50px 0 35px 0;
+  }
+  .lcf-header {
+    margin-bottom: 36px;
   }
   .lcf-tab-bar {
     flex-direction: column;
@@ -287,6 +294,16 @@
     width: 3px; height: 100%;
   }
   .lcf-panel {
-    padding: 28px 20px;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+  .lcf-card {
+    padding: 22px 18px;
+  }
+  .lcf-panel-title {
+    font-size: 1.25rem;
+  }
+  .lcf-panel-subtitle {
+    font-size: 0.86rem;
   }
 }

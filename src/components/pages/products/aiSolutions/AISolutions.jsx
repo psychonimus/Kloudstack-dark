@@ -39,7 +39,7 @@ const AISolutions = () => {
             AI Solutions
           </div>
           <h1 className="section-heading text-start" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', maxWidth: '700px' }}>
-            Intelligent AI Solutions <br />Coming Soon
+            Intelligent AI Solutions <br className="d-none d-md-block" />Coming Soon
           </h1>
           <p style={{ fontFamily: "'Inter', 'DM Sans', sans-serif", fontSize: '1.05rem', lineHeight: 1.72, color: 'rgba(255,255,255,0.6)', maxWidth: '520px', marginTop: '1.5rem' }}>
             Our AI-powered solutions for governance, risk automation, and intelligent compliance are currently in development. Stay tuned.

@@ -56,32 +56,43 @@ const LeadershipSection = () => {
         <>
             <section className="leadership-section">
                 <div className="container">
-                    <div className="section-heading">
+                    <div className="leadership-header text-start">
                         <h2 className='section-heading text-uppercase'>Executive Leadership</h2>
-                        <p className='cap-description text-start'>KloudStack is led by a team of visionary technologists and strategic advisors. Together, they bring decades of deep engineering expertise and enterprise delivery experience, guiding organizations through complex modernization and digital transformation journeys.</p>
+                        <p className='cap-description text-start'>
+                            KloudStack is led by a team of visionary technologists and strategic advisors. Together, they bring decades of deep engineering expertise and enterprise delivery experience, guiding organizations through complex modernization and digital transformation journeys.
+                        </p>
                     </div>
                 </div>
 
                 <div className="container mt-5">
-                    <div className="row" style={{rowGap:"25px"}}>
+                    <div className="leadership-grid">
                         {
                             leaders.map((data, i) => {
                                 return (
-                                    <div className="col-md-3">
+                                    <div key={i} className="leadership-item">
                                         <div className="leadership-card">
-                                            <img src={data.image} alt="" />
+                                            <img src={data.image} alt={data.name} />
 
-                                            <div className="overlay-content pb-0">
-                                                
-                                                <div>
-                                                    <p>{data.description}</p>
-                                                </div>
+                                            <div className="overlay-content">
+                                                <p>{data.description}</p>
                                             </div>
                                         </div>
-                                        <div className="leadership-content text-start mt-2">
-                                            <h3 className='leadership-name mb-1'>{data.name}</h3>
-                                            <p className='leadership-position text-light'>{data.position}</p>
-                                            <TiSocialLinkedinCircular size={40} className='text-light' />
+                                        <div className="leadership-content text-start mt-3">
+                                            <div className="leadership-info-wrap">
+                                                <h3 className='leadership-name'>{data.name}</h3>
+                                                <p className='leadership-position'>{data.position}</p>
+                                            </div>
+                                            <div className="leadership-social">
+                                                <a 
+                                                    href="https://linkedin.com" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer"
+                                                    className="leadership-linkedin-link"
+                                                    aria-label={`${data.name} LinkedIn Profile`}
+                                                >
+                                                    <TiSocialLinkedinCircular size={38} className='leadership-linkedin-icon' />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 )

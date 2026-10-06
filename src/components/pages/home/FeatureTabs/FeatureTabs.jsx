@@ -210,9 +210,9 @@ export default function FeatureTabs() {
   return (
     <section className="ft-section">
       <div className="container">
-        <div className="os-left mb-4">
-          <p className="os-eyebrow mb-2">Our Productline</p>
-          <h2 className="os-headline section-heading text-start mb-2">
+        <div className="ft-header text-start mb-4">
+          <p className="ft-eyebrow mb-2">Our Productline</p>
+          <h2 className="ft-headline section-heading text-start mb-2">
             Cyber risk solutions for every stage of your security journey
           </h2>
         </div>

@@ -60,14 +60,14 @@ const CyberSecurity = () => {
                 <div className="container content-overlay">
                     <div className="hero-text">
                         <div className="service-badge mb-3"><FaDotCircle className='me-2 mb-1' size={12} />Enterprise Cyber Security</div>
-                        <h2 className='hero-section-heading mb-4 section-heading text-start' style={{width:"fit-content"}}>Proactive Cyber Defense: <br /> Securing the Borderless Enterprise.</h2>
+                        <h2 className='hero-section-heading mb-4 section-heading text-start'>Proactive Cyber Defense: <br className="d-none d-md-block" /> Securing the Borderless Enterprise.</h2>
                         <p className='hero-section-para text-start'>KloudStack’s Enterprise Security practice engineers highly resilient, proactive defense postures that protect your critical assets without impeding operational velocity. Our security methodology orchestrates zero-trust architectures, advanced compliance frameworks, and cutting-edge threat intelligence. </p> <br />
                         <p className='hero-section-para text-start'>By aligning our extensive infrastructure engineering expertise with premier ecosystem partners, primarily Indusface for unparalleled application defense, integrated seamlessly with Microsoft for comprehensive data governance, we transition your organization from a reactive security stance to an adaptive, predictive model of total enterprise protection. </p>
                     </div>
                 </div>
             </section>
 
-            <section className="px-5 hero-image">
+            <section className="px-3 px-md-5 hero-image">
                 <div className="hero-img-container" ref={containerRef}>
                     <img
                         ref={imageRef}

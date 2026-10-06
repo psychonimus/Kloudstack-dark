@@ -218,7 +218,7 @@ const ProductsCyberSecurity = () => {
               AI-Powered Cyber Risk Platform
             </div>
             <h1 className="pcs-hero-heading section-heading text-start">
-              AI-Powered Cyber Risk, <br />Governance &amp; Protection Solutions
+              AI-Powered Cyber Risk, <br className="d-none d-md-block" />Governance &amp; Protection Solutions
             </h1>
             <p className="pcs-hero-sub text-start">
               Built to quantify risk, predict threats, ensure compliance, and strengthen insurability — all from one unified platform.
@@ -253,14 +253,14 @@ const ProductsCyberSecurity = () => {
       <section className="pcs-audience" id="pcs-audience">
         <div className="container">
           <motion.div
-            className="pcs-section-header"
+            className="pcs-section-header text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
             <h2 className="section-heading text-center">Who Uses Our Products</h2>
-            <p className="cap-description text-start">Our solutions support</p>
+            <p className="pcs-section-sub text-center">Our solutions support</p>
           </motion.div>
 
           <motion.div
@@ -286,14 +286,14 @@ const ProductsCyberSecurity = () => {
       <section className="pcs-testimonials">
         <div className="container">
           <motion.div
-            className="pcs-section-header"
+            className="pcs-section-header text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
             <h2 className="section-heading text-center">Our Testimonials</h2>
-            <p className="cap-description text-start">Trusted by Clients Worldwide</p>
+            <p className="pcs-section-sub text-center">Trusted by Clients Worldwide</p>
           </motion.div>
 
           <div className="pcs-testimonials-wrapper">

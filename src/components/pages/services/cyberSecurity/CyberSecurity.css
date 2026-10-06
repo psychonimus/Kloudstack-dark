@@ -5,7 +5,8 @@
 .cyber-assessment-floating-wrap {
   position: fixed;
   bottom: 32px;
-  left: 38%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 998;
   display: flex;
   align-items: center;
@@ -167,6 +168,7 @@
   .cyber-assessment-floating-wrap {
     bottom: 24px;
     left: 16px;
+    transform: none;
   }
 
   .cyber-assessment-floating-btn {

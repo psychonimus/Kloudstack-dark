@@ -46,7 +46,7 @@ const ModularOpenStack = () => {
             <div className="service-badge mb-3">
               <FaDotCircle className="me-2 mb-1" size={12} /> Modular Open-Source Stack
             </div>
-            <h2 className="hero-section-heading mb-4 section-heading text-start" style={{ width: 'fit-content' }}>
+            <h2 className="hero-section-heading mb-4 section-heading text-start">
               Accelerating Software Delivery and Engineering Velocity via Enterprise Open-Source Orchestration.
             </h2>
             <p className="hero-section-para text-start">
@@ -61,7 +61,7 @@ const ModularOpenStack = () => {
       </section>
 
       {/* Hero Parallax Banner Image */}
-      <section className="px-5 hero-image">
+      <section className="px-3 px-md-5 hero-image">
         <div className="hero-img-container" ref={containerRef}>
           <img
             ref={imageRef}

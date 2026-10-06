@@ -525,7 +525,7 @@ const Resources = () => {
               <FaDotCircle className="me-2 mb-1" size={12} />
               Knowledge Hub
             </div>
-            <h1 className="hero-section-heading mb-4 section-heading text-start res-hero-heading" style={{ width: 'fit-content' }}>
+            <h1 className="hero-section-heading mb-4 section-heading text-start res-hero-heading">
               Insights, Research Intelligence for the Enterprise Edge.
             </h1>
             <p className="hero-section-para text-start res-hero-para">

@@ -117,25 +117,19 @@
   transform: scale(1.06);
 }
 
-.section-heading{
+.cl-section-heading,
+.client-logos-section .section-heading {
   width: fit-content;
-    text-align: center;
-    font-size: clamp(1.5rem, 2vw, 4rem);
-    font-family: Plus Jakarta Sans, "DM Sans";
-    font-weight: 800;
-    /* letter-spacing: -0.02em; */
-    color: #ffffff;
-    /* text-transform: uppercase; */
-    background: linear-gradient(135deg, #ffffff 40%, #d4a04a 60%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@media(max-width : 768px){
-  .section-heading{
-    text-align: center !important;
-  }
+  text-align: center;
+  margin: 0 auto;
+  font-size: clamp(1.5rem, 2vw, 4rem);
+  font-family: Plus Jakarta Sans, "DM Sans";
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 40%, #d4a04a 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ══════════════════════════════════════════

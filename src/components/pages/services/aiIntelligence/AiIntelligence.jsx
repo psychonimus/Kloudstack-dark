@@ -47,8 +47,8 @@ const AiIntelligence = () => {
                 <div className="container content-overlay">
                     <div className="hero-text">
                         <div className="service-badge mb-3"><FaDotCircle className='me-2 mb-1' size={12} />Enterprise AI & Analytics</div>
-                        <h2 className='hero-section-heading mb-4 section-heading text-start' style={{ width: "fit-content" }}>
-                            Enterprise AI & Intelligent Automation: <br /> Engineering the Cognitive Business.
+                        <h2 className='hero-section-heading mb-4 section-heading text-start'>
+                            Enterprise AI & Intelligent Automation: <br className="d-none d-md-block" /> Engineering the Cognitive Business.
                         </h2>
                         <p className='hero-section-para text-start'>
                             In the modern digital economy, data generation outpaces human processing capacity. KloudStack's AI & Analytics practice bridges the gap between boardroom objectives and flawless technical execution by embedding advanced artificial intelligence and automation directly into the core of your enterprise.
@@ -60,7 +60,7 @@ const AiIntelligence = () => {
                 </div>
             </section>
 
-            <section className="px-5 hero-image">
+            <section className="px-3 px-md-5 hero-image">
                 <div className="hero-img-container" ref={containerRef}>
                     <img
                         ref={imageRef}

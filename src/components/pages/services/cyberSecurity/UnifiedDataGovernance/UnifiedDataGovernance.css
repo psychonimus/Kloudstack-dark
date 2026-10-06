@@ -207,10 +207,15 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .udg-section {
+    padding: 60px 0;
+  }
+
   .udg-content-panel {
     grid-template-columns: 1fr;
-    padding: 36px 28px;
+    gap: 30px;
+    padding: 34px 26px;
   }
 
   .udg-panel-visual {
@@ -224,7 +229,11 @@
 
 @media (max-width: 768px) {
   .udg-section {
-    padding: 70px 0;
+    padding: 50px 0;
+  }
+
+  .udg-header {
+    margin-bottom: 36px;
   }
 
   .udg-tab-bar {
@@ -254,6 +263,18 @@
   }
 
   .udg-content-panel {
-    padding: 28px 20px;
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .udg-panel-title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .udg-panel-desc {
+    font-size: 0.86rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
   }
 }

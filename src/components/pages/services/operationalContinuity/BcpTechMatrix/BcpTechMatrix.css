@@ -4,7 +4,7 @@
 
 .btm-section {
   width: 100%;
-  /* padding: 100px 0; */
+  padding: 80px 0;
   position: relative;
   color: #ffffff;
 }
@@ -14,13 +14,20 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 74, 0.3), transparent);
 }
 
 /* ── Header ── */
 .btm-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 52px;
+}
+
+.btm-header .cap-description {
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ── Dual Grid ── */
@@ -35,12 +42,12 @@
   background: #0d0d0d;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
-  padding: 44px 40px;
+  padding: 44px 38px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 .btm-partner-panel::after {
@@ -50,13 +57,14 @@
   transform: translateX(-50%);
   width: 70%;
   height: 180px;
-  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse at top center, rgba(212, 160, 74, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .btm-partner-panel:hover {
-  border-color: rgba(212, 160, 74, 0.28);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  border-color: rgba(212, 160, 74, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  transform: translateY(-4px);
 }
 
 /* Top Accent Bar */
@@ -71,52 +79,56 @@
 /* Partner Header Row */
 .btm-partner-header {
   display: flex;
-  align-items: center;
-  gap: 18px;
+  align-items: flex-start;
+  gap: 16px;
   margin-bottom: 20px;
   position: relative;
   z-index: 2;
 }
 
 .btm-partner-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   background: rgba(212, 160, 74, 0.08);
-  border: 1px solid rgba(212, 160, 74, 0.2);
+  border: 1px solid rgba(212, 160, 74, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #d4a04a;
   flex-shrink: 0;
+  margin-top: 2px;
   transition: all 0.3s ease;
 }
 
 .btm-partner-panel:hover .btm-partner-logo {
-  background: rgba(212, 160, 74, 0.14);
-  border-color: rgba(212, 160, 74, 0.4);
-  box-shadow: 0 0 20px rgba(212, 160, 74, 0.2);
+  background: rgba(212, 160, 74, 0.15);
+  border-color: rgba(212, 160, 74, 0.45);
+  box-shadow: 0 0 20px rgba(212, 160, 74, 0.25);
 }
 
 .btm-partner-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex: 1;
+  min-width: 0;
 }
 
 .btm-partner-tagline {
   font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #d4a04a;
+  line-height: 1.35;
 }
 
 .btm-partner-name {
   font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
   font-size: 1.45rem;
-  font-weight: 900;
+  font-weight: 800;
   color: #ffffff;
   margin: 0;
   line-height: 1.2;
@@ -127,8 +139,8 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   line-height: 1.72;
-  color: rgba(255, 255, 255, 0.58);
-  margin: 0 0 28px 0;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 24px 0;
   position: relative;
   z-index: 2;
 }
@@ -137,7 +149,7 @@
 .btm-divider {
   height: 1px;
   background: linear-gradient(90deg, rgba(212, 160, 74, 0.25), transparent);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 2;
 }
@@ -146,7 +158,7 @@
 .btm-capabilities {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   position: relative;
   z-index: 2;
 }
@@ -166,21 +178,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.75);
   flex-shrink: 0;
+  margin-top: 2px;
   transition: all 0.3s ease;
 }
 
 .btm-partner-panel:hover .btm-cap-icon {
-  background: rgba(212, 160, 74, 0.1);
-  border-color: rgba(212, 160, 74, 0.3);
+  background: rgba(212, 160, 74, 0.12);
+  border-color: rgba(212, 160, 74, 0.35);
   color: #f5c96a;
 }
 
 .btm-cap-content {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
 }
 
 .btm-cap-title {
@@ -189,29 +204,91 @@
   font-weight: 700;
   color: #ffffff;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .btm-cap-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.68;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .btm-section {
+    padding: 60px 0;
+  }
   .btm-dual-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   .btm-partner-panel {
-    padding: 36px 28px;
+    padding: 34px 28px;
   }
 }
 
 @media (max-width: 768px) {
   .btm-section {
-    padding: 70px 0;
+    padding: 50px 0;
+  }
+  .btm-header {
+    margin-bottom: 36px;
+  }
+  .btm-partner-panel {
+    padding: 26px 20px;
+    border-radius: 16px;
+  }
+  .btm-partner-header {
+    gap: 14px;
+  }
+  .btm-partner-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+  }
+  .btm-partner-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+  .btm-partner-tagline {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+  .btm-partner-name {
+    font-size: 1.25rem;
+  }
+  .btm-partner-desc {
+    font-size: 0.86rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .btm-divider {
+    margin-bottom: 20px;
+  }
+  .btm-cap-item {
+    gap: 12px;
+  }
+  .btm-cap-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+  .btm-cap-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+  .btm-cap-title {
+    font-size: 0.9rem;
+  }
+  .btm-cap-desc {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btm-partner-panel {
+    padding: 22px 16px;
   }
 }
