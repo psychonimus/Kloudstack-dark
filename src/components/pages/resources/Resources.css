@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ══════════════════════════════════════════
-   RESOURCES PAGE — GLOBAL TOKENS
-   ══════════════════════════════════════════ */
-
 :root {
   --res-gold: #d4a04a;
   --res-gold-bright: #f5c96a;
@@ -14,15 +10,10 @@
   --res-text: rgba(255, 255, 255, 0.55);
 }
 
-/* ══════════════════════════════════════════
-   HERO ADDITIONS
-   ══════════════════════════════════════════ */
-
 .res-hero {
   overflow: hidden;
 }
 
-/* floating orb behind hero content */
 .res-hero-orb {
   position: absolute;
   top: -20%;
@@ -54,9 +45,6 @@
   background-clip: text;
 }
 
-
-
-/* ── Stat pills ── */
 .res-hero-stats {
   display: flex;
   gap: 14px;
@@ -100,7 +88,6 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
-/* hero image overlay */
 .res-hero-img-overlay {
   position: absolute;
   inset: 0;
@@ -111,10 +98,6 @@
   );
   pointer-events: none;
 }
-
-/* ══════════════════════════════════════════
-   SHARED SECTION STRUCTURE
-   ══════════════════════════════════════════ */
 
 .res-section {
   width: 100%;
@@ -132,7 +115,6 @@
   background: linear-gradient(90deg, transparent, rgba(212, 160, 74, 0.25), transparent);
 }
 
-/* dot-grid background */
 .res-bg-grid {
   position: absolute;
   inset: 0;
@@ -151,7 +133,6 @@
   z-index: 1;
 }
 
-/* ── Section header ── */
 .res-section-header {
   text-align: start;
   margin-bottom: 64px;
@@ -204,10 +185,6 @@
   margin: 0 auto;
 }
 
-/* ══════════════════════════════════════════
-   WHITE PAPER SECTION
-   ══════════════════════════════════════════ */
-
 .res-wp-section {
   background: #000000;
 }
@@ -218,7 +195,6 @@
   gap: 40px;
 }
 
-/* ── Two-column layout ── */
 .wp-layout {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -239,7 +215,6 @@
   min-width: 0;
 }
 
-/* ── Doc Preview Carousel ── */
 .doc-carousel {
   display: flex;
   flex-direction: column;
@@ -276,7 +251,6 @@
   background: #0d0d0d;
 }
 
-/* stacked decorative pages */
 .doc-carousel-page {
   position: absolute;
   inset: 0;
@@ -298,7 +272,6 @@
   z-index: 0;
 }
 
-/* dot navigation */
 .doc-carousel-dots {
   display: flex;
   align-items: center;
@@ -325,7 +298,6 @@
   box-shadow: 0 0 8px rgba(212, 160, 74, 0.55);
 }
 
-/* ── White Paper Card ── */
 .wp-card {
   display: grid;
   grid-template-columns: 360px 1fr;
@@ -344,7 +316,6 @@
   transform: translateY(-5px);
 }
 
-/* Glow */
 .wp-card-glow {
   position: absolute;
   top: -60px; left: -60px;
@@ -359,7 +330,6 @@
   opacity: 1;
 }
 
-/* ── Preview panel (hosts the carousel) ── */
 .wp-preview {
   position: relative;
   background: radial-gradient(ellipse at 50% 50%, rgba(212, 160, 74, 0.08) 0%, #080808 80%);
@@ -372,7 +342,6 @@
   padding: 32px 24px;
 }
 
-/* Override carousel styles when inside wp-preview */
 .wp-preview .doc-carousel {
   width: 100%;
   height: 100%;
@@ -408,7 +377,6 @@
   transform: translateX(10px) translateY(10px) rotate(3deg);
 }
 
-/* ── Content panel ── */
 .wp-content {
   padding: 36px 40px;
   display: flex;
@@ -472,7 +440,6 @@
   margin: 0;
 }
 
-/* Key points */
 .wp-keypoints {
   list-style: none;
   padding: 0;
@@ -502,7 +469,6 @@
   box-shadow: 0 0 6px rgba(212, 160, 74, 0.5);
 }
 
-/* Download button */
 .wp-download-btn {
   display: inline-flex;
   align-items: center;
@@ -537,10 +503,6 @@
   transform: translateY(2px);
 }
 
-/* ══════════════════════════════════════════
-   BLOGS SECTION
-   ══════════════════════════════════════════ */
-
 .res-blogs-section {
   background: #050505;
 }
@@ -551,7 +513,6 @@
   gap: 24px;
 }
 
-/* ── Blog Card ── */
 .blog-card {
   background: #0d0d0d;
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -571,7 +532,6 @@
   transform: translateY(-6px);
 }
 
-/* top gradient band */
 .blog-card-band {
   height: 210px;
   width: 100%;
@@ -606,7 +566,6 @@
   pointer-events: none;
 }
 
-/* accent line on hover bottom of card */
 .blog-card-accent-line {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -684,7 +643,6 @@
   flex: 1;
 }
 
-/* Card footer */
 .blog-card-footer {
   padding: 18px 24px 24px;
   display: flex;
@@ -704,7 +662,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Read more link */
 .blog-read-more {
   display: inline-flex;
   align-items: center;
@@ -734,7 +691,6 @@
   transform: translateX(3px);
 }
 
-/* ── Blog CTA ── */
 .res-blogs-cta {
   text-align: center;
   margin-top: 56px;
@@ -764,10 +720,6 @@
   transform: translateY(-2px);
 }
 
-/* ══════════════════════════════════════════
-   CASE STUDIES SECTION
-   ══════════════════════════════════════════ */
-
 .res-cs-section {
   background: #080808;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -776,8 +728,8 @@
 
 .cs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -884,7 +836,6 @@
   overflow: hidden;
 }
 
-/* Impact Metrics Grid */
 .cs-metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -934,7 +885,6 @@
   line-height: 1.2;
 }
 
-/* Card Footer */
 .cs-card-footer {
   padding: 16px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -981,21 +931,30 @@
   opacity: 1;
 }
 
-/* ══════════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-   ══════════════════════════════════════════ */
-
-@media (max-width: 1200px) {
-  .blogs-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+@media (min-width: 1920px) {
+  .cs-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
   }
   .wp-card {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 420px 1fr;
   }
 }
 
-/* Tablet View (768px - 1024px) */
+@media (min-width: 1025px) and (max-width: 1919px) {
+  .cs-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px;
+  }
+  .blogs-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px;
+  }
+  .wp-card {
+    grid-template-columns: 360px 1fr;
+  }
+}
+
 @media (max-width: 1024px) {
   .res-section {
     padding: 90px 0;
@@ -1037,7 +996,6 @@
   }
 }
 
-/* Small Tablet & Mobile (<= 860px) */
 @media (max-width: 860px) {
   .res-section {
     padding: 70px 0;
@@ -1078,8 +1036,7 @@
   }
 }
 
-/* Mobile Phones (<= 600px) */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .res-section {
     padding: 55px 0;
   }
