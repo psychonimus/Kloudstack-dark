@@ -1,5 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Footer.css'
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoMailOpenSharp } from "react-icons/io5";
+
 
 /* ─────────────────────────────────────────────────────
    Social icons — inline SVG, no external dependency
@@ -40,11 +44,12 @@ const socialLinks = [
 ]
 
 const navLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Our Work', href: '#work' },
-    { label: 'Contacts', href: '#contacts' },
+    { label: 'Cybersecurity & ZTNA', href: '/services/cyber-security' },
+    { label: 'AI & Business Intelligence', href: '/services/ai-intelligence' },
+    { label: 'Cloud & Hybrid Foundations', href: '/services/cloud-infrastructure' },
+    { label: 'Operational Continuity', href: '/services/operational-continuity' },
+    { label: 'Modular Open Stack', href: '/services/modular-open-source-stack' },
+    { label: 'Custom Software Development', href: '/services/custom-software-development' },
 ]
 
 const Footer = () => {
@@ -74,18 +79,15 @@ const Footer = () => {
                             alliance ecosystem deliver unmatched execution flexibility.
                             Our certified resources span every major platform.
                         </p>
-                    </div>
-
-                    {/* Col 2 — Contact */}
-                    <div className="ft-col">
-                        <h3 className="ft-col-heading">Contact</h3>
                         <ul className="ft-contact-list">
                             <li>
+                                <FaPhoneAlt className='me-2' color='#5d5d5dff' />
                                 <a href="mailto:Info@kloudstack.com" className="ft-contact-link" id="ft-email">
                                     Info@kloudstack.com
                                 </a>
                             </li>
                             <li>
+                                <IoMailOpenSharp className='me-2' color='#5d5d5dff' />
                                 <a href="tel:+912249785345" className="ft-contact-link" id="ft-phone">
                                     +91-22 49785345
                                 </a>
@@ -93,9 +95,40 @@ const Footer = () => {
                         </ul>
                     </div>
 
+                    {/* Col 2 — Contact */}
+                    <div className="ft-col">
+                        <h3 className="ft-col-heading">Quick Links</h3>
+                        <ul className="ft-contact-list">
+                            <li>
+                                <Link to="/" className="ft-contact-link" id="ft-email">
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/about" className="ft-contact-link" id="ft-phone">
+                                    About Us
+                                </Link>
+
+                            </li>
+                            <li>
+                                <Link to="/resources" className="ft-contact-link" id="ft-phone">
+                                    Resources
+                                </Link>
+
+                            </li>
+                            <li>
+                                <Link to="/contact" className="ft-contact-link" id="ft-phone">
+                                    Contact
+                                </Link>
+
+                            </li>
+                            
+                        </ul>
+                    </div>
+
                     {/* Col 3 — Links */}
                     <div className="ft-col">
-                        <h3 className="ft-col-heading">Links</h3>
+                        <h3 className="ft-col-heading">Services</h3>
                         <nav aria-label="Footer navigation">
                             <ul className="ft-nav-list">
                                 {navLinks.map((link) => (

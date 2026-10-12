@@ -319,7 +319,7 @@ const Navbar = () => {
           </motion.div>
 
           <motion.div className="nav-right-wrap" variants={rightVariants} style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}>
-            <div className="social-icons">
+            {/* <div className="social-icons">
               <a href="https://www.linkedin.com/company/kloudstack-computes-private-ltd/" target='_blank' className="flex">
                     <i className="bi bi-linkedin"></i>
                   </a>
@@ -332,7 +332,7 @@ const Navbar = () => {
                   <a href="https://x.com/Kloudstack_" target='_blank' className="flex">
                     <i className="bi bi-twitter-x"></i>
                   </a>
-            </div>
+            </div> */}
             <button onClick={()=>navigate('/contact')} className="btn-contact">Get in Touch</button>
           </motion.div>
 
@@ -487,7 +487,7 @@ const Navbar = () => {
                                   className="mobile-svc-item"
                                   onClick={() => { setMobileServicesOpen(false); setMobileOpen(false); }}
                                 >
-                                  <div className="d-flex align-items-center">
+                                  <div className="d-flex gap-2 align-items-center">
                                     <span className="mobile-svc-icon">{svc.icon}</span>
                                     <span className="mobile-svc-name">{svc.title}</span>
                                   </div>
@@ -551,7 +551,7 @@ const Navbar = () => {
 
                 <div className="mobile-drawer-divider" />
 
-                <motion.div
+                {/* <motion.div
                   className="mobile-social-icons"
                   custom={navItems.length}
                   variants={drawerItemVariants}
@@ -570,7 +570,7 @@ const Navbar = () => {
                   <a href="https://x.com/Kloudstack_" target='_blank' className="flex">
                     <i className="bi bi-twitter-x"></i>
                   </a>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.button
                   className="btn-contact mobile-cta"
