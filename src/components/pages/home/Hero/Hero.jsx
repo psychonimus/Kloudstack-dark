@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 import './Hero.css'
 import ButtonOne from '../../../ButtonOne/ButtonOne'
 import ButtonTwo from '../../../ButtonTwo/ButtonTwo'
+import EnquiryModal from '../../../EnquiryModal/EnquiryModal'
 
 gsap.registerPlugin(SplitText)
 
 const Hero = () => {
+    const [isEnquiryOpen, setIsEnquiryOpen] = useState(false)
     const contentRef = useRef(null)
     const containerRef = useRef(null)
     const mousePos = useRef({ x: 0, y: 0 })
@@ -129,10 +131,13 @@ const Hero = () => {
                 </h1>
                 <p className="hero-subtitle">ACCELERATING ENTERPRISE SUCCESS</p>
                 <div className="hero-actions">
-                    <ButtonOne label="Book Consultation" />
+                    <ButtonOne label="Book Consultation" onClick={() => setIsEnquiryOpen(true)} />
                     <ButtonTwo label="Explore Services" arrow="→" onClick={scrollToServices} />
                 </div>
             </div>
+
+            {/* Enquiry Form Modal */}
+            <EnquiryModal isOpen={isEnquiryOpen} onClose={() => setIsEnquiryOpen(false)} />
 
 
             {/* Bottom service tags — infinite marquee */}
