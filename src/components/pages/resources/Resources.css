@@ -484,6 +484,9 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   text-decoration: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
   box-shadow: 0 4px 20px rgba(212, 160, 74, 0.3);
 }

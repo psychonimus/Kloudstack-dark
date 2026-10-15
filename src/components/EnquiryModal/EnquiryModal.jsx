@@ -84,7 +84,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
       {isOpen && (
         <div className="enquiry-modal-backdrop" onClick={onClose}>
           <motion.div
-            className="enquiry-modal-container"
+            className="enquiry-modal-container" data-lenis-prevent="true"
             onClick={(e) => e.stopPropagation()}
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

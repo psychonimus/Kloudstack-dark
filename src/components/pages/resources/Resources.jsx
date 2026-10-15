@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaDotCircle } from 'react-icons/fa'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import WhitePaperDownloadModal from './WhitePaperDownloadModal'
 import './Resources.css'
 
 /* ─── White Papers Data ─── */
@@ -258,6 +259,7 @@ const DocCarousel = ({ slides = [] }) => {
 /* ─── White Paper Card ─── */
 const WhitePaperCard = ({ paper, index }) => {
   const [hovered, setHovered] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <FadeUp delay={index * 0.12}>
@@ -293,17 +295,31 @@ const WhitePaperCard = ({ paper, index }) => {
             ))}
           </ul>
 
-          <a href={paper.downloadHref} className="wp-download-btn" download>
+          {/* Download button — opens the gated form modal */}
+          <button
+            type="button"
+            className="wp-download-btn"
+            onClick={() => setModalOpen(true)}
+            id={`wp-download-btn-${paper.id}`}
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="wp-dl-icon">
               <path d="M12 3v13M7 11l5 5 5-5M3 21h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Download White Paper
-          </a>
+          </button>
         </div>
 
         {/* Hover glow */}
         <div className="wp-card-glow" />
       </div>
+
+      {/* Gated download modal */}
+      <WhitePaperDownloadModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        paperTitle={paper.title}
+        downloadHref={paper.downloadHref}
+      />
     </FadeUp>
   )
 }

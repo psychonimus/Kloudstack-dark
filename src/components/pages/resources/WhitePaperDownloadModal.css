@@ -1,0 +1,380 @@
+/* ══════════════════════════════════════════════════════
+   WHITE PAPER DOWNLOAD MODAL
+   Mirrors EnquiryModal — dark/gold KloudStack theme
+   ══════════════════════════════════════════════════════ */
+
+/* ── Backdrop ── */
+.wpdl-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ── Container ── */
+.wpdl-container {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 40px 44px 36px;
+  box-sizing: border-box;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(212, 160, 74, 0.13) inset;
+}
+
+/* Scrollbar */
+.wpdl-container::-webkit-scrollbar { width: 6px; }
+.wpdl-container::-webkit-scrollbar-track { background: transparent; }
+.wpdl-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+}
+.wpdl-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 160, 74, 0.38);
+}
+
+/* ── Close button ── */
+.wpdl-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+.wpdl-close:hover {
+  background: rgba(212, 160, 74, 0.12);
+  border-color: rgba(212, 160, 74, 0.4);
+  color: #d4a04a;
+  transform: rotate(90deg);
+}
+
+/* ── Header ── */
+.wpdl-header {
+  margin-bottom: 28px;
+  padding-right: 36px;
+}
+
+.wpdl-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4a04a;
+  background: rgba(212, 160, 74, 0.1);
+  border: 1px solid rgba(212, 160, 74, 0.25);
+  border-radius: 50px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+}
+
+.wpdl-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.wpdl-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.44);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.wpdl-paper-name {
+  color: rgba(212, 160, 74, 0.85);
+  font-style: italic;
+}
+
+/* ── Form grid ── */
+.wpdl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.wpdl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wpdl-field-full {
+  grid-column: 1 / -1;
+}
+
+/* ── Labels ── */
+.wpdl-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.71rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.46);
+}
+
+/* ── Inputs / Select / Textarea ── */
+.wpdl-input,
+.wpdl-select,
+.wpdl-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.033);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wpdl-input::placeholder,
+.wpdl-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.wpdl-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(212,160,74,0.7)' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-color: rgba(255, 255, 255, 0.033);
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.wpdl-select option {
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+.wpdl-input:focus,
+.wpdl-select:focus,
+.wpdl-textarea:focus {
+  border-color: rgba(212, 160, 74, 0.55);
+  background: rgba(212, 160, 74, 0.04);
+  box-shadow: 0 0 0 3px rgba(212, 160, 74, 0.1);
+}
+
+.wpdl-textarea {
+  resize: vertical;
+  min-height: 112px;
+  line-height: 1.55;
+}
+
+/* ── Footer row ── */
+.wpdl-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wpdl-disclaimer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.45;
+}
+
+/* ── Submit button ── */
+.wpdl-submit-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 13px 30px;
+  border-radius: 50px;
+  border: none;
+  background: #d4a04a;
+  color: #0b0b0b;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(212, 160, 74, 0.28);
+  flex-shrink: 0;
+}
+
+.wpdl-submit-btn:hover:not(:disabled) {
+  background: #e2b05b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px rgba(212, 160, 74, 0.45);
+}
+
+.wpdl-submit-btn:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.wpdl-btn-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wpdl-dl-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.wpdl-submit-btn:hover:not(:disabled) .wpdl-dl-icon {
+  transform: translateY(2px);
+}
+
+.wpdl-btn-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* ── Spinner ── */
+.wpdl-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-top-color: #0b0b0b;
+  border-radius: 50%;
+  animation: wpdlSpin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes wpdlSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Success view ── */
+.wpdl-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px 32px;
+  gap: 16px;
+  min-height: 300px;
+}
+
+.wpdl-success-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 160, 74, 0.35);
+  background: rgba(212, 160, 74, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 28px rgba(212, 160, 74, 0.2);
+  animation: wpdlPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes wpdlPop {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.wpdl-success-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.wpdl-success-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0;
+}
+
+.wpdl-manual-link {
+  color: #d4a04a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.wpdl-manual-link:hover {
+  color: #f5c96a;
+}
+
+.wpdl-success-actions {
+  margin-top: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .wpdl-container {
+    padding: 30px 22px 28px;
+    border-radius: 18px;
+  }
+
+  .wpdl-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wpdl-field-full {
+    grid-column: 1;
+  }
+
+  .wpdl-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .wpdl-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wpdl-title {
+    font-size: 1.35rem;
+  }
+}

@@ -50,7 +50,7 @@ const AboutHero = () => {
                 />
                 <div className="container content-overlay">
                     <div className="hero-text text-center">
-                        <h2 className='hero-section-heading mb-4 section-heading text-center'>
+                        <h2 className='hero-section-heading mb-4 section-heading'>
                             Empowering Enterprise Transformation <br className="d-none d-md-block" /> Through Strategic IT Enablement
                         </h2>
                         <p className='hero-section-para'>

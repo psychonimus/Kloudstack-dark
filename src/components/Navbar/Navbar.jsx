@@ -10,6 +10,10 @@ import { BsCloudFog2 } from 'react-icons/bs';
 import { TbHeartbeat } from 'react-icons/tb';
 import { VscPackage } from 'react-icons/vsc';
 import { useNavigate } from 'react-router-dom';
+import { RiSecurePaymentFill } from "react-icons/ri";
+import { SiGooglegemini } from "react-icons/si";
+// import { LuBrainCircuit } from "react-icons/lu";
+
 
 const MotionNavLink = motion(NavLink);
 const MotionLink = motion(Link);
@@ -25,19 +29,19 @@ const navItems = [
 
 const PRODUCTS = [
   {
-    icon: String.fromCodePoint(0x1F6E1, 0xFE0F),
+    icon: <RiSecurePaymentFill size={22} />,
     name: 'Cyber Security',
     desc: 'AI-powered cyber risk, governance & protection — quantify risk and strengthen insurability.',
     to: '/products/cyber-security',
   },
   {
-    icon: String.fromCodePoint(0x1F9E0),
+    icon: <SiGooglegemini size={22} />,
     name: 'AI Solutions',
     desc: 'Intelligent AI governance, compliance automation, and risk management for modern enterprises.',
     to: '/products/ai-solutions',
   },
   {
-    icon: String.fromCodePoint(0x1F393),
+    icon: <LuBrainCircuit size={22} />,
     name: 'GoldCrest LMS',
     desc: 'AWS Qualified enterprise LMS — AI-driven learning paths, assessments, and real-time impact analytics.',
     to: '/products/lms',
@@ -453,7 +457,7 @@ const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
               />
               <motion.div
-                className="mobile-drawer"
+                className="mobile-drawer" data-lenis-prevent="true"
                 variants={drawerVariants}
                 initial="hidden"
                 animate="visible"

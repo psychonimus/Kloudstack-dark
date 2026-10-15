@@ -32,6 +32,7 @@ import ManufacturingNetworkSecurity from './components/pages/resources/caseStudy
 import CloudTransformationAWS from './components/pages/resources/caseStudyDetail/CloudTransformationAWS'
 import BackToTop from './components/BackToTop/BackToTop'
 import CyberRiskAssessment from './components/pages/cyberRiskAssessment/CyberRiskAssessment'
+import MobileConsultationBar from './components/MobileConsultationBar/MobileConsultationBar'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -101,6 +102,7 @@ const App = () => {
       </Routes>
       <Footer />
       <BackToTop />
+      <MobileConsultationBar />
     </>
   )
 }

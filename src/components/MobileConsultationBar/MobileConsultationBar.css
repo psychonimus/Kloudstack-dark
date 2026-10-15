@@ -1,0 +1,77 @@
+/* ══════════════════════════════════════════════════════
+   MOBILE CONSULTATION FAB
+   Compact floating button — only visible on screens ≤ 768px
+   Mirrors BackToTop style — sits bottom-left
+   ══════════════════════════════════════════════════════ */
+
+/* Hidden on desktop */
+.mob-consult-fab {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mob-consult-fab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    z-index: 999;
+
+    /* Same pill style as BackToTop's container */
+    background: rgba(14, 16, 22, 0.88);
+    border: 1px solid rgba(212, 160, 74, 0.32);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 50px;
+
+    /* Compact pill sizing */
+    padding: 0 14px 0 10px;
+    height: 44px;
+
+    cursor: pointer;
+    outline: none;
+
+    font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #d4a04a;
+    white-space: nowrap;
+
+    box-shadow:
+      0 8px 24px -4px rgba(0, 0, 0, 0.6),
+      0 0 15px rgba(212, 160, 74, 0.12);
+
+    transition:
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .mob-consult-fab:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 12px rgba(212, 160, 74, 0.25);
+  }
+
+  /* ── Calendar icon circle (mirrors the BTT icon area) ── */
+  .mob-consult-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(212, 160, 74, 0.12);
+    flex-shrink: 0;
+    color: #d4a04a;
+  }
+
+  .mob-consult-label {
+    color: #d4a04a;
+    line-height: 1;
+  }
+}
