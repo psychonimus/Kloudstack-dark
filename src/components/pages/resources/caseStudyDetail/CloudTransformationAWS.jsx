@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -93,6 +94,19 @@ const CloudTransformationAWS = () => {
 
   return (
     <div className="cs-detail-wrapper">
+      <Helmet>
+        <title>Cloud Transformation & AWS Migration Case Study | KloudStack</title>
+        <meta name="description" content="How KloudStack engineered a full-scale cloud transformation and AWS migration for an enterprise — modernising legacy infrastructure, achieving 99.9% uptime SLA, and reducing operational costs through cloud-native architecture." />
+        <meta name="keywords" content="cloud transformation, AWS migration, cloud modernisation, enterprise cloud, AWS case study, legacy modernisation, cloud-native, KloudStack" />
+        <meta property="og:title" content="Cloud Transformation & AWS Migration Case Study | KloudStack" />
+        <meta property="og:description" content="Full-scale cloud transformation and AWS migration achieving 99.9% uptime and significant cost reduction." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/cloud-transformation-aws-migration" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cloud Transformation & AWS Migration | KloudStack" />
+        <meta name="twitter:description" content="Full-scale cloud transformation and AWS migration with 99.9% uptime and cost reduction." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/cloud-transformation-aws-migration" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="cs-reading-progress" style={{ scaleX }} />
 

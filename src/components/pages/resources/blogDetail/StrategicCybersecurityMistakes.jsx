@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -90,6 +91,19 @@ const StrategicCybersecurityMistakes = () => {
 
   return (
     <div className="blog-detail-wrapper">
+      <Helmet>
+        <title>7 Strategic Cybersecurity Mistakes Enterprises Make | KloudStack Blog</title>
+        <meta name="description" content="Discover the most critical strategic cybersecurity mistakes enterprise leaders make — from underestimating insider threats and misconfiguring cloud access to neglecting patch hygiene and skipping tabletop exercises." />
+        <meta name="keywords" content="cybersecurity mistakes, enterprise security errors, security strategy, insider threats, cloud misconfiguration, patch management, KloudStack blog" />
+        <meta property="og:title" content="7 Strategic Cybersecurity Mistakes Enterprises Make | KloudStack Blog" />
+        <meta property="og:description" content="The most critical strategic cybersecurity mistakes enterprise leaders make and how to avoid them." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/strategic-cybersecurity-mistakes" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Strategic Cybersecurity Mistakes | KloudStack" />
+        <meta name="twitter:description" content="The most critical cybersecurity mistakes enterprise leaders make and how to avoid them." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/strategic-cybersecurity-mistakes" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="blog-reading-progress" style={{ scaleX }} />
 

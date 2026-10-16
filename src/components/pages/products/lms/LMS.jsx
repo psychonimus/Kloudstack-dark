@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaDotCircle, FaPlay, FaCheck, FaTimes, FaCheckCircle } from 'react-icons/fa';
@@ -187,6 +188,19 @@ const LMS = () => {
 
   return (
     <div className="lms-page-wrapper">
+      <Helmet>
+        <title>Enterprise LMS | KloudStack Learning Management System</title>
+        <meta name="description" content="KloudStack's enterprise-grade Learning Management System (LMS) delivers AI-powered learning paths, RBAC security, automated assessments, and cloud-native scalability — AWS Qualified with 99.9% uptime SLA." />
+        <meta name="keywords" content="LMS, learning management system, enterprise LMS, AI learning, e-learning platform, corporate training, RBAC, AWS LMS, KloudStack" />
+        <meta property="og:title" content="Enterprise LMS | KloudStack Learning Management System" />
+        <meta property="og:description" content="AI-powered enterprise LMS with 99.9% uptime, RBAC security, and automated assessments. AWS Qualified." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/products/lms" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Enterprise LMS | KloudStack" />
+        <meta name="twitter:description" content="AI-powered enterprise LMS with 99.9% uptime SLA, RBAC security, and automated assessments." />
+        <link rel="canonical" href="https://www.kloudstack.com/products/lms" />
+      </Helmet>
       {/* ══════════════════════════════════════════
           1. HERO SECTION
           ══════════════════════════════════════════ */}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -89,6 +90,19 @@ const CybersecurityDashboardMetrics = () => {
 
   return (
     <div className="blog-detail-wrapper">
+      <Helmet>
+        <title>Cybersecurity Dashboard Metrics That Matter | KloudStack Blog</title>
+        <meta name="description" content="Learn which cybersecurity metrics and KPIs your security dashboard should track — from MTTD and MTTR to vulnerability density, threat coverage, and compliance adherence rates for executive reporting." />
+        <meta name="keywords" content="cybersecurity metrics, security dashboard, KPIs, MTTD, MTTR, threat coverage, vulnerability metrics, security reporting, KloudStack blog" />
+        <meta property="og:title" content="Cybersecurity Dashboard Metrics That Matter | KloudStack Blog" />
+        <meta property="og:description" content="Which cybersecurity metrics and KPIs should your security dashboard track for executive reporting?" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/cybersecurity-dashboard-metrics" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cybersecurity Dashboard Metrics | KloudStack" />
+        <meta name="twitter:description" content="Which cybersecurity KPIs should your security dashboard track for executive reporting?" />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/cybersecurity-dashboard-metrics" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="blog-reading-progress" style={{ scaleX }} />
 

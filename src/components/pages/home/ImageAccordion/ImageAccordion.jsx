@@ -7,6 +7,7 @@ import img2 from '/images/cloud-2.png'
 import img3 from '/images/modular.png'
 import img4 from '/images/operational_continuity-2.png'
 import img5 from '/images/ai-and-security.png'
+import img6 from '/images/custom-software-development.png'
 import { Link } from 'react-router-dom'
 
 const items = [
@@ -17,13 +18,13 @@ const items = [
     subtitle: 'Pervasive End-to-End Security, Zero Trust Network Access, WAAP, Extended Detection & Response (XDR), and global compliance frameworks.',
     url: '/services/cyber-security',
   },
-  {
-    id: 2,
-    img: img5,
-    title: 'AI & Security Intelligence',
-    subtitle: 'End-to-end artificial intelligence strategies, predictive threat intelligence, automated compliance, and intelligent SOC augmentation.',
-    url: '/services/ai-intelligence',
-  },
+  // {
+  //   id: 2,
+  //   img: img5,
+  //   title: 'AI & Security Intelligence',
+  //   subtitle: 'End-to-end artificial intelligence strategies, predictive threat intelligence, automated compliance, and intelligent SOC augmentation.',
+  //   url: '/services/ai-intelligence',
+  // },
   {
     id: 3,
     img: img2,
@@ -45,6 +46,13 @@ const items = [
     title: 'Modular Open-Source Stack',
     subtitle: 'Accelerating modern app engineering via scalable microservices frameworks, IaC automated testing, and containerized deployment.',
     url: '/services/modular-open-source-stack',
+  },
+  {
+    id: 6,
+    img: img6,
+    title: 'Custom Software Development',
+    subtitle: 'Tailored software solutions across web, mobile, and enterprise platforms, with a strong focus on security, scalability, and seamless integration.',
+    url: '/services/custom-software-development',
   },
   
 

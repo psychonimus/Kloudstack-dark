@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -86,6 +87,19 @@ const CybersecurityGrowthStrategy = () => {
 
   return (
     <div className="blog-detail-wrapper">
+      <Helmet>
+        <title>Cybersecurity as a Growth Strategy | KloudStack Blog</title>
+        <meta name="description" content="Discover how forward-thinking enterprises are repositioning cybersecurity from a cost centre to a strategic growth driver — building board-level trust, accelerating partner adoption, and unlocking new revenue." />
+        <meta name="keywords" content="cybersecurity growth strategy, enterprise cybersecurity, boardroom security, cyber trust, security ROI, KloudStack blog" />
+        <meta property="og:title" content="Cybersecurity as a Growth Strategy | KloudStack Blog" />
+        <meta property="og:description" content="How enterprises are repositioning cybersecurity as a strategic growth driver — building trust and accelerating revenue." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/cybersecurity-growth-strategy" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cybersecurity as a Growth Strategy | KloudStack" />
+        <meta name="twitter:description" content="How enterprises are repositioning cybersecurity as a strategic growth driver." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/cybersecurity-growth-strategy" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="blog-reading-progress" style={{ scaleX }} />
 

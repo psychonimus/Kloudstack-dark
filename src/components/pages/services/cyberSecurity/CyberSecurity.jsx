@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaDotCircle, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
@@ -48,6 +49,19 @@ const CyberSecurity = () => {
 
     return (
         <>
+            <Helmet>
+              <title>Enterprise Cybersecurity Services | KloudStack</title>
+              <meta name="description" content="KloudStack's enterprise cybersecurity practice delivers zero-trust architectures, DPDPA compliance, application perimeter defense, and AI-driven threat intelligence to protect your critical assets." />
+              <meta name="keywords" content="enterprise cybersecurity, zero trust security, DPDPA compliance, threat intelligence, cyber defense, data governance, Indusface, Microsoft security, KloudStack" />
+              <meta property="og:title" content="Enterprise Cybersecurity Services | KloudStack" />
+              <meta property="og:description" content="KloudStack engineers proactive cyber defense postures with zero-trust architectures, advanced compliance frameworks, and cutting-edge threat intelligence." />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://www.kloudstack.com/services/cyber-security" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="Enterprise Cybersecurity Services | KloudStack" />
+              <meta name="twitter:description" content="KloudStack engineers proactive cyber defense postures with zero-trust architectures, DPDPA compliance, and threat intelligence." />
+              <link rel="canonical" href="https://www.kloudstack.com/services/cyber-security" />
+            </Helmet>
             <section className="hero-section d-flex flex-column justify-content-center">
                 <video
                     className="hero-section-video-bg"

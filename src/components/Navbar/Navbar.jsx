@@ -56,13 +56,13 @@ const SERVICES = [
     subtitle: 'Zero-trust architecture, WAAP, XDR, and end-to-end compliance frameworks.',
     url: '/services/cyber-security',
   },
-  {
-    id: 2,
-    icon: <LuBrainCircuit size={22} />,
-    title: 'AI & Business Intelligence',
-    subtitle: 'Agentic AI integration, predictive analytics, and intelligent process automation.',
-    url: '/services/ai-intelligence',
-  },
+  // {
+  //   id: 2,
+  //   icon: <LuBrainCircuit size={22} />,
+  //   title: 'AI & Business Intelligence',
+  //   subtitle: 'Agentic AI integration, predictive analytics, and intelligent process automation.',
+  //   url: '/services/ai-intelligence',
+  // },
   {
     id: 3,
     icon: <BsCloudFog2 size={22} />,

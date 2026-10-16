@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
 import './EnquiryModal.css';
+import { contactForm } from '../../services/contactForm/Contact';
 
 const SERVICES_OPTIONS = [
   'Cybersecurity & ZTNA',
@@ -58,6 +59,20 @@ const EnquiryModal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+
+    const dataObj = {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          workEmail: form.email,
+          phoneNumber: form.phone,
+          companyName: form.company,
+          serviceInterest: form.service,
+          message: form.message
+        }
+    
+        console.log("this is the form Data", dataObj)
+    
+        // contactForm(dataObj);
 
     // Simulate enquiry submission
     setTimeout(() => {

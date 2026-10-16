@@ -5,7 +5,7 @@
 .cyber-assessment-floating-wrap {
   position: fixed;
   bottom: 32px;
-  left: 50%;
+  left: 38%;
   transform: translateX(-50%);
   z-index: 998;
   display: flex;
@@ -166,7 +166,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .cyber-assessment-floating-wrap {
-    bottom: 24px;
+    bottom: 75px;
     left: 16px;
     transform: none;
   }
@@ -193,7 +193,7 @@
 
 @media (max-width: 480px) {
   .cyber-assessment-floating-wrap {
-    bottom: 20px;
+    bottom: 72px;
     left: 12px;
     max-width: calc(100vw - 84px); /* ensure it doesn't overlap BackToTop on small screens */
   }

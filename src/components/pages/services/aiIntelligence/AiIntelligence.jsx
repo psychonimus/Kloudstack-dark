@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet'
 import { FaDotCircle } from 'react-icons/fa'
 import AiPhilosophy from './AiPhilosophy/AiPhilosophy'
 import AiCapabilities from './AiCapabilities/AiCapabilities'
@@ -35,6 +36,19 @@ const AiIntelligence = () => {
 
     return (
         <>
+            <Helmet>
+              <title>Enterprise AI & Intelligent Automation Services | KloudStack</title>
+              <meta name="description" content="KloudStack's AI & Analytics practice embeds advanced artificial intelligence, intelligent automation, and AI-ready infrastructure into the core of your enterprise — turning data into a proactive engine for growth." />
+              <meta name="keywords" content="enterprise AI, intelligent automation, AI analytics, machine learning, AI infrastructure, cognitive business, data intelligence, KloudStack" />
+              <meta property="og:title" content="Enterprise AI & Intelligent Automation Services | KloudStack" />
+              <meta property="og:description" content="KloudStack embeds advanced AI and automation directly into your enterprise to engineer intelligent, data-driven growth." />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://www.kloudstack.com/services/ai-intelligence" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="Enterprise AI & Intelligent Automation | KloudStack" />
+              <meta name="twitter:description" content="KloudStack embeds advanced AI and automation into the enterprise to create intelligent, data-driven operations." />
+              <link rel="canonical" href="https://www.kloudstack.com/services/ai-intelligence" />
+            </Helmet>
             <section className="hero-section d-flex flex-column justify-content-center">
                 <video
                     className="hero-section-video-bg"

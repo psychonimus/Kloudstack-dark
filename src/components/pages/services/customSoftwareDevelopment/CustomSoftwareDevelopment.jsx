@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -613,6 +614,19 @@ const CustomSoftwareDevelopment = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Custom Software Development Services | KloudStack</title>
+        <meta name="description" content="KloudStack engineers bespoke, secure, and scalable custom software — modernising legacy systems, building API-driven microservices, and delivering full-stack digital solutions with 100% IP ownership and zero vendor lock-in." />
+        <meta name="keywords" content="custom software development, bespoke software, microservices, API development, full stack engineering, legacy modernisation, React.js, Flutter, zero trust security, KloudStack" />
+        <meta property="og:title" content="Custom Software Development Services | KloudStack" />
+        <meta property="og:description" content="KloudStack builds bespoke, secure digital solutions modernising legacy systems and delivering full-stack architectures with 100% IP ownership." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/services/custom-software-development" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Custom Software Development | KloudStack" />
+        <meta name="twitter:description" content="Bespoke, secure custom software engineering with 100% IP ownership — microservices, APIs, and full-stack solutions." />
+        <link rel="canonical" href="https://www.kloudstack.com/services/custom-software-development" />
+      </Helmet>
       <section
         ref={heroSectionRef}
         className="hero-section csd-hero-section d-flex flex-column justify-content-center"

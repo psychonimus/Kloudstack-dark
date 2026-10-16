@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -98,6 +99,19 @@ const AIBankingSecurity = () => {
 
   return (
     <div className="blog-detail-wrapper">
+      <Helmet>
+        <title>How AI is Transforming Banking Cybersecurity | KloudStack Blog</title>
+        <meta name="description" content="Explore how artificial intelligence is revolutionizing cybersecurity in the banking and financial sector — from AI-driven fraud detection to adaptive threat response, anomaly detection, and regulatory compliance automation." />
+        <meta name="keywords" content="AI banking security, financial cybersecurity, AI fraud detection, fintech security, banking threat detection, BFSI cybersecurity, KloudStack blog" />
+        <meta property="og:title" content="How AI is Transforming Banking Cybersecurity | KloudStack Blog" />
+        <meta property="og:description" content="How AI is revolutionizing banking cybersecurity — fraud detection, adaptive threat response, and compliance automation." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/ai-transforming-banking-security" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AI Transforming Banking Cybersecurity | KloudStack" />
+        <meta name="twitter:description" content="How AI is revolutionizing banking cybersecurity with fraud detection and adaptive threat response." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/ai-transforming-banking-security" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="blog-reading-progress" style={{ scaleX }} />
 

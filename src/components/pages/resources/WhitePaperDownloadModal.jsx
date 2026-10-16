@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoClose } from 'react-icons/io5'
 import './WhitePaperDownloadModal.css'
+import {contactForm} from '../../../services/contactForm/Contact';
 
 /* ─── Service options (mirror EnquiryModal) ─── */
 const SERVICES_OPTIONS = [
@@ -21,7 +22,7 @@ const EMPTY_FORM = {
   email: '',
   phone: '',
   company: '',
-  service: '',
+  service: 'White Paper Download',
   message: '',
 }
 
@@ -69,6 +70,20 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
   const handleSubmit = (e) => {
     e.preventDefault()
     setLoading(true)
+
+    const dataObj = {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          workEmail: form.email,
+          phoneNumber: form.phone,
+          companyName: form.company,
+          serviceInterest: form.service,
+          message: form.message
+        }
+    
+        console.log("this is the form Data", dataObj)
+    
+        // contactForm(dataObj);
 
     /* Simulate API call, then trigger the download */
     setTimeout(() => {
@@ -214,24 +229,7 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
                       />
                     </div>
 
-                    {/* Service Interest */}
-                    <div className="wpdl-field">
-                      <label className="wpdl-label" htmlFor="wpdl-service">
-                        SERVICE INTEREST
-                      </label>
-                      <select
-                        id="wpdl-service"
-                        name="service"
-                        className="wpdl-select"
-                        value={form.service}
-                        onChange={handleChange}
-                      >
-                        <option value="">Select a service...</option>
-                        {SERVICES_OPTIONS.map((svc) => (
-                          <option key={svc} value={svc}>{svc}</option>
-                        ))}
-                      </select>
-                    </div>
+                    
 
                     {/* Message */}
                     <div className="wpdl-field wpdl-field-full">

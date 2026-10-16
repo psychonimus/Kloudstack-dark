@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import { FaDotCircle } from 'react-icons/fa';
 import LifecycleFramework from './LifecycleFramework/LifecycleFramework';
 import OpenSourceEcosystem from './OpenSourceEcosystem/OpenSourceEcosystem';
@@ -31,6 +32,19 @@ const ModularOpenStack = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Modular Open-Source Stack Services | KloudStack</title>
+        <meta name="description" content="KloudStack's Modular Open-Source Stack practice accelerates software delivery through enterprise-grade Build, Test, and Deploy frameworks using IaC, declarative CI/CD pipelines, and open-source orchestration." />
+        <meta name="keywords" content="modular open source, DevOps, IaC, CI/CD pipelines, infrastructure as code, open source stack, software delivery, engineering velocity, KloudStack" />
+        <meta property="og:title" content="Modular Open-Source Stack Services | KloudStack" />
+        <meta property="og:description" content="Accelerate software delivery with KloudStack's enterprise open-source orchestration — IaC, CI/CD, and cloud-scale engineering." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/services/modular-open-source-stack" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Modular Open-Source Stack | KloudStack" />
+        <meta name="twitter:description" content="Accelerate software delivery with enterprise open-source orchestration, IaC, and CI/CD pipelines." />
+        <link rel="canonical" href="https://www.kloudstack.com/services/modular-open-source-stack" />
+      </Helmet>
       {/* 1. Executive Summary & Market Imperative (Hero Section) */}
       <section className="hero-section d-flex flex-column justify-content-center">
         <video

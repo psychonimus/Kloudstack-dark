@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -95,6 +96,19 @@ const CyberattackFirst24Hours = () => {
 
   return (
     <div className="blog-detail-wrapper">
+      <Helmet>
+        <title>The First 24 Hours After a Cyberattack | KloudStack Blog</title>
+        <meta name="description" content="A critical incident response guide for enterprise security teams — covering the exact actions to take in the first 24 hours of a cyberattack, from initial detection and containment to stakeholder communication and forensic evidence preservation." />
+        <meta name="keywords" content="cyberattack response, incident response, first 24 hours cyberattack, breach containment, security incident, ransomware response, KloudStack blog" />
+        <meta property="og:title" content="The First 24 Hours After a Cyberattack | KloudStack Blog" />
+        <meta property="og:description" content="Critical actions for enterprise security teams in the first 24 hours of a cyberattack — from detection to containment." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/cyberattack-first-24-hours" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="First 24 Hours After a Cyberattack | KloudStack" />
+        <meta name="twitter:description" content="Critical actions in the first 24 hours of a cyberattack — from initial detection to containment." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/cyberattack-first-24-hours" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="blog-reading-progress" style={{ scaleX }} />
 

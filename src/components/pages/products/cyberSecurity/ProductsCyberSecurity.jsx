@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaDotCircle } from 'react-icons/fa';
 import FeatureTabs from '../../home/FeatureTabs/FeatureTabs';
@@ -204,6 +205,19 @@ const ProductsCyberSecurity = () => {
 
   return (
     <>
+      <Helmet>
+        <title>AI-Powered Cyber Risk Platform | KloudStack Products</title>
+        <meta name="description" content="KloudStack's cybersecurity product suite delivers AI-powered cyber risk quantification, continuous threat monitoring, and security posture management for enterprises, cyber insurers, and AI-driven businesses." />
+        <meta name="keywords" content="cyber risk platform, AI cybersecurity, cyber risk quantification, threat monitoring, security posture management, cyber insurance, KloudStack" />
+        <meta property="og:title" content="AI-Powered Cyber Risk Platform | KloudStack Products" />
+        <meta property="og:description" content="AI-powered cyber risk quantification and continuous threat monitoring for enterprises and cyber insurance carriers." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/products/cyber-security" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AI-Powered Cyber Risk Platform | KloudStack" />
+        <meta name="twitter:description" content="AI-powered cyber risk quantification and continuous threat monitoring for enterprises and cyber insurers." />
+        <link rel="canonical" href="https://www.kloudstack.com/products/cyber-security" />
+      </Helmet>
       {/* ══════ HERO SECTION ══════ */}
       <section className="pcs-hero d-flex flex-column justify-content-center">
         <div className="pcs-hero-glow" />

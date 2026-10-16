@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { FaDotCircle } from 'react-icons/fa'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
@@ -524,6 +525,19 @@ const Resources = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Resources | Cybersecurity Insights, Blogs & Case Studies | KloudStack</title>
+        <meta name="description" content="Explore KloudStack's knowledge hub — in-depth cybersecurity blogs, enterprise case studies, and white papers covering cloud security, AI, disaster recovery, and digital transformation." />
+        <meta name="keywords" content="cybersecurity blog, enterprise case studies, cloud security insights, AI security, white papers, KloudStack resources, digital transformation" />
+        <meta property="og:title" content="Resources | Cybersecurity Insights, Blogs & Case Studies | KloudStack" />
+        <meta property="og:description" content="In-depth cybersecurity blogs, enterprise case studies, and white papers from KloudStack's knowledge hub." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Resources | KloudStack Knowledge Hub" />
+        <meta name="twitter:description" content="In-depth cybersecurity blogs, enterprise case studies, and white papers." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources" />
+      </Helmet>
       {/* ── Hero ─────────────────────────────────── */}
       <section className="hero-section res-hero d-flex flex-column justify-content-center">
         <video

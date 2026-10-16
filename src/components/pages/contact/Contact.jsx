@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import './Contact.css';
+import { contactForm } from '../../../services/contactForm/Contact';
 
 /* ── Animation helpers ────────────────────────────────────── */
 const fadeUp = {
@@ -111,6 +113,39 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    
+    const dataObj = {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      workEmail: form.email,
+      phoneNumber: form.phone,
+      companyName: form.company,
+      serviceInterest: form.service,
+      message: form.message
+    }
+
+    // console.log("this is the form Data", dataObj)
+
+    contactForm(dataObj);
+
+    // const data = fetch("https://kompasshr.com/Master_EMail_API/api/KloudStack/sendEmail",{
+    //   method:"POST",
+    //   headers:{
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //       firstName: form.firstName,
+    //       lastName: form.lastName,
+    //       workEmail: form.email,
+    //       phoneNumber: form.phone,
+    //       companyName: form.company,
+    //       serviceInterest: form.service,
+    //       message: form.message
+    //     })
+    // }).then((response) => response.json())
+    // .then((data) => console.log(data))
+    // .catch((error) => console.error(error));
+    
     // Simulate API call
     setTimeout(() => {
       setLoading(false);
@@ -120,6 +155,19 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact KloudStack | Book a Consultation</title>
+        <meta name="description" content="Get in touch with KloudStack — book a free consultation for cloud infrastructure, cybersecurity, AI solutions, or custom software development. Our experts are ready to help you transform your enterprise." />
+        <meta name="keywords" content="contact KloudStack, book consultation, enterprise IT consultation, cloud services contact, cybersecurity consultation, Navi Mumbai" />
+        <meta property="og:title" content="Contact KloudStack | Book a Consultation" />
+        <meta property="og:description" content="Book a free consultation with KloudStack experts for cloud, cybersecurity, AI, and custom software solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/contact" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact KloudStack | Book a Consultation" />
+        <meta name="twitter:description" content="Book a free consultation with KloudStack experts for cloud, cybersecurity, AI solutions." />
+        <link rel="canonical" href="https://www.kloudstack.com/contact" />
+      </Helmet>
       {/* ════════════ HERO ════════════ */}
       <section className="ct-hero">
         <div className="ct-hero-bg" />

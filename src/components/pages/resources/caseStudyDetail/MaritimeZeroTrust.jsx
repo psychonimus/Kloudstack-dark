@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -92,6 +93,19 @@ const MaritimeZeroTrust = () => {
 
   return (
     <div className="cs-detail-wrapper">
+      <Helmet>
+        <title>Maritime Zero Trust Architecture Case Study | KloudStack</title>
+        <meta name="description" content="How KloudStack implemented a Zero Trust Architecture for a maritime enterprise — securing OT/IT converged networks, shipboard communications, and port infrastructure against advanced persistent threats." />
+        <meta name="keywords" content="maritime cybersecurity, zero trust architecture, OT security, maritime IT, ship network security, port security, KloudStack case study" />
+        <meta property="og:title" content="Maritime Zero Trust Architecture Case Study | KloudStack" />
+        <meta property="og:description" content="Zero Trust Architecture implementation securing OT/IT converged networks and shipboard communications for a maritime enterprise." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/maritime-zero-trust-architecture" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Maritime Zero Trust Architecture | KloudStack" />
+        <meta name="twitter:description" content="Zero Trust implementation securing OT/IT networks and shipboard communications for a maritime enterprise." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/maritime-zero-trust-architecture" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="cs-reading-progress" style={{ scaleX }} />
 

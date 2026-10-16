@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet'
 import { FaDotCircle } from 'react-icons/fa'
 import BcpPillars from './BcpPillars/BcpPillars'
 import BcpTechMatrix from './BcpTechMatrix/BcpTechMatrix'
@@ -32,6 +33,19 @@ const OperationalContinuity = () => {
 
     return (
         <>
+            <Helmet>
+              <title>Disaster Recovery & Business Continuity Planning | KloudStack</title>
+              <meta name="description" content="KloudStack's Disaster Recovery & BCP practice delivers next-generation operational resilience with near-zero data loss, rapid service restoration, and compliance-ready frameworks across hybrid and multi-cloud environments." />
+              <meta name="keywords" content="disaster recovery, business continuity, BCP, operational resilience, ransomware protection, Commvault, Perpetuuiti, hybrid cloud recovery, KloudStack" />
+              <meta property="og:title" content="Disaster Recovery & Business Continuity Planning | KloudStack" />
+              <meta property="og:description" content="KloudStack delivers next-generation operational resilience with near-zero data loss and rapid service restoration." />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://www.kloudstack.com/services/operational-continuity" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="Disaster Recovery & Business Continuity | KloudStack" />
+              <meta name="twitter:description" content="KloudStack delivers next-generation operational resilience with near-zero data loss and rapid service restoration." />
+              <link rel="canonical" href="https://www.kloudstack.com/services/operational-continuity" />
+            </Helmet>
             <section className="hero-section d-flex flex-column justify-content-center">
                 <video
                     className="hero-section-video-bg"

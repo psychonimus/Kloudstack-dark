@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -92,6 +93,19 @@ const ManufacturingNetworkSecurity = () => {
 
   return (
     <div className="cs-detail-wrapper">
+      <Helmet>
+        <title>Manufacturing Network Threat Fortification Case Study | KloudStack</title>
+        <meta name="description" content="How KloudStack fortified the OT/IT network security of a manufacturing enterprise against advanced threats — implementing network segmentation, intrusion detection, and real-time threat monitoring across production environments." />
+        <meta name="keywords" content="manufacturing network security, OT security, network threat detection, IDS, network segmentation, industrial cybersecurity, KloudStack case study" />
+        <meta property="og:title" content="Manufacturing Network Threat Fortification | KloudStack" />
+        <meta property="og:description" content="OT/IT network security fortification with network segmentation and real-time threat monitoring for a manufacturing enterprise." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/manufacturing-network-threat-fortification" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Manufacturing Network Security | KloudStack" />
+        <meta name="twitter:description" content="OT/IT network security fortification with segmentation and real-time threat monitoring." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/manufacturing-network-threat-fortification" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="cs-reading-progress" style={{ scaleX }} />
 

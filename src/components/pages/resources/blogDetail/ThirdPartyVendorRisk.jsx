@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -91,6 +92,19 @@ const ThirdPartyVendorRisk = () => {
 
   return (
     <div className="blog-detail-wrapper">
+      <Helmet>
+        <title>Managing Third-Party Vendor Risk | KloudStack Blog</title>
+        <meta name="description" content="A comprehensive guide to building a robust third-party vendor risk management framework — covering due diligence, contract controls, continuous monitoring, and incident response for enterprise supply chains." />
+        <meta name="keywords" content="third party vendor risk, supply chain security, vendor risk management, TPRM, enterprise risk, vendor due diligence, KloudStack blog" />
+        <meta property="og:title" content="Managing Third-Party Vendor Risk | KloudStack Blog" />
+        <meta property="og:description" content="How to build a robust vendor risk management framework — due diligence, contract controls, and continuous monitoring." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/third-party-vendor-risk" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Managing Third-Party Vendor Risk | KloudStack" />
+        <meta name="twitter:description" content="Building a robust vendor risk management framework for enterprise supply chains." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/third-party-vendor-risk" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="blog-reading-progress" style={{ scaleX }} />
 

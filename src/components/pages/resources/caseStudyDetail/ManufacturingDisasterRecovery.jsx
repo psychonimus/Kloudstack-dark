@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { 
@@ -91,6 +92,19 @@ const ManufacturingDisasterRecovery = () => {
 
   return (
     <div className="cs-detail-wrapper">
+      <Helmet>
+        <title>Manufacturing Cloud Disaster Recovery Case Study | KloudStack</title>
+        <meta name="description" content="How KloudStack engineered a cloud-native AWS disaster recovery and SAP HANA replication architecture for a manufacturing enterprise — achieving sub-hour RTO and 40–60% TCO reduction." />
+        <meta name="keywords" content="manufacturing disaster recovery, cloud disaster recovery, AWS DR, SAP HANA replication, RTO, TCO, enterprise resilience, KloudStack case study" />
+        <meta property="og:title" content="Manufacturing Cloud Disaster Recovery Case Study | KloudStack" />
+        <meta property="og:description" content="Sub-hour RTO and 40–60% TCO reduction through AWS cloud-native disaster recovery for a manufacturing enterprise." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.kloudstack.com/resources/manufacturing-cloud-disaster-recovery" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Manufacturing Cloud Disaster Recovery | KloudStack" />
+        <meta name="twitter:description" content="Sub-hour RTO and 40–60% TCO reduction through AWS cloud-native disaster recovery." />
+        <link rel="canonical" href="https://www.kloudstack.com/resources/manufacturing-cloud-disaster-recovery" />
+      </Helmet>
       {/* ── Reading Progress Bar ─────────────────────── */}
       <motion.div className="cs-reading-progress" style={{ scaleX }} />
 

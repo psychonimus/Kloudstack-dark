@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -343,6 +344,19 @@ const CyberRiskAssessment = () => {
 
   return (
     <div className="cra-wrapper">
+      <Helmet>
+        <title>Free Cyber Risk Assessment Tool | KloudStack</title>
+        <meta name="description" content="Take KloudStack's interactive Cyber Risk Assessment — answer 10 domain-specific questions to instantly discover your organization's security posture, risk score, and prioritized recommendations." />
+        <meta name="keywords" content="cyber risk assessment, cybersecurity audit, security posture, risk score, free security assessment, DPDPA compliance check, KloudStack" />
+        <meta property="og:title" content="Free Cyber Risk Assessment Tool | KloudStack" />
+        <meta property="og:description" content="Instantly discover your organization's cybersecurity risk score and get prioritized recommendations with KloudStack's free interactive assessment tool." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/cyber-risk-assessment" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Free Cyber Risk Assessment | KloudStack" />
+        <meta name="twitter:description" content="Discover your organization's security posture and risk score with KloudStack's interactive tool." />
+        <link rel="canonical" href="https://www.kloudstack.com/cyber-risk-assessment" />
+      </Helmet>
       <div className="cra-bg-grid" />
       <div className="cra-ambient-orb cra-ambient-orb--top" />
       <div className="cra-ambient-orb cra-ambient-orb--bottom" />
