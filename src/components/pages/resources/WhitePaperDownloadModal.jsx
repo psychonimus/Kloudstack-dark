@@ -1,33 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { IoClose } from 'react-icons/io5'
-import './WhitePaperDownloadModal.css'
-import {contactForm} from '../../../services/contactForm/Contact';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoClose } from "react-icons/io5";
+import ReCAPTCHA from "react-google-recaptcha";
+import "./WhitePaperDownloadModal.css";
+
+const RECAPTCHA_SITE_KEY =
+  import.meta.env.VITE_RECAPTCHA_SITE_KEY ||
+  "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 /* ─── Service options (mirror EnquiryModal) ─── */
 const SERVICES_OPTIONS = [
-  'Cybersecurity & ZTNA',
-  'AI & Business Intelligence',
-  'Cloud & Hybrid Foundations',
-  'Operational Continuity',
-  'Modular Open Stack',
-  'Custom Software Development',
-  'DevOps & Automation',
-  'Other / General Enquiry',
-]
+  "Cybersecurity & ZTNA",
+  "AI & Business Intelligence",
+  "Cloud & Hybrid Foundations",
+  "Operational Continuity",
+  "Modular Open Stack",
+  "Custom Software Development",
+  "DevOps & Automation",
+  "Other / General Enquiry",
+];
 
 const EMPTY_FORM = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  company: '',
-  service: 'White Paper Download',
-  message: '',
-}
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  company: "",
+  service: "White Paper Download",
+  message: "",
+};
 
 /* ─── Tiny inline spinner icon ─── */
-const Spinner = () => <span className="wpdl-spinner" />
+const Spinner = () => <span className="wpdl-spinner" />;
 
 /* ─────────────────────────────────────────────────────────────
    WhitePaperDownloadModal
@@ -37,68 +41,113 @@ const Spinner = () => <span className="wpdl-spinner" />
      paperTitle  – string  (used in heading)
      downloadHref – string (the PDF path to download after submit)
 ───────────────────────────────────────────────────────────── */
-const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) => {
-  const [form, setForm] = useState(EMPTY_FORM)
-  const [loading, setLoading] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+const WhitePaperDownloadModal = ({
+  isOpen,
+  onClose,
+  paperTitle,
+  downloadHref,
+}) => {
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef(null);
 
   /* Close on Escape */
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape' && isOpen) onClose() }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [isOpen, onClose])
+    const onKey = (e) => {
+      if (e.key === "Escape" && isOpen) onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, onClose]);
 
   /* Lock body scroll */
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [isOpen])
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
-  /* Reset state when modal reopens */
+  /* Reset state and captcha when modal reopens */
   useEffect(() => {
     if (isOpen) {
-      setForm(EMPTY_FORM)
-      setSubmitted(false)
-      setLoading(false)
+      setForm(EMPTY_FORM);
+      setSubmitted(false);
+      setLoading(false);
+      setErrorMessage("");
+      setCaptchaToken(null);
+      recaptchaRef.current?.reset();
     }
-  }, [isOpen])
+  }, [isOpen]);
 
-  const handleChange = (e) =>
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (errorMessage) setErrorMessage("");
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setLoading(true)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
 
-    const dataObj = {
-          firstName: form.firstName,
-          lastName: form.lastName,
-          workEmail: form.email,
-          phoneNumber: form.phone,
-          companyName: form.company,
-          serviceInterest: form.service,
-          message: form.message
-        }
-    
-        console.log("this is the form Data", dataObj)
-    
-        // contactForm(dataObj);
+    // Validate Google reCAPTCHA
+    if (!captchaToken) {
+      setErrorMessage("Please check the 'I am not a robot' box before submitting.");
+      setLoading(false);
+      return;
+    }
 
-    /* Simulate API call, then trigger the download */
-    setTimeout(() => {
-      setLoading(false)
-      setSubmitted(true)
+    try {
+      const isLocalhost =
+        typeof window !== "undefined" &&
+        (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+      const apiUrl = isLocalhost ? "/api/enquiry" : (import.meta.env.VITE_API_URL || "/api/enquiry");
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          paperTitle,
+          captchaToken,
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.message || "Failed to process submission. Please try again.",
+        );
+      }
+
+      setSubmitted(true);
 
       /* Programmatically trigger PDF download */
-      const link = document.createElement('a')
-      link.href = downloadHref
-      link.download = downloadHref.split('/').pop() || 'whitepaper.pdf'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    }, 1200)
-  }
+      if (downloadHref) {
+        const link = document.createElement("a");
+        link.href = downloadHref;
+        link.download = downloadHref.split("/").pop() || "whitepaper.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } catch (err) {
+      console.error("White paper submission error:", err);
+      setErrorMessage(
+        err.message ||
+          "Unable to connect to the server. Please check your connection.",
+      );
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -112,6 +161,7 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
         >
           <motion.div
             className="wpdl-container"
+            data-lenis-prevent="true"
             onClick={(e) => e.stopPropagation()}
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -136,15 +186,21 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
                   <h2 className="wpdl-title">Access the White Paper</h2>
                   <p className="wpdl-subtitle">
                     Complete the form below to download&nbsp;
-                    <span className="wpdl-paper-name">{paperTitle}</span>
-                    . Your download will begin immediately after submission.
+                    <span className="wpdl-paper-name">{paperTitle}</span>. Your
+                    download will begin immediately after submission.
                   </p>
                 </div>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="wpdl-form" noValidate>
-                  <div className="wpdl-grid">
+                  {errorMessage && (
+                    <div className="wpdl-error-banner" role="alert">
+                      <span>⚠️</span>
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
 
+                  <div className="wpdl-grid">
                     {/* First Name */}
                     <div className="wpdl-field">
                       <label className="wpdl-label" htmlFor="wpdl-firstName">
@@ -247,12 +303,30 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
                         required
                       />
                     </div>
+
+                    {/* Google reCAPTCHA v2 */}
+                    <div className="wpdl-field wpdl-field-full">
+                      <div className="wpdl-recaptcha-field">
+                        <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={RECAPTCHA_SITE_KEY}
+                          theme="dark"
+                          onChange={(token) => {
+                            setCaptchaToken(token);
+                            if (errorMessage) setErrorMessage("");
+                          }}
+                          onExpired={() => setCaptchaToken(null)}
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Footer */}
                   <div className="wpdl-footer">
                     <div className="wpdl-disclaimer">
-                      <span>By submitting, you agree to our Privacy Policy.</span>
+                      <span>
+                        By submitting, you agree to our Privacy Policy.
+                      </span>
                       <span>We never share your data with third parties.</span>
                     </div>
 
@@ -296,7 +370,13 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
               /* Success state */
               <div className="wpdl-success">
                 <div className="wpdl-success-ring">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <svg
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
                     <path
                       d="M5 13l4 4L19 7"
                       stroke="#d4a04a"
@@ -308,13 +388,9 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
                 </div>
                 <h3 className="wpdl-success-title">Download Started!</h3>
                 <p className="wpdl-success-text">
-                  Thank you! Your white paper download has begun. If it did not start
-                  automatically,&nbsp;
-                  <a
-                    href={downloadHref}
-                    download
-                    className="wpdl-manual-link"
-                  >
+                  Thank you! Your white paper download has begun. If it did not
+                  start automatically,&nbsp;
+                  <a href={downloadHref} download className="wpdl-manual-link">
                     click here to download
                   </a>
                   .
@@ -334,7 +410,7 @@ const WhitePaperDownloadModal = ({ isOpen, onClose, paperTitle, downloadHref }) 
         </div>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default WhitePaperDownloadModal
+export default WhitePaperDownloadModal;

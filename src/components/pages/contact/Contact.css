@@ -377,6 +377,15 @@ a.ct-detail-value:hover {
   grid-column: 1 / -1;
 }
 
+/* Google reCAPTCHA wrapper */
+.ct-recaptcha-wrap {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+
 .ct-submit-note {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.76rem;

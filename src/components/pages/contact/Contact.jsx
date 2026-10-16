@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
-import { contactForm } from '../../../services/contactForm/Contact';
+
+const RECAPTCHA_SITE_KEY =
+  import.meta.env.VITE_RECAPTCHA_SITE_KEY ||
+  '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 
 /* ── Animation helpers ────────────────────────────────────── */
 const fadeUp = {
@@ -105,69 +108,62 @@ const Contact = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (errorMessage) setErrorMessage('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
-    const dataObj = {
-      firstName: form.firstName,
-      lastName: form.lastName,
-      workEmail: form.email,
-      phoneNumber: form.phone,
-      companyName: form.company,
-      serviceInterest: form.service,
-      message: form.message
+    setErrorMessage('');
+
+    // Validate Google reCAPTCHA
+    if (!captchaToken) {
+      setErrorMessage("Please check the 'I am not a robot' box before submitting.");
+      setLoading(false);
+      return;
     }
 
-    // console.log("this is the form Data", dataObj)
+    try {
+      const isLocalhost =
+        typeof window !== 'undefined' &&
+        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      const apiUrl = isLocalhost ? '/api/enquiry' : (import.meta.env.VITE_API_URL || '/api/enquiry');
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          captchaToken,
+        }),
+      });
 
-    contactForm(dataObj);
+      const data = await response.json().catch(() => ({}));
 
-    // const data = fetch("https://kompasshr.com/Master_EMail_API/api/KloudStack/sendEmail",{
-    //   method:"POST",
-    //   headers:{
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //       firstName: form.firstName,
-    //       lastName: form.lastName,
-    //       workEmail: form.email,
-    //       phoneNumber: form.phone,
-    //       companyName: form.company,
-    //       serviceInterest: form.service,
-    //       message: form.message
-    //     })
-    // }).then((response) => response.json())
-    // .then((data) => console.log(data))
-    // .catch((error) => console.error(error));
-    
-    // Simulate API call
-    setTimeout(() => {
-      setLoading(false);
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Failed to submit enquiry. Please try again.');
+      }
+
       setSubmitted(true);
-    }, 1400);
+    } catch (err) {
+      console.error('Contact submission error:', err);
+      setErrorMessage(err.message || 'Unable to connect to the server. Please check your connection.');
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
-      <Helmet>
-        <title>Contact KloudStack | Book a Consultation</title>
-        <meta name="description" content="Get in touch with KloudStack — book a free consultation for cloud infrastructure, cybersecurity, AI solutions, or custom software development. Our experts are ready to help you transform your enterprise." />
-        <meta name="keywords" content="contact KloudStack, book consultation, enterprise IT consultation, cloud services contact, cybersecurity consultation, Navi Mumbai" />
-        <meta property="og:title" content="Contact KloudStack | Book a Consultation" />
-        <meta property="og:description" content="Book a free consultation with KloudStack experts for cloud, cybersecurity, AI, and custom software solutions." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.kloudstack.com/contact" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact KloudStack | Book a Consultation" />
-        <meta name="twitter:description" content="Book a free consultation with KloudStack experts for cloud, cybersecurity, AI solutions." />
-        <link rel="canonical" href="https://www.kloudstack.com/contact" />
-      </Helmet>
       {/* ════════════ HERO ════════════ */}
       <section className="ct-hero">
         <div className="ct-hero-bg" />
@@ -315,6 +311,11 @@ const Contact = () => {
                         </p>
 
                         <form onSubmit={handleSubmit}>
+                          {errorMessage && (
+                            <div className="alert alert-danger py-2 px-3 mb-4 rounded-3" role="alert">
+                              ⚠️ {errorMessage}
+                            </div>
+                          )}
                           <div className="ct-form-grid">
 
                             {/* First name */}
@@ -425,6 +426,20 @@ const Contact = () => {
                               />
                             </motion.div>
 
+                            {/* Google reCAPTCHA v2 */}
+                            <div className="ct-recaptcha-wrap">
+                              <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={RECAPTCHA_SITE_KEY}
+                                theme="dark"
+                                onChange={(token) => {
+                                  setCaptchaToken(token);
+                                  if (errorMessage) setErrorMessage('');
+                                }}
+                                onExpired={() => setCaptchaToken(null)}
+                              />
+                            </div>
+
                             {/* Submit */}
                             <div className="ct-submit-row">
                               <p className="ct-submit-note">
@@ -484,7 +499,12 @@ const Contact = () => {
                           style={{ marginTop: 8 }}
                           whileHover={{ scale: 1.04 }}
                           whileTap={{ scale: 0.97 }}
-                          onClick={() => { setSubmitted(false); setForm({ firstName: '', lastName: '', email: '', phone: '', company: '', service: '', message: '' }); }}
+                          onClick={() => {
+                            setSubmitted(false);
+                            setForm({ firstName: '', lastName: '', email: '', phone: '', company: '', service: '', message: '' });
+                            setCaptchaToken(null);
+                            recaptchaRef.current?.reset();
+                          }}
                         >
                           Send Another Enquiry
                         </motion.button>

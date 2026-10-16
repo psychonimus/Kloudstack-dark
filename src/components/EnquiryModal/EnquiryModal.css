@@ -28,7 +28,7 @@
   border-radius: 20px;
   padding: 38px 42px 34px;
   box-sizing: border-box;
-  box-shadow: 
+  box-shadow:
     0 25px 60px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(212, 160, 74, 0.12) inset;
 }
@@ -82,7 +82,7 @@
 }
 
 .enquiry-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.55rem;
   font-weight: 700;
   color: #ffffff;
@@ -91,7 +91,7 @@
 }
 
 .enquiry-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.5;
@@ -116,7 +116,7 @@
 }
 
 .enquiry-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -129,7 +129,7 @@
 .enquiry-textarea {
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   color: #ffffff;
@@ -138,7 +138,10 @@
   border-radius: 10px;
   padding: 12px 16px;
   outline: none;
-  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .enquiry-input::placeholder,
@@ -189,14 +192,14 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 0.74rem;
   color: rgba(255, 255, 255, 0.32);
   line-height: 1.45;
 }
 
 .enquiry-submit-btn {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -242,7 +245,9 @@
 }
 
 @keyframes enquirySpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Success View */
@@ -269,7 +274,7 @@
 }
 
 .enquiry-success-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
   color: #ffffff;
@@ -277,7 +282,7 @@
 }
 
 .enquiry-success-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.55);
   max-width: 440px;
@@ -293,7 +298,7 @@
 }
 
 .enquiry-reset-btn {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.86rem;
   font-weight: 600;
   padding: 12px 24px;
@@ -308,6 +313,28 @@
 .enquiry-reset-btn:hover {
   border-color: rgba(212, 160, 74, 0.4);
   color: #d4a04a;
+}
+
+/* Error message banner */
+.enquiry-error-banner {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Google reCAPTCHA wrapper */
+.recaptcha-field {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 4px;
 }
 
 /* Responsive */
