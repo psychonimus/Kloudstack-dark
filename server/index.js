@@ -3,6 +3,7 @@ import cors from 'cors';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -13,7 +14,8 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 dotenv.config({ path: path.resolve(__dirname, '../src/.env') });
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = Number(process.env.PORT) || 5001;
+const HOST = process.env.HOST || '0.0.0.0';
 
 // Middleware with full CORS support
 app.use(cors({
@@ -347,7 +349,11 @@ ${message}
   }
 };
 
-// Register endpoints
+// Health check endpoints for PaaS load balancers and uptime monitors
+app.get('/health', (req, res) => res.status(200).send('OK'));
+app.get('/api/health', (req, res) => res.status(200).json({ status: 'ok', uptime: process.uptime() }));
+
+// Register enquiry endpoints
 app.post('/api/enquiry', handleEnquiry);
 app.post('/api/contact', handleEnquiry);
 app.post('/api/whitepaper', handleEnquiry);
@@ -355,14 +361,46 @@ app.post('/api/whitepaper-download', handleEnquiry);
 
 // Serve production frontend assets if dist exists
 const distPath = path.resolve(__dirname, '../dist');
-app.use(express.static(distPath));
+const indexPath = path.join(distPath, 'index.html');
 
-// Fallback to index.html for client-side routing
-app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+}
+
+// Fallback to index.html for client-side routing (Express 5 compatible)
+app.use((req, res) => {
+  if (fs.existsSync(indexPath)) {
+    return res.sendFile(indexPath);
+  }
+  return res.status(200).send(`<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kloudstack</title>
+    <style>
+      body { background: #07090e; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+      .box { text-align: center; max-width: 460px; padding: 2.5rem; background: #0f172a; border-radius: 16px; border: 1px solid #1e293b; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+      h1 { font-size: 1.5rem; color: #38bdf8; margin: 0 0 0.5rem; }
+      p { font-size: 0.95rem; color: #94a3b8; line-height: 1.5; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Kloudstack API Server</h1>
+      <p>Server is running and listening on port ${PORT}. Production bundle is building or available.</p>
+    </div>
+  </body>
+</html>`);
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Kloudstack API server listening on http://localhost:${PORT}`);
+// Global error handler so the server process never crashes
+app.use((err, req, res, next) => {
+  console.error('Unhandled server error:', err);
+  res.status(500).json({ success: false, message: 'Internal Server Error' });
+});
+
+app.listen(PORT, HOST, () => {
+  console.log(`🚀 Kloudstack API server listening on http://${HOST}:${PORT}`);
   console.log(`📧 Configured receiver: ${process.env.RECEIVER_EMAIL || 'prafulshahoffice@gmail.com'}`);
 });
