@@ -27,12 +27,7 @@ const stats = [
         suffix: '',
         label: 'Certified Resources Red Hat,\nAzure, AWS, ITIL, SUSE, Linux',
     },
-    {
-        value: 21,
-        places: [10, 1],
-        suffix: '',
-        label: 'Certified Resources Red Hat,\nAzure, AWS, ITIL, SUSE, Linux',
-    },
+    
     
 ]
 
