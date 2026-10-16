@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
@@ -172,6 +173,20 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact KloudStack | Enterprise Cloud & Security Consultation</title>
+        <meta name="description" content="Get in touch with KloudStack experts for cloud infrastructure, cybersecurity architecture, SOC services, or tailored enterprise IT consultations." />
+        <meta name="keywords" content="contact KloudStack, IT consultation, cloud security advisory, cybersecurity audit contact, enterprise IT support" />
+        <meta property="og:title" content="Contact KloudStack | Enterprise Cloud & Security Consultation" />
+        <meta property="og:description" content="Reach out to KloudStack for high-security cloud infrastructure, enterprise cybersecurity solutions, and technology partnerships." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kloudstack.com/contact" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact KloudStack | Enterprise Cloud & Security Consultation" />
+        <meta name="twitter:description" content="Reach out to KloudStack for high-security cloud infrastructure, enterprise cybersecurity solutions, and technology partnerships." />
+        <link rel="canonical" href="https://www.kloudstack.com/contact" />
+      </Helmet>
+
       {/* ════════════ HERO ════════════ */}
       <section className="ct-hero">
         <div className="ct-hero-bg" />
