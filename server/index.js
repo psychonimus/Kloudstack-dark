@@ -29,8 +29,8 @@ app.use(express.json());
 const createTransporter = () => {
   const host = process.env.SMTP_HOST || 'smtp.office365.com';
   const port = Number(process.env.SMTP_PORT) || 587;
-  const user = process.env.SMTP_USER || process.env.MAIL_USERNAME;
-  const pass = process.env.SMTP_PASS || process.env.MAIL_PASSWORD;
+  const user = process.env.SMTP_USER || process.env.MAIL_USERNAME || 'info@kloudstacks.com';
+  const pass = process.env.SMTP_PASS || process.env.MAIL_PASSWORD || 'S$969175637707om';
 
   return nodemailer.createTransport({
     host,
@@ -42,8 +42,7 @@ const createTransporter = () => {
     },
     tls: {
       minVersion: 'TLSv1.2',
-      ciphers: 'SSLv3',
-      rejectUnauthorized: false, // Prevents certificate verification issues in dev
+      rejectUnauthorized: false,
     },
   });
 };
@@ -298,8 +297,6 @@ const handleEnquiry = async (req, res) => {
     const receiverEmail = process.env.RECEIVER_EMAIL || process.env.MAIL_TO_ADDRESS || 'prafulshahoffice@gmail.com';
     const senderUser = process.env.SMTP_USER || process.env.MAIL_USERNAME || 'info@kloudstacks.com';
 
-    const transporter = createTransporter();
-
     const subjectLine = paperTitle?.trim()
       ? `White Paper Access: ${paperTitle.trim()} [${firstName.trim()} ${lastName.trim()} - ${company.trim()}]`
       : `New Enquiry from ${firstName.trim()} ${lastName.trim()} [${company.trim()}]`;
@@ -331,20 +328,64 @@ ${message}
       }),
     };
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent successfully:', info.messageId);
+    let emailSent = false;
+    let emailResult = null;
+    let lastError = null;
+
+    // 1. Try Direct SMTP (Office 365 / Configured SMTP)
+    try {
+      const transporter = createTransporter();
+      const info = await transporter.sendMail(mailOptions);
+      console.log('✅ Email sent via SMTP successfully:', info.messageId);
+      emailSent = true;
+      emailResult = { messageId: info.messageId, provider: 'smtp' };
+    } catch (smtpErr) {
+      console.warn('⚠️ Direct SMTP failed (' + smtpErr.message + '), trying Master Email API fallback...');
+      lastError = smtpErr;
+    }
+
+    // 2. If SMTP failed (e.g. Microsoft 365 SMTP AUTH disabled), fallback to Master Email API
+    if (!emailSent) {
+      try {
+        const fallbackRes = await fetch('https://kompasshr.com/Master_EMail_API/api/KloudStack/sendEmail', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: firstName.trim(),
+            lastName: lastName.trim(),
+            workEmail: email.trim(),
+            phoneNumber: phone?.trim() || '',
+            companyName: company.trim(),
+            serviceInterest: service?.trim() || (paperTitle ? `White Paper: ${paperTitle.trim()}` : 'General Enquiry'),
+            message: paperTitle ? `[White Paper Download Request: ${paperTitle.trim()}]\n\n${message.trim()}` : message.trim(),
+          }),
+        });
+
+        const fallbackData = await fallbackRes.json().catch(() => ({}));
+        if (fallbackRes.ok && (fallbackData.success || fallbackData.message?.toLowerCase().includes('success'))) {
+          console.log('✅ Email sent via Master Email API fallback successfully:', fallbackData);
+          emailSent = true;
+          emailResult = { message: fallbackData.message || 'Mail Send Successfully', provider: 'master-api' };
+        } else {
+          throw new Error(fallbackData.message || 'Master Email API returned non-success response');
+        }
+      } catch (fallbackErr) {
+        console.error('❌ Master Email API fallback failed:', fallbackErr);
+        throw lastError || fallbackErr;
+      }
+    }
 
     return res.status(200).json({
       success: true,
-      message: 'Submission received successfully! Your download will begin.',
-      messageId: info.messageId,
+      message: 'Enquiry submitted successfully! Our team will reach out within one business day.',
+      ...emailResult,
     });
   } catch (error) {
     console.error('❌ Error sending email:', error);
     return res.status(500).json({
       success: false,
       message: 'Failed to process submission. Please try again later or contact us directly.',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      error: error.message,
     });
   }
 };
