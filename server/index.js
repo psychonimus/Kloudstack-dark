@@ -353,7 +353,9 @@ ${message}
 app.get('/health', (req, res) => res.status(200).send('OK'));
 app.get('/api/health', (req, res) => res.status(200).json({ status: 'ok', uptime: process.uptime() }));
 
-// Register enquiry endpoints
+// Register enquiry endpoints (supports /api/enquiry, /api, /api/contact, /api/whitepaper)
+app.post('/api', handleEnquiry);
+app.post('/api/', handleEnquiry);
 app.post('/api/enquiry', handleEnquiry);
 app.post('/api/contact', handleEnquiry);
 app.post('/api/whitepaper', handleEnquiry);

@@ -133,7 +133,11 @@ const Contact = () => {
       const isLocalhost =
         typeof window !== 'undefined' &&
         (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-      const apiUrl = isLocalhost ? '/api/enquiry' : (import.meta.env.VITE_API_URL || '/api/enquiry');
+      let apiUrl = isLocalhost ? '/api/enquiry' : (import.meta.env.VITE_API_URL || '/api/enquiry').trim();
+      if (apiUrl.endsWith('/api')) apiUrl = `${apiUrl}/enquiry`;
+      if (apiUrl.endsWith('/api/')) apiUrl = `${apiUrl}enquiry`;
+      if (!apiUrl.includes('/api')) apiUrl = `${apiUrl.replace(/\/$/, '')}/api/enquiry`;
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -145,7 +149,11 @@ const Contact = () => {
         }),
       });
 
-      const data = await response.json().catch(() => ({}));
+      const contentType = response.headers.get('content-type') || '';
+      let data = {};
+      if (contentType.includes('application/json')) {
+        data = await response.json().catch(() => ({}));
+      }
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || 'Failed to submit enquiry. Please try again.');
