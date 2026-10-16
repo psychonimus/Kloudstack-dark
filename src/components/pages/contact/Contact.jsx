@@ -495,7 +495,7 @@ const Contact = () => {
                           animate={{ scale: 1 }}
                           transition={{ type: 'spring', damping: 14, stiffness: 220, delay: 0.1 }}
                         >
-                          ✅
+                          <div className="enquiry-success-icon">✓</div>
                         </motion.div>
                         <h3>Message Received!</h3>
                         <p>

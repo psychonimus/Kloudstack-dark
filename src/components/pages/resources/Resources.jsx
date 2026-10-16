@@ -315,7 +315,7 @@ const WhitePaperCard = ({ paper, index }) => {
       </div>
 
       {/* Gated download modal */}
-      <WhitePaperDownloadModal
+      <WhitePaperDownloadModal 
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         paperTitle={paper.title}
