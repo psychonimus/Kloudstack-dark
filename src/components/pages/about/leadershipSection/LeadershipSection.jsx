@@ -63,7 +63,7 @@ const LeadershipSection = () => {
             <section className="leadership-section">
                 <div className="container">
                     <div className="leadership-header text-start">
-                        <h2 className='section-heading text-uppercase'>Executive Leadership</h2>
+                        <h2 className='section-heading text-uppercase'>Executive <span style={{width:"2px",display:"inline-block", marginLeft:"1px"}}></span> Leadership</h2>
                         <p className='cap-description text-start'>
                             KloudStack is led by a team of visionary technologists and strategic advisors. Together, they bring decades of deep engineering expertise and enterprise delivery experience, guiding organizations through complex modernization and digital transformation journeys.
                         </p>
