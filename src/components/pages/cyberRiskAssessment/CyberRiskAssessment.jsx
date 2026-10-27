@@ -21,6 +21,7 @@ import {
   MdOutlineEmail, 
   MdOutlineAssessment 
 } from 'react-icons/md'
+import { contactForm } from '../../../services/contactForm/Contact'
 import './CyberRiskAssessment.css'
 
 /* ─── 12 Comprehensive Risk Questions ─── */
@@ -309,13 +310,58 @@ const CyberRiskAssessment = () => {
     setLeadLoading(true)
 
     const { overall, domains } = calculateScores()
-    const payload = {
-      name: fullName,
-      email: workEmail,
-      company,
-      phone,
-      orgSize,
+    const currentBand = BANDS.find((b) => overall >= b.min) || BANDS[BANDS.length - 1]
+    const weakest = [...domains].sort((a, b) => a.score - b.score).slice(0, 3)
+
+    const nameParts = fullName.trim().split(/\s+/)
+    const firstName = nameParts[0] || ''
+    const lastName = nameParts.slice(1).join(' ') || '-'
+
+    const domainSummary = domains.map((d) => `• ${d.name}: ${d.score}/100`).join('\n')
+    const gapsSummary = weakest
+      .map((d) => `• ${d.name} (${d.score}/100) — ${ADVICE[d.name]?.offer || 'KloudStack Advisory'}`)
+      .join('\n')
+    const qnaSummary = QUESTIONS.map((q, i) => {
+      const chosen = answers[i] !== null ? q.options[answers[i]] : null
+      return `${i + 1}. [${q.domain}] ${q.text}\n   Selected: ${chosen ? chosen.k : 'Unanswered'} (Score: ${chosen ? chosen.s : 0}/100)`
+    }).join('\n\n')
+
+    const messageContent = [
+      `=== KLOUDSTACK CYBER RISK ASSESSMENT REPORT ===`,
+      `Company: ${company.trim()}`,
+      `Contact Name: ${fullName.trim()}`,
+      `Work Email: ${workEmail.trim()}`,
+      `Phone: ${phone.trim() || 'Not provided'}`,
+      `Organization Size: ${orgSize || 'Not specified'}`,
+      `Submission Time: ${new Date().toLocaleString()}`,
+      ``,
+      `=== OVERALL POSTURE EVALUATION ===`,
+      `Overall Score: ${overall}/100 (${currentBand.name})`,
+      `Executive Summary: ${currentBand.text}`,
+      ``,
+      `=== DOMAIN-BY-DOMAIN SCORES ===`,
+      domainSummary,
+      ``,
+      `=== TOP PRIORITY REMEDIATION GAPS ===`,
+      gapsSummary,
+      ``,
+      `=== DETAILED QUESTION RESPONSES ===`,
+      qnaSummary,
+    ].join('\n')
+
+    const dataObj = {
+      firstName,
+      lastName,
+      workEmail: workEmail.trim(),
+      phoneNumber: phone.trim(),
+      companyName: company.trim(),
+      serviceInterest: 'Cyber Risk Assessment',
+      message: messageContent,
+      // Structured assessment metadata
+      fullName: fullName.trim(),
+      orgSize: orgSize || 'Not specified',
       overallScore: overall,
+      postureBand: currentBand.name,
       domainScores: domains,
       answers: QUESTIONS.map((q, i) => ({
         question: q.text,
@@ -323,16 +369,22 @@ const CyberRiskAssessment = () => {
         selectedAnswer: answers[i] !== null ? q.options[answers[i]].k : 'Unanswered',
         score: answers[i] !== null ? q.options[answers[i]].s : 0,
       })),
-      timestamp: new Date().toISOString(),
     }
 
-    // Mock API dispatch or logging
-    console.log('KloudStack Cyber Risk Assessment Payload:', payload)
-
-    setTimeout(() => {
-      setLeadLoading(false)
+    try {
+      const response = await contactForm(dataObj)
+      console.log('KloudStack Cyber Risk Assessment API response:', response?.data)
       setLeadSent(true)
-    }, 800)
+    } catch (err) {
+      console.error('Cyber Risk Assessment submission failed:', err)
+      const errorMsg =
+        err?.response?.data?.message ||
+        err?.message ||
+        'Unable to send assessment report. Please try again or contact us directly.'
+      setFormErr(errorMsg)
+    } finally {
+      setLeadLoading(false)
+    }
   }
 
   const { overall, domains } = calculateScores()
