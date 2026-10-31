@@ -71,8 +71,8 @@ const DETAILS = [
   {
     icon: '✉️',
     label: 'General Enquiries',
-    value: 'info@kloudstack.com',
-    href: 'mailto:info@kloudstack.com',
+    value: 'info@kloudstacks.com',
+    href: 'mailto:info@kloudstacks.com',
   },
   
 ];

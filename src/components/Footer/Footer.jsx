@@ -82,8 +82,8 @@ const Footer = () => {
                         <ul className="ft-contact-list">
                             <li>
                                 <FaPhoneAlt className='me-2' color='#5d5d5dff' />
-                                <a href="mailto:Info@kloudstack.com" className="ft-contact-link" id="ft-email">
-                                    Info@kloudstack.com
+                                <a href="mailto:Info@kloudstacks.com" className="ft-contact-link" id="ft-email">
+                                    Info@kloudstacks.com
                                 </a>
                             </li>
                             <li>
